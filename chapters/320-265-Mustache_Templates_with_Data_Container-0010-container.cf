@@ -1,0 +1,12 @@
+bundle agent main {
+
+  files:
+      "/etc/motd"
+        create => "true",
+        template_method => "mustache",
+        edit_template   => "$(this.promise_dirname)/330-060-0020.mustache",
+        template_data => parsejson('{
+                                        "organization" : "ACME, Inc.",
+                                 "organizational_unit" : "Morale Division",
+                                     }');
+}

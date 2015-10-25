@@ -1,0 +1,15 @@
+bundle agent main {
+
+  files:
+
+      "/etc/pass.*"
+
+        handle => "set_file_perms_on_regex_list_of_files",
+        comment => "Files matching /etc/pass.* need to be owned
+                          by root and mode 644",
+        perms => mo("644","root");
+
+}
+
+
+body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }

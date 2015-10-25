@@ -1,0 +1,70 @@
+digraph backup_process {
+	graph [bb="0,0,714,378",
+		label="CFEngine Policy Flow Diagram",
+		labelloc=t,
+		lheight=0.21,
+		lp="357,366.5",
+		lwidth=2.46,
+		rankdir=LR
+	];
+	node [label="\N"];
+	subgraph cluster_0 {
+		graph [bb="8,260,706,347",
+			color=green,
+			fontcolor=green,
+			label="CFEngine Policy Server",
+			labelloc=t,
+			lheight=0.21,
+			lp="357,335.5",
+			lwidth=1.85,
+			rank=same,
+			rankdir=LR
+		];
+		node [style=filled];
+		policy_masterfiles		 [fillcolor=green,
+			height=0.5,
+			label="/var/cfengine/masterfiles",
+			pos="115,286",
+			style=filled,
+			width=2.7442];
+		policy_inputs		 [fillcolor=lightblue,
+			height=0.5,
+			label="/var/cfengine/inputs",
+			pos="617,288",
+			style=filled,
+			width=2.2567];
+		policy_masterfiles -> policy_inputs		 [label="cf-agent on local machine pulls policies from policy\rserver just as if it were a separate client machine.",
+			lp="375,302",
+			pos="e,535.66,287.68 213.89,286.39 304.27,286.75 437.45,287.29 525.42,287.64"];
+	}
+	client1	 [fillcolor=lightblue,
+		height=0.5,
+		label=client1,
+		pos="617,234",
+		width=0.95686];
+	policy_masterfiles -> client1	 [pos="e,583.15,237.42 201.1,277.15 308.97,265.93 490.77,247.02 573.14,238.46"];
+	client2	 [fillcolor=lightblue,
+		height=0.5,
+		label=client2,
+		pos="617,180",
+		width=0.95686];
+	policy_masterfiles -> client2	 [pos="e,582.91,183.06 154.02,269.34 176.37,260.12 205.37,249.12 232,242 353.41,209.53 501.22,191.51 572.9,184.08"];
+	client3	 [fillcolor=lightblue,
+		height=0.5,
+		label=client3,
+		pos="617,126",
+		width=0.95686];
+	policy_masterfiles -> client3	 [pos="e,582.41,125.35 131.2,267.97 151.61,245.09 190.16,206.29 232,187 346.52,134.2 498.39,125.98 572.11,125.39"];
+	client4	 [fillcolor=lightblue,
+		height=0.5,
+		label=client4,
+		pos="617,72",
+		width=0.95686];
+	policy_masterfiles -> client4	 [pos="e,583.11,68.192 123.11,267.92 137.73,233.41 174.66,158.53 232,124 340.85,58.457 498.1,61.321 573.08,67.33"];
+	client5	 [fillcolor=lightblue,
+		height=0.5,
+		label=client5,
+		pos="617,18",
+		width=0.95686];
+	policy_masterfiles -> client5	 [pos="e,584.25,12.266 119.34,267.89 128.49,223.99 158.35,111.73 232,61 337.27,-11.504 498.56,0.099361 574.16,10.774"];
+}

@@ -1,0 +1,22 @@
+There is a special promise type in CFEngine 3 called "methods" that promises to call another promise bundle.  
+
+```cfengine3
+ methods:
+
+        "any"
+
+           usebundle => bundle_name;
+```
+
+
+The promiser can be any word, right now it does not matter; the promiser is reserved for future development.
+
+Parameters are optional:
+
+```cfengine3
+ methods:
+
+        "any"
+
+           usebundle => bundle_name("arg1", "arg2");
+```

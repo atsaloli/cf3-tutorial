@@ -1,0 +1,26 @@
+# report "Hello world!  I love weekends!" on Saturday or Sunday,
+# report "Hello world!  I love Mondays|Tuesdays|...|Fridays on a weekday
+
+bundle agent main {
+
+  vars:
+      "days"
+        handle => "days",
+        comment => "Build a list of days to report day of the week",
+        slist => { "Monday",
+                   "Tuesday",
+                   "Wednesday",
+                   "Thursday",
+                   "Friday",
+                   "Saturday",
+                   "Sunday",
+        };
+
+
+  reports:
+      "Hello world!  I love $(days)s!"
+        comment => "Report day of the week",
+        ifvarclass => "$(days)";
+
+
+}

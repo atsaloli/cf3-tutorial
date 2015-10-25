@@ -1,0 +1,14 @@
+bundle agent main {
+
+  processes:
+
+      "java.*-D javaagent=/opt/AppDynamics/javaagent.jar"
+
+        process_stop => "/etc/init.d/cups stop";
+
+  processes:
+
+      "java.*-D javaagent=/opt/AppDynamics-3.9/javaagent.jar"
+      ...
+
+}

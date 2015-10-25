@@ -1,0 +1,40 @@
+# The following policy selects files modified over a year ago
+#
+# More elegant version, courtesy of Dan Klein.
+
+
+bundle agent main
+
+{
+  files:
+
+      "/tmp/test_from"
+
+        file_select => modified_over_a_year_ago,
+        transformer => "/bin/echo FOUND: $(this.promiser)",
+        depth_search => recurse("inf");
+
+}
+
+############################################
+
+body file_select modified_over_a_year_ago
+
+{
+        mtime => irange(ago(1,0,0,0,0,0),now);
+      # will select files modified between a year ago
+      # and now
+
+        file_result => "!mtime";
+      # will select files modified over a year ago
+      # (inverts the above selection)
+}
+
+############################################
+
+body depth_search recurse(d)
+
+{
+        depth => "$(d)";
+}
+

@@ -1,0 +1,21 @@
+bundle agent main {
+  vars:
+
+      "sshd[Protocol]"        string => "2";
+      "sshd[X11Forwarding]"   string => "yes";
+      "sshd[UseDNS]"          string => "no";
+
+  methods:
+      "any"    usebundle => edit_sshd("$(this.bundle).sshd");
+}
+
+
+bundle agent edit_sshd(params) {
+
+  vars:
+      "index" slist => getindices("$(params)");
+
+  reports:
+# pretend we're editing sshd.conf to set the above
+      "$(index) :  $($(params)[$(index)])";
+}

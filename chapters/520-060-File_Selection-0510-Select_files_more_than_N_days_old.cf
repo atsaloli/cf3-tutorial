@@ -1,0 +1,40 @@
+# The following policy selects files modified over a year ago
+#
+# It works by selecting files whose mtime is between 1 year old
+# and 100 years old.  Next we will show you a more elegant way
+# to do it.
+
+
+bundle agent main
+
+{
+  files:
+
+      "/tmp/test_from"
+
+        file_select => modified_over_a_year_ago,
+        transformer => "/bin/echo FOUND $(this.promiser)",
+        depth_search => recurse("inf");
+
+}
+
+############################################
+
+body file_select modified_over_a_year_ago
+
+{
+        mtime => irange(ago(100,0,0,0,0,0),ago(1,0,0,0,0,0));
+      # modified between 1-100 years ago
+      # Reminder: ago(Years, Months, Days, Hours, Minutes, Seconds)
+
+        file_result => "mtime";
+}
+
+############################################
+
+body depth_search recurse(d)
+
+{
+        depth => "$(d)";
+}
+

@@ -1,0 +1,11 @@
+bundle agent main
+{
+
+  commands:
+
+      "/bin/echo"
+
+        comment => "Demonstrate a command with arguments",
+        args => "Hello world!";
+
+}

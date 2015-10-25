@@ -1,0 +1,10 @@
+bundle agent main {
+
+  reports:
+    linux::
+      "I love Linux";
+
+  reports:
+    WinXP::
+      "I love Windows";
+}

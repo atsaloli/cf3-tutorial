@@ -1,0 +1,21 @@
+bundle common g {
+      # global settings
+
+  vars:
+      "organization"
+        string => "Acme Inc.";
+
+  classes:
+    "myclass"
+       expression => "linux";
+}
+
+
+bundle agent main {
+
+  files:
+      "/etc/motd"
+        create => "true",
+        template_method => "mustache",
+        edit_template   => "$(this.promise_dirname)/330-070-0015.mustache";
+}

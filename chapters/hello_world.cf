@@ -1,0 +1,11 @@
+bundle agent main
+{
+  reports:
+
+      "Hello world!";
+
+  commands:
+
+      "/bin/echo Hello world!";
+}
+

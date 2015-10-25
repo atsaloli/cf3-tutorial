@@ -1,0 +1,24 @@
+bundle agent main {
+
+  vars:
+
+      "userlist" slist => { "alex", "ben", "charlie", "diana", "rob" };
+
+  methods:
+
+      "Remove Users"
+
+        usebundle => remove_user("$(userlist)");
+
+}
+
+###########################################
+
+bundle agent remove_user(user) {
+
+  commands:
+
+      "/usr/sbin/userdel $(user)";
+      "/bin/rm /var/spool/cron/$(user)";
+      "/bin/rm /var/mail/$(user)";
+}

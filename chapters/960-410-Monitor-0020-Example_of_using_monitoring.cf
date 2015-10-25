@@ -1,0 +1,18 @@
+# report environmental conditions
+
+bundle agent main {
+
+  vars:
+      "threshold" int => "50";
+
+      ##########################################3
+  classes:
+
+      "CPU_load_high"
+        expression => isgreaterthan("$(mon.value_cpu)","$(threshold)");
+
+  reports:
+    CPU_load_high::
+      "!!!!! CPU LOAD IS OVER THRESHOLD OF $(threshold) percent !!!! ";
+
+}

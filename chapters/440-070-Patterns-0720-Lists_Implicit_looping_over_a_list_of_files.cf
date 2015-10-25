@@ -1,0 +1,23 @@
+body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
+
+bundle agent main {
+
+  vars:
+
+      "list_of_files"
+        handle => "file_list",
+        comment => "Just a file list",
+        slist => {
+                   "/etc/passwd",
+                   "/etc/group",
+        };
+
+  files:
+
+      "$(list_of_files)"
+
+        handle => "set_mode_and_ownership",
+        comment => "Ensure a list of files is owned by root
+and mode 644",
+        perms => mo("644","root");
+}

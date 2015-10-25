@@ -1,0 +1,39 @@
+digraph backup_process {
+	graph [bb="0,0,714,126",
+		label="CFEngine Policy Flow: Policy Server",
+		labelloc=t,
+		lheight=0.21,
+		lp="357,114.5",
+		lwidth=2.86,
+		rankdir=LR
+	];
+	node [label="\N"];
+	subgraph cluster_0 {
+		graph [bb="8,8,706,95",
+			color=green,
+			fontcolor=green,
+			label="CFEngine Policy Server",
+			labelloc=b,
+			lheight=0.21,
+			lp="357,19.5",
+			lwidth=1.85,
+			rank=same
+		];
+		node [style=filled];
+		policy_masterfiles		 [fillcolor=green,
+			height=0.5,
+			label="/var/cfengine/masterfiles",
+			pos="115,57",
+			style=filled,
+			width=2.7442];
+		policy_inputs		 [fillcolor=lightblue,
+			height=0.5,
+			label="/var/cfengine/inputs",
+			pos="617,57",
+			style=filled,
+			width=2.2567];
+		policy_masterfiles -> policy_inputs		 [label="cf-agent on local machine pulls policies from policy\rserver just as if it were a separate client machine.",
+			lp="375,72",
+			pos="e,535.66,57 213.89,57 304.27,57 437.45,57 525.42,57"];
+	}
+}

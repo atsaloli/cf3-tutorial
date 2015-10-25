@@ -1,0 +1,17 @@
+bundle common global_definitions {
+
+  classes:
+      "myclass"
+        expression => "any";
+
+}
+
+
+bundle agent main {
+
+  reports:
+    myclass::
+      "Yay!  myclass is set";
+
+}
+

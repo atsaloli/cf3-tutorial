@@ -1,0 +1,18 @@
+bundle agent main {
+
+  files:
+
+      "/tmp/testfile"
+
+        handle => "set_file_attributes",
+        comment => "/tmp/testfile must be mode 612 for application X
+                          to work; it must be owned by user 'aleksey' and
+                          group 'cfengine'",
+        create  => "true",
+        perms   => mog("612","aleksey","cfengine");
+
+}
+
+###########################################################
+
+body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }

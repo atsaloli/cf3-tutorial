@@ -1,0 +1,17 @@
+bundle agent main
+{
+  files:
+      "/tmp/test.xml"
+        comment => "Create XML file",
+        create => "true",
+        edit_xml => build_xpath;
+}
+
+bundle edit_xml build_xpath
+{
+
+   build_xpath:
+
+      "/Server/Service/Engine";
+
+}

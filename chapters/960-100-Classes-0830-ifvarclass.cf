@@ -1,0 +1,15 @@
+bundle agent main {
+
+
+      vars:  "fruit"  string =>  "banana";
+
+  reports:
+
+
+
+      "I love bananas for breakfast"
+
+        ifvarclass => "$(fruit)";
+
+}
+

@@ -1,0 +1,19 @@
+bundle agent main {
+
+  vars:
+
+      "shopping_list"
+
+        slist   => {
+                     "apples",
+                     "bananas",
+                     "grapes",
+                     "plantains",
+                     "coconuts",
+        };
+
+  reports:
+
+      "buy $(shopping_list)";
+}
+

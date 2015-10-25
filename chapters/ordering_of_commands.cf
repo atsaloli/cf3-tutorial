@@ -1,0 +1,9 @@
+bundle agent main
+{
+
+  commands:
+
+      "/bin/echo two";
+      "/bin/echo three";
+      "/bin/echo one";
+}

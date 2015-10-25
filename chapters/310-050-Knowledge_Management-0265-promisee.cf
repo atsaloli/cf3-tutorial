@@ -1,0 +1,34 @@
+# Demonstrate how depends_on controls policy flow.
+
+bundle agent main
+{
+
+  reports:
+
+      "Fueling" -> { ignition }
+        handle => "fuel_check";
+
+
+
+
+# long complex policy here
+
+
+
+
+
+
+
+
+
+
+
+      "Launch!!"
+        depends_on => { "fuel_check" },
+        handle => "ignition",
+        comment => "Demonstrate flow control with depends_on";
+
+
+      # students should be encouraged to think
+      # declaratively
+}

@@ -1,0 +1,5 @@
+### Introduction2
+
+CFEngine has some special variables.
+
+You can see the whole list in section "Special Variables" in the reference manual, but here is a taste of them.

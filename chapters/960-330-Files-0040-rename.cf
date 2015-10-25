@@ -1,0 +1,10 @@
+body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
+
+
+bundle agent main {
+
+  files:
+      "/bin/chown"
+        rename => to("/bin/CHOWN");
+}
+

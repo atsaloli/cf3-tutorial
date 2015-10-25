@@ -1,0 +1,1 @@
+### Note: Classes have Scope

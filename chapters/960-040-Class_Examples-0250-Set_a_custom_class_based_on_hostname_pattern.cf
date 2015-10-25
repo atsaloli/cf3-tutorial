@@ -1,0 +1,12 @@
+bundle agent main {
+
+  classes:
+      "italy"
+        expression => classmatch("^mil.*$");  # Milan
+
+  reports:
+    italy::
+      "Italy";
+
+
+}

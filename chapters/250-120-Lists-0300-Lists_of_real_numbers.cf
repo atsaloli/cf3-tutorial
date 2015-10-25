@@ -1,0 +1,19 @@
+bundle agent main {
+
+  vars:
+
+      "my_list"
+
+        handle => "rlist_demo",
+        comment => "Create an rlist",
+        rlist => { "1.5", "3.0", "4.5" };
+
+
+  reports:
+
+
+
+      "Iterating over the values in @(my_list):  $(my_list)"
+        handle => "display_rlist",
+        comment => "Demonstrate looping over an rlist";
+}

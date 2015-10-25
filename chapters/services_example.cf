@@ -1,0 +1,15 @@
+bundle agent main {
+
+  services:
+
+      "www"
+
+        service_policy => "disable";
+
+}
+
+
+###########################################################
+
+
+body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }

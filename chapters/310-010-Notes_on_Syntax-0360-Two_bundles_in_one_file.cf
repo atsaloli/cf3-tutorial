@@ -1,0 +1,11 @@
+bundle agent your_bundle_name {
+
+      files: "/tmp/file1" create  => "true";
+
+}
+
+bundle agent example {
+
+      files: "/tmp/file2" create  => "true";
+
+}

@@ -1,0 +1,16 @@
+body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
+
+
+########################################
+
+
+bundle agent main {
+
+
+  files:
+
+      "/etc/motd"
+
+        copy_from    => local_cp("/var/cfengine/inputs/templates/motd.txt");
+
+}

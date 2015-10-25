@@ -1,0 +1,18 @@
+bundle agent main {
+
+  files:
+
+      "/tmp/testfile"
+        comment  => "Set appropriate file attributes for Admin group
+                     on every type of OS",
+        create  => "true",
+        perms   => admin_group;
+}
+
+body perms admin_group {
+
+      linux::  groups => { "wheel" };
+      darwin:: groups => { "admin" };
+      sunos::  groups => { "sys" };
+
+}

@@ -1,0 +1,14 @@
+bundle agent main
+{
+  files:
+      "/tmp/test.xml"
+        edit_xml => set_value;
+}
+
+bundle edit_xml set_value
+{
+  set_text:
+      "test.example.com"
+        select_xpath => "/Server/Service/Engine/Host/Alias";
+
+}

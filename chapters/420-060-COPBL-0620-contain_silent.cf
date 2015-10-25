@@ -1,0 +1,13 @@
+bundle agent main {
+
+  commands:
+
+      "/bin/date"
+        handle => "run_date_cmd",
+        comment => "Demonstrate 'body contain silent'",
+        contain => silent;
+
+
+}
+
+body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }

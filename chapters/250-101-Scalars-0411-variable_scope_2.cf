@@ -1,0 +1,19 @@
+# Simplify / break in parts
+
+bundle agent bundle_0 {
+      vars: "fruit" string => "banana";
+      reports: "This is bundle_0";
+}
+
+bundle agent bundle_1 {
+      vars: "fruit" string => "apple";
+  reports:
+      "Bundle 1: bundle_0.fruit = '$(bundle_0.fruit)'";
+}
+
+bundle agent bundle_2 {
+  reports:
+      "Bundle 2: bundle_1.fruit = '$(bundle_1.fruit)'";
+}
+
+bundle agent bundle_4 { vars: "xyzzy" string => "magic"; }

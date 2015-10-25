@@ -1,0 +1,43 @@
+# CFEngine template using insert_type and expand_scalars
+#
+# Create a file /tmp/template.dat which contains:
+#
+# Dear $(write_letter.first_name),
+#
+#   Please buy our product.
+#
+# Love, Company
+
+bundle agent main {
+
+  vars:
+     "public"
+     slist => { "Mary", "Joe", "Ann", "Ed" };
+
+  methods:
+      "Promotional campaign"
+        usebundle => write_letter("$(public)");
+}
+      
+
+bundle agent write_letter(first_name) {
+
+  files:
+
+      "/tmp/letter_to_$(first_name).txt"
+
+        handle    => "write_letter",
+        create    => "true",
+        edit_line => create_from_template;
+}
+
+bundle edit_line create_from_template {
+
+  insert_lines:
+
+      "/tmp/template.dat"
+
+        handle => "insert_expanded_template",
+        insert_type => "file",
+        expand_scalars => "true";
+}

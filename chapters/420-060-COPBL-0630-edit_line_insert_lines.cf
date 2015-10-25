@@ -1,0 +1,14 @@
+!! SKIP !!
+
+bundle agent main {
+
+  files:
+      "/etc/profile"
+        handle => "edit_etc_profile",
+        create => "true",
+        edit_line => insert_lines("export ORGANIZATION=ACME");
+
+}
+
+
+body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }

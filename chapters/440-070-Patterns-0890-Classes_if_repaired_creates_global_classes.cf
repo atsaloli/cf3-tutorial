@@ -1,0 +1,19 @@
+bundle agent example_1 {
+
+  files:
+      "/tmp/motd"
+        create => "true",
+        classes => if_repaired("its_wed");
+
+}
+
+
+bundle agent example_2 {
+
+  reports:
+    its_wed::
+      "Yay!  I love Wednesdays!";
+
+}
+
+body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }

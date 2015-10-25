@@ -1,0 +1,13 @@
+# Whitespace/indentation does not matter, these bundles will both work
+
+bundle agent with_whitespace {
+
+  files:
+
+      "/etc/nologin"
+
+        create => "true";
+}
+
+
+bundle agent no_whitespace { files: "/etc/nologin" create => "true"; }

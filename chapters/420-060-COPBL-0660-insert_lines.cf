@@ -1,0 +1,19 @@
+bundle agent main {
+
+  files:
+
+      "/tmp/scratch"
+
+        handle => "files_multi_line_insert",
+        comment => "Insert multi-line content",
+        create => "true",
+        edit_line => insert_lines("
+hello world
+this is line 2
+line 3 is great
+line 4 is awesome
+");
+}
+
+
+body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }

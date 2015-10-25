@@ -1,0 +1,11 @@
+# demonstrate handling of multi-line output
+
+bundle agent main
+{
+
+  commands:
+      "/usr/local/sbin/a/really/long/path/to/printf"
+        args => "Line 1\nLine 2\nLine 3",
+        comment => "Demonstrate how CFEngine truncates
+                    path names in command output";
+}

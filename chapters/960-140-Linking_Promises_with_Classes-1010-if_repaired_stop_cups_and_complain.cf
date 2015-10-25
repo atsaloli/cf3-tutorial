@@ -1,0 +1,17 @@
+body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
+
+
+bundle agent main {
+
+  processes:
+
+      "cupsd"
+
+        process_stop => "/etc/init.d/cups stop",
+        comment => "We don't want print services on our Web servers.",
+        classes => if_repaired("complain_loudly_about_cups");
+
+  commands:
+    complain_loudly_about_cups::
+      "/bin/echo send up a flare about CUPS";
+}

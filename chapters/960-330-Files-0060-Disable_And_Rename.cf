@@ -1,0 +1,17 @@
+#body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
+
+bundle agent main {
+
+  files:
+      "/tmp/test2"
+        rename => disable_for_good;
+}
+
+
+body rename disable_for_good
+{
+        disable => "true";
+        disable_mode => "000";
+}
+
+

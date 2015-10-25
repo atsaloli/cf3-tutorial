@@ -1,0 +1,11 @@
+body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
+
+bundle agent main {
+
+  commands:
+
+      "/bin/echo"
+        args => " \"hello $(const.dollar){LOGNAME} $(const.t)adfs\"",
+        contain => in_shell;
+
+}

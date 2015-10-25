@@ -1,0 +1,22 @@
+bundle agent main {
+
+  vars:
+
+      "suspicious_process_names"
+        handle => "process_blacklist",
+        comment => "Setup a list of known bad process names",
+        slist =>
+      {
+        "sniff",
+        "eggdrop",
+        "r00t",
+        "^\./",
+        "john",
+        "crack"
+      };
+  processes:
+      "$(suspicious_process_names)"
+        handle => "kill_bad_procs",
+        comment => "Kill bad processes on sight",
+        signals => { "term", "kill" };
+}

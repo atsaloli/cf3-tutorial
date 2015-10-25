@@ -1,0 +1,19 @@
+bundle agent bundle_1 {
+
+  vars:
+      "var_1"
+        string  =>  "Hello World";
+}
+
+bundle agent bundle_2 {
+
+  vars:
+      "var_1"
+        string => "My fair lady";
+
+  reports:
+      #"Variable value = $(bundle_1.var_1)";
+      #"Variable value = $(bundle_2.var_1)";
+      "Variable value = $(var_1)";
+
+}

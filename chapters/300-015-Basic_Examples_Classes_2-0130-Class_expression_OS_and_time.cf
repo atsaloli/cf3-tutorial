@@ -1,0 +1,9 @@
+bundle agent main {
+
+  reports:
+
+    (redhat&Monday)|(windows&Wednesday)::
+
+      "This report will show on Redhat servers on Mondays;
+       or on Windows servers on Wednesdays";
+}

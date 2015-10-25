@@ -1,0 +1,14 @@
+bundle agent main {
+
+commands:
+
+  "/bin/echo `/bin/date`"
+
+        comment => "By default, commands are run directly, not in a shell.
+                    Shell features such as backticks, input/output redirection,
+                    pipelining, file globbing, etc. are not available.
+                    
+                    You can tell CFEngine to run your command in a shell,
+                    and we'll cover that later in the course.";
+
+}

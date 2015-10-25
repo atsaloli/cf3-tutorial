@@ -1,0 +1,17 @@
+bundle agent main {
+
+
+  files:
+
+      "/tmp/mirror"
+
+        handle => "local_mirror",
+        comment => "Maintain a local mirror of the repo",
+        copy_from => remote_dcp("/repo", "$(sys.policy_hub)"),
+        depth_search => recurse("inf"),
+        action => immediate;
+
+}
+
+body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
+

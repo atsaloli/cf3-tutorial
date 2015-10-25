@@ -1,0 +1,11 @@
+bundle agent main {
+
+  files:
+
+      "/var/cfengine/i_am_alive"
+
+        comment => "Update heartbeat timestamp (mtime)
+                          to confirm CFEngine is running",
+        create  => "true",
+        touch   => "true";
+}

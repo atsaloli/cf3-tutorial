@@ -1,0 +1,11 @@
+### demonstrate ordering within a single promise type
+
+bundle agent main {
+
+  reports:
+      "Two";
+      "Three";
+
+  reports:
+      "One";
+}

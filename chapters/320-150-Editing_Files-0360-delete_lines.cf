@@ -1,0 +1,24 @@
+bundle agent main {
+
+  files:
+
+      "/etc/motd"
+
+        handle => "motd",
+        comment => "Create and populate motd",
+        create => "true",
+        edit_line => my_motd;
+}
+
+
+bundle edit_line  my_motd {
+
+  insert_lines:
+
+      "Good morning!";
+
+  delete_lines:
+
+      ".*";
+}
+

@@ -1,0 +1,27 @@
+# Create the following files before running this example:
+# /tmp/cf2_test1
+# /tmp/cf3_test2
+
+bundle agent main
+{
+
+  files:
+
+      "/tmp/(cf[23])_(.*)"
+        edit_line => show_match("$(match.0) $(match.1) $(match.2)");
+
+}
+
+bundle edit_line show_match(data) {
+
+  reports:
+
+
+      "$(data)";
+
+      # OUTPUT
+      # You should see:
+      # R: /tmp/cf2_test1 cf2 test1
+      # R: /tmp/cf3_test2 cf3 test2
+
+}

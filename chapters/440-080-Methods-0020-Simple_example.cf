@@ -1,0 +1,26 @@
+bundle agent main {
+
+  vars:
+
+      "userlist" slist => { "alex", "ben", "charlie", "diana", "rob" };
+
+
+  methods:
+
+      "any" usebundle => remove_user("$(userlist)");
+
+}
+
+###########################################
+
+bundle agent remove_user(user) {
+
+  commands:
+
+      "/usr/sbin/userdel $(user)"
+        contain => silent;
+
+}
+
+
+body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }

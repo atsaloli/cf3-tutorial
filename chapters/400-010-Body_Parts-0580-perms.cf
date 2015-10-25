@@ -1,0 +1,16 @@
+bundle agent main {
+
+  files:
+
+      "/tmp/testfile"
+
+        perms => not_world_writable_and_right_group;
+
+}
+
+body perms not_world_writable_and_right_group {
+
+        groups => {"root", "games", "mail" };
+        mode   => "o-w";
+
+}

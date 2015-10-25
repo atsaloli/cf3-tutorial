@@ -1,0 +1,26 @@
+body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
+
+
+bundle agent main {
+
+  files:
+
+      "/tmp/testfile"
+
+        create  => "true",
+        edit_line => proper_greetings;
+}
+
+
+####################################################
+
+
+bundle edit_line  proper_greetings {
+
+
+  insert_lines:
+
+      "Good Evening"
+        location => after("Good Day");
+
+}

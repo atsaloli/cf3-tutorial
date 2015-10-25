@@ -1,0 +1,27 @@
+# Make sure /etc/group contains a "cfengine" group
+
+bundle agent main {
+
+  methods:
+
+      "any"
+
+        handle => "group_exists",
+        comment => "make sure the specified group is always present",
+        usebundle => groupadd("cfengine");
+
+}
+
+
+#####################################################################
+
+
+bundle agent groupadd(groupname) {
+
+
+  commands:
+      linux:: "/usr/sbin/groupadd" args => "$(groupname)";
+      aix::   "/sbin/addgroup"     args => "$(groupname)";
+      hpux::  "/usr/sbin/addgroup" args => "$(groupname)";
+
+}

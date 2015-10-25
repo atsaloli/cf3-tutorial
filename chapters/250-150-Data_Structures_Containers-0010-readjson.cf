@@ -1,0 +1,13 @@
+bundle agent main {
+
+  vars:
+      "mydata"
+        data => parsejson('{"Pizza" : "Pepperoni"} ');
+
+      "keys"
+        slist => getindices("mydata");
+
+  reports:
+
+      "$(keys)  $(mydata[$(keys)])";
+}

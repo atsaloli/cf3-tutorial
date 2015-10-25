@@ -1,0 +1,16 @@
+bundle agent main {
+
+  vars:
+
+      "canonified_text"
+
+        string  => canonify("hello!@#$%world");
+
+  reports:
+
+
+
+      "$(canonified_text)";
+
+}
+

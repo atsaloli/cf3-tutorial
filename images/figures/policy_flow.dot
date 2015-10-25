@@ -1,0 +1,84 @@
+digraph cfengine_policy_flow {
+	graph [bb="0,0,787,310",
+		label="CFEngine Policy Flow Diagram",
+		labelloc=t,
+		lheight=0.21,
+		lp="393.5,298.5",
+		lwidth=2.46,
+		rankdir=LR
+	];
+	node [label="\N"];
+	subgraph cluster_0 {
+		graph [bb="17,192,779,279",
+			color=green,
+			fontcolor=green,
+			label="CFEngine Policy Server",
+			labelloc=b,
+			lheight=0.21,
+			lp="398,203.5",
+			lwidth=1.85,
+			rank=same
+		];
+		node [style=filled];
+		policy_masterfiles		 [fillcolor=green,
+			height=0.5,
+			label="/var/cfengine/masterfiles",
+			pos="124,241",
+			style=filled,
+			width=2.7442];
+		policy_inputs		 [fillcolor=lightblue,
+			height=0.5,
+			label="/var/cfengine/inputs",
+			pos="690,241",
+			style=filled,
+			width=2.2567];
+		policy_masterfiles -> policy_inputs		 [label="cf-agent on local machine pulls policies from policy\rserver just as if it were a separate client machine.",
+			lp="413,256",
+			pos="e,608.65,241 222.92,241 328.7,241 495.85,241 598.6,241"];
+	}
+	subgraph cluster_1 {
+		graph [bb="594,109,787,184",
+			lheight=0.21,
+			lp="690.5,172.5",
+			lwidth=2.46,
+			style=invis
+		];
+		node [style=invis];
+		invis_node		 [height=0.5,
+			pos="690,135",
+			style=invis,
+			width=1.3721];
+	}
+	subgraph cluster_2 {
+		graph [bb="8,8,779,101",
+			color=lightblue,
+			fontcolor=lightblue,
+			label="CFEngine Client Machine",
+			labelloc=b,
+			lheight=0.21,
+			lp="393.5,19.5",
+			lwidth=2.00,
+			rank=same
+		];
+		node [style=filled];
+		client_masterfiles		 [fillcolor=gray,
+			height=0.74639,
+			label="/var/cfengine/masterfiles\rUNUSED",
+			pos="124,66",
+			style=filled,
+			width=2.9856];
+		client_inputs		 [fillcolor=lightblue,
+			height=0.5,
+			label="/var/cfengine/inputs",
+			pos="690,72",
+			style=filled,
+			width=2.2567];
+		client_masterfiles -> client_inputs		 [pos="e,608.57,71.144 231.42,67.132 337.43,68.26 498.43,69.973 598.48,71.037",
+			style=invis];
+	}
+	policy_masterfiles -> invis_node	 [pos="e,645.79,143.12 193.31,228.16 307.13,206.77 533.18,164.28 635.94,144.97",
+		style=invis];
+	policy_masterfiles -> client_inputs	 [label=" Individual client machines pull policies from policy server",
+		lp="413,146.5",
+		pos="e,614.01,78.633 140.79,223.2 162.76,199.72 204.95,159.01 250,139 311.75,111.58 494.74,90.297 604,79.604"];
+}

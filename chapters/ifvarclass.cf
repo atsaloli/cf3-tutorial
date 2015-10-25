@@ -1,0 +1,17 @@
+bundle agent main {
+
+  vars:
+
+      "myos" string => "WinXP";
+
+
+
+  commands:
+
+      "/bin/echo hello world"
+
+        ifvarclass =>  "$(myos)";
+
+
+
+}

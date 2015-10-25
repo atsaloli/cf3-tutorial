@@ -1,0 +1,67 @@
+# report environmental conditions
+# Current value: value_<name>       e.g. value_diskfree
+# Average: av_<name>                e.g. av_diskfree
+# Standard Deviation: dev_<name>    e.g. dev_diskfree
+
+bundle agent main {
+
+  reports:
+
+      "
+Metric     Current Value
+cfengine_in    ${mon.value_cfengine_in}
+cfengine_out   ${mon.value_cfengine_out}
+cpu            ${mon.value_cpu}
+cpu0           ${mon.value_cpu0}
+cpu1           ${mon.value_cpu1}
+cpu2           ${mon.value_cpu2}
+cpu3           ${mon.value_cpu3}
+diskfree       ${mon.value_diskfree}
+dns_in         ${mon.value_dns_in}
+dns_out        ${mon.value_dns_out}
+ftp_in         ${mon.value_ftp_in}
+ftp_out        ${mon.value_ftp_out}
+icmp_in        ${mon.value_icmp_in}
+icmp_out       ${mon.value_icmp_out}
+irc_in         ${mon.value_irc_in}
+irc_out        ${mon.value_irc_out}
+loadavg        ${mon.value_loadavg}
+messages       ${mon.value_messages}
+netbiosdgm_in  ${mon.value_netbiosdgm_in}
+netbiosdgm_out ${mon.value_netbiosdgm_out}
+netbiosns_in   ${mon.value_netbiosns_in}
+netbiosns_out  ${mon.value_netbiosns_out}
+netbiosssn_in  ${mon.value_netbiosssn_in}
+netbiosssn_out ${mon.value_netbiosssn_out}
+nfsd_in        ${mon.value_nfsd_in}
+nfsd_out       ${mon.value_nfsd_out}
+otherprocs     ${mon.value_otherprocs}
+rootprocs      ${mon.value_rootprocs}
+smtp_in        ${mon.value_smtp_in}
+smtp_out       ${mon.value_smtp_out}
+ssh_in         $(mon.value_ssh_in)
+ssh_out        ${mon.value_ssh_out}
+syslog         ${mon.value_syslog}
+tcpack_in      ${mon.value_tcpack_in}
+tcpack_out     ${mon.value_tcpack_out}
+tcpfin_in      ${mon.value_tcpfin_in}
+tcpfin_out     ${mon.value_tcpfin_out}
+tcpmisc_in     ${mon.value_tcpmisc_in}
+tcpmisc_out    ${mon.value_tcpmisc_out}
+tcpsyn_in      ${mon.value_tcpsyn_in}
+tcpsyn_out     ${mon.value_tcpsyn_out}
+temp0          ${mon.value_temp0}
+temp1          ${mon.value_temp1}
+temp2          ${mon.value_temp2}
+temp3          ${mon.value_temp3}
+udp_in         ${mon.value_udp_in}
+udp_out        ${mon.value_udp_out}
+users          ${mon.value_users}
+webaccess      ${mon.value_webaccess}
+weberrors      ${mon.value_weberrors}
+www_in         ${mon.value_www_in}
+www_out        ${mon.value_www_out}
+wwws_in        ${mon.value_wwws_in}
+wwws_out       ${mon.value_wwws_out}
+";
+}

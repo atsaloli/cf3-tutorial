@@ -1,0 +1,20 @@
+bundle agent main {
+
+  vars:
+
+      "search_suffix"  string =>  "example.com example2.com";
+
+      "nameservers"    slist  =>  { "8.8.4.4", "8.8.8.8" };
+
+  files:
+
+      "/tmp/resolv.conf"
+
+        handle =>  "edit_resolv_conf",
+        comment => "Setup up DNS resolver",
+        edit_line =>  resolvconf("$(search_suffix)",
+                                 "@(example.nameservers)" );
+}
+
+
+body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }

@@ -1,0 +1,14 @@
+bundle agent main {
+
+  files:
+
+      "/tmp/testfile"
+
+        perms => acceptable_groups;
+}
+
+body perms acceptable_groups {
+
+        groups => {"root", "games", "mail" };
+
+}

@@ -1,0 +1,25 @@
+# run "groupadd project_team" to create the group
+# "project_team" for this example
+
+bundle agent main {
+
+  files:
+
+      "/tmp/file1"
+        create => "true",
+        perms   => project_files;
+
+      "/tmp/file2"
+        create => "true",
+        perms   => project_files;
+
+}
+
+#######################################################
+
+body perms project_files
+{
+        mode   => "770";
+        owners => { "root" };
+        groups => { "project_team" };
+}

@@ -1,0 +1,48 @@
+# Rules to highlight the output of "ls -1" in the verticalsysadmin_training_examples directory
+# Reference: http://www.cyberciti.biz/open-source/command-line-hacks/remark-command-regex-markup-examples/	
+
+include "common"
+
+style MyBoldStyle
+{
+  pre "\E[1m"
+  post "\E[0m"
+}
+
+style BoldBlue
+{
+  pre "\E[34m" post "\E[39m"
+  MyBoldStyle
+}
+
+# Special: Color all lines that don't match any of the rules below red
+/.*/ red
+
+# Book Title: just skip it
+/(.*Book-Title.*)/  skip
+
+# Part Title cards -- they serve to separate the Book Parts
+/(.*Part-Title.*)/  {
+  s/^.*-(.*)\.txt/$1         === $0 ===/
+  green
+  break
+}
+
+# Chapter Title cards -- they serve to separate Chapters
+/(^[0-9]+-.*Chapter-Title.md)/  {
+  s/[0-9]+-[0-9]+-(.*)-0000-Chapter-Title.md/    $1    << $0 >>/ 
+  blue
+  break
+}
+
+/^([0-9]+)-([0-9]+)-(.*)-(.*)-(.*)(\..*)$/ {
+  default
+  1 cyan
+  2 BoldBlue
+  3 BoldBlue
+  4 yellow
+  5 yellow
+  6 cyan
+  s/^/        /
+  break
+}

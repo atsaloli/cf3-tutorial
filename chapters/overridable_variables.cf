@@ -1,0 +1,27 @@
+
+bundle agent main {
+
+  vars:
+
+      "name"
+
+        string =>  "Micah",
+        policy =>  "overridable";
+
+
+      "name"
+
+        string =>  "Brian",
+        policy =>  "overridable";
+
+
+
+  reports:
+
+
+
+      "$(name)";
+
+
+}
+

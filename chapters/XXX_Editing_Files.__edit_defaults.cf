@@ -1,0 +1,21 @@
+body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
+
+
+
+bundle agent main {
+
+  files:
+
+      "/tmp/example.txt"
+
+        create => "true",
+        edit_line => insert_lines("$(sys.date)"),
+        edit_defaults => timestamp;
+}
+
+
+
+body edit_defaults timestamp
+{
+        edit_backup => "timestamp";
+}

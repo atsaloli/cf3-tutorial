@@ -1,0 +1,31 @@
+# Example of
+#
+#      cfengine_word => { list }    #  (directly and via variable)
+
+body common control {
+
+        bundlesequence => { "example_1", "example_2" };
+
+}
+
+bundle agent example_2 {
+
+  reports:
+
+
+
+      "Second things second"
+        handle => "identify_2nd_bundle",
+        comment => "Identify 2nd bundle to demonstrate bundlesequence";
+}
+
+bundle agent example_1 {
+
+  reports:
+
+
+
+      "First things first"
+        handle => "identify_1st_bundle",
+        comment => "Identify 1st bundle to demonstrate bundlesequence";
+}

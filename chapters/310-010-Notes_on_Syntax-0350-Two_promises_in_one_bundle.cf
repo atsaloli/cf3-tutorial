@@ -1,0 +1,14 @@
+bundle agent main {
+
+  files:
+
+      "/tmp/hello"
+
+        create  => "true";
+
+  files:
+
+      "/tmp/world"
+
+        create  => "true";
+}

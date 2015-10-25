@@ -1,0 +1,10 @@
+bundle agent main
+{
+
+  commands:
+
+      "echo"
+        args => "Hello world";
+
+}
+

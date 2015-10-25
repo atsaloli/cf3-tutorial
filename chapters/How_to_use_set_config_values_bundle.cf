@@ -1,0 +1,19 @@
+bundle agent main {
+
+
+  vars:
+
+      "config[PermitRootLogin]"
+        string => "no";
+
+
+  files:
+
+      "/tmp/sshd_config"
+
+        edit_line  => set_config_values("example.config");
+
+
+}
+
+body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }

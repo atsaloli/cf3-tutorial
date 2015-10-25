@@ -1,0 +1,17 @@
+body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
+
+bundle agent main {
+
+  files:
+      "/tmp/httpd.conf"
+        create => "true",
+        edit_line => insert_lines("ServerName localhost"),
+        classes => if_repaired("httpd_restart_needed");
+
+
+  commands:
+    httpd_restart_needed::
+      "/etc/init.d/httpd reload";
+
+
+}

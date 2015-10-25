@@ -1,0 +1,9 @@
+bundle agent main {
+
+  files:
+
+      "/etc/httpd/conf/httpd.conf" -> "Web Services team"
+      # document stakeholders
+
+        create  => "true";
+}

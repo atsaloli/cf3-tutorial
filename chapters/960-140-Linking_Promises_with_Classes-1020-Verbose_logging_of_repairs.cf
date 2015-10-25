@@ -1,0 +1,25 @@
+bundle agent main
+{
+  files:
+
+      "/tmp/newfile3"
+
+        handle => "newfile3_exists",
+        create => "true",
+        action => log("Created very important file $(this.promiser)");
+}
+
+body action log(msg)
+{
+        log_string => "$(sys.date) \
+$(this.promise_filename):$(this.promise_linenumber) \
+$(this.handle): $(msg)";
+        log_repaired => "stdout";
+}
+
+# Logs a message like:
+#    L: Mon Oct 19 18:05:44 2015 \
+# /home/aleksey/cfengine_tutorial/chapters/\
+# 790-140-Linking_Promises_with_Classes-1020\
+# -Verbose_logging_of_repairs.cf:5 \
+# newfile3_exists: Created very important file /tmp/newfile3

@@ -1,0 +1,21 @@
+# Example of
+#
+#     cfengine_word => builtin_function()
+#
+
+
+bundle agent main {
+
+  classes:
+
+      "cf_agent_is_present"
+
+        expression => fileexists("/var/cfengine/bin/cf-agent");
+
+
+  reports:
+
+    cf_agent_is_present::
+
+      "Found: /var/cfengine/bin/cf-agent";
+}

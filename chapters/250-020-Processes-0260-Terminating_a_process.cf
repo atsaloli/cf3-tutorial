@@ -1,0 +1,11 @@
+bundle agent main {
+
+  processes:
+
+      "eggdrop"
+
+        handle => "kill_IRC_bots",
+        comment => "We don't want IRC bots on our Web servers",
+        signals => { "TERM", "KILL" };
+
+}

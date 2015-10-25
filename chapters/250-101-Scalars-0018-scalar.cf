@@ -1,0 +1,14 @@
+bundle agent main {
+
+  vars:
+
+      "name"
+        string => "Inigo Montoya";
+
+      "greeting"
+        string  => "Hello. My name is $(name). ";
+
+  reports:
+
+      "$(greeting)";
+}

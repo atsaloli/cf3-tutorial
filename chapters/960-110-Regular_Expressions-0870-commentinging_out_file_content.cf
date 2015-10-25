@@ -1,0 +1,23 @@
+body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
+
+
+bundle agent main {
+
+  files:
+
+      "/tmp/testfile"
+
+        edit_line => comment_out_everything;
+}
+
+
+bundle edit_line comment_out_everything {
+
+  replace_patterns:
+
+      "^([^#].*)"
+
+        replace_with => comment("#");
+
+}
+

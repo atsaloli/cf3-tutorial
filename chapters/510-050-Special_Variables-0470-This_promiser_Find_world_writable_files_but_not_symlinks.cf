@@ -1,0 +1,18 @@
+bundle agent main {
+
+  files:
+
+      "/etc/.*"
+
+        file_select => world_writeable_but_not_a_symlink,
+        transformer => "/bin/echo FOUND: $(this.promiser)";
+}
+
+
+body file_select world_writeable_but_not_a_symlink
+{
+        search_mode => { "o+w" };
+        file_types => { "symlink" };
+        file_result => "mode.!file_types";
+
+}

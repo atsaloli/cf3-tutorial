@@ -1,0 +1,23 @@
+# Scalar references to *local* list variables imply iteration.
+# To iterate over a global list variable, map the global list
+# into the local context.  There are two ways to do it, this
+# is the direct method.
+
+
+
+bundle common g
+{
+      vars: "myusers"  slist => { "joe", "mary", "ann" };
+
+}
+
+
+bundle agent main
+
+{
+      vars: "mylist" slist => { @(g.myusers) };
+
+  reports:
+
+      "$(mylist)";
+}

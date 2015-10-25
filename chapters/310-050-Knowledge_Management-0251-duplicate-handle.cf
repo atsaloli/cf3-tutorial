@@ -1,0 +1,20 @@
+bundle agent main {
+
+  files:
+
+      "/tmp/testfile"
+
+        handle => "create_testfile", # a name for this promise.
+
+      # can be used with depends_on
+      # attribute in another promise
+      # to document dependency
+
+        create  => "true";
+
+  reports:
+    # demonstrate handle conflict
+     "hello world"
+       handle => "create_testfile";
+       
+}

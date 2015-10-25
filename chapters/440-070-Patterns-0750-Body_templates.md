@@ -1,0 +1,7 @@
+## External Body Parts
+
+> A pattern is just a repeated structure. The benefit of seeing patterns is economy: if you can see a pattern, you can take out the commonality, abstract it, and talk about the pattern instead of all the individual cases. This is a Knowledge Management step.
+>
+> --- cfengine.org
+
+External body parts are intended to aid in such abstraction.

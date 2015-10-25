@@ -1,0 +1,11 @@
+bundle agent main {
+
+  vars:
+      "my_result"
+        string => execresult("/bin/ls /tmp", "noshell");
+
+  reports:
+
+      "Variable is $(my_result)";
+
+}

@@ -1,0 +1,12 @@
+bundle agent main {
+
+  files:
+      "/tmp/scratch"
+        handle => "selective_commenting",
+        comment => "Remove specific lines",
+        edit_line => comment_lines_matching("hello world", "#");
+
+}
+
+
+body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }

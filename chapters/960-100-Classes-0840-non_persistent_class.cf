@@ -1,0 +1,20 @@
+body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
+
+
+bundle agent main {
+
+
+  files:
+      "/tmp/file.txt"
+        create => "true",
+        edit_line => insert_lines("hello world 1234"),
+        classes => if_repaired("promise_repaired");
+
+
+  reports:
+    promise_repaired::
+      "soft class is set";
+
+}
+
+

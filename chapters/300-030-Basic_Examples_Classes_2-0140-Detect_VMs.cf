@@ -1,0 +1,16 @@
+bundle agent main {
+
+  classes:
+      "i_am_virtual"
+        handle => "reality_check",
+        comment => "Check if we are running inside a VM",
+        expression => regline("(?i).*vmware.*|(?i).*vbox.*|(?i).*qemu.*",
+                              "/proc/scsi/scsi");
+      # (?i) is the "case-insensitive" switch
+      # The shell equivalent would be:
+      # /bin/egrep -i 'vmware|vbox|qemu' /proc/scsi/scsi
+
+  reports:
+    i_am_virtual::
+      "Running inside a VM";
+}

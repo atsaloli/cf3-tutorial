@@ -1,0 +1,29 @@
+# Example of
+#     cfengine_word => builtin_function()
+
+bundle agent main {
+
+  vars:
+
+      "2xCRLF"
+        string => "$(const.r)$(const.n)$(const.r)$(const.n)",
+        comment => "HTTP requests are terminated by the double
+                    CR/LF sequence";
+
+      "http_reply"
+        handle => "http_client",
+        comment => "Demonstrate a function that returns a string.  Run
+'GET / HTTP/1.0' and save the output into var http_reply.",
+        string => readtcp("localhost",
+                          "80",
+                          "GET / HTTP/1.0$(2xCRLF)",
+                          "500");
+
+
+  reports:
+
+      "The HTTP reply was:$(const.t)$(http_reply)"
+
+        handle => "display_http_reply";
+
+}
