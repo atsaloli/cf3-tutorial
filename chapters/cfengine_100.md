@@ -171,8 +171,8 @@ Filename: 100-040-Why\_CFEngine-0000-Chapter-Title.md
 - Maturity (since 1993, now in its third generation)
 - Small footprint (can run everywhere and run often)
 - Security (check NVD, we beat the pants off our competition due to a more secure design)
-  - [CFEngine in NVD](http://web.nvd.nist.gov/view/vuln/search-results?query#cfengine&search_type=all&cves=on)
-  - [Puppet in NVD](http://web.nvd.nist.gov/view/vuln/search-results?query#puppet&search_type=all&cves=on)
+  - [CFEngine in NVD](http://web.nvd.nist.gov/view/vuln/search-results?query=cfengine&search_type=all&cves=on)
+  - [Puppet in NVD](http://web.nvd.nist.gov/view/vuln/search-results?query=puppet&search_type=all&cves=on)
 - The only configuration management tool based on science (author is a theoretical physicist turned Computer Science researcher)
 
 To learn more, see [20 Years of CFEngine](http://markburgess.org/blog_principles.html), by Mark Burgess.
@@ -369,10 +369,8 @@ Filename: 100-110-Lab\_VMs-0010-VMs.md
 
 Setup two VMs to do the course exercises.
 
-Follow CFEngine's Vagrant guide to create your lab environment
+Follow [CFEngine's Vagrant guide](https://docs.cfengine.com/latest/guide-installation-and-configuration-general-installation-installation-enterprise-vagrant.html) to create your lab environment
 complete with two VMs and the latest version of CFEngine Enterprise
-
-https://docs.cfengine.com/latest/guide-installation-and-configuration-general-installation-installation-enterprise-vagrant.html
 
 The VMs need to be able to get out to the Internet to install
 packages.

@@ -187,9 +187,9 @@ echo exiting concatenate_sc function
 
 ## Start Main Program ##
 process_files && \
-concatenate_sc      && \
-mv z_cfengine_essentials.txt cfengine.md 
-#cd ~/learn_enough_cfengine && \
+concatenate_sc  
+
+#cd ..
 #softcover build:html
 
 #if [ $? -eq 0 ] ; then
