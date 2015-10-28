@@ -1,0 +1,11 @@
+bundle agent main {
+
+reports:
+
+"Apple$(const.r)Banana's rock";
+
+
+"line 1$(const.n)line2";
+
+}
+

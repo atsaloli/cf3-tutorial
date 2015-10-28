@@ -85,7 +85,7 @@ body perms admin_group {
 # Two bundles sharing a body-part that automagically sets
 # the correct group ownership based on OS
 
-bundle agent example_1 {
+bundle agent main {
 
   files:
 
@@ -94,36 +94,16 @@ bundle agent example_1 {
         comment  => "Set appropriate file attributes everywhere",
         create  => "true",
         perms   => set_mode_700_admin_group_and_specified_user("sam");
+
 }
 
-
-#################################################
-
-bundle agent example_2 {
-
-  files:
-
-      "/tmp/testfile2"
-        handle  => "set_file_attributes_on_file2",
-        comment  => "Set appropriate file attributes everywhere",
-        create  => "true",
-        perms   => set_mode_700_admin_group_and_specified_user("rob");
-}
-
-
-#################################################
-
-
-body perms set_mode_700_admin_group_and_specified_user(xyz) {
-
+body perms set_mode_700_admin_group_and_specified_user(user) {
         mode   => "0700";
-
-        owners => { "$(xyz)" };
+        owners => { "$(user)" };
 
       linux::  groups => { "wheel" };
       darwin:: groups => { "admin" };
       sunos::  groups => { "sys" };
-
 }
 ```
 \end{codelisting}
@@ -133,28 +113,21 @@ body perms set_mode_700_admin_group_and_specified_user(xyz) {
 bundle agent main {
 
   files:
-
       "/tmp/data.txt"
         handle    => "turn_dogs_into_cats",
         comment   => "Demonstrate search-and-replace in a file",
         edit_line => transform_dogs_to_cats;
-
 }
 
 bundle edit_line transform_dogs_to_cats {
 
   replace_patterns:
-
       "[Dd]og"
-
-        handle       => "replace_dog_with_cat",
-        comment      => "Demonstrate replace_patterns promise",
         replace_with => value("cat");
-
 }
 
-body replace_with value(x)
-{
+body replace_with value(x) {
+
         replace_value => "$(x)";
         occurrences => "all";
 }
@@ -242,8 +215,8 @@ bundle agent main {
 
   vars:
 
-      "2xCRLF"
-        string => "$(const.r)$(const.n)$(const.r)$(const.n)",
+      "CRLF"
+        string => "$(const.r)$(const.n)",
         comment => "HTTP requests are terminated by the double
                     CR/LF sequence";
 
@@ -255,9 +228,8 @@ bundle agent main {
                     the 'http_reply' variable.",
         string => readtcp("localhost",
                           "80",
-                          "GET / HTTP/1.0$(2xCRLF)",
+                          "GET / HTTP/1.0$(CRLF)$(CRLF)",
                           "500");
-
   classes:
       "http_ok"
         handle => "check_http_ok",
@@ -277,6 +249,7 @@ bundle agent main {
 #
 #     cfengine_word => builtin_function()
 #
+##  Put this example before the readtcp example
 
 
 bundle agent main {

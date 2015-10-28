@@ -2,6 +2,7 @@
 #
 #     cfengine_word => builtin_function()
 #
+##  Put this example before the readtcp example
 
 
 bundle agent main {

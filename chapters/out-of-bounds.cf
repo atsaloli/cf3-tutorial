@@ -1,0 +1,9 @@
+bundle agent main {
+
+processes:
+
+  "testme1"
+
+    signals => { "DESTROY" };
+
+}

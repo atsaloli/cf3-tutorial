@@ -39,23 +39,30 @@ The CFEngine Standard Library is growing to include all common aspects of system
 \begin{codelisting}
 \codecaption{420-060-COPBL-0470-Package\_add\_using\_COPBL.cf}
 ```cfengine3, options: "linenos": true
-NEEDS TO BE UPDATED TO 3.7 SYNTAX
+#reports:
+# "sys.libdir = $(sys.libdir)/stdlib.cf" ;
+
+
+#NEEDS TO BE UPDATED TO 3.7 SYNTAX
 
 bundle agent main {
 
-  packages:
-
-      "php-mysql"
-
-        handle => "install_package_php_mysql",
-        comment => "Demonstrate installing a package",
-        package_policy => "add",
-        package_method => yum;
+reports:
+ "sys.libdir = $(sys.libdir)/stdlib.cf" ;
 }
+#  packages:
+# 
+#       "php-mysql"
+# 
+#         handle => "install_package_php_mysql",
+#         comment => "Demonstrate installing a package",
+#         package_policy => "add",
+#         package_method => yum;
+# 
 
 #############################################
 
-body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
+#body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
 ```
 \end{codelisting}
 \begin{codelisting}
@@ -123,7 +130,8 @@ bundle agent main {
                                     "$1$stIAaUZw$ptP75nVkz/EapeuvdWLNC0");
 }
 
-body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
+#body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
+body file control { inputs => { "/var/cfengine/inputs/lib/3.6/stdlib.cf" }; }
 ```
 \end{codelisting}
 \begin{codelisting}

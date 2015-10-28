@@ -362,7 +362,18 @@ bundle agent edit_sshd(params) {
   reports:
 # pretend we're editing sshd.conf to set the above
       "$(index) :  $($(params)[$(index)])";
+  files:
+    "/tmp/sshd.conf"
+      create => "true",
+      edit_line => insert_lines("$(index) $($(params)[$(index)])");
 }
+
+bundle edit_line insert_lines(line) {
+
+insert_lines: 
+  "$(line)";
+}
+
 ```
 \end{codelisting}
 \begin{codelisting}

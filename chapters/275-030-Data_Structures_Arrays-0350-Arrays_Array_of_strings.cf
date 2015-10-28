@@ -1,0 +1,26 @@
+bundle agent main {
+  vars:
+      "cfengine_components[cf-monitord]"
+        string => "The monitor";
+
+      "cfengine_components[cf-serverd]"
+        string => "The server";
+
+      "cfengine_components[cf-execd]"
+        string => "The executor";
+
+      "component_names"
+        comment => "Extract keys from cfengine_components array",
+        slist => getindices("cfengine_components");
+
+  reports:
+#    "Key = '$(component_names)'";
+#    "Value = $(cfengine_components[$(component_names)])";
+
+    "Key '$(component_names)' = Value $(cfengine_components[$(component_names)])";
+
+
+
+
+}
+

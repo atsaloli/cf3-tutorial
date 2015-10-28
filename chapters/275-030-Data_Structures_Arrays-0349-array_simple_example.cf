@@ -1,0 +1,15 @@
+bundle agent main {
+
+  vars:
+
+      "food_prices[Apple]"
+        string =>  "59c";
+
+      "food_prices[Banana]"
+        string =>  "30c";
+
+  reports:
+      "Apple costs $(food_prices[Apple])";
+      "Banana costs $(food_prices[Banana])";
+
+}

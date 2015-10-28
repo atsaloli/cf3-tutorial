@@ -1,0 +1,52 @@
+1. Make a vars promise using parsejson
+   create a JSON container, e.g.
+
+{
+  "iPhone" : "500$",
+  "Samsung" : "450$",
+}
+
+Note: you an validate your JSON at jsonlint.com
+
+2. Report the value of an element of this data
+   container by name, e.g. report the price of
+   an iPhone
+
+3. Iterate over all the names in the container
+   (as provided by getindices() )
+   to print all the values
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2. Read it in a "data" type variable using readjson()
+   function
+
+  vars:
+
+      "mydata"
+        data => readjson("/path/to/example.json", 100k);
+
+3. Report its contents   
+   - get the keys using getindices()
+   - iterate over the keys to report the values
+  vars:
+      "keys"
+        slist => getindices("mydata");
+  reports:
+      "$(keys)  $(mydata[$(keys)])";
+";
+
