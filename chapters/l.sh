@@ -8,7 +8,7 @@
 install_remark() {
   echo
   echo
-  echo Installing regex-markup
+  echo Installing regex-markup to provide colorization and markup of output
 
   if [ -f /bin/rpm ]
   then
@@ -17,7 +17,6 @@ install_remark() {
 
   if [ -f /usr/bin/dpkg ]
   then
-	  echo got this far
 	  sh -x -c 'wget  http://gnu.mirrors.pair.com/savannah/savannah/regex-markup/regex-markup_0.10.0-1_amd64.deb' && sudo dpkg -i ./regex-markup_0.10.0-1_amd64.deb
   fi
 
@@ -27,7 +26,7 @@ install_remark() {
 
 # l.sh depends on "remark" which is provided by "regex-markup" from nongnu.org.
 # let's check that "remark" is installed, and if it's not, then install it
-remark /dev/null /dev/null >/dev/null 2>/dev/null || install_remark
+[ ! -x `which remark` ] || install_remark
 
 
 # display a colorized file list, in alphanumeric order
