@@ -189,8 +189,9 @@ echo exiting concatenate_sc function
 process_files && \
 concatenate_sc  
 
-#cd ..
-#softcover build:html
+mv cfengine_???.md  ~/cf3-tutorial/chapters/
+cd ~/cf3-tutorial/
+softcover build:html
 
 #if [ $? -eq 0 ] ; then
 #firefox html/cfengine_tutorial.html &
