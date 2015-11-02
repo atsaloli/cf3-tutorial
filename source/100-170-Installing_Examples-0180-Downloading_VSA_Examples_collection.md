@@ -1,15 +1,13 @@
 ### Downloading examples
 
-Download Aleksey's fork of the CFEngine Design Center repo
-(Aleksey's fork is usually ahead of the CFEngine repo, with
-respect to the "verticalsysadmin\_training\_examples" directory):
+Download Aleksey's CFEngine Tutorial repository from GitHub:
 
 ```bash
-git clone git://github.com/atsaloli/design-center.git 
+git clone git://github.com/atsaloli/cf3-tutorial.git 
 ```
 
-Go to the Vertical Sysadmin Training Examples directory:
+Go to the Training Examples directory:
 
 ```bash
-cd design-center/examples/verticalsysadmin_training_examples	
+cd source
 ```
