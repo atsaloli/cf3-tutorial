@@ -561,40 +561,21 @@ apt-get install git
 
 
 <!---
-Filename: 100-170-Installing\_Examples-0170-Definition\_of\_Design\_Center.md
--->
-
-### Definition: Design Center
-
-The [CFEngine Design Center](http://github.com/cfengine/design-center) is a curated collection of policies and examples.
-
-The CFEngine community contributes policies and examples,
-and the CFEngine staff curate the collection to keep
-quality high.
-
-Our training examples are in the
-"examples/verticalsysadmin\_training\_examples" directory.
-
-
-
-<!---
 Filename: 100-170-Installing\_Examples-0180-Downloading\_VSA\_Examples\_collection.md
 -->
 
 ### Downloading examples
 
-Download Aleksey's fork of the CFEngine Design Center repo
-(Aleksey's fork is usually ahead of the CFEngine repo, with
-respect to the "verticalsysadmin\_training\_examples" directory):
+Download Aleksey's CFEngine Tutorial repository from GitHub:
 
 ```bash
-git clone git://github.com/atsaloli/design-center.git 
+git clone git://github.com/atsaloli/cf3-tutorial.git 
 ```
 
-Go to the Vertical Sysadmin Training Examples directory:
+Go to the Training Examples directory:
 
 ```bash
-cd design-center/examples/verticalsysadmin_training_examples	
+cd source
 ```
 
 
@@ -657,7 +638,7 @@ Filename: 100-180-Installing\_Syntax\_Highlighter-0270-Syntax\_highlighting\_in\
 
 ### Emacs
 
-See "Learning CFEngine 3" book or the [Code Editors](http://cfengine.com/cfengine-code-editors/) page on cfengine.com
+See ["Learning CFEngine 3"](http://shop.oreilly.com/product/0636920022022.do) book or the [Code Editors](http://cfengine.com/cfengine-code-editors/) page on cfengine.com
 
 
 

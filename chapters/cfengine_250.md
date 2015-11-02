@@ -561,22 +561,22 @@ Filename: 250-110-Integer\_Constants-0230-Special\_suffixes\_for\_Integer\_const
 ### Integer Suffixes
 
 *k*
-: value times 1000.
+: value times {$$}1000{/$$}
 
 *m*
-: value times 1000^2
+: value times {$$}1000^2{/$$}
 
 *g*
-: value times 1000^3
+: value times {$$}1000^3{/$$}
 
 *K*
-: value times 1024.
+: value times {$$}1024{/$$}
 
 *M*
-: value times 1024^2
+: value times {$$}1024^2{/$$}
 
 *G*
-: value times 1024^3
+: value times {$$}1024^3{/$$}
 
 *%*
 : meaning percent, in limited contexts
