@@ -1,22 +1,22 @@
 ### Data containers - readjson
 
 1. Turn your array from the previous exercises into
-   a JSON data file, example.json
+   a JSON data file, e.g.:
+
+phones.json:
 
 {
   "iPhone" : "500$",
   "Samsung" : "450$",
 }
 
-2. Read it in a "data" type variable using readjson()
-   function
-
+2. Read it into a "data"-type variable with readjson(), e.g.:
   vars:
 
-      "mydata"
-        data => readjson("/path/to/example.json", 100k);
+      "phones"
+        data => readjson("/path/to/phones.json", "100k");
 
-3. Report its contents   
+3. Report the contents of the data container
    - get the keys using getindices()
    - iterate over the keys to report the values
   vars:

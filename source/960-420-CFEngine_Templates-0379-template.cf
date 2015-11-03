@@ -19,13 +19,10 @@ bundle agent main {
         usebundle => write_letter("$(public)");
 }
       
-
 bundle agent write_letter(first_name) {
 
   files:
-
       "/tmp/letter_to_$(first_name).txt"
-
         handle    => "write_letter",
         create    => "true",
         edit_line => create_from_template;

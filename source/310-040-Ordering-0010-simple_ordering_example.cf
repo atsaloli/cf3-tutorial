@@ -6,5 +6,9 @@ bundle agent main
 
   commands:
 
-      "/bin/echo Hello world!";
+      "/bin/echo Good morning!";
+
+#  reports:
+#      " I love tomatoes";
+
 }

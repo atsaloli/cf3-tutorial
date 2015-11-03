@@ -1,4 +1,9 @@
 #### Exercise
 
-1. create two bundles that each reports its name
-2. have bundle #1 call bundle #2
+1. Create two bundles and make each bundle report its name.
+
+2. Additionally, have bundle #1 call bundle #2.
+
+What will be the order of the bundle names in the reports?
+
+Why?
