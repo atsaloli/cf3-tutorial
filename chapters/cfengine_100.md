@@ -253,7 +253,7 @@ Filename: 100-060-CFEngine\_Components-0430-cfmonitord\_cfknow\_cfreport\_cfhub.
 
 ### Miscellaneous components
 
-**cf-monitord
+**cf-monitord**
 :
 Passive monitoring agent, collects information about the status of your system (which can be reported or used to influence when promises are enforced).
 
