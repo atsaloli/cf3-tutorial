@@ -66,9 +66,9 @@ Filename: 510-050-Special\_Variables-0320-Edit.md
 Special variables with scope "edit" allow you to access information about editing promises during their execution.
 
 
+Example:
 
-### edit.filename
-edit.filename
+**edit.filename**
 : Points to the filename of the file currently making an edit promise.
 
 

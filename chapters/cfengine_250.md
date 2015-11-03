@@ -96,7 +96,7 @@ Filename: 250-020-Processes-0255-Definition\_scalar.md
 
 Definitions
 
-scalar
+**scalar**
 : (programming) Any data type that stores a single value (e.g. a number or Boolean), as opposed to an aggregate data type that has many elements. A string is regarded as a scalar in some languages (e.g. Perl)  --- Free On-Line Dictionary of Computing
 
 In CFEngine syntax, scalar values are enclosed in double quotes:
@@ -111,7 +111,7 @@ process_stop => "/etc/init.d/cups stop",
 Filename: 250-020-Processes-0257-Definition\_list.md
 -->
 
-list
+**list**
 : A data structure holding many values --- Free On-Line Dictionary of Computing
 
 In CFEngine syntax, lists are in curly braces and 
@@ -560,29 +560,21 @@ Filename: 250-110-Integer\_Constants-0230-Special\_suffixes\_for\_Integer\_const
 
 ### Integer Suffixes
 
-*k*
-: value times 1000.
+**k** value times {$$}1000{/$$}
 
-*m*
-: value times 1000^2
+**m** value times {$$}1000^2{/$$}
 
-*g*
-: value times 1000^3
+**g** value times {$$}1000^3{/$$}
 
-*K*
-: value times 1024.
+**K** value times {$$}1024{/$$}
 
-*M*
-: value times 1024^2
+**M** value times {$$}1024^2{/$$}
 
-*G*
-: value times 1024^3
+**G** value times {$$}1024^3{/$$}
 
-*%*
-: meaning percent, in limited contexts
+**%** meaning percent, in limited contexts
 
-*inf*
-: a constant representing an unlimited value.
+**inf** a constant representing an unlimited value.
 
 
 \begin{codelisting}

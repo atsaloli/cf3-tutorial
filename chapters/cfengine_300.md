@@ -19,7 +19,7 @@ Filename: 300-010-Basic\_Examples\_Classes-0000-Classes-Chapter-Title.md
 Filename: 300-010-Basic\_Examples\_Classes-0003-definition.md
 -->
 
-Class
+**Class**
 : A group of things, animals, or people with similar features or qualities. ---Macmillan Dictionary
 
 > Classes are the if ( test ) then of CFEngine language. Tests are built-in
@@ -141,7 +141,7 @@ Filename: 300-015-Basic\_Examples\_Classes\_2-0080-Class\_expression\_operators.
 Class operators are used in logical expressions
 
 
-operator
+**Operator**
 : In programming, a symbol used to perform an arithmetic or logical operation. 
 --- http://encyclopedia2.thefreedictionary.com/operator
 
@@ -154,7 +154,7 @@ Logical operators (in order of precedence of operation)
 | ( ) |  Groupers |
 | ! | NOT |
 | & or . | AND |
-| \| \|\| | OR |
+| \| or \|\| | OR |
 
 ### Truth Tables
 If necessary, review [truth tables](https://en.wikipedia.org/wiki/Truth_table#Logical_conjunction_.28AND.29) for logical operations AND, OR, and NOT

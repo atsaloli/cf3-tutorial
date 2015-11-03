@@ -48,7 +48,7 @@ Filename: 200-020-Definitions-0050-Promise.md
 
 ### Promise
 
-Promise
+**Promise**
 : A promise is a statement of intention.
 
 Trust is an economic time-saver. If you can't trust you have to verify,
@@ -77,13 +77,13 @@ on a real time basis, not just once at install-time.
 
 ### Every promise in CFEngine can have one of three outcomes
 
-KEPT
+**KEPT**
 : No repairs needed, system matches spec (is already converged).
 
-REPAIRED
+**REPAIRED**
 : system did not match spec, and CFEngine repaired it (converged it).
 
-NOTKEPT
+**NOTKEPT**
 : system did not match spec, and CFEngine could not repair (converge) it.
 
 NOTKEPT outcomes likely require attention!
@@ -121,7 +121,7 @@ Filename: 200-020-Definitions-0060-Policy.md
 
 ### Policy
  
-Policy
+**Policy**
 : A policy is a set of intentions about the system, coded as a list of
 promises. A policy is not a standard, but the result of specific
 organizational management decisions.
@@ -168,22 +168,22 @@ Filename: 200-020-Definitions-0090-Promise\_Type.md
 
 
 ### Basic promise types
-files
+**files**
 : A promise about a file, including its existence, attributes and contents.
 
-packages
+**packages**
 : A promise to install (or remove or update or verify) a package.
 
-processes
+**processes**
 : A promise concerning items in the system process table.
 
-vars
+**vars**
 : A promise to be a variable, representing a value.
 
-reports
+**reports**
 : A promise to report a message.
 
-commands
+**commands**
 : A promise to execute a command.
 
 
@@ -217,7 +217,7 @@ Filename: 200-020-Definitions-0110-Promiser.md
 
 ### Promiser
 
-Promiser
+**Promiser**
 : The promiser is the part of the system that will be affected by the
 promise. (We are affected by the promises we make.)
 
@@ -248,7 +248,7 @@ Filename: 200-020-Definitions-0130-Body.md
 
 ### Definition: "Body"
 
-Body
+**Body**
 : The main part of a book or document, not including the introduction,
 notes, or appendices (parts added at the end). --- Macmillan Dictionary
 
@@ -319,12 +319,48 @@ Filename: 200-020-Definitions-0150-Promise\_Bundle.md
 The promise bundle is one of the basic building blocks of configuration
 in CFEngine.
 
-A promise bundle is a group of one or more promises.
+A promise bundle is a group of one or more logically related promises.
 
 The bundle allows us to group related promises, and to refer to such
 groups by name.
 
-We will some examples of promise bundles in the next chapter.
+You can group promises into bundles in the way that makes the most
+sense for your environment and team.
+
+For example:
+
+- *base_os_config* bundle contains promises to configure the base OS,
+
+- *httpd* bundle contains promises to install and configure Apache httpd,
+
+- *inventory_java_mem* contains promises to collect information about Java memory settings (starting and max memory size) used to ensure legacy hosts for the same applications have the same settings.
+
+
+Bundles always have a type which must be specified when you declare a bundle.
+
+The type corresponds to a specific CFEngine component which handles those promises.
+
+| Bundle     | Contains promises for |
+|------------|-----------------------|
+| `agent`    | *cf-agent*, the part of CFEngine that checks and repairs system state
+| `edit_xml` | *cf-agent* promises about file contents when they are structured data (XML)
+| `edit_line`| *cf-agent* promises about file contents when they are unstructured data (everything else)
+| `monitor`  | *cf-monitord*, the system monitoring component installed on every host
+| `server`   | *cf-serverd*, the policy/file server component - usually ACL promises
+| `common`   | Any CFEngine component - usually used to define variables and to classify systems (group hosts by type). More on classification in Chapter 4.
+
+Bundles consist of the keyword `bundle` followed by bundle type and name, followed by curly braces that enclose the promises, e.g.:
+
+```cfengine3
+bundle agent my_example
+{
+
+...  # your promises code goes here
+
+}
+```
+
+Notice our syntax highlighter puts language keywords in green.
 
 
 
@@ -391,12 +427,12 @@ Filename: 200-020-Definitions-0200-Convergence.md
 
 Convergence
 
-convergence
+**Convergence**
 : coming to a desired end state  (Mark Burgess, http://markburgess.org/blog_cd.html)
 
 ![Convergence](images/figures/convergence.pdf)
 
-converge
+**converge**
 : come from different directions and meet at (a place).
 "half a million sports fans will converge on the capital"
 : (of a number of things) gradually change so as to become similar or develop something in common.

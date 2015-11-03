@@ -1,6 +1,6 @@
 ### Promise
 
-Promise
+**Promise**
 : A promise is a statement of intention.
 
 Trust is an economic time-saver. If you can't trust you have to verify,

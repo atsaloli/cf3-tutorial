@@ -1,25 +1,17 @@
 ### Integer Suffixes
 
-*k*
-: value times 1000.
+**k** value times {$$}1000{/$$}
 
-*m*
-: value times 1000^2
+**m** value times {$$}1000^2{/$$}
 
-*g*
-: value times 1000^3
+**g** value times {$$}1000^3{/$$}
 
-*K*
-: value times 1024.
+**K** value times {$$}1024{/$$}
 
-*M*
-: value times 1024^2
+**M** value times {$$}1024^2{/$$}
 
-*G*
-: value times 1024^3
+**G** value times {$$}1024^3{/$$}
 
-*%*
-: meaning percent, in limited contexts
+**%** meaning percent, in limited contexts
 
-*inf*
-: a constant representing an unlimited value.
+**inf** a constant representing an unlimited value.
