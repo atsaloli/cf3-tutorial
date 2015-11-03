@@ -1,6 +1,7 @@
 #!/bin/bash
 
 _DEBUG="off"
+_DEBUG="on"
 
 function DEBUG()
 {
@@ -64,7 +65,7 @@ if [[ "${file}" =~ SKIP|skip|CLASSONLY ]]; then
 elif [[ "${file}" =~ cf$ ]]; then
   filetype=cfengine3
 elif [[ "${file}" =~ exr.md$ ]]; then
-  filetype=markdown
+  filetype=exercise
   # Exercise files, in case we want to do
   # something special with them later,
   # such as build an index of exercises
@@ -120,10 +121,14 @@ if [ "$filetype" == "exercise" ];then
   > $target
   echo "" >> $target 
   echo "#### Exercise $EXERCISE_COUNTER" >> $target
-  echo "" >> $target 
-  cat $file >> $target 
-  echo "" >> $target 
-  echo >> $target 
+  echo '<!---'                 >> $target  # embed source filename as a comment
+  echo "Filename: ${filename}" >> $target  # so we can find it easily if we need
+  echo '-->'                   >> $target  # to make changes
+  echo                         >> $target	
+  cat $file                    >> $target 
+  echo                         >> $target 
+  DEBUG echo '\coloredtext{red}{' ${filename} '}' >>$target
+  echo                         >> $target 
   EXERCISE_COUNTER=`expr $EXERCISE_COUNTER + 1`
 fi
 
