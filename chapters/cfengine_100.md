@@ -253,7 +253,7 @@ Filename: 100-060-CFEngine\_Components-0430-cfmonitord\_cfknow\_cfreport\_cfhub.
 
 ### Miscellaneous components
 
-**cf-monitord
+**cf-monitord**
 :
 Passive monitoring agent, collects information about the status of your system (which can be reported or used to influence when promises are enforced).
 
@@ -287,10 +287,10 @@ Filename: 100-060-CFEngine\_Components-0435-cfengine-versions.md
 **cfengine-community**
 : Open-source product, also known as CFEngine Core.
 
-The commercial product is called CFEngine Enterprise and it's Core plus Enterprise extensions (such as Reporting, native Windows build, etc.)
+The commercial product is called CFEngine Enterprise. This is CFEngine Core, plus Enterprise extensions (such as Reporting, native Windows build, etc.)
 
 
-The original name for the first generation of the CFEngine Enterprise product was "Nova" and this is still reflected in thename of the packages:
+The original name for the first generation of the CFEngine Enterprise product was "Nova" and this is still reflected in the name of the packages:
 
 
 **cfengine-nova-hub**
