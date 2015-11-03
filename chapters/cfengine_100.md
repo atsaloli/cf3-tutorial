@@ -196,15 +196,15 @@ CFEngine 3 consists of a number of components.
 ###  Agent (and the Syntax Checker it relies on)
 
 
-cf-agent
+**cf-agent**
 : The CFEngine component that audits and makes any needed repairs to your system system. Actually does the work, as far as configuration management is concerned.
 
 ```bash
    cf-agent -f ./your_policy.cf
 ```
 
-cf-promises
-: You can use it to syntax check your policies:
+**cf-promises**
+: Syntax checker.
 
 ```bash
     cf-promises -f ./your_policy.cf
@@ -220,7 +220,7 @@ Filename: 100-060-CFEngine\_Components-0410-The\_Executor\_cf\_execd.md
 
 
 ### Executor
-cf-execd
+**cf-execd**
 : Used to run cf-agent on a regular (and user-configurable) basis, and to handle its output.
 
 
@@ -232,16 +232,16 @@ Filename: 100-060-CFEngine\_Components-0420-Networking\_cfserverd\_cfkey\_cfruna
 
 ### Inter-Node Communication
 
-cf-serverd
+**cf-serverd**
 : File server, used to distribute files; listens for network requests for additional runs of the local agent.  
 
-cf-key
+**cf-key**
 : Key generation tool, used on every host to create public/private key pairs for secure communication.
 
-cf-runagent
+**cf-runagent**
 : Remote run agent, is used to execute cf-agent on a remote machine.  cf-runagent does not keep any promises, but instead is used to ask another machine to do so.
 
-cf-hub
+**cf-hub**
 : CFEngine Enterprise only, used to collect reports from hosts (connects to remote cf-serverd).
 
 
@@ -253,26 +253,26 @@ Filename: 100-060-CFEngine\_Components-0430-cfmonitord\_cfknow\_cfreport\_cfhub.
 
 ### Miscellaneous components
 
-cf-monitord
+**cf-monitord
 :
 Passive monitoring agent, collects information about the status of your system (which can be reported or used to influence when promises are enforced).
 
 The following add-on tools have to be installed separately:
 
 
-cf-deploy
+**cf-deploy**
 : Policy deployment automation tool.
 
-reindent.pl
+**reindent.pl**
 : Source code reformatter (like "tidy").  In contrib/.
 
-cf-locate
+**cf-locate**
 : Locate bundles in CFEngine source code.  In contrib/.
 
-cf-profiler
+**cf-profiler**
 : Profiler (measures how long your bundles take to run so you can find and tune any slow spots)
 
-cf-profile.pl
+**cf-profile.pl**
 : Alternative profiler from Jon-Henrik (https://github.com/cfengineers-net/cf-profile)
 
 
@@ -284,7 +284,7 @@ Filename: 100-060-CFEngine\_Components-0435-cfengine-versions.md
 ### CFEngine Packages
 
 
-cfengine-community
+**cfengine-community**
 : Open-source product, also known as CFEngine Core.
 
 The commercial product is called CFEngine Enterprise and it's Core plus Enterprise extensions (such as Reporting, native Windows build, etc.)
@@ -293,11 +293,11 @@ The commercial product is called CFEngine Enterprise and it's Core plus Enterpri
 The original name for the first generation of the CFEngine Enterprise product was "Nova" and this is still reflected in thename of the packages:
 
 
-cfengine-nova-hub
+**cfengine-nova-hub**
 : Core plus Mission Portal (which is Report Collection system and an Admin GUI on an Apache/PHP/PostgreSQL stack with a Redis cache for report collection)
 
 
-cfengine-nova
+**cfengine-nova**
 : Core plus Enterprise extensions (e.g. reporting)
 
 

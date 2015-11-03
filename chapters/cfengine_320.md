@@ -108,10 +108,10 @@ Filename: 320-150-Editing\_Files-0380-replace\_patterns\_and\_edit\_field.md
 
 There are two other promise types you can make in edit\_line bundles:
 
-replace\_patterns
+**replace\_patterns**
 : search and replace
 
-edit\_field
+**edit\_field**
 : columnar editing
 
 We will look at them later.

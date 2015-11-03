@@ -48,7 +48,7 @@ Filename: 200-020-Definitions-0050-Promise.md
 
 ### Promise
 
-Promise
+**Promise**
 : A promise is a statement of intention.
 
 Trust is an economic time-saver. If you can't trust you have to verify,
@@ -77,13 +77,13 @@ on a real time basis, not just once at install-time.
 
 ### Every promise in CFEngine can have one of three outcomes
 
-KEPT
+**KEPT**
 : No repairs needed, system matches spec (is already converged).
 
-REPAIRED
+**REPAIRED**
 : system did not match spec, and CFEngine repaired it (converged it).
 
-NOTKEPT
+**NOTKEPT**
 : system did not match spec, and CFEngine could not repair (converge) it.
 
 NOTKEPT outcomes likely require attention!
@@ -121,7 +121,7 @@ Filename: 200-020-Definitions-0060-Policy.md
 
 ### Policy
  
-Policy
+**Policy**
 : A policy is a set of intentions about the system, coded as a list of
 promises. A policy is not a standard, but the result of specific
 organizational management decisions.
@@ -168,22 +168,22 @@ Filename: 200-020-Definitions-0090-Promise\_Type.md
 
 
 ### Basic promise types
-files
+**files**
 : A promise about a file, including its existence, attributes and contents.
 
-packages
+**packages**
 : A promise to install (or remove or update or verify) a package.
 
-processes
+**processes**
 : A promise concerning items in the system process table.
 
-vars
+**vars**
 : A promise to be a variable, representing a value.
 
-reports
+**reports**
 : A promise to report a message.
 
-commands
+**commands**
 : A promise to execute a command.
 
 
@@ -217,7 +217,7 @@ Filename: 200-020-Definitions-0110-Promiser.md
 
 ### Promiser
 
-Promiser
+**Promiser**
 : The promiser is the part of the system that will be affected by the
 promise. (We are affected by the promises we make.)
 
@@ -248,7 +248,7 @@ Filename: 200-020-Definitions-0130-Body.md
 
 ### Definition: "Body"
 
-Body
+**Body**
 : The main part of a book or document, not including the introduction,
 notes, or appendices (parts added at the end). --- Macmillan Dictionary
 
@@ -427,12 +427,12 @@ Filename: 200-020-Definitions-0200-Convergence.md
 
 Convergence
 
-convergence
+**Convergence**
 : coming to a desired end state  (Mark Burgess, http://markburgess.org/blog_cd.html)
 
 ![Convergence](images/figures/convergence.pdf)
 
-converge
+**converge**
 : come from different directions and meet at (a place).
 "half a million sports fans will converge on the capital"
 : (of a number of things) gradually change so as to become similar or develop something in common.
