@@ -8,7 +8,7 @@ exit 1
 }
 
 
-if [[ $# -eq 0 ]]; then
+if [ $# -eq 0 ]; then
   FILES=src/*.cf
 else
   FILES="$@"
