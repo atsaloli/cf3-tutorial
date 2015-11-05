@@ -1,5 +1,8 @@
 bundle agent main {
 
+reports:
+"$(sys.libdir)/stdlib.cf" ; 
+
   files:
 
       "/tmp/testfile"

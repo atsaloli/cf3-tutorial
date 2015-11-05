@@ -18,4 +18,6 @@ This can take several forms:
 
                       { @(list_variable_name) }
 
+                      boolean
+
 In each of these cases, the right hand side is a user choice. 
