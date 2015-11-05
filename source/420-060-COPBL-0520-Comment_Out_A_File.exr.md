@@ -1,8 +1,14 @@
-Run the following command:
+Run the following command to generate some content:
 
 ```bash
 date  > /tmp/date.txt
 ```
 
-Now write a CFEngine policy that will comment out (using #) the contents of that file.
+Write a CFEngine policy that will comment out (using #)
+all lines that start with a day of the week:
 
+
+    edit_line => comment_lines_matching("(Mon|Tue|Wed|Thur|Fri|Sat|Sun).*" ,
+                                        "#")
+
+out of the standard library.
