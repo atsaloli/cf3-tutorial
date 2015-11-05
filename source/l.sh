@@ -26,7 +26,8 @@ install_remark() {
 
 # l.sh depends on "remark" which is provided by "regex-markup" from nongnu.org.
 # let's check that "remark" is installed, and if it's not, then install it
-[ -x `which remark` ] || install_remark
+
+command -v remark >/dev/null 2>&1 || install_remark
 
 
 # display a colorized file list, in alphanumeric order
