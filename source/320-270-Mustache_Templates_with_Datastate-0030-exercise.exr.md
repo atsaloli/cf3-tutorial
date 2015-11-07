@@ -1,17 +1,27 @@
 ### Make a mustache template that accesses variables from CFEngine datastate
 
-Example, put the value of the hostname into /etc/motd
+Create the /etc/motd file from a Mustache template that will
+include the host name and time.
 
-```cfengine3
-$(sys.fqhost)
-```
+E.g.:
+
+$ cat /etc/motd
+*** Unauthorized Use Forbidden ***
+
+Welcome to apple.example.com
+
+This system is managed by CFEngine.
+CFEngine last ran at Thu Nov  5 19:22:03 GMT 2015
+$
 
 
-Example mustache template text:
 
-```text
-   The time is: {{vars.sys.date}}
-```
+
+
+
+
+
+
 
 ### Make a mustache template that accesses classes from CFEngine datastate
 

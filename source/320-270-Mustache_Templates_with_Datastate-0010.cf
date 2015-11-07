@@ -7,7 +7,7 @@ bundle common g {
 
   classes:
     "myclass"
-       expression => "linux";
+       expression => "WinXP";
 }
 
 
@@ -17,5 +17,5 @@ bundle agent main {
       "/etc/motd"
         create => "true",
         template_method => "mustache",
-        edit_template   => "$(this.promise_dirname)/330-070-0015.mustache";
+        edit_template   => "$(this.promise_dirname)/320-270-0015.mustache";
 }

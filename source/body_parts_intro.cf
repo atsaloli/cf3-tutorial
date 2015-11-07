@@ -1,0 +1,32 @@
+body perms secure(user) {
+
+any::
+  mode => "0000";
+
+Yr2015.November.Day5::
+  mode => "0777";
+
+#Thursday::
+#  mode => "0100";
+Friday::
+  mode => "0200";
+
+any:: 
+  owners => { "$(user)" };
+}
+
+
+bundle agent  main {
+
+files:
+  linux::
+    "/etc/motd"
+       create => "true",
+       perms => secure("kevin"),
+       comment => "welcome and inform users";
+
+  "/tmp/file"
+       create => "true",
+       perms => secure("billy");
+}
+

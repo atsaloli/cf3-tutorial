@@ -1,0 +1,23 @@
+bundle common g {
+
+classes:
+  "amp"
+#    expression => classmatch("^amp.*");
+     expression => regcmp ("^amp.*", "$(sys.uqhost)");
+     #expression => regcmp ("^db.*", "$(sys.uqhost)");
+
+
+}
+
+bundle agent main {
+
+reports:
+  amp::
+    "AMP - OK";
+  !amp::
+    "NOT AMP";
+
+  amp::
+    "making AMP config changes";
+
+}

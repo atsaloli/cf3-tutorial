@@ -1,0 +1,11 @@
+bundle agent main {
+
+vars:
+  "hostdb"
+     data => readyaml("/config/host.yaml", 100k);
+  "packed_hostdb"
+     string => format("%S", "hostdb");
+reports:
+  "$(packed_hostdb)";
+}
+
