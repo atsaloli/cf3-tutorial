@@ -3,53 +3,50 @@
 # They appear in the Defined Classes section at the start of
 # verbose output.
 #
-# Classes defined in all other bundles are local
+# Classes defined in all other bundles are local. You will see
+# them defined in verbose mode as well (the "C" stands for classes):
+#
+# verbose: C: BEGIN classes / conditions (pass 1)
+# verbose: C: .........................................................
+# verbose: C:     +  Private class: local_class
 
-bundle common global_classes {
+body common control
+{ 
+  bundlesequence => { "g",
+                      "example_1",
+                      "example_2",
+                    };
+}
 
+
+bundle common g {
   classes:
-
-      "webserver"
-
-        expression  =>  classmatch("web[0-9]+");
-
+      "global_class"
+        expression  =>  "any";
 }
 
-
-
-bundle agent main {
-  methods:
-      "any" usebundle => example_1;
-      "any" usebundle => example_2;
-}
 
 bundle agent example_1
 {
-
   classes:
       "local_class"
-        expression  =>  classmatch("web[0-9]+");
+        expression  => "any";
 
   reports:
-    webserver::
-      "bundle 'example_1': I am a Web server (global class)";
-
-  reports:
-    local_class::
-      "bundle 'example_1': I am a Web server (local class)";
-
+    global_class:: "Bundle example_1: global class 'global_class' detected";
+    local_class::  "Bundle example_1: local class 'local_class' detected";
 }
 
 
 bundle agent example_2
 {
-
   reports:
-    webserver::
-      "bundle 'example_2': I am a Web server (global class)";
-
-  reports:
-    local_class::
-      "bundle 'example_2': I am a Web server (local class)";
-
+    global_class:: "Bundle example_2: global class 'global_class' detected";
+    local_class::  "Bundle example_2: local class 'local_class' detected";
 }
+
+# Output:
+#
+# R: Bundle example_1: global class 'global_class' detected
+# R: Bundle example_1: local class 'local_class' detected
+# R: Bundle example_2: global class 'global_class' detected

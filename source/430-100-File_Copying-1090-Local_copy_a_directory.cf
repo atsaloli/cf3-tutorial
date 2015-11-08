@@ -1,25 +1,17 @@
 body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
 
-
-########################################
-
-
 bundle agent main
 {
-
   vars:
 
-      # A standard location for the source point
-      "master_location" string => "/var/cfengine/masterfiles";
+      "master_location"
+        string       => "/var/cfengine/masterfiles";
 
   files:
 
       "/var/cfengine/inputs/."
 
-        comment      => "Update the policy files from the master",
+        comment      => "Update policy files cache from master",
         copy_from    => local_cp("$(master_location)"),
         depth_search => recurse("inf");
-
-      #   /var/cfengine/masterfiles -----
-
 }

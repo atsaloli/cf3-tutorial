@@ -1,16 +1,12 @@
 body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
-#body file control { inputs => { "/var/cfengine/inputs/lib/3.6/stdlib.cf" }; }
-
-
-########################################
-
 
 bundle agent main {
 
   files:
 
-      "/etc/motd"
+      "/root/etc_group.bak"
 
-        copy_from    => local_cp("/templates/motd.txt");
+        copy_from    => local_cp("/etc/group"),
+        comment      => "Demonstrate local file copy";
 
 }

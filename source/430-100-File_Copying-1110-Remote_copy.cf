@@ -3,7 +3,7 @@ bundle agent main {
   vars:
 
       "remote_path" string => "/var/cfengine/masterfiles";
-      "remote_server" string => "205.186.156.208";
+      "remote_server" string => "$(sys.policy_hub)";
 
   files:
 
@@ -11,18 +11,18 @@ bundle agent main {
 
         handle => "update_inputs_dir",
         comment => "Pull down latest policy set",
-        perms => u_p("600"),
-        copy_from => u_remote_cp("$(remote_path)","$(remote_server)"),
-        depth_search => u_recurse("inf"),
-        action => u_immediate;
+        perms => m("600"),
+        copy_from => remote_cp("$(remote_path)","$(remote_server)"),
+        depth_search => recurse("inf"),
+        action => immediate;
 }
 
-body perms u_p(p)
+body perms m(mode)
 {
-        mode  => "$(p)";
+        mode  => "$(mode)";
 }
 
-body copy_from u_remote_cp(from,server)
+body copy_from remote_cp(from,server)
 {
         servers     => { "$(server)" };
         source      => "$(from)";
@@ -30,13 +30,13 @@ body copy_from u_remote_cp(from,server)
         trustkey    => "true";  # trust the server's public key
 }
 
-body depth_search u_recurse(d)
+body depth_search recurse(d)
 {
         depth => "$(d)";
         xdev  => "true";
 }
 
-body action u_immediate
+body action immediate
 {
         ifelapsed => "0";
 }

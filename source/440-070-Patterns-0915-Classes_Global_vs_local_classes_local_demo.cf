@@ -1,0 +1,26 @@
+body common control {
+
+        bundlesequence => { "example_1", "example_2" };
+
+}
+
+
+bundle common example_1 {
+
+  classes:
+      "webserver"
+        expression  =>  "any";
+
+      # Because this is now a "common" bundle, other bundles will
+      # see this class.
+}
+
+
+bundle agent example_2
+{
+  reports:
+    webserver::
+      "Bundle example_1: I am a Web server";
+}
+
+

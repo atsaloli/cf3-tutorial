@@ -1,19 +1,25 @@
+body common control
+{
+  inputs => { "$(sys.libdir)/stdlib.cf" };
+  bundlesequence => { "example_1", "example_2" };
+}
+
 bundle agent example_1 {
 
   files:
-      "/tmp/motd"
+      "/tmp/wednesday"
         create => "true",
-        classes => if_repaired("its_wed");
-
+        classes => if_repaired("fixed_something"),
+        comment => "Demonstrate that classes created by if_repaired
+                    are global and therefore visible to other bundles";
 }
 
 
 bundle agent example_2 {
 
   reports:
-    its_wed::
-      "Yay!  I love Wednesdays!";
+    fixed_something::
+      "Detected global class 'fixed_something'.";
 
 }
 
-body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }

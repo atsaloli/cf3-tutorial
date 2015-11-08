@@ -1,8 +1,8 @@
-### Use CFEngine to make '/tmp/mirror' contain a copy of '/usr/local/sbin'
+Copy /usr/local/sbin/ to /tmp/mirror/
 
-1.  Use CFEngine to make '/tmp/mirror' contain a copy of '/usr/local/sbin'
+1. Use CFEngine to make '/tmp/mirror' contain a copy of '/usr/local/sbin'
 (Hint: use a files promise with a copy\_from attribute.)
 
 2. Now create a new file in '/usr/local/sbin' and confirm CFEngine will copy it over.
 
-3. Work out how to mirror file removals.  (When a file is removed in '/usr/local/sbin', it should disappear in '/tmp/mirror'.)
+3. Work out how to mirror file removals. (When a file is removed in '/usr/local/sbin', it should disappear in '/tmp/mirror'.)  (Hint: find the appropriate promise attribute in our Agent Promise Attributes summary.)

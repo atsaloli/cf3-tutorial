@@ -5,7 +5,7 @@ bundle agent main
 
   classes:
       "heads"
-        handle => "flip_a_coin_class",
+        handle => "flip_a_coin",
         comment => "Generate a class with a 50% probability",
         expression => isgreaterthan(randomint(1,100), 50);
 
