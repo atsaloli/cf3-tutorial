@@ -1,3 +1,13 @@
+# This is an example "policy update" policy that promises that
+# /var/cfengine/inputs will be a copy of /var/cfengine/masterfiles
+# on the hub.
+#
+# It's more or less what the update policy looked like early on.
+# Now the update policy is more sophisticated, with
+# some tricks to improve performance, although fundamentally, 
+# what the update policy does is still: ensure that local directory
+# /var/cfengine/inputs is a copy of the hub's /var/cfengine/masterfiles
+
 bundle agent main {
 
   vars:
