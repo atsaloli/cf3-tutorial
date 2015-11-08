@@ -2,11 +2,11 @@
 # /var/cfengine/inputs will be a copy of the hub's
 # /var/cfengine/masterfiles
 #
-# The following what the update policy looked like early on
-# (near CFEngine 3.0).
+# The following is what the update policy looked like early on,
+# near CFEngine 3.0.
 #
 # Now the update policy is more sophisticated, with
-# some tricks to improve performance, although fundamentally, 
+# tricks to improve performance, although fundamentally, 
 # what the update policy does is still: ensure that local directory
 # /var/cfengine/inputs is a copy of the hub's /var/cfengine/masterfiles
 
