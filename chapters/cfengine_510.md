@@ -5,6 +5,7 @@ Filename: 510-000-Part-Title-0000-Special\_Variables.md
 
 # Special Variables
 
+\coloredtext{red}{ 510-000-Part-Title-0000-Special\_Variables.md }
 
 
 <!---
@@ -13,6 +14,7 @@ Filename: 510-050-Special\_Variables-0000-Chapter-Title.md
 
 ## CFEngine Special Variables
 
+\coloredtext{red}{ 510-050-Special\_Variables-0000-Chapter-Title.md }
 
 
 <!---
@@ -25,6 +27,7 @@ CFEngine has some special variables.
 
 You can see the whole list in section "Special Variables" in the reference manual, but here is a taste of them.
 
+\coloredtext{red}{ 510-050-Special\_Variables-0290-Introduction.md }
 
 
 <!---
@@ -33,6 +36,7 @@ Filename: 510-050-Special\_Variables-0300-title\_card.md
 
 ### Constants
 
+\coloredtext{red}{ 510-050-Special\_Variables-0300-title\_card.md }
 
 \begin{codelisting}
 \codecaption{510-050-Special\_Variables-0310-Const.cf}
@@ -72,6 +76,7 @@ Example:
 : Points to the filename of the file currently making an edit promise.
 
 
+\coloredtext{red}{ 510-050-Special\_Variables-0320-Edit.md }
 
 \begin{codelisting}
 \codecaption{510-050-Special\_Variables-0330-Edit.cf}
@@ -122,6 +127,7 @@ Filename: 510-050-Special\_Variables-0340-Match.md
 
 ### Match
 
+\coloredtext{red}{ 510-050-Special\_Variables-0340-Match.md }
 
 \begin{codelisting}
 \codecaption{510-050-Special\_Variables-0350-Match\_While\_searching\_for\_files.cf}
@@ -228,6 +234,7 @@ Filename: 510-050-Special\_Variables-0370-Monitoring.md
 
 ### Monitoring
 
+\coloredtext{red}{ 510-050-Special\_Variables-0370-Monitoring.md }
 
 \begin{codelisting}
 \codecaption{510-050-Special\_Variables-0380-Mon\_Report\_environmental\_conditions.cf}
@@ -383,6 +390,7 @@ sys.winsysdir: /dev/null
 sys.workdir: /var/cfengine
 ```
 
+\coloredtext{red}{ 510-050-Special\_Variables-0400-Sys\_Report\_sys\_variables.md }
 
 
 <!---
@@ -441,6 +449,7 @@ Output on my system `myhost.example.com`:
    sys.workdir: /var/cfengine
 ```
 
+\coloredtext{red}{ 510-050-Special\_Variables-0401-system\_variables\_output.md }
 
 
 <!---
@@ -449,6 +458,7 @@ Filename: 510-050-Special\_Variables-0410-This.md
 
 ### This
 
+\coloredtext{red}{ 510-050-Special\_Variables-0410-This.md }
 
 \begin{codelisting}
 \codecaption{510-050-Special\_Variables-0420-This\_promise\_filename.cf}
@@ -503,17 +513,29 @@ bundle agent main
 \begin{codelisting}
 \codecaption{510-050-Special\_Variables-0440-This\_promiser\_transformer\_simple.cf}
 ```cfengine3, options: "linenos": true
+# To setup for this example, run:
+#   /bin/date > /var/log/date1.txt
+#   /bin/date > /var/log/date2.txt
+
+
 bundle agent main {
 
   files:
 
-      "/var/log/.*.conf"
+      "/var/log/.*\.txt"
 
-        handle => "compress_old_files",
-        comment => "Compress files more than 2 days old",
-        depth_search => recurse("inf"),
+        comment => "Compress files matching pattern",
         transformer => "/bin/gzip $(this.promiser)";
 }
+
+
+# You should see:
+#    info: Transforming '/bin/gzip /var/log/date1.txt' 
+#    info: Transformer '/var/log/date1.txt' =>
+#             '/bin/gzip /var/log/date1.txt' seemed to work ok
+#    info: Transforming '/bin/gzip /var/log/date2.txt' 
+#    info: Transformer '/var/log/date2.txt' =>
+#             '/bin/gzip /var/log/date2.txt' seemed to work ok
 
 ```
 \end{codelisting}
@@ -625,22 +647,6 @@ body file_select world_writeable_but_not_a_symlink
         search_mode => { "o+w" };
         file_types => { "symlink" };
         file_result => "mode.!file_types";
-
-}
-```
-\end{codelisting}
-\begin{codelisting}
-\codecaption{510-050-Special\_Variables-0480-This\_promiser\_In\_commands\_promises.cf}
-```cfengine3, options: "linenos": true
-# Note: this does not work in 3.1.5; fixed in version 3.2.0.
-# Broken again in 3.2.1
-
-
-bundle agent main {
-
-  commands:
-
-      "/bin/echo $(this.promiser)";
 
 }
 ```

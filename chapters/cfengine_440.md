@@ -9,15 +9,22 @@ Patterns are a way of compressing information.
 
 The CFEngine 3 language is made of promises and patterns; it’s about using patterns to create concise but powerful promises.
 
+This can be summarized by the following formula:
 
+{$$}
+{Promises} {+} {Patterns} = {Configuration}
+{/$$}
+
+\coloredtext{red}{ 440-000-Part-Title-0000-Patterns.md }
 
 
 <!---
 Filename: 440-070-Patterns-0000-Chapter-Title.md
 -->
 
-## Patterns + Promises = Configuration
 
+
+\coloredtext{red}{ 440-070-Patterns-0000-Chapter-Title.md }
 
 
 <!---
@@ -30,10 +37,13 @@ An example of a pattern in CFEngine is a list.  You can have a list of things yo
 
 Implicit looping creates multiple promises that follow the promise pattern.
 
+\coloredtext{red}{ 440-070-Patterns-0700-Lists.md }
 
 \begin{codelisting}
 \codecaption{440-070-Patterns-0710-Lists\_Implicit\_looping\_over\_a\_list\_of\_packages.cf}
 ```cfengine3, options: "linenos": true
+body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
+
 bundle agent main {
 
       ######################################################
@@ -67,7 +77,8 @@ bundle agent main {
         };
 
       ######################################################
-      # Below here is stock convergent code, forget this...
+      # Below is the code that implements the above.
+      # Forget this part... The above is what's important.
       ######################################################
 
   packages:
@@ -89,7 +100,6 @@ bundle agent main {
 
 }
 
-body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
 ```
 \end{codelisting}
 \begin{codelisting}
@@ -132,6 +142,7 @@ Regular Expressions is another way of writing patterns.
 CFEngine supports POSIX and PCRE regular expressions.  (PCRE by default.)
 
 
+\coloredtext{red}{ 440-070-Patterns-0730-Regular\_expressions.md }
 
 \begin{codelisting}
 \codecaption{440-070-Patterns-0740-Regular\_expressions\_Files.cf}
@@ -150,7 +161,7 @@ bundle agent main {
 }
 
 
-body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
+body file control { inputs => { "/var/cfengine/inputs/lib/3.6/stdlib.cf" }; }
 ```
 \end{codelisting}
 
@@ -166,6 +177,7 @@ Filename: 440-070-Patterns-0750-Body\_templates.md
 
 External body parts are intended to aid in such abstraction.
 
+\coloredtext{red}{ 440-070-Patterns-0750-Body\_templates.md }
 
 
 <!---
@@ -173,8 +185,18 @@ Filename: 440-070-Patterns-0760-Classes.md
 -->
 
 ## Classes
-This chapter discusses Classes.
 
+Classes describe patterns in space and time.
+
+Examples:
+
+* hosts in the London data center,
+
+* Solaris hosts in Texas,
+
+* Linux hosts between 2:00 and 4:00 A.M. on Sunday
+
+\coloredtext{red}{ 440-070-Patterns-0760-Classes.md }
 
 \begin{codelisting}
 \codecaption{440-070-Patterns-0770-Classes\_using\_classes\_to\_link\_promises\_BONUS\_logme.cf}
@@ -303,68 +325,6 @@ bundle agent main {
 }
 ```
 \end{codelisting}
-
-<!---
-Filename: 440-070-Patterns-0810-Classes\_Default\_classes\_cf\_monitord.md
--->
-
-### Example of classes provided by cf-monitord
-
-If you are running cf-monitord, you may also see entropy and anomaly detection classes:
-
-### entropy
-
-```text
-entropy_cfengine_in_low
-entropy_cfengine_out_low
-entropy_dns_in_low
-entropy_dns_out_low
-entropy_ftp_in_low
-entropy_ftp_out_low
-entropy_icmp_in_low
-entropy_icmp_out_low
-entropy_irc_in_low
-entropy_irc_out_low
-entropy_misc_in_low
-entropy_misc_out_low
-entropy_netbiosdgm_in_low
-entropy_netbiosdgm_out_low
-entropy_netbiosns_in_low
-entropy_netbiosns_out_low
-entropy_netbiosssn_in_low
-entropy_netbiosssn_out_low
-entropy_nfsd_in_low
-entropy_nfsd_out_low
-entropy_smtp_in_low
-entropy_smtp_out_low
-entropy_tcpack_in_low
-entropy_tcpack_out_low
-entropy_tcpfin_in_low
-entropy_tcpfin_out_low
-entropy_tcpsyn_in_low
-entropy_tcpsyn_out_low
-entropy_udp_in_low
-entropy_udp_out_low
-entropy_www_in_low
-entropy_www_out_low
-entropy_wwws_in_low
-entropy_wwws_out_low
-```
-
-A low entropy value means that most of the events came from only a few (or one) IP addresses. A high entropy value implies that the events were spread over many IP sources.
-
-
-### Anomaly Detection Example Classes:
-
-`loadavg_high_ldt` - load average higher than usual (based on Leap-Detection Test)
-
-`messages_high_dev1` - the current value of the metric is more than 1 standard deviation above the average.
-
-etc.
-
-Reference: http://www.iu.hio.no/cfengine/docs/cfengine-Anomalies.pdf
-
-
 \begin{codelisting}
 \codecaption{440-070-Patterns-0820-Classes\_Report\_type\_of\_weekday\_Uses\_a\_custom\_class.cf}
 ```cfengine3, options: "linenos": true
@@ -433,10 +393,14 @@ bundle agent main {
 }
 ```
 \end{codelisting}
-
 <!---
 Filename: 440-070-Patterns-0850-Classes.exr.md
 -->
+\begin{aside}
+\label{aside:exercise_35}
+\heading{}
+
+Practice using classes
 
 * Set a custom class if the file '/tmp/testme' exists.
 
@@ -447,6 +411,8 @@ Filename: 440-070-Patterns-0850-Classes.exr.md
 * Now, remove '/tmp/testme' and run your policy and observe and explain what happens.
 
 
+\end{aside}
+\coloredtext{red}{ 440-070-Patterns-0850-Classes.exr.md }
 
 <!---
 Filename: 440-070-Patterns-0860-Classes\_Scope.md
@@ -454,6 +420,7 @@ Filename: 440-070-Patterns-0860-Classes\_Scope.md
 
 ### Note: Classes have Scope
 
+\coloredtext{red}{ 440-070-Patterns-0860-Classes\_Scope.md }
 
 \begin{codelisting}
 \codecaption{440-070-Patterns-0870-Classes\_Scope.cf}
@@ -515,25 +482,31 @@ bundle agent main {
 \begin{codelisting}
 \codecaption{440-070-Patterns-0890-Classes\_if\_repaired\_creates\_global\_classes.cf}
 ```cfengine3, options: "linenos": true
+body common control
+{
+  inputs => { "$(sys.libdir)/stdlib.cf" };
+  bundlesequence => { "example_1", "example_2" };
+}
+
 bundle agent example_1 {
 
   files:
-      "/tmp/motd"
+      "/tmp/wednesday"
         create => "true",
-        classes => if_repaired("its_wed");
-
+        classes => if_repaired("fixed_something"),
+        comment => "Demonstrate that classes created by if_repaired
+                    are global and therefore visible to other bundles";
 }
 
 
 bundle agent example_2 {
 
   reports:
-    its_wed::
-      "Yay!  I love Wednesdays!";
+    fixed_something::
+      "Detected global class 'fixed_something'.";
 
 }
 
-body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
 ```
 \end{codelisting}
 \begin{codelisting}
@@ -544,56 +517,53 @@ body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
 # They appear in the Defined Classes section at the start of
 # verbose output.
 #
-# Classes defined in all other bundles are local
+# Classes defined in all other bundles are local. You will see
+# them defined in verbose mode as well (the "C" stands for classes):
+#
+# verbose: C: BEGIN classes / conditions (pass 1)
+# verbose: C: .........................................................
+# verbose: C:     +  Private class: local_class
 
-bundle common global_classes {
+body common control
+{ 
+  bundlesequence => { "g",
+                      "example_1",
+                      "example_2",
+                    };
+}
 
+
+bundle common g {
   classes:
-
-      "webserver"
-
-        expression  =>  classmatch("web[0-9]+");
-
+      "global_class"
+        expression  =>  "any";
 }
 
-
-
-bundle agent main {
-  methods:
-      "any" usebundle => example_1;
-      "any" usebundle => example_2;
-}
 
 bundle agent example_1
 {
-
   classes:
       "local_class"
-        expression  =>  classmatch("web[0-9]+");
+        expression  => "any";
 
   reports:
-    webserver::
-      "bundle 'example_1': I am a Web server (global class)";
-
-  reports:
-    local_class::
-      "bundle 'example_1': I am a Web server (local class)";
-
+    global_class:: "Bundle example_1: global class 'global_class' detected";
+    local_class::  "Bundle example_1: local class 'local_class' detected";
 }
 
 
 bundle agent example_2
 {
-
   reports:
-    webserver::
-      "bundle 'example_2': I am a Web server (global class)";
-
-  reports:
-    local_class::
-      "bundle 'example_2': I am a Web server (local class)";
-
+    global_class:: "Bundle example_2: global class 'global_class' detected";
+    local_class::  "Bundle example_2: local class 'local_class' detected";
 }
+
+# Output:
+#
+# R: Bundle example_1: global class 'global_class' detected
+# R: Bundle example_1: local class 'local_class' detected
+# R: Bundle example_2: global class 'global_class' detected
 ```
 \end{codelisting}
 \begin{codelisting}
@@ -601,62 +571,98 @@ bundle agent example_2
 ```cfengine3, options: "linenos": true
 body common control {
 
-        bundlesequence => { "example_1", "example2" };
+        bundlesequence => { "example_1", "example_2" };
 
 }
 
 
-
-bundle agent global_classes {
+bundle agent example_1 {
 
       # Classes defined in common bundles are global.
       #
       # They appear in the Defined Classes section at the start of
       # verbose output.
       #
-      # Classes defined in all other bundles are local
-
+      # Classes defined in agent bundles are local
 
   classes:
-
       "webserver"
+        expression  =>  "any";
 
-        expression  =>  classmatch("web[0-9]+");
+      # Because this is an "agent" bundle, other bundles won't
+      # see this class.
+}
+
+
+bundle agent example_2
+{
+  reports:
+    webserver::
+      "Bundle example_1: I am a Web server";
+}
+
+
+```
+\end{codelisting}
+\begin{codelisting}
+\codecaption{440-070-Patterns-0915-Classes\_Global\_vs\_local\_classes\_local\_demo.cf}
+```cfengine3, options: "linenos": true
+body common control {
+
+        bundlesequence => { "example_1", "example_2" };
 
 }
 
 
-
-
-bundle agent example_1
-{
+bundle common example_1 {
 
   classes:
-
       "webserver"
+        expression  =>  "any";
 
-        expression  =>  classmatch("web[0-9]+");
+      # Because this is now a "common" bundle, other bundles will
+      # see this class.
+}
 
 
+bundle agent example_2
+{
   reports:
-
     webserver::
+      "Bundle example_1: I am a Web server";
+}
 
-      "I am a Web server - 1";
+
+```
+\end{codelisting}
+\begin{codelisting}
+\codecaption{440-070-Patterns-0920-Classes\_Global\_vs\_local\_classes\_local\_demo.cf}
+```cfengine3, options: "linenos": true
+# "common" bundles will be evaluated even if not listed in bundlesequence
+
+body common control {
+
+        bundlesequence => { "example_2" };
+      
+}
+
+
+bundle common example_1 {
+
+  classes:
+      "webserver"
+        expression  =>  "any";
 
 }
 
 
 bundle agent example_2
 {
-
   reports:
-
     webserver::
-
-      "I am a Web server - 2";
-
+      "Bundle example_1: I am a Web server";
 }
+
 
 ```
 \end{codelisting}
@@ -667,6 +673,7 @@ Filename: 440-080-Methods-0000-Chapter-Title.md
 
 ## Methods
 
+\coloredtext{red}{ 440-080-Methods-0000-Chapter-Title.md }
 
 
 <!---
@@ -696,6 +703,7 @@ Parameters are optional:
            usebundle => bundle_name("arg1", "arg2");
 ```
 
+\coloredtext{red}{ 440-080-Methods-0010-A\_special\_promise\_type.md }
 
 \begin{codelisting}
 \codecaption{440-080-Methods-0020-Simple\_example.cf}
@@ -793,6 +801,7 @@ For example:
 * sudoers
 * mail spool
 
+\coloredtext{red}{ 440-080-Methods-0040-Encapsulation.md }
 
 \begin{codelisting}
 \codecaption{440-080-Methods-1010-Abstraction\_using\_methods.cf}
@@ -826,10 +835,12 @@ bundle agent groupadd(groupname) {
 }
 ```
 \end{codelisting}
-
 <!---
 Filename: 440-080-Methods-1020-Methods.exr.md
 -->
+\begin{aside}
+\label{aside:exercise_36}
+\heading{}
 
 Practice using "methods" type promises
 
@@ -842,18 +853,26 @@ Practice using "methods" type promises
 What output will you see and in what order?  Why?  Now run your policy and check.
 
 
-
+\end{aside}
+\coloredtext{red}{ 440-080-Methods-1020-Methods.exr.md }
 <!---
 Filename: 440-080-Methods-1920-Methods.exr.md
 -->
+\begin{aside}
+\label{aside:exercise_37}
+\heading{}
 
 Now parameterize the 2nd bundle -- have the first bundle feed it an argument, and have the 2nd bundle display that argument.
 
 
-
+\end{aside}
+\coloredtext{red}{ 440-080-Methods-1920-Methods.exr.md }
 <!---
 Filename: 440-080-Methods-1930-Methods.exr.md
 -->
+\begin{aside}
+\label{aside:exercise_38}
+\heading{}
 
 Sysadmin Problem:
 
@@ -878,10 +897,14 @@ Demonstrate its use by calling it from another bundle:
 ```
 
 
-
+\end{aside}
+\coloredtext{red}{ 440-080-Methods-1930-Methods.exr.md }
 <!---
 Filename: 440-080-Methods-1940-Methods.exr.md
 -->
+\begin{aside}
+\label{aside:exercise_39}
+\heading{}
 
 Make a bundle called file_contains that takes two arguments: a filename, and a text string.  The bundle should ensure that the file specified in the first argument contains the text string specified in the second argument.
 
@@ -894,10 +917,14 @@ Example:
 ```
 
 
-
+\end{aside}
+\coloredtext{red}{ 440-080-Methods-1940-Methods.exr.md }
 <!---
 Filename: 440-080-Methods-1950-Methods.exr.md
 -->
+\begin{aside}
+\label{aside:exercise_40}
+\heading{}
 
 Configuring a web server.
 
@@ -918,3 +945,5 @@ TIP: The CFEngine function strcmp() can compare two strings.
 NOTE: Reference: 039-0085_Basic_Examples:_Classes_and_Reports.__soft-class.cf
 
 
+\end{aside}
+\coloredtext{red}{ 440-080-Methods-1950-Methods.exr.md }

@@ -1,3 +1,5 @@
+Practice using classes
+
 * Set a custom class if the file '/tmp/testme' exists.
 
 * Report the presence or absense of the file using "reports" type promises and the class defined in #1 above.

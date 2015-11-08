@@ -1,4 +1,4 @@
-#### File editing: replacing text
+File editing: replacing text
 
 Given a file '/tmp/file.txt':
 

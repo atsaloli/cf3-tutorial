@@ -5,6 +5,7 @@ Filename: 250-000-Part-Title-0000-Basic\_Promises.md
 
 # Basic Promises
 
+\coloredtext{red}{ 250-000-Part-Title-0000-Basic\_Promises.md }
 
 
 <!---
@@ -13,6 +14,7 @@ Filename: 250-010-Files-0000-Chapter-Title.md
 
 ## Files
 
+\coloredtext{red}{ 250-010-Files-0000-Chapter-Title.md }
 
 \begin{codelisting}
 \codecaption{250-010-Files-0210-Create\_a\_file.cf}
@@ -46,17 +48,21 @@ bundle agent main {
 }
 ```
 \end{codelisting}
-
 <!---
 Filename: 250-010-Files-0230-Exercise.exr.md
 -->
+\begin{aside}
+\label{aside:exercise_10}
+\heading{}
 
-### Create a file
+Create a file
 
 Write and run a policy promising that /etc/ftp.deny is present
 
 
 
+\end{aside}
+\coloredtext{red}{ 250-010-Files-0230-Exercise.exr.md }
 
 <!---
 Filename: 250-020-Processes-0000-Chapter-Title.md
@@ -64,6 +70,7 @@ Filename: 250-020-Processes-0000-Chapter-Title.md
 
 ## Processes
 
+\coloredtext{red}{ 250-020-Processes-0000-Chapter-Title.md }
 
 \begin{codelisting}
 \codecaption{250-020-Processes-0010-Stopping\_A\_Process\_Gracefully.cf}
@@ -81,7 +88,7 @@ bundle agent main {
 
         handle => "shutdown_print_services",
         comment => "Shutdown print services on machines
-that are not print servers",
+                    that are not print servers",
         process_stop => "/etc/init.d/cups stop";
 
 }
@@ -105,6 +112,7 @@ In CFEngine syntax, scalar values are enclosed in double quotes:
 process_stop => "/etc/init.d/cups stop",
 ```
 
+\coloredtext{red}{ 250-020-Processes-0255-Definition\_scalar.md }
 
 
 <!---
@@ -120,9 +128,10 @@ are a collection of comma-separated scalar values:
 ```cfengine3
 processes:
     "cupsd"
-        signals #> { "TERM", "KILL" };
+        signals => { "TERM", "KILL" };
 ```
 
+\coloredtext{red}{ 250-020-Processes-0257-Definition\_list.md }
 
 \begin{codelisting}
 \codecaption{250-020-Processes-0260-Terminating\_a\_process.cf}
@@ -140,12 +149,14 @@ bundle agent main {
 }
 ```
 \end{codelisting}
-
 <!---
 Filename: 250-020-Processes-0270-Exercise.exr.md
 -->
+\begin{aside}
+\label{aside:exercise_11}
+\heading{}
 
-### Kill a process
+Kill a process
 
 Start print services:
 
@@ -171,6 +182,8 @@ Add ps command line and how to find it.
 
 
 
+\end{aside}
+\coloredtext{red}{ 250-020-Processes-0270-Exercise.exr.md }
 
 <!---
 Filename: 250-030-Commands-0000-Chapter-Title.md
@@ -178,6 +191,7 @@ Filename: 250-030-Commands-0000-Chapter-Title.md
 
 ## Commands
 
+\coloredtext{red}{ 250-030-Commands-0000-Chapter-Title.md }
 
 \begin{codelisting}
 \codecaption{250-030-Commands-0290-date.cf}
@@ -254,16 +268,20 @@ bundle agent main
 }
 ```
 \end{codelisting}
-
 <!---
 Filename: 250-030-Commands-0340-command.exr.md
 -->
+\begin{aside}
+\label{aside:exercise_12}
+\heading{}
 
 yum install mlocate
 
 Write and run a promise to run the "updatedb" command to update the "locate" database.
 
 
+\end{aside}
+\coloredtext{red}{ 250-030-Commands-0340-command.exr.md }
 
 <!---
 Filename: 250-032-Reports-0000-Chapter-Title.md
@@ -271,6 +289,7 @@ Filename: 250-032-Reports-0000-Chapter-Title.md
 
 ## Reports
 
+\coloredtext{red}{ 250-032-Reports-0000-Chapter-Title.md }
 
 \begin{codelisting}
 \codecaption{250-032-Reports-0010-hello\_world.cf}
@@ -292,6 +311,7 @@ Filename: 250-101-Scalars-0000-Chapter-Title.md
 
 CFEngine variables can contain single values or collections of single values (lists, arrays and JSON containers).
 
+\coloredtext{red}{ 250-101-Scalars-0000-Chapter-Title.md }
 
 
 <!---
@@ -300,6 +320,7 @@ Filename: 250-101-Scalars-0005-scalars.md
 
 ### Scalars
 
+\coloredtext{red}{ 250-101-Scalars-0005-scalars.md }
 
 
 <!---
@@ -312,6 +333,7 @@ Scalars
 
 * Each scalar may have one of three types: string, int or real.
 
+\coloredtext{red}{ 250-101-Scalars-0010-intro.md }
 
 
 <!---
@@ -347,6 +369,7 @@ reports:
   "The product number is: $(machine_type)$(model)";
 ```
 
+\coloredtext{red}{ 250-101-Scalars-0015-naming\_scalar\_vars.md }
 
 \begin{codelisting}
 \codecaption{250-101-Scalars-0018-scalar.cf}
@@ -434,12 +457,14 @@ bundle agent main {
 }
 ```
 \end{codelisting}
-
 <!---
 Filename: 250-101-Scalars-0190-vars.exr.md
 -->
+\begin{aside}
+\label{aside:exercise_13}
+\heading{}
 
-### Make and use a variable
+Make and use a variable
 
 Write a policy to set a variable called "first_name" and set the value to your first name.
 
@@ -447,6 +472,8 @@ Then create a reports promise to have CFEngine say hello using this variable.
 
 
 
+\end{aside}
+\coloredtext{red}{ 250-101-Scalars-0190-vars.exr.md }
 
 <!---
 Filename: 250-101-Scalars-0200-variable\_scope.md
@@ -469,6 +496,7 @@ Unqualified: $(myvar)
 Qualified: $(mybundle.myvar) 
 
 
+\coloredtext{red}{ 250-101-Scalars-0200-variable\_scope.md }
 
 \begin{codelisting}
 \codecaption{250-101-Scalars-0410-Demo\_of\_variable\_scope.cf}
@@ -518,10 +546,12 @@ bundle agent bundle_2 {
 bundle agent bundle_4 { vars: "xyzzy" string => "magic"; }
 ```
 \end{codelisting}
-
 <!---
 Filename: 250-101-Scalars-0420-variable\_scope.exr.md
 -->
+\begin{aside}
+\label{aside:exercise_14}
+\heading{}
 
 Declare a variable in one bundle and then use it from another bundle.  Use the cf-agent -b switch to specify bundle sequence.
 
@@ -530,6 +560,8 @@ cf-agent -f <filepath> -b <bundlesequence>
 ```
 
 
+\end{aside}
+\coloredtext{red}{ 250-101-Scalars-0420-variable\_scope.exr.md }
 
 <!---
 Filename: 250-110-Integer\_Constants-0000-Chapter-Title.md
@@ -537,6 +569,7 @@ Filename: 250-110-Integer\_Constants-0000-Chapter-Title.md
 
 ##### Integer Constants
 
+\coloredtext{red}{ 250-110-Integer\_Constants-0000-Chapter-Title.md }
 
 
 <!---
@@ -552,6 +585,7 @@ Which is easier to read?
 * 200000
 * 200k
 
+\coloredtext{red}{ 250-110-Integer\_Constants-0220-Special\_suffixes\_for\_Integer\_constants.md }
 
 
 <!---
@@ -576,6 +610,7 @@ Filename: 250-110-Integer\_Constants-0230-Special\_suffixes\_for\_Integer\_const
 
 **inf** a constant representing an unlimited value.
 
+\coloredtext{red}{ 250-110-Integer\_Constants-0230-Special\_suffixes\_for\_Integer\_constants\_refcard.md }
 
 \begin{codelisting}
 \codecaption{250-110-Integer\_Constants-0240-Integer\_suffixes\_demo.cf}
@@ -604,6 +639,7 @@ Filename: 250-120-Lists-0000-Chapter-Title.md
 
 ### Lists
 
+\coloredtext{red}{ 250-120-Lists-0000-Chapter-Title.md }
 
 
 <!---
@@ -616,6 +652,7 @@ A list variable is represented as @(identifier) or @(bundlename.identifier)
 
 If you refer to a list variable in scalar context by using $(identifier), cfengine will implicitly loop over the values of @(list).
 
+\coloredtext{red}{ 250-120-Lists-0250-List\_variables.md }
 
 \begin{codelisting}
 \codecaption{250-120-Lists-0260-List\_variables\_and\_implicit\_looping.cf}
@@ -730,10 +767,12 @@ bundle agent main {
 }
 ```
 \end{codelisting}
-
 <!---
 Filename: 250-120-Lists-0310-exercise.exr.md
 -->
+\begin{aside}
+\label{aside:exercise_15}
+\heading{}
 
 Create a list variable containing names of five files to create.  For example:
 
@@ -747,10 +786,14 @@ Create a list variable containing names of five files to create.  For example:
    
 
 
-
+\end{aside}
+\coloredtext{red}{ 250-120-Lists-0310-exercise.exr.md }
 <!---
 Filename: 250-120-Lists-0320-exercise.exr.md
 -->
+\begin{aside}
+\label{aside:exercise_16}
+\heading{}
 
 Create a list containing names of processes that should not be running: for example "trn" and "eggdrop"
 
@@ -760,6 +803,8 @@ If you finish before the rest of the class, please study your red CFEngine book.
 
 
 
+\end{aside}
+\coloredtext{red}{ 250-120-Lists-0320-exercise.exr.md }
 
 <!---
 Filename: 250-130-Data\_Structures\_Arrays-0000-Chapter-Title.md
@@ -767,6 +812,7 @@ Filename: 250-130-Data\_Structures\_Arrays-0000-Chapter-Title.md
 
 ### Arrays
 
+\coloredtext{red}{ 250-130-Data\_Structures\_Arrays-0000-Chapter-Title.md }
 
 
 <!---
@@ -807,6 +853,7 @@ Now we can use this variable:
 $(food_prices[Apple])
 ```
 
+\coloredtext{red}{ 250-130-Data\_Structures\_Arrays-0340-Arrays\_arrays.md }
 
 \begin{codelisting}
 \codecaption{250-130-Data\_Structures\_Arrays-0349-array\_simple\_example.cf}
@@ -863,12 +910,14 @@ bundle agent main {
 
 ```
 \end{codelisting}
-
 <!---
 Filename: 250-130-Data\_Structures\_Arrays-0355-array.exr.md
 -->
+\begin{aside}
+\label{aside:exercise_17}
+\heading{}
 
-### Print array contents using getindices()
+Print array contents using getindices()
 
 Print contents of the array from your last exercise
 by using the getindices() function to get a list of
@@ -876,6 +925,8 @@ keys, and then iterate over the keys to extract the
 values.
 
 
+\end{aside}
+\coloredtext{red}{ 250-130-Data\_Structures\_Arrays-0355-array.exr.md }
 \begin{codelisting}
 \codecaption{250-130-Data\_Structures\_Arrays-0360-Arrays\_Keys\_are\_case\_senSiTiVE.cf}
 ```cfengine3, options: "linenos": true
@@ -905,11 +956,14 @@ Filename: 250-130-Data\_Structures\_Arrays-0370-Arrays\_Example.md
 
 See 220-1850_Security.__Configure_sshd,_stub.cf
 
-
+\coloredtext{red}{ 250-130-Data\_Structures\_Arrays-0370-Arrays\_Example.md }
 
 <!---
 Filename: 250-130-Data\_Structures\_Arrays-0380-Arrays.exr.md
 -->
+\begin{aside}
+\label{aside:exercise_18}
+\heading{}
 
 Make an array, student_grades.
 
@@ -925,6 +979,8 @@ Populate it with the following data:
 Display the contents of the array.
 
 
+\end{aside}
+\coloredtext{red}{ 250-130-Data\_Structures\_Arrays-0380-Arrays.exr.md }
 \begin{codelisting}
 \codecaption{250-130-Data\_Structures\_Arrays-0390-Arrays\_Array\_of\_slists.cf}
 ```cfengine3, options: "linenos": true
@@ -965,6 +1021,7 @@ Filename: 250-150-Data\_Structures\_Containers-0000-Chapter-Title.md
 
 ### Data Containers
 
+\coloredtext{red}{ 250-150-Data\_Structures\_Containers-0000-Chapter-Title.md }
 
 \begin{codelisting}
 \codecaption{250-150-Data\_Structures\_Containers-0010-readjson.cf}
@@ -984,30 +1041,32 @@ bundle agent main {
 }
 ```
 \end{codelisting}
-
 <!---
 Filename: 250-150-Data\_Structures\_Containers-0011-readjson.exr.md
 -->
+\begin{aside}
+\label{aside:exercise_19}
+\heading{}
 
-### Data containers - readjson
+Data containers - readjson
 
 1. Turn your array from the previous exercises into
-   a JSON data file, example.json
+   a JSON data file, e.g.:
+
+phones.json:
 
 {
   "iPhone" : "500$",
   "Samsung" : "450$",
 }
 
-2. Read it in a "data" type variable using readjson()
-   function
-
+2. Read it into a "data"-type variable with readjson(), e.g.:
   vars:
 
-      "mydata"
-        data => readjson("/path/to/example.json", 100k);
+      "phones"
+        data => readjson("/path/to/phones.json", "100k");
 
-3. Report its contents   
+3. Report the contents of the data container
    - get the keys using getindices()
    - iterate over the keys to report the values
   vars:
@@ -1017,6 +1076,8 @@ Filename: 250-150-Data\_Structures\_Containers-0011-readjson.exr.md
       "$(keys)  $(mydata[$(keys)])";
 
 
+\end{aside}
+\coloredtext{red}{ 250-150-Data\_Structures\_Containers-0011-readjson.exr.md }
 
 <!---
 Filename: 250-210-Methods-0000-Chapter-Title.md
@@ -1026,6 +1087,7 @@ Filename: 250-210-Methods-0000-Chapter-Title.md
 
 These are promises to take on a whole other bundle of promises.
 
+\coloredtext{red}{ 250-210-Methods-0000-Chapter-Title.md }
 
 \begin{codelisting}
 \codecaption{250-210-Methods-0010-simple\_example.cf}
@@ -1033,18 +1095,13 @@ These are promises to take on a whole other bundle of promises.
 bundle agent main {
 
   vars:
-
       "userlist" slist => { "alex", "ben", "charlie", "diana", "rob" };
 
   methods:
-
       "Remove Users"
-
         usebundle => remove_user("$(userlist)");
 
 }
-
-###########################################
 
 bundle agent remove_user(user) {
 
@@ -1056,14 +1113,23 @@ bundle agent remove_user(user) {
 }
 ```
 \end{codelisting}
-
 <!---
 Filename: 250-210-Methods-0011-methods.exr.md
 -->
+\begin{aside}
+\label{aside:exercise_20}
+\heading{}
 
-#### Exercise
+Methods and normal ordering
 
-1. create two bundles that each reports its name
-2. have bundle #1 call bundle #2
+1. Create two bundles and make each bundle report its name.
+
+2. Additionally, have bundle #1 call bundle #2.
+
+What will be the order of the bundle names in the reports?
+
+Why?
 
 
+\end{aside}
+\coloredtext{red}{ 250-210-Methods-0011-methods.exr.md }

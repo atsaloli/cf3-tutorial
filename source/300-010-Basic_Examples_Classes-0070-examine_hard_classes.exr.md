@@ -1,4 +1,4 @@
-### Examine Hard Classes
+Examine Hard Classes
 
 Run CFEngine in verbose mode:
 

@@ -6,7 +6,8 @@ section: Section
 table: Table
 figure: Figure
 fig: Fig
-aside: Box
+#aside: Box
+aside: Exercise
 listing: Listing
 equation: Equation
 eq: Eq

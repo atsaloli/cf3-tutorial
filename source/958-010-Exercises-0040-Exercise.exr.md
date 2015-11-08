@@ -1,4 +1,4 @@
-## CFEngine template
+CFEngine template
 
 1. Manually create a template '/var/cfengine/masterfiles/templates/motd.dat':
 

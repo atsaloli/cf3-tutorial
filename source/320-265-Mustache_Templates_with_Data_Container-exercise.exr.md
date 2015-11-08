@@ -1,4 +1,4 @@
-#### Render a JSON-backed Mustache template
+Render a JSON-backed Mustache template
 
 Make a JSON file
 

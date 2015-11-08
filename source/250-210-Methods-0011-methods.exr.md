@@ -1,4 +1,4 @@
-#### Exercise
+Methods and normal ordering
 
 1. Create two bundles and make each bundle report its name.
 

@@ -1,4 +1,4 @@
-### Kill a process
+Kill a process
 
 Start print services:
 

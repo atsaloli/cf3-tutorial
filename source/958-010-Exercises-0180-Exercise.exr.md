@@ -1,4 +1,4 @@
-## Edit /etc/motd (file editing and classes)
+Edit /etc/motd (file editing and classes)
 
 Part 1
 

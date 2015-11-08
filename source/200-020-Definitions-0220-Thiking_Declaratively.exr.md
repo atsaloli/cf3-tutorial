@@ -1,4 +1,4 @@
-### Learning to Think Declaratively
+Learning to Think Declaratively
 
 1. State an actual sysadmin problem you need to solve
 

@@ -5,6 +5,7 @@ Filename: 300-000-Part-Title-0000-Classes.md
 
 # Classifying (Grouping) Hosts
 
+\coloredtext{red}{ 300-000-Part-Title-0000-Classes.md }
 
 
 <!---
@@ -13,6 +14,7 @@ Filename: 300-010-Basic\_Examples\_Classes-0000-Classes-Chapter-Title.md
 
 ## Classes
 
+\coloredtext{red}{ 300-010-Basic\_Examples\_Classes-0000-Classes-Chapter-Title.md }
 
 
 <!---
@@ -26,6 +28,7 @@ Filename: 300-010-Basic\_Examples\_Classes-0003-definition.md
 > or user defined. Hosts that pass the test are members of the class.
 > ---Neil Watson, CFEngine Consultant
 
+\coloredtext{red}{ 300-010-Basic\_Examples\_Classes-0003-definition.md }
 
 \begin{codelisting}
 \codecaption{300-010-Basic\_Examples\_Classes-0005-Classes\_Reports.cf}
@@ -99,12 +102,14 @@ bundle agent main {
 
 ```
 \end{codelisting}
-
 <!---
 Filename: 300-010-Basic\_Examples\_Classes-0070-examine\_hard\_classes.exr.md
 -->
+\begin{aside}
+\label{aside:exercise_22}
+\heading{}
 
-### Examine Hard Classes
+Examine Hard Classes
 
 Run CFEngine in verbose mode:
 
@@ -115,16 +120,22 @@ cf-agent -v -f ./hello_world.cf | less
 Examine what CFEngine discovered about your system and what hard classes it set.
 
 
-
+\end{aside}
+\coloredtext{red}{ 300-010-Basic\_Examples\_Classes-0070-examine\_hard\_classes.exr.md }
 <!---
 Filename: 300-010-Basic\_Examples\_Classes-0080-using\_hard\_classes.exr.md
 -->
+\begin{aside}
+\label{aside:exercise_23}
+\heading{}
 
-### Using hard classes
+Using hard classes
 
 Print a report if you running in a CentOS 6 system.
 
 
+\end{aside}
+\coloredtext{red}{ 300-010-Basic\_Examples\_Classes-0080-using\_hard\_classes.exr.md }
 
 <!---
 Filename: 300-015-Basic\_Examples\_Classes\_2-0000-Chapter-Title.md
@@ -132,6 +143,7 @@ Filename: 300-015-Basic\_Examples\_Classes\_2-0000-Chapter-Title.md
 
 ## Class Expressions
 
+\coloredtext{red}{ 300-015-Basic\_Examples\_Classes\_2-0000-Chapter-Title.md }
 
 
 <!---
@@ -159,6 +171,7 @@ Logical operators (in order of precedence of operation)
 ### Truth Tables
 If necessary, review [truth tables](https://en.wikipedia.org/wiki/Truth_table#Logical_conjunction_.28AND.29) for logical operations AND, OR, and NOT
 
+\coloredtext{red}{ 300-015-Basic\_Examples\_Classes\_2-0080-Class\_expression\_operators.md }
 
 \begin{codelisting}
 \codecaption{300-015-Basic\_Examples\_Classes\_2-0090-Class\_expression\_operators.cf}
@@ -280,21 +293,12 @@ bundle agent main {
 \end{codelisting}
 
 <!---
-Filename: 300-030-Basic\_Examples\_Classes\_2-0150-detect\_vm.exr.md
--->
-
-Report if you are running in a Linux VM
-
-Hint: Joyent Linux containers don't have /proc/scsi/scsi but do have a /proc/version
-
-
-
-<!---
 Filename: 300-030-Classes-0000-Chapter-Title.md
 -->
 
 ## Promises about Classes
 
+\coloredtext{red}{ 300-030-Classes-0000-Chapter-Title.md }
 
 
 <!---
@@ -305,6 +309,7 @@ Filename: 300-040-Classes\_4-0000-Chapter-Title.md
 
 Some promise attributes can create Classes depending on the outcome of the promise.
 
+\coloredtext{red}{ 300-040-Classes\_4-0000-Chapter-Title.md }
 
 \begin{codelisting}
 \codecaption{300-040-Classes\_4-0020-Ensuring\_CUPSd\_is\_running.cf}

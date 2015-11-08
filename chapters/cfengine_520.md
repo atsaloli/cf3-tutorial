@@ -5,6 +5,7 @@ Filename: 520-000-Part-Title-0000-Selecting\_Files\_and\_Processes.md
 
 # Selecting Files and Processes
 
+\coloredtext{red}{ 520-000-Part-Title-0000-Selecting\_Files\_and\_Processes.md }
 
 
 <!---
@@ -13,6 +14,7 @@ Filename: 520-060-File\_Selection-0490-title\_card.md
 
 ## Selecting Files
 
+\coloredtext{red}{ 520-060-File\_Selection-0490-title\_card.md }
 
 \begin{codelisting}
 \codecaption{520-060-File\_Selection-0500-Select\_by\_mode.cf}
@@ -281,6 +283,7 @@ Filename: 520-070-Process\_Selection-0560-title\_card.md
 
 ## Selecting Processes
 
+\coloredtext{red}{ 520-070-Process\_Selection-0560-title\_card.md }
 
 \begin{codelisting}
 \codecaption{520-070-Process\_Selection-0570-Kill\_based\_on\_process\_owner\_username.cf}

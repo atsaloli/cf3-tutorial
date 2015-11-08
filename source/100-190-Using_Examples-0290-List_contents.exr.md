@@ -1,4 +1,4 @@
-### List contents
+List contents
 
 List the collection contents:
 

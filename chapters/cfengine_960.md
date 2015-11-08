@@ -5,6 +5,7 @@ Filename: 960-000-Part-Title-0000-Additional\_Examples.md
 
 # Appendix C - Additional Examples
 
+\coloredtext{red}{ 960-000-Part-Title-0000-Additional\_Examples.md }
 
 
 <!---
@@ -13,6 +14,7 @@ Filename: 960-010-Security-0000-Chapter-Title.md
 
 ## Security Examples
 
+\coloredtext{red}{ 960-010-Security-0000-Chapter-Title.md }
 
 \begin{codelisting}
 \codecaption{960-010-Security-0010-Processes\_not\_running\_a\_blacklist.cf}
@@ -160,6 +162,7 @@ Filename: 960-010-Security-0030-Change\_detection.md
 ### Change Detection
 In the "computer immunology" research and development phase, Mark added file change detection capability to CFEngine.
 
+\coloredtext{red}{ 960-010-Security-0030-Change\_detection.md }
 
 \begin{codelisting}
 \codecaption{960-010-Security-0040-Detect\_changes\_in\_etc.cf}
@@ -430,6 +433,7 @@ Filename: 960-020-More\_Examples-0000-Chapter-Title.md
 
 ## More Examples
 
+\coloredtext{red}{ 960-020-More\_Examples-0000-Chapter-Title.md }
 
 \begin{codelisting}
 \codecaption{960-020-More\_Examples-0120-WordPress\_Diego.cf}
@@ -893,6 +897,7 @@ Filename: 960-030-EC2-0000-Chapter-Title.md
 
 ## Amazon EC2 Examples
 
+\coloredtext{red}{ 960-030-EC2-0000-Chapter-Title.md }
 
 
 <!---
@@ -911,6 +916,7 @@ Then we install CFEngine 3.1.4. Then we run casit_demo.cf to instantiate two ser
 
 Video: http://www.verticalsysadmin.com/cfengine/casit/
 
+\coloredtext{red}{ 960-030-EC2-0190-System\_provisioning\_and\_integration\_introduction.md }
 
 \begin{codelisting}
 \codecaption{960-030-EC2-0200-system\_provisioning\_and\_integration\_demo.cf}
@@ -1460,6 +1466,7 @@ Filename: 960-040-Class\_Examples-0000-Chapter-Title.md
 
 ## Advanced Usage of Classes
 
+\coloredtext{red}{ 960-040-Class\_Examples-0000-Chapter-Title.md }
 
 \begin{codelisting}
 \codecaption{960-040-Class\_Examples-0240-Parsing\_readtcp\_output\_to\_set\_a\_class.cf}
@@ -1641,6 +1648,7 @@ Filename: 960-045-Versioning\_Policy-0000-Chapter-Title.md
 
 Here are examples of versioning your policies and integrating CFEngine with a Version Control System.
 
+\coloredtext{red}{ 960-045-Versioning\_Policy-0000-Chapter-Title.md }
 
 \begin{codelisting}
 \codecaption{960-045-Versioning\_Policy-1040-Version\_number\_Plain.cf}
@@ -1671,6 +1679,7 @@ Filename: 960-080-Special\_Notes-0000-Chapter-Title.md
 
 ## Special Notes And Gotchas
 
+\coloredtext{red}{ 960-080-Special\_Notes-0000-Chapter-Title.md }
 
 \begin{codelisting}
 \codecaption{960-080-Special\_Notes-0640-Iteration\_over\_a\_global\_list\_Using\_parameterization.cf}
@@ -1739,6 +1748,7 @@ Filename: 960-080-Special\_Notes-0660-Max\_scalar\_list\_and\_array\_sizes.md
 
 TIP: There is no limit to the length of lists or arrays, but there is a limit to the size of variable-expanded strings (scalars). The final result of any single variable expansion is limited to about 4k.
 
+\coloredtext{red}{ 960-080-Special\_Notes-0660-Max\_scalar\_list\_and\_array\_sizes.md }
 
 
 <!---
@@ -1751,6 +1761,7 @@ They don't all work, but most do.
 
 Potentially useful in learning CFEngine.
 
+\coloredtext{red}{ 960-080-Special\_Notes-0670-Unit\_tests.md }
 
 
 <!---
@@ -1802,6 +1813,7 @@ tomcat_server.cf       Setup a tomcat server.
 varnish.cf             Set up Varnish web accelerator
 ```
 
+\coloredtext{red}{ 960-080-Special\_Notes-0680-Orion\_Cloud\_Pack.md }
 
 
 <!---
@@ -1810,6 +1822,7 @@ Filename: 960-080-Special\_Notes-0690-Always\_specify\_the\_class.md
 
 TIP: Always specify the class , or else you may inadvertently inherit the class specification from an earlier promise
 
+\coloredtext{red}{ 960-080-Special\_Notes-0690-Always\_specify\_the\_class.md }
 
 \begin{codelisting}
 \codecaption{960-080-Special\_Notes-0700-Be\_careful\_with\_class.cf}
@@ -1855,6 +1868,7 @@ Filename: 960-090-Packages-0000-Chapter-Title.md
 
 ## Packages
 
+\coloredtext{red}{ 960-090-Packages-0000-Chapter-Title.md }
 
 
 <!---
@@ -1871,6 +1885,7 @@ Which version is newer?
 
 NOTE: See http://semver.org/ for a proposal for a meaningful versioning standard.
 
+\coloredtext{red}{ 960-090-Packages-0740-A\_note\_on\_versioning.md }
 
 \begin{codelisting}
 \codecaption{960-090-Packages-0750-install\_packages\_from\_local\_filesystem\_based\_repository.cf}
@@ -2001,6 +2016,7 @@ Filename: 960-100-Classes-0000-Chapter-Title.md
 
 ## Advanced Usage Of Classes
 
+\coloredtext{red}{ 960-100-Classes-0000-Chapter-Title.md }
 
 \begin{codelisting}
 \codecaption{960-100-Classes-0780-setting\_multiple\_classes\_as\_a\_result\_of\_a\_single\_promise.cf}
@@ -2148,6 +2164,7 @@ loc@t!on,loc_t_on
 t!me###,t_me___
 ```
 
+\coloredtext{red}{ 960-100-Classes-0820-Canonifying\_variables\_to\_use\_them\_as\_class\_names.md }
 
 \begin{codelisting}
 \codecaption{960-100-Classes-0830-ifvarclass.cf}
@@ -2201,6 +2218,7 @@ Filename: 960-110-Regular\_Expressions-0000-Chapter-Title.md
 
 ## Advanced Usage Of Regular Expressions
 
+\coloredtext{red}{ 960-110-Regular\_Expressions-0000-Chapter-Title.md }
 
 \begin{codelisting}
 \codecaption{960-110-Regular\_Expressions-0860-Backreferences.pl}
@@ -2284,6 +2302,7 @@ Let's say you want to write a regex that will match any string that does NOT con
 
 This is explained in http://stackoverflow.com/questions/406230/regular-expression-to-match-string-not-containing-a-word
 
+\coloredtext{red}{ 960-110-Regular\_Expressions-0890-Inverse\_match.md }
 
 
 <!---
@@ -2292,6 +2311,7 @@ Filename: 960-130-Commands-0000-Chapter-Title.md
 
 ## Advanced Usage Of Commands
 
+\coloredtext{red}{ 960-130-Commands-0000-Chapter-Title.md }
 
 \begin{codelisting}
 \codecaption{960-130-Commands-0960-ifelapsed.cf}
@@ -2358,6 +2378,7 @@ Filename: 960-140-Linking\_Promises\_with\_Classes-0000-Chapter-Title.md
 
 ## Advanced Usage Of Classes: Linking Promises
 
+\coloredtext{red}{ 960-140-Linking\_Promises\_with\_Classes-0000-Chapter-Title.md }
 
 \begin{codelisting}
 \codecaption{960-140-Linking\_Promises\_with\_Classes-1000-if\_repaired.cf}
@@ -2473,6 +2494,7 @@ Filename: 960-150-Dynamic\_Bundlesequence-0000-Chapter-Title.md
 
 ## Dynamic Inputs And Bundlesequence
 
+\coloredtext{red}{ 960-150-Dynamic\_Bundlesequence-0000-Chapter-Title.md }
 
 \begin{codelisting}
 \codecaption{960-150-Dynamic\_Bundlesequence-1050-Activate\_a\_class\_if\_it\_is\_appropriate\_for\_my\_context.cf}
@@ -2697,6 +2719,7 @@ Filename: 960-160-Databases-0000-Chapter-Title.md
 
 Demonstrate CFEngine integration with PostgreSQL.
 
+\coloredtext{red}{ 960-160-Databases-0000-Chapter-Title.md }
 
 \begin{codelisting}
 \codecaption{960-160-Databases-1090-clean\_slate\_for\_database\_demo.sh}
@@ -3036,6 +3059,7 @@ Filename: 960-310-Processes-0010-title\_card.md
 
 ## Making Sure A Process Is Running
 
+\coloredtext{red}{ 960-310-Processes-0010-title\_card.md }
 
 \begin{codelisting}
 \codecaption{960-320-Processes-0020-Restart\_a\_process\_if\_it\_is\_running\_or\_start\_it\_if\_it\_is\_not\_running.cf}
@@ -3133,6 +3157,7 @@ Filename: 960-330-Files-0050-title\_card.md
 
 ###  Files
 
+\coloredtext{red}{ 960-330-Files-0050-title\_card.md }
 
 \begin{codelisting}
 \codecaption{960-330-Files-0060-Disable\_And\_Rename.cf}
@@ -3286,6 +3311,7 @@ Filename: 960-340-PXEboot\_Kickstart\_Server-0110-title\_card.md
 
 ## PXEboot Kickstart Server
 
+\coloredtext{red}{ 960-340-PXEboot\_Kickstart\_Server-0110-title\_card.md }
 
 \begin{codelisting}
 \codecaption{960-340-PXEboot\_Kickstart\_Server-0120-Server.cf}
@@ -3526,6 +3552,7 @@ Filename: 960-410-Monitor-0010-title\_card.md
 
 ## CFEngine Monitor daemon
 
+\coloredtext{red}{ 960-410-Monitor-0010-title\_card.md }
 
 \begin{codelisting}
 \codecaption{960-410-Monitor-0020-Example\_of\_using\_monitoring.cf}
@@ -3574,13 +3601,10 @@ bundle agent main {
         usebundle => write_letter("$(public)");
 }
       
-
 bundle agent write_letter(first_name) {
 
   files:
-
       "/tmp/letter_to_$(first_name).txt"
-
         handle    => "write_letter",
         create    => "true",
         edit_line => create_from_template;

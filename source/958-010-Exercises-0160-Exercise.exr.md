@@ -1,4 +1,4 @@
-## Use a CFEngine template
+Use a CFEngine template
 
 Create a template by running the following shell command:
 

@@ -49,30 +49,26 @@ bundle agent main {
 
 ```
 \end{codelisting}
-
 <!---
 Filename: 275-030-Data\_Structures\_Arrays-0355-array.exr.md
 -->
+\begin{aside}
+\label{aside:exercise_21}
+\heading{}
 
-#### Make an array
+Using arrays
 
 Make an array (key/value collection) with two elements
 
-Print the value of one element from this array (using the key)
+* Print the value of one element from this array (using the key)
+
+* Now print contents of the array using the getindices()
+function to get a list of keys, and then iterate over the
+keys to extract the values.
 
 
-#### Print array contents using getindices()
-
-Print contents of the array from your last exercise
-by using the getindices() function to get a list of
-keys, and then iterate over the keys to extract the
-values.
-
-(Aleksey todo:
-add definition of "index" and "indices"
-)
-
-
+\end{aside}
+\coloredtext{red}{ 275-030-Data\_Structures\_Arrays-0355-array.exr.md }
 \begin{codelisting}
 \codecaption{275-050-Data\_Structures\_Containers-0010-readjson.cf}
 ```cfengine3, options: "linenos": true

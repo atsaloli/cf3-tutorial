@@ -20,7 +20,9 @@ cfengine_440.md
 cfengine_500.md
 cfengine_510.md
 cfengine_520.md
+cfengine_600.md
 cfengine_950.md
 cfengine_955.md
 cfengine_958.md
 cfengine_960.md
+cfengine_970.md

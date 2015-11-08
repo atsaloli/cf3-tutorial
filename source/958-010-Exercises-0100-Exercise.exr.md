@@ -1,4 +1,4 @@
-## Containing commands
+Containing commands
 
 Run the command '/usr/bin/id' as user "nobody".
 

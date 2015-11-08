@@ -1,4 +1,4 @@
-## Create (manually) a data file:
+Create (manually) a data file:
 
    '/tmp/data.txt'
 

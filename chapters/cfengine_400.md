@@ -5,6 +5,7 @@ Filename: 400-000-Part-Title-0000-CFEngine\_Syntax.md
 
 # Promise Body Parts
 
+\coloredtext{red}{ 400-000-Part-Title-0000-CFEngine\_Syntax.md }
 
 
 <!---
@@ -13,6 +14,7 @@ Filename: 400-010-Body\_Parts-0000-Chapter-Title.md
 
 ## Body Parts
 
+\coloredtext{red}{ 400-010-Body\_Parts-0000-Chapter-Title.md }
 
 \begin{codelisting}
 \codecaption{400-010-Body\_Parts-0010-Introduction.cf}
@@ -184,10 +186,12 @@ body perms set_file_attributes(mode,owner,group)
 }
 ```
 \end{codelisting}
-
 <!---
 Filename: 400-010-Body\_Parts-0600-body\_parts.exr.md
 -->
+\begin{aside}
+\label{aside:exercise_31}
+\heading{}
 
 Create executable shell script
 
@@ -197,6 +201,8 @@ Write a CFEngine policy to ensure '/usr/local/bin/hello.sh' exists, has permissi
 ```
 
 
+\end{aside}
+\coloredtext{red}{ 400-010-Body\_Parts-0600-body\_parts.exr.md }
 
 <!---
 Filename: 400-020-CFEngine\_Grammar-0000-Chapter-Title.md
@@ -204,6 +210,7 @@ Filename: 400-020-CFEngine\_Grammar-0000-Chapter-Title.md
 
 ## Left Hand Side, Right Hand Side
 
+\coloredtext{red}{ 400-020-CFEngine\_Grammar-0000-Chapter-Title.md }
 
 \begin{codelisting}
 \codecaption{400-020-CFEngine\_Grammar-0100-Fix\_Your\_Webserver.cf}
@@ -306,6 +313,7 @@ Filename: 400-020-CFEngine\_Grammar-0130-LHS\_vs\_RHS\_title\_card.md
 
 ## LHS/RHS (Continued)
 
+\coloredtext{red}{ 400-020-CFEngine\_Grammar-0130-LHS\_vs\_RHS\_title\_card.md }
 
 
 <!---
@@ -318,11 +326,11 @@ CFEngine uses many "constraint expressions" as part of the body of a promise.  T
 
 These take the form:
 
-left-hand-side (cfengine word) #> right-hand-side (user defined data).
+left-hand-side (cfengine word) => right-hand-side (user defined data).
 
 This can take several forms:
 
-     cfengine_word #> user_defined_body or user_defined_body(parameters)
+     cfengine_word => user_defined_body or user_defined_body(parameters)
 
                       builtin_function()
 
@@ -332,8 +340,11 @@ This can take several forms:
 
                       { @(list_variable_name) }
 
+                      boolean
+
 In each of these cases, the right hand side is a user choice. 
 
+\coloredtext{red}{ 400-020-CFEngine\_Grammar-0140-LHS\_vs\_RHS\_Promise\_attributes.md }
 
 \begin{codelisting}
 \codecaption{400-020-CFEngine\_Grammar-0150-LHS\_vs\_RHS\_Example\_of\_user\_defined\_body\_on\_rhs.cf}

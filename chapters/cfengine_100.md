@@ -5,6 +5,7 @@ Filename: 100-000-Part-Title-0000-Orientation.md
 
 # Orientation and Setup
 
+\coloredtext{red}{ 100-000-Part-Title-0000-Orientation.md }
 
 
 <!---
@@ -13,6 +14,7 @@ Filename: 100-010-About\_Collection-0000-Chapter-Title.md
 
 ## About the Collection
 
+\coloredtext{red}{ 100-010-About\_Collection-0000-Chapter-Title.md }
 
 
 <!---
@@ -31,6 +33,7 @@ documentation.
 
 All our examples are concrete and runnable.
 
+\coloredtext{red}{ 100-010-About\_Collection-0130-About\_this\_collection.md }
 
 
 <!---
@@ -53,6 +56,7 @@ You can also use these materials as reference (feel free to pull
 out examples and use them to seed your policy set).
 
 
+\coloredtext{red}{ 100-010-About\_Collection-0140-Using\_this\_collection.md }
 
 
 <!---
@@ -69,6 +73,7 @@ promise attribute).
 You are welcome to seed your policy set with any of these
 examples.  We hope they will be of use to you!
 
+\coloredtext{red}{ 100-010-About\_Collection-0145-collection\_scripts.md }
 
 
 <!---
@@ -83,6 +88,7 @@ or if you need help with anything.  Write me at aleksey (at) verticalsysadmin.co
 ### Training and Professional Services
 I'm available for on-site training and implemention consulting.
 
+\coloredtext{red}{ 100-010-About\_Collection-0150-Feedback\_wanted.md }
 
 
 <!---
@@ -104,6 +110,7 @@ your own code!
 Misunderstood or not understood terms can block understanding.
 Look up unfamiliar terms in the [CFEngine Refernce Manual](http://docs.cfengine.com), or in a good [English dictionary](http://www.onelook.com).
 
+\coloredtext{red}{ 100-010-About\_Collection-148-run\_the\_examples.md }
 
 
 <!---
@@ -112,6 +119,7 @@ Filename: 100-020-About\_Course-0000-Chapter-Title.md
 
 ## About the Course
 
+\coloredtext{red}{ 100-020-About\_Course-0000-Chapter-Title.md }
 
 
 <!---
@@ -129,6 +137,7 @@ Hardware Requirements: Bring a laptop with wi-fi capability so you can access th
 
 At the End of this Course You Will Be Able To: automate system administration using CFEngine 3.
 
+\coloredtext{red}{ 100-020-About\_Course-0070-About\_This\_Course.md }
 
 
 <!---
@@ -139,6 +148,7 @@ Filename: 100-020-About\_Course-0070-discussion\_question.md
 
 What problems would you like to solve with automation?
 
+\coloredtext{red}{ 100-020-About\_Course-0070-discussion\_question.md }
 
 
 <!---
@@ -160,6 +170,7 @@ Benefits of automation:
 
 See "Why Automation?" in [CFEngine 3 Tutorial (archived)](https://auth.cfengine.com/archive/manuals/cf3-tutorial#Why-automation_003f)
 
+\coloredtext{red}{ 100-030-Why\_Automation-0000-Chapter-Title.md }
 
 
 <!---
@@ -177,6 +188,7 @@ Filename: 100-040-Why\_CFEngine-0000-Chapter-Title.md
 
 To learn more, see [20 Years of CFEngine](http://markburgess.org/blog_principles.html), by Mark Burgess.
 
+\coloredtext{red}{ 100-040-Why\_CFEngine-0000-Chapter-Title.md }
 
 
 <!---
@@ -185,6 +197,7 @@ Filename: 100-060-CFEngine\_Components-0000-Chapter-Title.md
 
 ## CFEngine Components
 
+\coloredtext{red}{ 100-060-CFEngine\_Components-0000-Chapter-Title.md }
 
 
 <!---
@@ -212,6 +225,7 @@ CFEngine 3 consists of a number of components.
 
 Every CFEngine component runs cf-promises on policy files before reading them in.
 
+\coloredtext{red}{ 100-060-CFEngine\_Components-0400-The\_Agent\_cf\_promises\_and\_Cf\_agent.md }
 
 
 <!---
@@ -223,6 +237,7 @@ Filename: 100-060-CFEngine\_Components-0410-The\_Executor\_cf\_execd.md
 **cf-execd**
 : Used to run cf-agent on a regular (and user-configurable) basis, and to handle its output.
 
+\coloredtext{red}{ 100-060-CFEngine\_Components-0410-The\_Executor\_cf\_execd.md }
 
 
 <!---
@@ -244,6 +259,7 @@ Filename: 100-060-CFEngine\_Components-0420-Networking\_cfserverd\_cfkey\_cfruna
 **cf-hub**
 : CFEngine Enterprise only, used to collect reports from hosts (connects to remote cf-serverd).
 
+\coloredtext{red}{ 100-060-CFEngine\_Components-0420-Networking\_cfserverd\_cfkey\_cfrunagent.md }
 
 
 <!---
@@ -275,6 +291,7 @@ The following add-on tools have to be installed separately:
 **cf-profile.pl**
 : Alternative profiler from Jon-Henrik (https://github.com/cfengineers-net/cf-profile)
 
+\coloredtext{red}{ 100-060-CFEngine\_Components-0430-cfmonitord\_cfknow\_cfreport\_cfhub.md }
 
 
 <!---
@@ -287,10 +304,10 @@ Filename: 100-060-CFEngine\_Components-0435-cfengine-versions.md
 **cfengine-community**
 : Open-source product, also known as CFEngine Core.
 
-The commercial product is called CFEngine Enterprise. This is CFEngine Core, plus Enterprise extensions (such as Reporting, native Windows build, etc.)
+The commercial product is called CFEngine Enterprise and it's Core plus Enterprise extensions (such as Reporting, native Windows build, etc.)
 
 
-The original name for the first generation of the CFEngine Enterprise product was "Nova" and this is still reflected in the name of the packages:
+The original name for the first generation of the CFEngine Enterprise product was "Nova" and this is still reflected in thename of the packages:
 
 
 **cfengine-nova-hub**
@@ -300,6 +317,7 @@ The original name for the first generation of the CFEngine Enterprise product wa
 **cfengine-nova**
 : Core plus Enterprise extensions (e.g. reporting)
 
+\coloredtext{red}{ 100-060-CFEngine\_Components-0435-cfengine-versions.md }
 
 
 <!---
@@ -322,6 +340,7 @@ or download from [CFEngine](https://cfengine.com/product/community/)
 rpm -q --filesbypkg cfengine-community-3.7.1-1.el6.x86_64.rpm | less
 ```
 
+\coloredtext{red}{ 100-060-CFEngine\_Components-0440-examination\_of\_cfengine\_rpm.md }
 
 
 <!---
@@ -330,6 +349,7 @@ Filename: 100-065-Enterprise-0000-Chapter-Title.md
 
 ## CFEngine Enterprise - Reporting
 
+\coloredtext{red}{ 100-065-Enterprise-0000-Chapter-Title.md }
 
 
 <!---
@@ -353,6 +373,7 @@ CFEngine Enterprise introduces additional components:
 - Hub (report collection)
 - Mission Portal (Admin/Reporting GUI)
 
+\coloredtext{red}{ 100-065-Enterprise-0010-how\_enterprise\_works.md }
 
 
 <!---
@@ -361,6 +382,7 @@ Filename: 100-110-Lab\_VMs-0000-Chapter-Title.md
 
 ## Setting Up Your Lab Environment
 
+\coloredtext{red}{ 100-110-Lab\_VMs-0000-Chapter-Title.md }
 
 
 <!---
@@ -384,6 +406,7 @@ ping google.com
 Some companies allow Internet access only through proxies in Web
 browser. You will need access from the command line.
 
+\coloredtext{red}{ 100-110-Lab\_VMs-0010-VMs.md }
 
 
 <!---
@@ -392,6 +415,7 @@ Filename: 100-140-Installing\_CFE\_Hub-0000-Chapter-Title.md
 
 ## Installing CFEngine
 
+\coloredtext{red}{ 100-140-Installing\_CFE\_Hub-0000-Chapter-Title.md }
 
 
 <!---
@@ -408,13 +432,16 @@ have been tested on RHEL 6.  If you're not sure what OS to install
 on your VMs, we recommend you install the same OS as you use in
 production and let us know if you have any trouble.
 
-
+\coloredtext{red}{ 100-140-Installing\_CFE\_Hub-0050-Lab\_setup.md }
 
 <!---
 Filename: 100-140-Installing\_CFE\_Hub-0055-Installing\_CFE\_Hub.exr.md
 -->
+\begin{aside}
+\label{aside:exercise_1}
+\heading{}
 
-### Installing CFEngine on your Hub VM
+Installing CFEngine on your Hub VM
 
 - Ensure your Hub VM has an FQDN hostname (required by Hub package)
 
@@ -462,12 +489,16 @@ from the host.
 (Admin -> Settings -> User Management -> Change password)
 
 
-
+\end{aside}
+\coloredtext{red}{ 100-140-Installing\_CFE\_Hub-0055-Installing\_CFE\_Hub.exr.md }
 <!---
 Filename: 100-140-Installing\_CFE\_Hub-0060-Installing\_CFE\_host.exr.md
 -->
+\begin{aside}
+\label{aside:exercise_2}
+\heading{}
 
-### Installing CFEngine on your 2nd VM (the managed host)
+Installing CFEngine on your 2nd VM (the managed host)
 
 - Ensure your Host VM has an FQDN hostname.
 ```bash
@@ -494,6 +525,8 @@ cf-agent -B <hub IP address>
 - Go to hub admin UI and within 5-10 minutes the hosts indicator at the top should go from 1 to 2.
 
 
+\end{aside}
+\coloredtext{red}{ 100-140-Installing\_CFE\_Hub-0060-Installing\_CFE\_host.exr.md }
 
 <!---
 Filename: 100-150-Policy\_Flows-0000-Chapter-Title.md
@@ -501,6 +534,7 @@ Filename: 100-150-Policy\_Flows-0000-Chapter-Title.md
 
 ## Policy Flows
 
+\coloredtext{red}{ 100-150-Policy\_Flows-0000-Chapter-Title.md }
 
 
 <!---
@@ -517,6 +551,7 @@ TIP: Keep your policy in a Version Control System.
 ![policy flow diagram 2](images/figures/policy_flow.pdf)
 ![policy flow diagram 3](images/figures/policy_flow_clients.pdf)
 
+\coloredtext{red}{ 100-150-Policy\_Flows-0050-Policy\_Flow.md }
 
 
 <!---
@@ -528,6 +563,7 @@ Filename: 100-170-Installing\_Examples-0000-Chapter-Title.md
 This chapter takes us through installing everything needed to use the collection
 and do the exercises.
 
+\coloredtext{red}{ 100-170-Installing\_Examples-0000-Chapter-Title.md }
 
 
 <!---
@@ -540,13 +576,16 @@ We keep these examples on GitHub and may update them during or after class.
 
 With git, you can download the updates during or after class.
 
-
+\coloredtext{red}{ 100-170-Installing\_Examples-0150-GitHub\_URL.md }
 
 <!---
 Filename: 100-170-Installing\_Examples-0160-Install\_git.exr.md
 -->
+\begin{aside}
+\label{aside:exercise_3}
+\heading{}
 
-### Installing git
+Installing git
 
 On RHEL/Centos 6:
 ```bash
@@ -559,6 +598,8 @@ apt-get install git
 ```
 
 
+\end{aside}
+\coloredtext{red}{ 100-170-Installing\_Examples-0160-Install\_git.exr.md }
 
 <!---
 Filename: 100-170-Installing\_Examples-0180-Downloading\_VSA\_Examples\_collection.md
@@ -578,6 +619,7 @@ Go to the Training Examples directory:
 cd source
 ```
 
+\coloredtext{red}{ 100-170-Installing\_Examples-0180-Downloading\_VSA\_Examples\_collection.md }
 
 
 <!---
@@ -593,6 +635,7 @@ updates to GitHub, run the following to pull in the updates:
 git pull
 ```
 
+\coloredtext{red}{ 100-170-Installing\_Examples-0190-Updating\_VSA\_Examples\_collection.md }
 
 
 <!---
@@ -601,6 +644,7 @@ Filename: 100-180-Installing\_Syntax\_Highlighter-0000-Chapter-Title.md
 
 ## Installing Syntax Highlighter
 
+\coloredtext{red}{ 100-180-Installing\_Syntax\_Highlighter-0000-Chapter-Title.md }
 
 
 <!---
@@ -614,13 +658,16 @@ Use a syntax highlighter to catch errors early. This will save you time and trou
 You can install the CFEngine 3 syntax highlighter for vim using the
 following shell script, or visit [Code Editors](http://www.cfengine.com/cfengine-code-editors/) on cfengine.com.
 
-
+\coloredtext{red}{ 100-180-Installing\_Syntax\_Highlighter-0260-Syntax\_highlighting\_in\_VIM.md }
 
 <!---
 Filename: 100-180-Installing\_Syntax\_Highlighter-0263-install\_syntax\_highlighter.exr.md
 -->
+\begin{aside}
+\label{aside:exercise_4}
+\heading{}
 
-### Vim syntax highlighter installation script
+Vim syntax highlighter installation script
 
 We provide a shell script that will install the vim syntax highlighter:
 
@@ -631,6 +678,8 @@ vim hello_world.cf
 ```
 
 
+\end{aside}
+\coloredtext{red}{ 100-180-Installing\_Syntax\_Highlighter-0263-install\_syntax\_highlighter.exr.md }
 
 <!---
 Filename: 100-180-Installing\_Syntax\_Highlighter-0270-Syntax\_highlighting\_in\_EMACS.md
@@ -640,13 +689,16 @@ Filename: 100-180-Installing\_Syntax\_Highlighter-0270-Syntax\_highlighting\_in\
 
 See ["Learning CFEngine 3"](http://shop.oreilly.com/product/0636920022022.do) book or the [Code Editors](http://cfengine.com/cfengine-code-editors/) page on cfengine.com
 
-
+\coloredtext{red}{ 100-180-Installing\_Syntax\_Highlighter-0270-Syntax\_highlighting\_in\_EMACS.md }
 
 <!---
 Filename: 100-180-Installing\_Syntax\_Highlighter-0280-Syntax\_highlighting\_exercise.exr.md
 -->
+\begin{aside}
+\label{aside:exercise_5}
+\heading{}
 
-### Verify Syntax Highlighter Has Pretty Colors
+Verify Syntax Highlighter Has Pretty Colors
 
 Open "hello\_world.cf" in your file editor and ensure you see the pretty
 colors of syntax highlighting.
@@ -656,6 +708,8 @@ vim hello_world.cf
 ```
 
 
+\end{aside}
+\coloredtext{red}{ 100-180-Installing\_Syntax\_Highlighter-0280-Syntax\_highlighting\_exercise.exr.md }
 
 <!---
 Filename: 100-190-Using\_Examples-0000-Chapter-Title.md
@@ -663,6 +717,7 @@ Filename: 100-190-Using\_Examples-0000-Chapter-Title.md
 
 ## Using the Collection
 
+\coloredtext{red}{ 100-190-Using\_Examples-0000-Chapter-Title.md }
 
 
 <!---
@@ -679,19 +734,24 @@ file with the *-f* switch:
 cf-agent -f ./create_file.cf
 ```
 
-
+\coloredtext{red}{ 100-190-Using\_Examples-0240-Running\_the\_examples.md }
 
 <!---
 Filename: 100-190-Using\_Examples-0245-Running\_the\_examples.exr.md
 -->
+\begin{aside}
+\label{aside:exercise_6}
+\heading{}
 
-### Run the "Create File" example:
+Run the "Create File" example:
 
 ```bash
 cf-agent -f ./create_file.cf
 ```
 
 
+\end{aside}
+\coloredtext{red}{ 100-190-Using\_Examples-0245-Running\_the\_examples.exr.md }
 
 <!---
 Filename: 100-190-Using\_Examples-0250-Running\_the\_examples.md
@@ -711,13 +771,16 @@ Example:
 cf-agent -I -f ./create_file.cf
 ```
 
-
+\coloredtext{red}{ 100-190-Using\_Examples-0250-Running\_the\_examples.md }
 
 <!---
 Filename: 100-190-Using\_Examples-0255-Running\_the\_examples.exr.md
 -->
+\begin{aside}
+\label{aside:exercise_7}
+\heading{}
 
-### Inform Mode
+Inform Mode
 
 Run the "Create File" example with "Inform" on:
 
@@ -727,12 +790,16 @@ cf-agent -I -f ./create_file.cf
 ```
 
 
-
+\end{aside}
+\coloredtext{red}{ 100-190-Using\_Examples-0255-Running\_the\_examples.exr.md }
 <!---
 Filename: 100-190-Using\_Examples-0290-List\_contents.exr.md
 -->
+\begin{aside}
+\label{aside:exercise_8}
+\heading{}
 
-### List contents
+List contents
 
 List the collection contents:
 
@@ -764,3 +831,5 @@ ls *.cf
 and [let me know](mailto:aleksey@verticalsysadmin.com).
 
 
+\end{aside}
+\coloredtext{red}{ 100-190-Using\_Examples-0290-List\_contents.exr.md }

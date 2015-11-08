@@ -1,4 +1,4 @@
-### Inform Mode
+Inform Mode
 
 Run the "Create File" example with "Inform" on:
 

@@ -1,4 +1,4 @@
-### Vim syntax highlighter installation script
+Vim syntax highlighter installation script
 
 We provide a shell script that will install the vim syntax highlighter:
 

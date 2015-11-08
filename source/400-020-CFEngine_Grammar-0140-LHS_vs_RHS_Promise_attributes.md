@@ -4,11 +4,11 @@ CFEngine uses many "constraint expressions" as part of the body of a promise.  T
 
 These take the form:
 
-left-hand-side (cfengine word) #> right-hand-side (user defined data).
+left-hand-side (cfengine word) => right-hand-side (user defined data).
 
 This can take several forms:
 
-     cfengine_word #> user_defined_body or user_defined_body(parameters)
+     cfengine_word => user_defined_body or user_defined_body(parameters)
 
                       builtin_function()
 

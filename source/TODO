@@ -1,5 +1,21 @@
+Add definitions of Index and Indices to the Arrays section
+
+make sure we have an exercise to bootstrap the hub:
+
+root@ubuntu:~# /var/cfengine/bin/cf-agent --bootstrap  192.168.23.151 
+R: This host assumes the role of policy server
+R: Updated local policy from policy server
+R: Started the server
+R: Started the scheduler
+  notice: Bootstrap to '192.168.23.151' completed successfully!
+root@ubuntu:~# 
+
+
+-------------------------------------------------------------
+
 Add a chapter on attribute types
 
+- add Agent Promise Attributes (appendix C from "Learning CFEngine 3") to this book
 - add a GLOSSARY with ALL terms defined
 - look at templates/
 - look at 1.cf.  It shows three ways that a list can be

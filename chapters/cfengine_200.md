@@ -5,6 +5,7 @@ Filename: 200-000-Part-Title-0000-Introduction.md
 
 # Introduction
 
+\coloredtext{red}{ 200-000-Part-Title-0000-Introduction.md }
 
 
 <!---
@@ -24,6 +25,7 @@ CFEngine 101 webinar series (Feb 2014)
 
 2. [Getting Started with CFEngine](https://www.youtube.com/watch?v=riMkdQKBI0M)
 
+\coloredtext{red}{ 200-010-Introductory\_overview-0000-Chapter-Title.md }
 
 
 <!---
@@ -32,6 +34,7 @@ Filename: 200-010-Introductory\_overview-0032-lifecycle\_of\_a\_machine.BOOKONLY
 
 ![Alt text](images/figures/lifecycle.pdf)
 
+\coloredtext{red}{ 200-010-Introductory\_overview-0032-lifecycle\_of\_a\_machine.BOOKONLY.md }
 
 
 <!---
@@ -40,6 +43,7 @@ Filename: 200-020-Definitions-0000-Chapter-Title.md
 
 ## Definitions
 
+\coloredtext{red}{ 200-020-Definitions-0000-Chapter-Title.md }
 
 
 <!---
@@ -58,6 +62,7 @@ To improve trust we make promises. A promise is the documentation of
 an intention to act or behave in some manner. This is what we need to
 learn to trust systems.
 
+\coloredtext{red}{ 200-020-Definitions-0050-Promise.md }
 
 
 <!---
@@ -90,6 +95,7 @@ NOTKEPT outcomes likely require attention!
 
 REPAIRED outcomes may require attention (especially if they keep recurring).
 
+\coloredtext{red}{ 200-020-Definitions-0051-Promise\_outcomes.md }
 
 
 <!---
@@ -113,6 +119,7 @@ or you may want to run extra file-integrity checking on hosts
 in your DMZ.  In both examples, you have a promise and a pattern
 as to when and where it applies.
 
+\coloredtext{red}{ 200-020-Definitions-0051-Promises\_plus\_Patterns\_equals\_Configuration.md }
 
 
 <!---
@@ -126,6 +133,7 @@ Filename: 200-020-Definitions-0060-Policy.md
 promises. A policy is not a standard, but the result of specific
 organizational management decisions.
 
+\coloredtext{red}{ 200-020-Definitions-0060-Policy.md }
 
 
 <!---
@@ -143,6 +151,7 @@ files:
         comment => "Prevent non-root users from logging in so we can perform maintenance";
 ```
 
+\coloredtext{red}{ 200-020-Definitions-0065-simple\_promise\_files\_nologin.md }
 
 
 <!---
@@ -160,6 +169,7 @@ promise_type:
             attribute2 => value2;
 ```
 
+\coloredtext{red}{ 200-020-Definitions-0070-the\_most\_basic\_form\_of\_a\_promise.md }
 
 
 <!---
@@ -187,6 +197,7 @@ Filename: 200-020-Definitions-0090-Promise\_Type.md
 : A promise to execute a command.
 
 
+\coloredtext{red}{ 200-020-Definitions-0090-Promise\_Type.md }
 
 
 <!---
@@ -205,10 +216,11 @@ files:
 
     "/etc/nologin" 
 
-        create  #> "true",
-        comment #> "Prevent non-root users from logging in";
+        create  => "true",
+        comment => "Prevent non-root users from logging in";
 ```
 
+\coloredtext{red}{ 200-020-Definitions-0100-Promise\_Type\_example.md }
 
 
 <!---
@@ -221,6 +233,7 @@ Filename: 200-020-Definitions-0110-Promiser.md
 : The promiser is the part of the system that will be affected by the
 promise. (We are affected by the promises we make.)
 
+\coloredtext{red}{ 200-020-Definitions-0110-Promiser.md }
 
 
 <!---
@@ -240,6 +253,7 @@ files:
         comment => "Prevent non-root users from logging in";
 ```
 
+\coloredtext{red}{ 200-020-Definitions-0120-Promiser\_example.md }
 
 
 <!---
@@ -256,6 +270,7 @@ Examples of bodies: body of a letter, body of a contract.
 
 The body is where the details are.
 
+\coloredtext{red}{ 200-020-Definitions-0130-Body.md }
 
 
 <!---
@@ -277,6 +292,7 @@ Filename: 200-020-Definitions-0132-Definition\_of\_Attribute.md
 >
 > --- Macmillan Dictionary
 
+\coloredtext{red}{ 200-020-Definitions-0132-Definition\_of\_Attribute.md }
 
 
 <!---
@@ -288,6 +304,7 @@ Filename: 200-020-Definitions-0135-Promise\_Body.md
 A promise body is a collection of promise attributes that details and
 constrains the nature of the promise.
 
+\coloredtext{red}{ 200-020-Definitions-0135-Promise\_Body.md }
 
 
 <!---
@@ -308,6 +325,7 @@ files:
         comment => "Prove CFEngine is running.";  
 ```
 
+\coloredtext{red}{ 200-020-Definitions-0140-Promise\_Body\_example\_2.md }
 
 
 <!---
@@ -362,6 +380,7 @@ bundle agent my_example
 
 Notice our syntax highlighter puts language keywords in green.
 
+\coloredtext{red}{ 200-020-Definitions-0150-Promise\_Bundle.md }
 
 
 <!---
@@ -378,6 +397,7 @@ Filename: 200-020-Definitions-0170-declarative\_vs\_imperativ\_sandwich\_example
 > state or goal be be achieved.
 > --- [Mike English](http://spin.atomicobject.com/2012/09/13/from-imperative-to-declarative-system-configuration-with-puppet/)
 
+\coloredtext{red}{ 200-020-Definitions-0170-declarative\_vs\_imperativ\_sandwich\_example.md }
 
 
 <!---
@@ -407,6 +427,7 @@ Filename: 200-020-Definitions-0180-declarative\_vs\_imperative.md
 > platforms.
 > --- [Mike English](http://spin.atomicobject.com/2012/09/13/from-imperative-to-declarative-system-configuration-with-puppet/)
 
+\coloredtext{red}{ 200-020-Definitions-0180-declarative\_vs\_imperative.md }
 
 
 <!---
@@ -419,6 +440,7 @@ A declarative language allows us to express intent more clearly, to let
 the intent shine through the syntax of the code.  It allows us to have
 a higher Signal to Syntax ratio.
 
+\coloredtext{red}{ 200-020-Definitions-0190-Declarative\_intent.md }
 
 
 <!---
@@ -438,6 +460,7 @@ Convergence
 : (of a number of things) gradually change so as to become similar or develop something in common.
 OxfordDictionaries.com
 
+\coloredtext{red}{ 200-020-Definitions-0200-Convergence.md }
 
 
 <!---
@@ -453,13 +476,16 @@ Filename: 200-020-Definitions-0210-Thinking\_Declaratively.md
 3. Translate the desired end state into CFEngine Policy Language.
 
 
-
+\coloredtext{red}{ 200-020-Definitions-0210-Thinking\_Declaratively.md }
 
 <!---
 Filename: 200-020-Definitions-0220-Thiking\_Declaratively.exr.md
 -->
+\begin{aside}
+\label{aside:exercise_9}
+\heading{}
 
-### Learning to Think Declaratively
+Learning to Think Declaratively
 
 1. State an actual sysadmin problem you need to solve
 
@@ -468,3 +494,5 @@ Filename: 200-020-Definitions-0220-Thiking\_Declaratively.exr.md
 In other words, focus on the WHAT and let CFEngine handle the HOW (which may vary from OS to OS anyway).
 
 
+\end{aside}
+\coloredtext{red}{ 200-020-Definitions-0220-Thiking\_Declaratively.exr.md }

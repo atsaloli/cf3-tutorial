@@ -1,4 +1,4 @@
-## Shutdown your VM at the end of the day
+Shutdown your VM at the end of the day
 
 *Problem:*  All practice machines should be shutdown at end of class at 17:00
 

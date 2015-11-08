@@ -5,6 +5,7 @@ Filename: 950-000-Part-Title-0000-Conclusion.md
 
 # Conclusion
 
+\coloredtext{red}{ 950-000-Part-Title-0000-Conclusion.md }
 
 
 <!---
@@ -21,6 +22,7 @@ Your opinion is important to me. Please help us improve the quality of the train
 
 - What should be improved?
 
+\coloredtext{red}{ 950-010-Survey-0000-Chapter-Title.md }
 
 
 <!---
@@ -35,6 +37,7 @@ Filename: 950-030-References-0000-Chapter-Title.md
 
 - Brian Bennett's [cf-primer](http://www.digitalelf.net/cf-primer)
 
+\coloredtext{red}{ 950-030-References-0000-Chapter-Title.md }
 
 
 <!---
@@ -49,4 +52,5 @@ Filename: 950-040-Further\_Study-0000-Chapter-Title.md
 
 - ["Learning CFEngine 3"](http://shop.oreilly.com/product/0636920022022.do)
 
+\coloredtext{red}{ 950-040-Further\_Study-0000-Chapter-Title.md }
 

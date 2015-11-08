@@ -5,6 +5,10 @@ Filename: 500-000-Part-Title-0000-Functions.md
 
 # Functions
 
+See [Functions](https://docs.cfengine.com/latest/reference-functions.html) in the CFEngine Reference for explanation of the following functions.
+
+
+\coloredtext{red}{ 500-000-Part-Title-0000-Functions.md }
 
 
 <!---
@@ -13,6 +17,7 @@ Filename: 500-010-Functions-0000-Chapter-Title.md
 
 ## CFEngine Functions
 
+\coloredtext{red}{ 500-010-Functions-0000-Chapter-Title.md }
 
 \begin{codelisting}
 \codecaption{500-010-Functions-0910-putting\_command\_output\_into\_variable.cf}

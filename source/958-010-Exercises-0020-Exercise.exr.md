@@ -1,4 +1,4 @@
-## Report the current time 
+Report the current time 
 
 Report the current time using:
 

@@ -5,6 +5,7 @@ Filename: 420-000-Part-Title-0000-CFEngine\_Standard\_Library.md
 
 # CFEngine Standard Library
 
+\coloredtext{red}{ 420-000-Part-Title-0000-CFEngine\_Standard\_Library.md }
 
 
 <!---
@@ -13,6 +14,7 @@ Filename: 420-060-COPBL-0000-Chapter-Title.md
 
 ## CFEngine Standard Library
 
+\coloredtext{red}{ 420-060-COPBL-0000-Chapter-Title.md }
 
 
 <!---
@@ -35,6 +37,7 @@ The CFEngine Standard Library is growing to include all common aspects of system
 |##################========================================
 -->
 
+\coloredtext{red}{ 420-060-COPBL-0460-Introduction.md }
 
 \begin{codelisting}
 \codecaption{420-060-COPBL-0470-Package\_add\_using\_COPBL.cf}
@@ -97,6 +100,9 @@ body perms mog(mode,owner,group)
 ```cfengine3, options: "linenos": true
 bundle agent main {
 
+reports:
+"$(sys.libdir)/stdlib.cf" ; 
+
   files:
 
       "/tmp/testfile"
@@ -152,24 +158,35 @@ bundle agent main {
 }
 
 
-body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
+#body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
+body file control { inputs => { "/var/cfengine/inputs/lib/3.6/stdlib.cf" }; }
 ```
 \end{codelisting}
-
 <!---
 Filename: 420-060-COPBL-0520-Comment\_Out\_A\_File.exr.md
 -->
+\begin{aside}
+\label{aside:exercise_32}
+\heading{}
 
-Run the following command:
+Run the following command to generate some content:
 
 ```bash
 date  > /tmp/date.txt
 ```
 
-Now write a CFEngine policy that will comment out (using #) the contents of that file.
+Write a CFEngine policy that will comment out (using #)
+all lines that start with a day of the week:
 
 
+    edit_line => comment_lines_matching("(Mon|Tue|Wed|Thur|Fri|Sat|Sun).*" ,
+                                        "#")
 
+out of the standard library.
+
+
+\end{aside}
+\coloredtext{red}{ 420-060-COPBL-0520-Comment\_Out\_A\_File.exr.md }
 \begin{codelisting}
 \codecaption{420-060-COPBL-0530-Commenting\_out\_file\_contents.cf}
 ```cfengine3, options: "linenos": true
@@ -393,7 +410,8 @@ bundle agent main {
 
 }
 
-body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
+#body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
+body file control { inputs => { "/var/cfengine/inputs/lib/3.6/stdlib.cf" }; }
 ```
 \end{codelisting}
 \begin{codelisting}

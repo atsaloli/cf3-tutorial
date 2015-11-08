@@ -1,4 +1,4 @@
-## Log repairs
+Log repairs
 
 With CFEngine Enterprise, we see all repairs through the Mission Portal.
 

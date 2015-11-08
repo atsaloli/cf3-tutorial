@@ -10,6 +10,6 @@ files:
 
     "/etc/nologin" 
 
-        create  #> "true",
-        comment #> "Prevent non-root users from logging in";
+        create  => "true",
+        comment => "Prevent non-root users from logging in";
 ```

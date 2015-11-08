@@ -1,4 +1,4 @@
-## Configure sshd
+Configure sshd
 
 How does the system look like in the correct configuration:
 

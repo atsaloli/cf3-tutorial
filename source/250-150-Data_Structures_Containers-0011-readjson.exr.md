@@ -1,4 +1,4 @@
-### Data containers - readjson
+Data containers - readjson
 
 1. Turn your array from the previous exercises into
    a JSON data file, e.g.:

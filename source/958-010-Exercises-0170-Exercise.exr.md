@@ -1,4 +1,4 @@
-## Set a custom class based on the existence of a file. 
+Set a custom class based on the existence of a file. 
 
 Example:
 

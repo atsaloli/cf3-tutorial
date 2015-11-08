@@ -5,6 +5,7 @@ Filename: 310-000-Part-Title-0000-Language\_Notes.md
 
 # Notes on Syntax and Internals
 
+\coloredtext{red}{ 310-000-Part-Title-0000-Language\_Notes.md }
 
 
 <!---
@@ -15,6 +16,7 @@ Filename: 310-010-Notes\_on\_Syntax-0000-Chapter-Title.md
 
 A bundle is a group of one or more promises.  
 
+\coloredtext{red}{ 310-010-Notes\_on\_Syntax-0000-Chapter-Title.md }
 
 \begin{codelisting}
 \codecaption{310-010-Notes\_on\_Syntax-0350-Two\_promises\_in\_one\_bundle.cf}
@@ -44,6 +46,7 @@ CFEngine allows you to write shorter code without loss of meaning:
 don't specify the promise type, and CFEngine will re-use the promise
 type of the preceding promise.
 
+\coloredtext{red}{ 310-010-Notes\_on\_syntax-0353-reusing\_promise\_type.md }
 
 \begin{codelisting}
 \codecaption{310-010-Notes\_on\_syntax-0355-Two\_promises\_in\_one\_bundle\_Condensed.cf}
@@ -115,6 +118,7 @@ Filename: 310-030-Notes\_on\_running-0000-Chapter-Title.md
 
 ## Multiple passes and Convergence
 
+\coloredtext{red}{ 310-030-Notes\_on\_running-0000-Chapter-Title.md }
 
 
 <!---
@@ -129,6 +133,7 @@ CFEngine will make multiple passes in auditing/repairing a system. After depende
 
 Run cf-agent with the -v switch (verbose) and look for "pass 1", "pass 2", and "pass 3" to observe the three passes.
 
+\coloredtext{red}{ 310-030-Notes\_on\_Running-0010-three\_passes.md }
 
 \begin{codelisting}
 \codecaption{310-030-Notes\_on\_Running-0020-three\_passes.cf}
@@ -148,16 +153,20 @@ bundle agent main {
 }
 ```
 \end{codelisting}
-
 <!---
 Filename: 310-030-Notes\_on\_Running-0030-three\_passes.exr.md
 -->
+\begin{aside}
+\label{aside:exercise_24}
+\heading{}
 
-### Observe three passes
+Observe three passes
 
 Run one of your previous exercise files in verbose mode and observe what happens in which pass, and how the passes are labeled.
 
 
+\end{aside}
+\coloredtext{red}{ 310-030-Notes\_on\_Running-0030-three\_passes.exr.md }
 
 <!---
 Filename: 310-040-Ordering-0000-Chapter-Title.md
@@ -165,6 +174,7 @@ Filename: 310-040-Ordering-0000-Chapter-Title.md
 
 ## Ordering
 
+\coloredtext{red}{ 310-040-Ordering-0000-Chapter-Title.md }
 
 
 <!---
@@ -177,6 +187,7 @@ Promises of the same type are evaluated in the order they appear in the file.
 
 Promises of different types are evaluated according to "normal ordering".
 
+\coloredtext{red}{ 310-040-Ordering-0004-intro.md }
 
 \begin{codelisting}
 \codecaption{310-040-Ordering-0005-ordering\_within\_a\_single\_promise\_type\_is\_linear.cf}
@@ -205,7 +216,11 @@ bundle agent main
 
   commands:
 
-      "/bin/echo Hello world!";
+      "/bin/echo Good morning!";
+
+#  reports:
+#      " I love tomatoes";
+
 }
 ```
 \end{codelisting}
@@ -238,42 +253,43 @@ bundle agent main
 ```cfengine3, options: "linenos": true
 bundle agent main {
 
+# run /bin/rm /tmp/newfile to setup for this example
+
   classes:
-      "myclass"
-        comment => "Create soft class for reports promise.",
+      "file_exists"
         expression => fileexists("/tmp/newfile");
+      "file_absent"
+        not => fileexists("/tmp/newfile");
 
   files:
       "/tmp/newfile"
-
         handle => "create_a_file",
         comment => "Give CFEngine something to do
                           to change system state.",
         create => "true";
 
   reports:
-    myclass::
+    file_exists::
       "file /tmp/newfile exists";
 
-    !myclass::
+    file_absent::
       "file /tmp/newfile does not exist";
 }
 ```
 \end{codelisting}
-
 <!---
 Filename: 310-040-Ordering-0050-Classes\_and\_Reports\_Exercise.exr.md
 -->
+\begin{aside}
+\label{aside:exercise_25}
+\heading{}
 
-Create two files.
-
-- Create a file
-- Create a second file if the 1st file exists
-  - Check if the first file exists, and create a soft class if it does
-
-Run this in verbose mode so you can see what gets created when.
+Run the previous example in verbose mode so you can see
+what happens during which pass.
 
 
+\end{aside}
+\coloredtext{red}{ 310-040-Ordering-0050-Classes\_and\_Reports\_Exercise.exr.md }
 
 <!---
 Filename: 310-050-Knowledge\_Management-0000-Chapter-Title.md
@@ -281,6 +297,7 @@ Filename: 310-050-Knowledge\_Management-0000-Chapter-Title.md
 
 ## Knowledge Management
 
+\coloredtext{red}{ 310-050-Knowledge\_Management-0000-Chapter-Title.md }
 
 
 <!---
@@ -289,6 +306,7 @@ Filename: 310-050-Knowledge\_Management-0240-is\_one\_of\_the\_key\_challenges\_
 
 TIP: Knowledge Management is one of the key challenges of scale.
 
+\coloredtext{red}{ 310-050-Knowledge\_Management-0240-is\_one\_of\_the\_key\_challenges\_of\_scale.md }
 
 \begin{codelisting}
 \codecaption{310-050-Knowledge\_Management-0250-handle.cf}
@@ -475,4 +493,5 @@ The `Dunbar numbers' are cognitive limits that we have to work around.
 
 http://markburgess.org/blog_km.html
 
+\coloredtext{red}{ 310-050-Knowledge-Management-0300-Dunbar\_numbers.md }
 
