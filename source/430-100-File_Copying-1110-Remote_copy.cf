@@ -1,8 +1,10 @@
 # This is an example "policy update" policy that promises that
-# /var/cfengine/inputs will be a copy of /var/cfengine/masterfiles
-# on the hub.
+# /var/cfengine/inputs will be a copy of the hub's
+# /var/cfengine/masterfiles
 #
-# It's more or less what the update policy looked like early on.
+# The following what the update policy looked like early on
+# (near CFEngine 3.0).
+#
 # Now the update policy is more sophisticated, with
 # some tricks to improve performance, although fundamentally, 
 # what the update policy does is still: ensure that local directory
