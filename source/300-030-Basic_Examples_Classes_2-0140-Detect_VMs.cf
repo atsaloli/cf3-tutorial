@@ -1,14 +1,23 @@
+# You can set a soft class based on the outcome
+# of a function that returns true/false, such as
+# regline() which checks if there is a line in a
+# file matching a regular expression.
+
 bundle agent main {
 
   classes:
       "i_am_virtual"
         handle => "reality_check",
         comment => "Check if we are running inside a VM",
-        expression => regline("(?i).*vmware.*|(?i).*vbox.*|(?i).*qemu.*",
+        expression => regline(".*VMware.*",
                               "/proc/scsi/scsi");
-      # (?i) is the "case-insensitive" switch
-      # The shell equivalent would be:
-      # /bin/egrep -i 'vmware|vbox|qemu' /proc/scsi/scsi
+
+# This is what we wouls see in the shell:
+#
+# $ grep -i vmware /proc/scsi/scsi
+# Vendor: VMware,  Model: VMware Virtual S Rev: 1.0 
+# Vendor: NECVMWar Model: VMware SATA CD01 Rev: 1.00
+# $
 
   reports:
     i_am_virtual::

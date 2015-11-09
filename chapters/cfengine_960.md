@@ -1471,6 +1471,9 @@ Filename: 960-040-Class\_Examples-0000-Chapter-Title.md
 \begin{codelisting}
 \codecaption{960-040-Class\_Examples-0240-Parsing\_readtcp\_output\_to\_set\_a\_class.cf}
 ```cfengine3, options: "linenos": true
+# TODO -- make this self-contained and runnable
+#
+#
 # this policy runs on an haproxy load balancer
 # we check a list of servers (webhosts_list)
 # to tst that they are up, and if they are up,
@@ -1492,16 +1495,17 @@ bundle agent load_balancer_configured_with_live_webhosts(webhosts_list)
 
   vars:
 
-      "2xCRLF"
-        string => "$(const.r)$(const.n)$(const.r)$(const.n)",
-        comment => "HTTP requests are terminated by the double
-                    CR/LF sequence";
+      "CRLF"
+        string => "$(const.r)$(const.n)",
+        comment => "HTTP requests are terminated by double
+                    CR/LF";
 
 
       # variable containing HTTP response from each web server
       "my80"
-        string => readtcp("$(webhosts_list)","80","GET /index.php
-HTTP/1.1$(2xCRLF)Host: $(webhosts_list)$(2xCRLF)","20");
+        string => readtcp("$(webhosts_list)","80","GET /index.php\
+ HTTP/1.1$(CRLF)$(CRLF)\
+Host: $(webhosts_list)$(CRLF)$(CRLF)","20");
 
 
       # set server_ok class if response contains HTTP 200 OK
@@ -3310,6 +3314,36 @@ Filename: 960-340-PXEboot\_Kickstart\_Server-0110-title\_card.md
 -->
 
 ## PXEboot Kickstart Server
+
+The following is a demonstration of integrating CFEngine in the host provisioning process so that installation of the OS is followed immediately by installation of the CFEngine agent package and configuration of the host.
+
+I used to bring two laptops to my trainings; one of them was configured (via CFEngine) as a PXEboot server and a Kickstart server; I would reboot the other laptop and let it boot off the NIC (PXEboot).  The victim would get a fresh OS + the CFEngine policies. 
+
+An production system engineer who kindly reviewed these materials wrote breathlessly:
+
+> Aleksey, I came across a script that does pxe boot setup using cfengine ?
+> really ??
+> this is awesome !
+
+He explained:
+
+> I use cobbler to do pxe installation. but the cfengine script looks straight forward. also, as mentioned in the cfengine docs, the entire knowledge of pxe setup is present in the "*.cf" file. I just looked at and realized that this is called knowledge management. 
+>
+> in case of cobbler knowledge is scattered in 
+>
+> 1. cobbler tool setup (which contains all service setup)
+> 
+> 2. manual setup by user (turning off firewall and selinux)
+> 
+> 3. kickstart files
+>
+> all these are present in one *.cf file. this is super awesome ! 
+>
+>--M.
+
+Yes, CFEngine (especially its the Knowledge Management aspect) is "super awesome"!
+
+The following was last tested a couple of years ago on CentOS 5.  It may need an update.
 
 \coloredtext{red}{ 960-340-PXEboot\_Kickstart\_Server-0110-title\_card.md }
 

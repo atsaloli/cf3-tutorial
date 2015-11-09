@@ -393,14 +393,14 @@ bundle agent main {
 }
 ```
 \end{codelisting}
-<!---
+<!---                 
 Filename: 440-070-Patterns-0850-Classes.exr.md
 -->
+
 \begin{aside}
 \label{aside:exercise_35}
-\heading{}
+\heading{Practice using classes}
 
-Practice using classes
 
 * Set a custom class if the file '/tmp/testme' exists.
 
@@ -835,14 +835,14 @@ bundle agent groupadd(groupname) {
 }
 ```
 \end{codelisting}
-<!---
+<!---                 
 Filename: 440-080-Methods-1020-Methods.exr.md
 -->
+
 \begin{aside}
 \label{aside:exercise_36}
-\heading{}
+\heading{Practice using "methods" type promises}
 
-Practice using "methods" type promises
 
 * Write a policy that has two bundles.
 
@@ -855,26 +855,26 @@ What output will you see and in what order?  Why?  Now run your policy and check
 
 \end{aside}
 \coloredtext{red}{ 440-080-Methods-1020-Methods.exr.md }
-<!---
+<!---                 
 Filename: 440-080-Methods-1920-Methods.exr.md
 -->
+
 \begin{aside}
 \label{aside:exercise_37}
-\heading{}
+\heading{Now parameterize the 2nd bundle -- have the first bundle feed it an argument, and have the 2nd bundle display that argument.}
 
-Now parameterize the 2nd bundle -- have the first bundle feed it an argument, and have the 2nd bundle display that argument.
 
 
 \end{aside}
 \coloredtext{red}{ 440-080-Methods-1920-Methods.exr.md }
-<!---
+<!---                 
 Filename: 440-080-Methods-1930-Methods.exr.md
 -->
+
 \begin{aside}
 \label{aside:exercise_38}
-\heading{}
+\heading{Sysadmin Problem:}
 
-Sysadmin Problem:
 
 '/etc/profile' should set the ORGANIZATION environment variable when users log in:
 
@@ -899,14 +899,14 @@ Demonstrate its use by calling it from another bundle:
 
 \end{aside}
 \coloredtext{red}{ 440-080-Methods-1930-Methods.exr.md }
-<!---
+<!---                 
 Filename: 440-080-Methods-1940-Methods.exr.md
 -->
+
 \begin{aside}
 \label{aside:exercise_39}
-\heading{}
+\heading{Make a bundle called file_contains that takes two arguments: a filename, and a text string.  The bundle should ensure that the file specified in the first argument contains the text string specified in the second argument.}
 
-Make a bundle called file_contains that takes two arguments: a filename, and a text string.  The bundle should ensure that the file specified in the first argument contains the text string specified in the second argument.
 
 Example:
 
@@ -919,14 +919,14 @@ Example:
 
 \end{aside}
 \coloredtext{red}{ 440-080-Methods-1940-Methods.exr.md }
-<!---
+<!---                 
 Filename: 440-080-Methods-1950-Methods.exr.md
 -->
+
 \begin{aside}
 \label{aside:exercise_40}
-\heading{}
+\heading{Configuring a web server.}
 
-Configuring a web server.
 
 Write a bundle "webserver" that will ensure an Apache httpd package is installed and process is running if its argument is "on":
 

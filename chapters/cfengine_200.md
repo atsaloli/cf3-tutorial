@@ -394,7 +394,7 @@ Filename: 200-020-Definitions-0170-declarative\_vs\_imperativ\_sandwich\_example
 > programming languages are examples of imperative programming, in
 > which the programmer must describe a specific algorithm or process.
 > Declarative programming instead focuses on describing the particular
-> state or goal be be achieved.
+> state or goal to be achieved.
 > --- [Mike English](http://spin.atomicobject.com/2012/09/13/from-imperative-to-declarative-system-configuration-with-puppet/)
 
 \coloredtext{red}{ 200-020-Definitions-0170-declarative\_vs\_imperativ\_sandwich\_example.md }
@@ -478,14 +478,14 @@ Filename: 200-020-Definitions-0210-Thinking\_Declaratively.md
 
 \coloredtext{red}{ 200-020-Definitions-0210-Thinking\_Declaratively.md }
 
-<!---
+<!---                 
 Filename: 200-020-Definitions-0220-Thiking\_Declaratively.exr.md
 -->
+
 \begin{aside}
 \label{aside:exercise_9}
-\heading{}
+\heading{Learning to Think Declaratively}
 
-Learning to Think Declaratively
 
 1. State an actual sysadmin problem you need to solve
 

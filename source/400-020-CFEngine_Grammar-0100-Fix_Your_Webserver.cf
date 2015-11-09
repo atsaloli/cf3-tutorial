@@ -7,8 +7,10 @@ bundle agent main {
 
       "CRLF"
         string => "$(const.r)$(const.n)",
-        comment => "HTTP requests are terminated by the double
-                    CR/LF sequence";
+        comment => "HTTP requests are terminated by double CR/LF.
+                    Define CRLF variable or else my readtcp()
+                    function is too long (goes outside page boundary
+                    and gets hard to read).";
 
       "http_reply"
 

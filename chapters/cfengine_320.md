@@ -42,14 +42,14 @@ politely.";
 }
 ```
 \end{codelisting}
-<!---
+<!---                 
 Filename: 320-150-Editing\_Files-0340-Exercise.exr.md
 -->
+
 \begin{aside}
 \label{aside:exercise_26}
-\heading{}
+\heading{Editing /etc/motd}
 
-Editing /etc/motd
 
 Write a policy that will ensure /etc/motd always contains:
 
@@ -96,14 +96,14 @@ bundle edit_line  my_motd {
 
 ```
 \end{codelisting}
-<!---
+<!---                 
 Filename: 320-150-Editing\_Files-0370-delete\_lines.exr.md
 -->
+
 \begin{aside}
 \label{aside:exercise_27}
-\heading{}
+\heading{Making "delete_lines" promises}
 
-Making "delete_lines" promises
 
 Create an /etc/motd file that contains only the 
 text "Unauthorized use forbidden"
@@ -202,14 +202,14 @@ bundle edit_xml set_value
 }
 ```
 \end{codelisting}
-<!---
+<!---                 
 Filename: 320-151-Editing\_Files\_XML-0090-edit\_xml.exr.md
 -->
+
 \begin{aside}
 \label{aside:exercise_28}
-\heading{}
+\heading{TODO: edit_xml exercise}
 
-TODO: edit_xml exercise
 
 
 \end{aside}
@@ -336,14 +336,14 @@ bundle agent main {
 }
 ```
 \end{codelisting}
-<!---
+<!---                 
 Filename: 320-265-Mustache\_Templates\_with\_Data\_Container-exercise.exr.md
 -->
+
 \begin{aside}
 \label{aside:exercise_29}
-\heading{}
+\heading{Render a JSON-backed Mustache template}
 
-Render a JSON-backed Mustache template
 
 Make a JSON file
 
@@ -412,14 +412,14 @@ bundle agent main {
 }
 ```
 \end{codelisting}
-<!---
+<!---                 
 Filename: 320-270-Mustache\_Templates\_with\_Datastate-0030-exercise.exr.md
 -->
+
 \begin{aside}
 \label{aside:exercise_30}
-\heading{}
+\heading{Make a Mustache template that accesses CFEngine datastate}
 
-Make a Mustache template that accesses CFEngine datastate
 
 * Make a mustache template that accesses variables from CFEngine datastate
 

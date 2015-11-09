@@ -5,5 +5,5 @@
 > programming languages are examples of imperative programming, in
 > which the programmer must describe a specific algorithm or process.
 > Declarative programming instead focuses on describing the particular
-> state or goal be be achieved.
+> state or goal to be achieved.
 > --- [Mike English](http://spin.atomicobject.com/2012/09/13/from-imperative-to-declarative-system-configuration-with-puppet/)

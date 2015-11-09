@@ -1,4 +1,4 @@
-Examine Hard Classes
+Examine hard classes
 
 Run CFEngine in verbose mode:
 
@@ -6,4 +6,4 @@ Run CFEngine in verbose mode:
 cf-agent -v -f ./hello_world.cf | less
 ```
 
-Examine what CFEngine discovered about your system and what hard classes it set.
+Examine what CFEngine discovered about your system and what classes it set.

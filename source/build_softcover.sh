@@ -118,21 +118,21 @@ fi
 
 ### process exercise files
 if [ "$filetype" == "exercise" ];then
-  > $target
-  echo '<!---'                 >> $target  # embed source filename as a comment
-  echo "Filename: ${filename}" >> $target  # so we can find it easily if we need
-  echo '-->'                   >> $target  # to make changes
 
-#  echo "" >> $target 
+  HEADING=`head -1 $file`
+  cat <<EOF > $target
+<!---                 
+Filename: ${filename}
+-->
 
-  cat <<EOF >> $target
 \begin{aside}
 \label{aside:exercise_${EXERCISE_COUNTER}}
-\heading{}
+\heading{${HEADING}}
+
 EOF
-#  echo "#### Exercise $EXERCISE_COUNTER" >> $target
-  echo                         >> $target	
-  cat $file                    >> $target 
+
+
+  tail -n +2 $file             >> $target
   echo                         >> $target 
   echo                         >> $target 
   echo '\end{aside}'           >> $target

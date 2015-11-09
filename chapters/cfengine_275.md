@@ -49,14 +49,14 @@ bundle agent main {
 
 ```
 \end{codelisting}
-<!---
+<!---                 
 Filename: 275-030-Data\_Structures\_Arrays-0355-array.exr.md
 -->
+
 \begin{aside}
 \label{aside:exercise_21}
-\heading{}
+\heading{Using arrays}
 
-Using arrays
 
 Make an array (key/value collection) with two elements
 

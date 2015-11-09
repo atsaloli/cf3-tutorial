@@ -186,14 +186,14 @@ body perms set_file_attributes(mode,owner,group)
 }
 ```
 \end{codelisting}
-<!---
+<!---                 
 Filename: 400-010-Body\_Parts-0600-body\_parts.exr.md
 -->
+
 \begin{aside}
 \label{aside:exercise_31}
-\heading{}
+\heading{Create executable shell script}
 
-Create executable shell script
 
 Write a CFEngine policy to ensure '/usr/local/bin/hello.sh' exists, has permissions 0755, owner root, group root, and contents:  
 ```bash
@@ -224,8 +224,10 @@ bundle agent main {
 
       "CRLF"
         string => "$(const.r)$(const.n)",
-        comment => "HTTP requests are terminated by the double
-                    CR/LF sequence";
+        comment => "HTTP requests are terminated by double CR/LF.
+                    Define CRLF variable or else my readtcp()
+                    function is too long (goes outside page boundary
+                    and gets hard to read).";
 
       "http_reply"
 
@@ -415,10 +417,14 @@ bundle agent main {
 
   vars:
 
-      "2xCRLF"
-        string => "$(const.r)$(const.n)$(const.r)$(const.n)",
-        comment => "HTTP requests are terminated by the double
-                    CR/LF sequence";
+      "CRLF"
+        string => "$(const.r)$(const.n)",
+        comment => "HTTP requests are terminated by double CR/LF.
+                    Define CRLF variable or else my readtcp()
+                    function is too long (goes outside page boundary
+                    and gets hard to read).";
+
+
 
       "http_reply"
         handle => "http_client",
@@ -426,7 +432,7 @@ bundle agent main {
 'GET / HTTP/1.0' and save the output into var http_reply.",
         string => readtcp("localhost",
                           "80",
-                          "GET / HTTP/1.0$(2xCRLF)",
+                          "GET / HTTP/1.0$(CRLF)$(CRLF)",
                           "500");
 
 
@@ -437,6 +443,15 @@ bundle agent main {
         handle => "display_http_reply";
 
 }
+
+# Example output
+#
+# R: The HTTP reply was:	HTTP/1.1 200 OK
+# Date: Mon, 09 Nov 2015 01:52:18 GMT
+# Server: Apache/2.2.31 (Unix) DAV/2 mod_ssl/2.2.31 OpenSSL/1.0.2d PHP/5.6.12
+# X-Powered-By: PHP/5.6.12
+# Set-Cookie: cisession=FbqBuY0X1%2FGxnQQ1O0oOIdZoVlBq0F1tJhY%2Fbr1mAJImtsmcok51qQb6HaYKmHSImCUBxIl9N5slDlHX5nNXC2GNbgAC%2FJVCMKWfIkifx8rp%2FpKbHTn9wNEhyPHUQoab4quOrClP4bHggdW6OzHeMFFlPeOfxgBgYFHS%2FUXhZ3pvjMcMQCXopfl10Te3omy%2Bo9tjboVOFwjjd4EwzStvp591BM3yEtnFa6wtRARwT6h4fQc%2FRtICpdANFKMlbH%2BtQtfQmtn%2FWEJzlgwMOLo8oDgol%2BxyqaBC%2FaovQhDwiwY
+
 ```
 \end{codelisting}
 \begin{codelisting}

@@ -1,4 +1,4 @@
-Installing git
+Install git
 
 On RHEL/Centos 6:
 ```bash

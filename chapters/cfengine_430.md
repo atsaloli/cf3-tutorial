@@ -33,14 +33,14 @@ bundle agent main {
 }
 ```
 \end{codelisting}
-<!---
+<!---                 
 Filename: 430-100-File\_Copying-1080-exercise.exr.md
 -->
+
 \begin{aside}
 \label{aside:exercise_33}
-\heading{}
+\heading{Create /root/etc_passwd.bak as a backup copy of /etc/passwd}
 
-Create /root/etc_passwd.bak as a backup copy of /etc/passwd
 
 
 \end{aside}
@@ -67,14 +67,14 @@ bundle agent main
 }
 ```
 \end{codelisting}
-<!---
+<!---                 
 Filename: 430-100-File\_Copying-1100-Exercise.exr.md
 -->
+
 \begin{aside}
 \label{aside:exercise_34}
-\heading{}
+\heading{Copy /usr/local/sbin/ to /tmp/mirror/}
 
-Copy /usr/local/sbin/ to /tmp/mirror/
 
 1. Use CFEngine to make '/tmp/mirror' contain a copy of '/usr/local/sbin'
 (Hint: use a files promise with a copy\_from attribute.)
@@ -89,6 +89,18 @@ Copy /usr/local/sbin/ to /tmp/mirror/
 \begin{codelisting}
 \codecaption{430-100-File\_Copying-1110-Remote\_copy.cf}
 ```cfengine3, options: "linenos": true
+# This is an example "policy update" policy that promises that
+# /var/cfengine/inputs will be a copy of the hub's
+# /var/cfengine/masterfiles
+#
+# The following is what the update policy looked like early on,
+# near CFEngine 3.0.
+#
+# Now the update policy is more sophisticated, with
+# tricks to improve performance, although fundamentally, 
+# what the update policy does is still: ensure that local directory
+# /var/cfengine/inputs is a copy of the hub's /var/cfengine/masterfiles
+
 bundle agent main {
 
   vars:
@@ -136,7 +148,13 @@ body action immediate
 \begin{codelisting}
 \codecaption{430-100-File\_Copying-1120-Remote\_copy\_with\_round\_robin.cf}
 ```cfengine3, options: "linenos": true
-# use two remote servers, and round-robin between them
+# Use two remote servers, and round-robin between them.
+#
+# In practice, large sites run policy servers behind SLB's
+# (such as F5 Big IP). But you could also do a software
+# load-balance, client-side, with CFEngine alone, as this
+# policy illustrates.
+
 
 bundle agent main
 {

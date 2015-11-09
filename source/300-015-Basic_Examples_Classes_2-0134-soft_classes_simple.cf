@@ -1,0 +1,25 @@
+bundle agent main {
+
+  classes:
+      "weekend"
+        expression => "Saturday|Sunday";
+
+  reports:
+    weekend::
+      "Yay! I get to rest today.";
+
+}
+
+# When you run this in verbose mode, you should see when CFEngine sets
+# the soft class:
+#
+# verbose: Using bundlesequence =>  {'main'}
+# verbose: B: *****************************************************************
+# verbose: B: BEGIN bundle main
+# verbose: B: *****************************************************************
+# verbose: C: .........................................................
+# verbose: C: BEGIN classes / conditions (pass 1)
+# verbose: C: .........................................................
+# verbose: C:     +  Private class: weekend 
+# verbose: P: .........................................................
+# verbose: P: BEGIN promise 'p

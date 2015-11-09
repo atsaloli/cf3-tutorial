@@ -434,14 +434,14 @@ production and let us know if you have any trouble.
 
 \coloredtext{red}{ 100-140-Installing\_CFE\_Hub-0050-Lab\_setup.md }
 
-<!---
+<!---                 
 Filename: 100-140-Installing\_CFE\_Hub-0055-Installing\_CFE\_Hub.exr.md
 -->
+
 \begin{aside}
 \label{aside:exercise_1}
-\heading{}
+\heading{Install CFEngine on your Hub VM}
 
-Installing CFEngine on your Hub VM
 
 - Ensure your Hub VM has an FQDN hostname (required by Hub package)
 
@@ -491,14 +491,14 @@ from the host.
 
 \end{aside}
 \coloredtext{red}{ 100-140-Installing\_CFE\_Hub-0055-Installing\_CFE\_Hub.exr.md }
-<!---
+<!---                 
 Filename: 100-140-Installing\_CFE\_Hub-0060-Installing\_CFE\_host.exr.md
 -->
+
 \begin{aside}
 \label{aside:exercise_2}
-\heading{}
+\heading{Install CFEngine on your 2nd VM (the managed host)}
 
-Installing CFEngine on your 2nd VM (the managed host)
 
 - Ensure your Host VM has an FQDN hostname.
 ```bash
@@ -578,14 +578,14 @@ With git, you can download the updates during or after class.
 
 \coloredtext{red}{ 100-170-Installing\_Examples-0150-GitHub\_URL.md }
 
-<!---
+<!---                 
 Filename: 100-170-Installing\_Examples-0160-Install\_git.exr.md
 -->
+
 \begin{aside}
 \label{aside:exercise_3}
-\heading{}
+\heading{Install git}
 
-Installing git
 
 On RHEL/Centos 6:
 ```bash
@@ -660,26 +660,87 @@ following shell script, or visit [Code Editors](http://www.cfengine.com/cfengine
 
 \coloredtext{red}{ 100-180-Installing\_Syntax\_Highlighter-0260-Syntax\_highlighting\_in\_VIM.md }
 
-<!---
+<!---                 
 Filename: 100-180-Installing\_Syntax\_Highlighter-0263-install\_syntax\_highlighter.exr.md
 -->
+
 \begin{aside}
 \label{aside:exercise_4}
-\heading{}
+\heading{Install CFEngine syntax highlighter for the vim editor}
 
-Vim syntax highlighter installation script
 
 We provide a shell script that will install the vim syntax highlighter:
 
 ```bash
 yum install vim
-sh 150-080-Installing_Syntax_Highlighter-0265-Install_Vim_Plugin_CLASSONLY.sh
+sh 100-180-Installing_Syntax_Highlighter-0265-Install_Vim_Plugin.sh
 vim hello_world.cf
 ```
 
 
 \end{aside}
 \coloredtext{red}{ 100-180-Installing\_Syntax\_Highlighter-0263-install\_syntax\_highlighter.exr.md }
+\begin{codelisting}
+\codecaption{100-180-Installing\_Syntax\_Highlighter-0265-Install\_Vim\_Plugin.sh}
+```bash, options: "linenos": true
+#!/bin/sh
+#
+# Run this shell script on your Hub VM to add Neil Watson's
+# CFEngine 3 syntax highlighter (minus folding and keyword
+# abbreviations) to your .vimrc
+
+
+cat <<EOF >> $HOME/.vimrc
+
+" -------- start of .vimrc settings from Vertical Sysadmin
+" training examples collection
+"
+" Neil Watson recommends installing functions Getchar and Eatchar
+
+
+" function Getchar
+fun! Getchar()
+  let c = getchar()
+  if c != 0
+    let c = nr2char(c)
+  endif
+  return c
+endfun
+
+" function Eatchar
+fun! Eatchar(pat)
+  let c = Getchar()
+  return (c =~ a:pat) ? '' : c
+endfun
+
+" Turn on syntax highlighting for CFEngine 3 files
+filetype plugin on
+syntax enable
+au BufRead,BufNewFile *.cf set ft=cf3
+
+" Disable folding so it does not confuse students not familiar with it
+if exists("&foldenable")
+	set nofoldenable 
+endif
+
+" disable abbreviations so it does not confuse students not familiar with it
+let g:DisableCFE3KeywordAbbreviations=0
+
+" -------- end of .vimrc settings from Vertical Sysadmin training examples
+" collection
+EOF
+
+echo Installing vim plugin for CFEngine syntax highlighting
+
+mkdir -p ~/.vim/ftplugin  ~/.vim/syntax 
+
+wget -O ~/.vim/syntax/cf3.vim \
+      https://github.com/neilhwatson/vim_cf3/raw/master/syntax/cf3.vim
+
+wget -O ~/.vim/ftplugin/cf3.vim \
+      https://github.com/neilhwatson/vim_cf3/raw/master/ftplugin/cf3.vim
+```
+\end{codelisting}
 
 <!---
 Filename: 100-180-Installing\_Syntax\_Highlighter-0270-Syntax\_highlighting\_in\_EMACS.md
@@ -691,17 +752,19 @@ See ["Learning CFEngine 3"](http://shop.oreilly.com/product/0636920022022.do) bo
 
 \coloredtext{red}{ 100-180-Installing\_Syntax\_Highlighter-0270-Syntax\_highlighting\_in\_EMACS.md }
 
-<!---
+<!---                 
 Filename: 100-180-Installing\_Syntax\_Highlighter-0280-Syntax\_highlighting\_exercise.exr.md
 -->
+
 \begin{aside}
 \label{aside:exercise_5}
-\heading{}
+\heading{Install Syntax Highlighter}
 
-Verify Syntax Highlighter Has Pretty Colors
 
-Open "hello\_world.cf" in your file editor and ensure you see the pretty
-colors of syntax highlighting.
+* Install CFEngine 3 syntax highlighter for your favorite editor
+
+* Open "hello\_world.cf" in your editor and ensure you see the pretty
+colors of syntax highlighting.  E.g.:
 
 ```bash
 vim hello_world.cf
@@ -734,16 +797,50 @@ file with the *-f* switch:
 cf-agent -f ./create_file.cf
 ```
 
+If you don't specify the path to your file, CFEngine will look for
+it in the default policy directory which is /var/cfengine/inputs/
+if you are running `cf-agent` as "root", and $HOME/.cfagent/inputs/
+if you are running it as a regular user.
+
+We assume you will be running all examples and
+doing all exercises as "root".
+
+Note: CFEngine normally runs as "root" but it can be run as non-root, and
+some large organizations even run it as both root and non-root on
+the same system (running off different policies from different divisions 
+of the organization, e.g. base config versus applicaiton-specific
+config).
+
+CFEngine agent requires a list of bundles to evaluate (a bundle is a
+group of promises). If you are using CFEngine version older than 3.7,
+you will need to specify the list of bundles to run using the *-b* switch:
+
+```bash
+cf-agent -f ./create_file.cf -b main
+```
+
+To find out your CFEngine version, use the *-V* switch which is also
+available in long form as *--version**:
+
+```bash
+# cf-agent -V
+CFEngine Core 3.7.1
+CFEngine Enterprise 3.7.1
+#
+```
+
+Here we see the free open-source core ("CFEngine Core") is version 3.7.1 and so is the commercial extension ("CFEngine Enterprise"). 
+
 \coloredtext{red}{ 100-190-Using\_Examples-0240-Running\_the\_examples.md }
 
-<!---
+<!---                 
 Filename: 100-190-Using\_Examples-0245-Running\_the\_examples.exr.md
 -->
+
 \begin{aside}
 \label{aside:exercise_6}
-\heading{}
+\heading{Run an example CFEngine file}
 
-Run the "Create File" example:
 
 ```bash
 cf-agent -f ./create_file.cf
@@ -773,14 +870,14 @@ cf-agent -I -f ./create_file.cf
 
 \coloredtext{red}{ 100-190-Using\_Examples-0250-Running\_the\_examples.md }
 
-<!---
+<!---                 
 Filename: 100-190-Using\_Examples-0255-Running\_the\_examples.exr.md
 -->
+
 \begin{aside}
 \label{aside:exercise_7}
-\heading{}
+\heading{Inform Mode}
 
-Inform Mode
 
 Run the "Create File" example with "Inform" on:
 
@@ -792,14 +889,14 @@ cf-agent -I -f ./create_file.cf
 
 \end{aside}
 \coloredtext{red}{ 100-190-Using\_Examples-0255-Running\_the\_examples.exr.md }
-<!---
+<!---                 
 Filename: 100-190-Using\_Examples-0290-List\_contents.exr.md
 -->
+
 \begin{aside}
 \label{aside:exercise_8}
-\heading{}
+\heading{List contents}
 
-List contents
 
 List the collection contents:
 

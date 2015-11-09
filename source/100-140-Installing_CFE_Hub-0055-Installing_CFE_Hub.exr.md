@@ -1,4 +1,4 @@
-Installing CFEngine on your Hub VM
+Install CFEngine on your Hub VM
 
 - Ensure your Hub VM has an FQDN hostname (required by Hub package)
 

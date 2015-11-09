@@ -1,4 +1,4 @@
-# CFEngine automatically canonifies hard classes (converts any
+# CFEngine automatically canonifies classes (converts any
 # character that is not alphanum/underscore to underscore)
 #
 # To setup for this example, run "hostname my-hostname-has-dashes"

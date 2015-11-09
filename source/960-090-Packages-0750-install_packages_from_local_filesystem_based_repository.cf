@@ -16,7 +16,7 @@ bundle agent main {
 
 body package_method rpm_filebased(path)
 # Contributed by Aleksey Tsalolikhin. Written on 29-Feb-2012.
-# Based on yum_rpm body in COPBL by Trond Hasle Amundsen.
+# Based on yum_rpm body in CFEngine Standard Library by Trond Hasle Amundsen.
 # Intended to install packages from local package repository.
 # You must specify the path to the local package repository as the argument.
 

@@ -7,12 +7,12 @@
 
 cat <<EOF >> $HOME/.vimrc
 
-" -------- start of  .vimrc settings from Vertical Sysadmin
+" -------- start of .vimrc settings from Vertical Sysadmin
 " training examples collection
 "
-" Neil Watson recommends installing functions Getchar and Eatchar for his CF3
-" Syntax Highlighter
-"
+" Neil Watson recommends installing functions Getchar and Eatchar
+
+
 " function Getchar
 fun! Getchar()
   let c = getchar()
@@ -28,7 +28,7 @@ fun! Eatchar(pat)
   return (c =~ a:pat) ? '' : c
 endfun
 
-" Syntax highlighting for CFEngine 3
+" Turn on syntax highlighting for CFEngine 3 files
 filetype plugin on
 syntax enable
 au BufRead,BufNewFile *.cf set ft=cf3
@@ -45,8 +45,7 @@ let g:DisableCFE3KeywordAbbreviations=0
 " collection
 EOF
 
-echo Downloading and installing vim editor plugin for CFEngine syntax\
- highlighting
+echo Installing vim plugin for CFEngine syntax highlighting
 
 mkdir -p ~/.vim/ftplugin  ~/.vim/syntax 
 

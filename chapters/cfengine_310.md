@@ -153,14 +153,14 @@ bundle agent main {
 }
 ```
 \end{codelisting}
-<!---
+<!---                 
 Filename: 310-030-Notes\_on\_Running-0030-three\_passes.exr.md
 -->
+
 \begin{aside}
 \label{aside:exercise_24}
-\heading{}
+\heading{Observe three passes}
 
-Observe three passes
 
 Run one of your previous exercise files in verbose mode and observe what happens in which pass, and how the passes are labeled.
 
@@ -277,14 +277,14 @@ bundle agent main {
 }
 ```
 \end{codelisting}
-<!---
+<!---                 
 Filename: 310-040-Ordering-0050-Classes\_and\_Reports\_Exercise.exr.md
 -->
+
 \begin{aside}
 \label{aside:exercise_25}
-\heading{}
+\heading{Run the previous example in verbose mode so you can see}
 
-Run the previous example in verbose mode so you can see
 what happens during which pass.
 
 
@@ -377,40 +377,41 @@ bundle agent main
 \begin{codelisting}
 \codecaption{310-050-Knowledge\_Management-0265-promisee.cf}
 ```cfengine3, options: "linenos": true
-# Demonstrate how depends_on controls policy flow.
+# In CFEngine, you can document not only the promiser
+# (what makes the promise) but also the promisee 
+# (to whom the promise is made, or what depends on
+# that promise).
+#
+# The following example demostrates that 'fuel_check'
+# has a documented impact on 'ignition', and that
+# 'ignition depends on 'fuel_check'
+#
+# Originally, depends_on was for knowledge management only,
+# but as of version 3.6, it controls policy flow, so that
+# when you run this example, you will see the 'Launch'
+# report evaluated only after 'fuel_check' is successful:
+#
+# R: Fueling
+# R: Launch!!
+
 
 bundle agent main
 {
 
   reports:
 
-      "Fueling" -> { ignition }
-        handle => "fuel_check";
-
-
-
-
-# long complex policy here
-
-
-
-
-
-
-
-
-
-
-
       "Launch!!"
         depends_on => { "fuel_check" },
         handle => "ignition",
         comment => "Demonstrate flow control with depends_on";
 
+      "Fueling" -> { "ignition" }
+        handle => "fuel_check",
+        comment => "Demonstrate promisee";
 
-      # students should be encouraged to think
-      # declaratively
 }
+# Try to think declaratively (not imperatively), and use depends_on
+# only when needed.
 ```
 \end{codelisting}
 \begin{codelisting}
@@ -484,14 +485,13 @@ Filename: 310-050-Knowledge-Management-0300-Dunbar\_numbers.md
 
 Robin Dunbar pointed out that there are limits to human cognition:
 
-### Limits to Human Congnition:
 * We can only have a close relationship to about 5 things.
 * We can have a working relationship with about 30 things or people.
 * We can only be acquainted with about 150.
 
 The `Dunbar numbers' are cognitive limits that we have to work around.
 
-http://markburgess.org/blog_km.html
+See Mark Burgess's ["Notes from the USENIX/LISA Knowledge Management Workshop"](http://markburgess.org/blog_km.html)
 
 \coloredtext{red}{ 310-050-Knowledge-Management-0300-Dunbar\_numbers.md }
 

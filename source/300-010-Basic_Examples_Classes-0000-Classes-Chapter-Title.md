@@ -1,1 +1,1 @@
-## Classes
+## Hard classes

@@ -1,3 +1,6 @@
+# TODO -- make this self-contained and runnable
+#
+#
 # this policy runs on an haproxy load balancer
 # we check a list of servers (webhosts_list)
 # to tst that they are up, and if they are up,
@@ -19,16 +22,17 @@ bundle agent load_balancer_configured_with_live_webhosts(webhosts_list)
 
   vars:
 
-      "2xCRLF"
-        string => "$(const.r)$(const.n)$(const.r)$(const.n)",
-        comment => "HTTP requests are terminated by the double
-                    CR/LF sequence";
+      "CRLF"
+        string => "$(const.r)$(const.n)",
+        comment => "HTTP requests are terminated by double
+                    CR/LF";
 
 
       # variable containing HTTP response from each web server
       "my80"
-        string => readtcp("$(webhosts_list)","80","GET /index.php
-HTTP/1.1$(2xCRLF)Host: $(webhosts_list)$(2xCRLF)","20");
+        string => readtcp("$(webhosts_list)","80","GET /index.php\
+ HTTP/1.1$(CRLF)$(CRLF)\
+Host: $(webhosts_list)$(CRLF)$(CRLF)","20");
 
 
       # set server_ok class if response contains HTTP 200 OK

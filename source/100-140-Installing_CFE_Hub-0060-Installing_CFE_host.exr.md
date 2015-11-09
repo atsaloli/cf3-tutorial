@@ -1,4 +1,4 @@
-Installing CFEngine on your 2nd VM (the managed host)
+Install CFEngine on your 2nd VM (the managed host)
 
 - Ensure your Host VM has an FQDN hostname.
 ```bash

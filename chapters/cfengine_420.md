@@ -162,14 +162,14 @@ bundle agent main {
 body file control { inputs => { "/var/cfengine/inputs/lib/3.6/stdlib.cf" }; }
 ```
 \end{codelisting}
-<!---
+<!---                 
 Filename: 420-060-COPBL-0520-Comment\_Out\_A\_File.exr.md
 -->
+
 \begin{aside}
 \label{aside:exercise_32}
-\heading{}
+\heading{Run the following command to generate some content:}
 
-Run the following command to generate some content:
 
 ```bash
 date  > /tmp/date.txt
