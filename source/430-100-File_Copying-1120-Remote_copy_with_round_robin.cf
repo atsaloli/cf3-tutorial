@@ -1,4 +1,10 @@
-# use two remote servers, and round-robin between them
+# Use two remote servers, and round-robin between them.
+#
+# In practice, large sites run policy servers behind SLB's
+# (such as F5 Big IP). But you could also do a software
+# load-balance, client-side, with CFEngine alone, as this
+# policy illustrates.
+
 
 bundle agent main
 {
