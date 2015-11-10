@@ -50,7 +50,9 @@ echo Installing vim plugin for CFEngine syntax highlighting
 mkdir -p ~/.vim/ftplugin  ~/.vim/syntax 
 
 wget -O ~/.vim/syntax/cf3.vim \
+      --no-check-certificate \
       https://github.com/neilhwatson/vim_cf3/raw/master/syntax/cf3.vim
 
 wget -O ~/.vim/ftplugin/cf3.vim \
+      --no-check-certificate \
       https://github.com/neilhwatson/vim_cf3/raw/master/ftplugin/cf3.vim
