@@ -2,10 +2,10 @@ bundle agent main {
 
   vars:
       "my_result"
-        string => execresult("/bin/ls /tmp", "noshell");
+        string => execresult("/bin/ls /etc/motd /nosuchfile",
+                             "noshell");
 
   reports:
 
       "Variable is $(my_result)";
-
 }

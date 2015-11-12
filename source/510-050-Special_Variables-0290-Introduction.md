@@ -1,4 +1,4 @@
-### Introduction2
+### Introduction
 
 CFEngine has some special variables.
 

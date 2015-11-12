@@ -1,0 +1,20 @@
+bundle agent main {
+
+  vars:
+      "files"
+        slist => { "@ne",
+                   "tw@",
+                 };
+  files:
+      "/tmp/$(files)"
+        create => "true",
+        classes => if_repaired("created_$(files)");
+
+  reports:
+    #"Checking for class $(files)";
+
+    "I created $(files)"
+      #ifvarclass => "created_$(files)";
+      ifvarclass => canonify("created_$(files)");
+}
+body file control { inputs => {"$(sys.libdir)/stdlib.cf"}; }

@@ -1,0 +1,61 @@
+#Thanks to Nick Anderson for this example of how to canonify
+# the keys in an array or data structure.
+#
+# This was needed because we slurpied in a properties file
+# (containing name=value pairs) in order to make the data
+# available in templates as variables where the variable
+# name is derived from the name of the property.
+#
+# We discovered that cfengine would segfault while trying
+# to create illegal variable names (with illegal characters)
+# so canonifying the variable names is a safeguard.
+#
+# The trick is:
+#
+# Starting with an array with dirty keys and their data:
+# - create a second data structure mapping dirty keys to canonified keys
+# - iterate over the list of dirty keys, use them to access
+#   both data structures above (keys:data and keys:canonkeys),
+#   pulling out canonified keys and
+#   the data, and associate the canonified keys with the data
+#   in a third data structure (canonkeys:data).
+
+bundle agent main
+{
+  vars:
+      "data"
+        data => parsejson('
+{
+  "key-needs-canonified": "value"
+}');
+
+      "keys" slist => getindices(data);
+
+      # Canonified index map
+      "c_idx_map[$(keys)]"
+        string => canonify("$(keys)");
+      # e.g. c_idx_map[key-needs-canonified] => key_needs_canonified
+
+      
+      # Twerk it!
+      # create an array with the key being the canonified form of the key by
+      # expanding the canonifiied map while iterating over the key, and then
+      # setting the data to based on the key.
+      "c_data[$(c_idx_map[$(keys)])]"
+        string => "$(data[$(keys)])";
+      # e.g. c_data[key_needs_canonified] = "value"
+
+      # Get the list of canonified keys
+      "c_data_idx"
+        slist => getvalues(c_idx_map);
+
+      # Now define a variable named for the canonified form of the key, and
+      # give it the value from the canonified map.
+      "$(c_data_idx)"
+        string => "$(c_data[$(c_data_idx)])";
+
+  reports:
+     "$(c_data_idx) = $($(c_data_idx))";
+}
+
+

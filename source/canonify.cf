@@ -1,22 +1,18 @@
 bundle agent main {
 
   vars:
-
       "raw_hostname"
-
         string  =>  "mil-mail01";
 
-
       "canonified_hostname"
-
         string  => canonify("$(raw_hostname)");
 
-
   reports:
-
-
-
       "raw: $(raw_hostname)
 canonified: $(canonified_hostname)";
-
+ 
+      "match 1"
+        ifvarclass => "$(raw_hostname)"; 
+      "match 2"
+        ifvarclass => "$(canonified_hostname)"; 
 }

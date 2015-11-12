@@ -1,20 +1,18 @@
 bundle agent main {
 
   vars:
-      "myarray[loc@t!on]" string  => "Bloomington";
-      "myarray[t!me###]"     string  => "first week of April";
+      "original" string  => "Bl@@mington";
+      "canonified" string => canonify("$(original)");
 
-
-      "index" slist =>  getindices("myarray");
-
-
-      "cindex[$(index)]" string => canonify("$(index)");
-
+  classes:
+     "$(original)"
+        expression => "any";
+     "$(canonified)"
+        expression => "any";
 
   reports:
-
-
-
-      "Original keys: $(index)";
-      "Canonified keys: $(cindex[$(index)])";
+    "match 1"
+      ifvarclass => "$(original)";
+    "match 2"
+      ifvarclass => "$(canonified)&any";
 }

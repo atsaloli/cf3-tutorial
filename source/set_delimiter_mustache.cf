@@ -1,0 +1,10 @@
+# Per the Mustache spec, you can change token delimiter.
+# The following mustache template demonstrates that.
+bundle agent main
+{
+  files:
+    "$(this.promise_filename).txt"
+      edit_template => "$(this.promise_filename).mustache",
+      template_method => "mustache",
+      create => "true";
+}
