@@ -29,6 +29,9 @@ bundle agent main {
         action => immediate;
 }
 
+# Self-contained bodies from the Standard Library to avoid dependencies
+# and to show clearly what is happening
+
 body perms m(mode)
 {
         mode  => "$(mode)";

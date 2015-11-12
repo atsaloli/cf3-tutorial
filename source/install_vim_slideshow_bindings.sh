@@ -46,3 +46,5 @@ set statusline+=%f
 
 " Syntax highlighting for AsciiDoc
 autocmd BufRead,BufNewFile *.txt set ft=asciidoc
+
+EOF
