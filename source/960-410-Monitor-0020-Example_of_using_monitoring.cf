@@ -12,6 +12,8 @@ bundle agent main {
         expression => isgreaterthan("$(mon.value_cpu)","$(threshold)");
 
   reports:
+    any::
+     "mon.value_cpu = $(mon.value_cpu)";
     CPU_load_high::
       "!!!!! CPU LOAD IS OVER THRESHOLD OF $(threshold) percent !!!! ";
 

@@ -1,8 +1,4 @@
-
-############################################
-
 bundle agent main
-
 {
 
   files:
@@ -12,10 +8,7 @@ bundle agent main
         file_select => mode_777,
         transformer => "/bin/gzip $(this.promiser)",
         depth_search => recurse("inf");
-
 }
-
-############################################
 
 body file_select mode_777
 
@@ -24,11 +17,7 @@ body file_select mode_777
         file_result => "mode";
 }
 
-############################################
-
 body depth_search recurse(d)
-
 {
         depth => "$(d)";
 }
-

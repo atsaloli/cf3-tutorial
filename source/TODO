@@ -1,3 +1,12 @@
+the Monitoring chapter needs a cleanup... the monitoring Cpu threshold example needs more xplanation
+
+also Monitoring should be in the advanced topics... get rid of that chapter, we don't need it in the introductory tutorial...
+
+also need to prune the "special variables" chapter, there is too much in there that we don't really need...  actually the Special Variables chapter should be a section in the "variables chapter".  
+
+Add example of remote copy of a single file, before
+430-100-File_Copying-1110-Remote_copy.cf:
+
 Add definitions of Index and Indices to the Arrays section
 
 make sure we have an exercise to bootstrap the hub:

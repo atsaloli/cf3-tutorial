@@ -1,0 +1,7 @@
+bundle agent main {
+
+reports:
+DEBUG::
+  "Line 1$(const.n)$(const.n)$(const.t)Line2";
+
+}

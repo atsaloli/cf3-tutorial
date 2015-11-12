@@ -20,16 +20,14 @@ bundle agent main {
 ########################################################
 
 body process_select vsize_exceeds(process_owner,
-      process_command,
-      vsize_limit)
+                                  process_command,
+                                  vsize_limit)
 {
-        process_owner => { "apache" };
-      # username of process owner
+        process_owner => { "$(process_owner)" };
 
-        command => "$(process_command)";  # username of process owner
+        command => "$(process_command)";
 
-        vsize => irange("$(vsize_limit)","inf"); # vsize is over
-      # $(vsize_limit)
+        vsize => irange("$(vsize_limit)","inf");
 
-        process_result => "process_owner&command&vsize";  # class expression
+        process_result => "process_owner&command&vsize"; 
 }
