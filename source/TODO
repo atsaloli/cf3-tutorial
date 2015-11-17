@@ -1,3 +1,5 @@
+add irange to the right hand side of promise attributes (e.g. vsize under process_select)
+
 the Monitoring chapter needs a cleanup... the monitoring Cpu threshold example needs more xplanation
 
 also Monitoring should be in the advanced topics... get rid of that chapter, we don't need it in the introductory tutorial...
