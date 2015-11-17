@@ -4,6 +4,10 @@
 # Issue a graceful restart command to the httpd
 # if any apache httpd processes exceed vsize limit
 # (vsize = total Virtual Memory size in kb).
+#
+# To demonstrate, move the vsize value below current vsize
+# so it will match, and above the current vsize to show
+# no-match
 
 bundle agent main {
 
@@ -11,13 +15,18 @@ bundle agent main {
 
       ".*"
 
-        process_select  => vsize_exceeds("apache", "httpd", "30000"),
+        #process_select  => vsize_exceeds("cfapache", ".*httpd.*", "400000"),
+        process_select  => vsize_exceeds("cfapache", ".*httpd.*", "300000"),
         process_count => set_class("big_apache_httpd_procs");
 
   commands:
     big_apache_httpd_procs::
-      "/usr/sbin/httpd -k graceful";
+      #"/usr/sbin/httpd -k graceful";
+      "/var/cfengine/httpd/bin/httpd -k graceful";
 
+  reports:
+   big_apache_httpd_procs::
+      "Detected big apache httpd";
 
 }
 
@@ -25,12 +34,9 @@ bundle agent main {
 
 body process_select vsize_exceeds(process_owner, command, vsize_limit) {
 
-        process_owner => { "apache" };  # username of process owner
-
-        command => "/usr/sbin/httpd.*";  # username of process owner
-
-        vsize => irange("$(vsize_limit)","inf"); # vsize is over
-      # $(vsize_limit)
+        process_owner => { "$(process_owner)" };
+        command => "$(command)";
+        vsize => irange("$(vsize_limit)","inf"); 
         process_result => "process_owner&command&vsize";
 }
 
@@ -45,4 +51,5 @@ body process_count set_class(classname)
 
         in_range_define => { "$(classname)" };
       # List of classes to define if the matches are in range.
+
 }
