@@ -1,0 +1,26 @@
+# input:
+# /tmp/test/x.log
+# /tmp/test/x.log.1
+# /tmp/test/x.log.2.gz
+
+
+# Purpose: compress rotated logs (e.g. .1 in the above example,
+# but not .log or .log.2.gz)
+
+
+bundle agent main {
+
+vars:
+  "names"
+    slist => { "(?!.*gz).*\.log\..+" };
+
+files:
+  "/tmp/test/."
+    file_select => by_name(@(names)),
+    depth_search => recurse("inf"),
+    transformer => "/bin/echo $(this.promiser)";
+    
+}
+
+
+body file control { inputs => { "/var/cfengine/masterfiles/lib/3.7/stdlib.cf" }; }

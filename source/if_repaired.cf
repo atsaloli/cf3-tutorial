@@ -1,0 +1,25 @@
+# Demonstrate using classes to link promises
+bundle agent main {
+
+  files:
+      "/etc/ssh/sshd_config"
+        handle => "sshd_must_use_protocol_2_only",
+        comment => "Make sure SSHD does not use protocol v1;
+                          make sure it only uses protocol v2,
+                          to increase security",
+        edit_line => permit_protocol_2_only,
+        classes => if_repaired("reload_ssh");
+
+  commands:
+    reload_ssh::
+      "/etc/init.d/sshd reload"
+        handle => "reload_sshd",
+        comment => "run sshd init script to reload sshd
+                          to pick up new config";
+}
+
+bundle edit_line permit_protocol_2_only {
+      delete_lines: ".*Protocol.*1.*";
+      insert_lines: "Protocol 2";
+}
+body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }

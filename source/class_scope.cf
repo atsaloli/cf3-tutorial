@@ -1,0 +1,28 @@
+#bundle common example_1 {
+
+body classes if_repaired(x) {
+  promise_repaired => { "$(x)" };
+}
+
+bundle agent example_1 {
+
+files:
+   "/tmp/testXYZ"
+     create => "true",
+     classes => if_repaired("its_thur");
+
+  
+#  classes:
+#      "its_thur"
+#        expression => "Thursday";
+#        scope => "namespace";
+}
+
+
+bundle agent example_2 {
+
+  reports:
+    its_thur::
+      "Yay!  I love Thursdays!";
+}
+
