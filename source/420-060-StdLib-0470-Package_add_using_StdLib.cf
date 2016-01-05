@@ -1,0 +1,23 @@
+bundle agent main {
+
+  packages:
+      "php-mysql"
+        policy => "present";
+}
+
+body common control {
+
+  debian|redhat::
+    package_inventory => { $(package_module_knowledge.platform_default) };
+    package_module => $(package_module_knowledge.platform_default);
+}
+
+body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
+
+# Example run:
+# root@localhost# cf-agent -f ~/p.cf -IC
+# Warning: RPMDB altered outside of yum.
+# ** Found 1 pre-existing rpmdb problem(s), 'yum check' output follows:
+# 1:gdm-plugin-fingerprint-2.30.4-64.el6.x86_64 has missing requires of fprintd-pam
+#     info: Successfully installed package 'php-mysql'
+# root@localhost#
