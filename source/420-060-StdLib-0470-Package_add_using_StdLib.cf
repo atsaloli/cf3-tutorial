@@ -6,6 +6,7 @@ bundle agent main {
 }
 
 body common control {
+# the following promise attributes support the 3.7 packages promises
 
   debian|redhat::
     package_inventory => { $(package_module_knowledge.platform_default) };
