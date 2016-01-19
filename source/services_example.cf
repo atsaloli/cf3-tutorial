@@ -3,8 +3,10 @@ bundle agent main {
   services:
 
       "www"
-
         service_policy => "disable";
+
+      "sendmail"
+        service_policy => "enable";
 
 }
 
