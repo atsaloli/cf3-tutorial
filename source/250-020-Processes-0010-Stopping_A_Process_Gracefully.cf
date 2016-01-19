@@ -12,6 +12,6 @@ bundle agent main {
         handle => "shutdown_print_services",
         comment => "Shutdown print services on machines
                     that are not print servers",
-        process_stop => "/etc/init.d/cups stop";
+        process_stop => "/sbin/service cups stop";
 
 }
