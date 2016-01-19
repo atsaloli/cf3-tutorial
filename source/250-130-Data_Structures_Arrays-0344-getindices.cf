@@ -1,0 +1,18 @@
+bundle agent main {
+
+  vars:
+
+      "food_prices[Apple]"
+        string =>  "58c";
+
+      "food_prices[Banana]"
+        string =>  "30c";
+
+      "food"
+        slist => getindices("food_prices");
+
+
+  reports:
+      "Keys of 'food_prices' array = $(food)";
+
+}
