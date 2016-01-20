@@ -5,12 +5,9 @@ bundle agent main {
       "fourty_two_kilobytes"             int     => "42k";  # 42 x 1000
       "fourty_two_kibibytes"             int     => "42K";  # 42 x 1024
 
-      "infinity"                         int     => "inf";  # infinity
-
 
   reports:
 
-      "42 x 1000 = $(fourty_two_kilobytes)";
-      "42 x 1024 = $(fourty_two_kibibytes)";
-      "infinity = $(infinity)";
+      "42k (kilobytes) = $(fourty_two_kilobytes)";
+      "42K (kibibytes) = $(fourty_two_kibibytes)";
 }
