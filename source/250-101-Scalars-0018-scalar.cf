@@ -2,11 +2,12 @@ bundle agent main {
 
   vars:
 
-      "name"
-        string => "Inigo Montoya";
 
       "greeting"
         string  => "Hello. My name is $(name). ";
+
+      "name"
+        string => "Inigo Montoya";
 
   reports:
 
