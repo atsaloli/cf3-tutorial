@@ -1,10 +1,9 @@
 bundle agent main {
 
-  reports:
+  commands:
     linux::
-      "I love Linux";
+      "/bin/date";
 
-  reports:
-    WinXP::
-      "I love Windows";
+    windows::
+      "C:\Windows\System32\cmd.exe /c date /t";
 }
