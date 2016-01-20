@@ -8,12 +8,12 @@ bundle agent main {
                      "apples",
                      "bananas",
                      "grapes",
-                     "plantains",
                      "coconuts",
-        };
+                     "hamburgers",
+                   };
 
   reports:
 
-      "buy $(shopping_list)";
+      "Buy $(shopping_list)";
 }
 
