@@ -1,0 +1,20 @@
+bundle agent main
+{
+
+  methods:
+  
+    "any"
+       usebundle => get_stuck;
+
+}
+
+bundle agent get_stuck
+{
+
+  commands:
+    "/bin/sleep 10000";
+
+# use strace to see where CFEngine got stuck
+
+}
+
