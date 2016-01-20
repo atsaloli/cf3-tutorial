@@ -1,3 +1,11 @@
+bundle agent main {
+
+  methods:
+    "bundle_1";
+    "bundle_2";
+
+}
+
 bundle agent bundle_1 {
 
   vars:
@@ -12,8 +20,7 @@ bundle agent bundle_2 {
         string => "My fair lady";
 
   reports:
-      #"Variable value = $(bundle_1.var_1)";
-      #"Variable value = $(bundle_2.var_1)";
-      "Variable value = $(var_1)";
+      "var1 = $(var_1)";
+      "bundle_1.var1 = $(bundle_1.var_1)";
 
 }
