@@ -1,3 +1,15 @@
+Move methods promises before vars promises,
+because I have some vars example that use
+methods promises now
+
+If the students put their exercises in the 
+services/ directory in masterfiles and then 
+call them from main.cf as methods promises,
+will that work? or do we need to 'input' these
+files first? DOCUMENT HOW TO ENABLE AUTOLOAD
+
+
+
 add irange to the right hand side of promise attributes (e.g. vsize under process_select)
 
 the Monitoring chapter needs a cleanup... the monitoring Cpu threshold example needs more xplanation
