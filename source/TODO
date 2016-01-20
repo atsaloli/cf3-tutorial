@@ -1,3 +1,8 @@
+
+Add a separate slide to introduce the "handle"
+attribute.  and a separate slide to introduce
+the "comment" attribute.
+
 Move methods promises before vars promises,
 because I have some vars example that use
 methods promises now
