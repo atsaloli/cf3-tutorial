@@ -14,10 +14,9 @@ bundle agent main {
 body file_select compound_filter
 {
         search_mode => { "777" };
-        leaf_name => { ".*\.pdf" , ".*\.fdf" };  # leaf_name = regex to match
+        leaf_name => { ".*\.pdf" };  # leaf_name = regex to match
 
         file_result => "leaf_name&mode";   # this is a class expression
 }
 
 #  Exercise: delete world-writable PDF files owned by root from /tmp
-

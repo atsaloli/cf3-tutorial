@@ -1,0 +1,6 @@
+bundle agent main {
+
+reports: 
+  "$(this.bundle)";
+
+}

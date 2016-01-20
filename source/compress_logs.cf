@@ -23,4 +23,4 @@ files:
 }
 
 
-body file control { inputs => { "/var/cfengine/masterfiles/lib/3.7/stdlib.cf" }; }
+body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }

@@ -1,0 +1,26 @@
+# let's say our hostname is sdfsql01, and the location is SDF
+# 
+# note: add this to chapter 4
+
+bundle agent main
+{
+
+#classes:
+#  "sdf"
+#     expression =>  classmatch("sdf.*");
+#  "lax"
+#     expression =>  classmatch("lax.*");
+
+classes:
+    "sdf"
+        expression =>  regcmp("sdf.*", "$(sys.uqhost)");
+    "lax"
+        expression =>  regcmp("lax.*", "$(sys.uqhost)");
+
+reports:
+  sdf::
+    "Location = sdf";
+  lax::
+    "Location = lax";
+
+}

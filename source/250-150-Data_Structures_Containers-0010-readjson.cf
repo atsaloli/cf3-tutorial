@@ -1,13 +1,16 @@
 bundle agent main {
 
   vars:
-      "mydata"
-        data => parsejson('{"Pizza" : "Pepperoni"} ');
+      "food"
+        data =>'{
+                   "Pizza"   : "Pepperoni",
+                   "Dessert" : "Ice Cream"
+                 }';
 
       "keys"
-        slist => getindices("mydata");
+        slist => getindices("food");
 
   reports:
 
-      "$(keys)  $(mydata[$(keys)])";
+      "$(keys) = $(food[$(keys)])";
 }

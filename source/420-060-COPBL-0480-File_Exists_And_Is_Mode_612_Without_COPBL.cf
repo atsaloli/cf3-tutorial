@@ -3,8 +3,6 @@ bundle agent main {
   files:
 
       "/tmp/testfile"
-
-        handle  => "set_file_attributes",
         comment => "Demonstrate setting file attributes",
         create  => "true",
         perms   => mog("612","aleksey","cfengine");

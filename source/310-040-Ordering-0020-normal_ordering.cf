@@ -4,9 +4,12 @@ bundle agent main {
 
   classes:
       "file_exists"
-        expression => fileexists("/tmp/newfile");
+        expression => fileexists("/tmp/newfile"),
+        action => if_elapsed("30");
+
       "file_absent"
-        not => fileexists("/tmp/newfile");
+        not => fileexists("/tmp/newfile"),
+        action => if_elapsed("30");
 
   files:
       "/tmp/newfile"
@@ -22,3 +25,5 @@ bundle agent main {
     file_absent::
       "file /tmp/newfile does not exist";
 }
+
+body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }

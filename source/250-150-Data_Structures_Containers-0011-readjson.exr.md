@@ -6,21 +6,18 @@ Data containers - readjson
 phones.json:
 
 {
-  "iPhone" : "500$",
-  "Samsung" : "450$",
+  "iPhone"  : "$500",
+  "Samsung" : "$450"
 }
 
 2. Read it into a "data"-type variable with readjson(), e.g.:
+
   vars:
 
       "phones"
-        data => readjson("/path/to/phones.json", "100k");
+        data => readjson("$(this.promise_dirname)/phones.json", "100k");
 
 3. Report the contents of the data container
+
    - get the keys using getindices()
    - iterate over the keys to report the values
-  vars:
-      "keys"
-        slist => getindices("mydata");
-  reports:
-      "$(keys)  $(mydata[$(keys)])";

@@ -3,10 +3,8 @@ bundle agent main
   vars:
       "myvar" string => getenv("USER","20");
 
-  classes:
-      "isdefined" not => strcmp("$(myvar)","");
 
   reports:
-    isdefined::
-      "I am running as user $(myvar)";
+      "I am running as user $(myvar)"
+         if => isvariable("myvar");
 }

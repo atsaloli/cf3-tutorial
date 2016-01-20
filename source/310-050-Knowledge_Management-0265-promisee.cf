@@ -23,10 +23,10 @@ bundle agent main
 
       "Launch!!"
         depends_on => { "fuel_check" },
-        handle => "ignition",
+        handle => "launch",
         comment => "Demonstrate flow control with depends_on";
 
-      "Fueling" -> { "ignition" }
+      "Fueling" -> { "launch" }
         handle => "fuel_check",
         comment => "Demonstrate promisee";
 

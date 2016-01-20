@@ -7,9 +7,8 @@ bundle agent main {
 
   classes:
       "i_am_virtual"
-        handle => "reality_check",
         comment => "Check if we are running inside a VM",
-        expression => regline(".*VMware.*",
+        expression => regline(".*VBOX.*",
                               "/proc/scsi/scsi");
 
 # This is what we wouls see in the shell:

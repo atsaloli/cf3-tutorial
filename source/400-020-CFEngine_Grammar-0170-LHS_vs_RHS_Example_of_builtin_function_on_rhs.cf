@@ -3,26 +3,7 @@
 
 bundle agent main {
 
-  vars:
-
-      "CRLF"
-        string => "$(const.r)$(const.n)",
-        comment => "HTTP requests are terminated by double CR/LF.
-                    Define CRLF variable or else my readtcp()
-                    function is too long (goes outside page boundary
-                    and gets hard to read).";
-
-
-
-      "http_reply"
-        handle => "http_client",
-        comment => "Demonstrate a function that returns a string.  Run
-'GET / HTTP/1.0' and save the output into var http_reply.",
-        string => readtcp("localhost",
-                          "80",
-                          "GET / HTTP/1.0$(CRLF)$(CRLF)",
-                          "500");
-
+# readtcp example....
 
   reports:
 

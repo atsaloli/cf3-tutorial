@@ -5,13 +5,15 @@ bundle agent main {
 
       "config[PermitRootLogin]"
         string => "no";
+      "config[X11Forwarding]"
+        string => "yes";
 
 
   files:
 
       "/tmp/sshd_config"
 
-        edit_line  => set_config_values("example.config");
+        edit_line  => set_config_values("$(this.bundle).config");
 
 
 }

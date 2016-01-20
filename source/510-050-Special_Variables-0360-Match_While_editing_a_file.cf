@@ -31,7 +31,7 @@ bundle edit_line replace_shell_comments_with_C_comments
 
   replace_patterns:
 
-      "#(.*)"
+      "^#(.*)"
 
         replace_with => C_comment;
 

@@ -6,18 +6,17 @@ bundle agent main {
 
         create  => "true",
         comment => "Set mode, ownership and group on /tmp/bobsfile",
-        perms   => set_file_attributes("777", "bob", "mail");
+        perms   => mog("777", "bob", "mail");
 
       "/tmp/susansfile"
 
         create  => "true",
         comment => "Set mode, ownership and group on /tmp/susansfile",
-        perms   => set_file_attributes("000", "susan", "games");
+        perms   => mog("000", "susan", "games");
 }
 
-#######################################################
 
-body perms set_file_attributes(mode,owner,group)
+body perms mog(mode,owner,group)
 {
         mode    => "$(mode)";
         owners  =>  {"$(owner)"};

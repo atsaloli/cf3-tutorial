@@ -17,10 +17,22 @@ bundle agent main {
         };
 
 
+
+
   reports:
       "Hello world!  I love $(days)s!"
         comment => "Report day of the week",
         ifvarclass => "$(days)";
 
+# The above promise creates 7 promises:
+#      "Hello world!  I love Mondays!"
+#        comment => "Report day of the week",
+#        ifvarclass => "Monday";
+#
+#       ...
+#
+#      "Hello world!  I love Sundays!"
+#        comment => "Report day of the week",
+#        ifvarclass => "Sunday";
 
 }

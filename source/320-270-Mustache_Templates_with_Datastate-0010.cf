@@ -7,7 +7,7 @@ bundle common g {
 
   classes:
     "myclass"
-       expression => "WinXP";
+       expression => "linux";
 }
 
 

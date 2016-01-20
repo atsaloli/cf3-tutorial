@@ -18,8 +18,19 @@ Line $(this.promise_linenumber) in $(this.promise_filename)
         create  => "true";
 
   reports:
-    DEBUG|DEBUG_example::
+    DEBUG|DEBUG_main::
       "DEBUG bundle = $(this.bundle)";
-      "name = '$(name)'";
+      "$(const.t)name = '$(name)'";
 
+  methods:
+    "prep";
+
+}
+
+bundle agent prep
+{
+#...
+reports:
+  DEBUG|DEBUG_prep::
+      "DEBUG bundle = $(this.bundle)";
 }

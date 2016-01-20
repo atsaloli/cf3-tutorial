@@ -10,7 +10,11 @@ Copy /usr/local/sbin/ to /tmp/mirror/
 ----
 Remote copy exercise
 
-1. create /var/cfengine/masterfiles/static/motd on hub
+Purpose: practice writing a "remote copy" promise.
 
-2. make your /etc/motd a copy from the hub's /var/cfengine/masterfiles/static/motd
+1. Manually create a master for the MOTD: /var/cfengine/masterfiles/motd.txt on your hub
+
+2. Add a promise to your masterfiles framework to make /etc/motd a remote copy from the master on the hub.
+
+Note: The special variable $(sys.policy_hub) contains the address of the Hub.  CFEngine records the address of the hub in /var/cfengine/policy_server.dat after a successful bootstrap 
 

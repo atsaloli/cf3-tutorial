@@ -4,10 +4,14 @@ bundle agent main {
       "weekend"
         expression => "Saturday|Sunday";
 
+      "weekday"
+        expression => "Monday|Tuesday|Wednesday|Thursday|Friday";
+
   reports:
     weekend::
       "Yay! I get to rest today.";
-
+    weekday::
+      "Yay! I get to work today.";
 }
 
 # When you run this in verbose mode, you should see when CFEngine sets
@@ -21,5 +25,3 @@ bundle agent main {
 # verbose: C: BEGIN classes / conditions (pass 1)
 # verbose: C: .........................................................
 # verbose: C:     +  Private class: weekend 
-# verbose: P: .........................................................
-# verbose: P: BEGIN promise 'p

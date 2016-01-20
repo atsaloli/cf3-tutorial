@@ -1,11 +1,16 @@
 bundle agent main
 {
-  reports:
 
-      "Hello world!";
+reports:
 
-  commands:
+    "$(sys.date)";
 
-      "/bin/echo Hello world!";
-}
+#  vars:
+#    "myclasses"
+#      slist => classesmatching(".*day");
+#
+#  reports:
+#    
+#      "$(myclasses)";
 
+} 
