@@ -1,0 +1,23 @@
+# This policy will dump the first 4k of the datastate
+# (4096 bytes due to internal limits in CFEngine)
+#
+# Note: the datastate report will show a copy of the
+# datastate in vars.main.datastate (vars.main.datastate.vars
+# and vars.main.datastate.classes)
+
+bundle agent main
+{
+  vars:
+
+    "datastate"
+      data => datastate();
+
+    "formatted_datastate"
+      string => storejson("datastate");
+
+  reports:
+    "Datastate =
+$(formatted_datastate)
+";
+
+}
