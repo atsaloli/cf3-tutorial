@@ -5,6 +5,11 @@
 :
 Passive monitoring agent, collects information about the status of your system (which can be reported or used to influence when promises are enforced).
 
+**cf-consumer**
+:
+CFEngine Enterprise only, drains Redis cache into Postgres database
+
+
 The following add-on tools have to be installed separately:
 
 

@@ -15,17 +15,15 @@ bundle agent main {
 
       ".*"
 
-        #process_select  => vsize_exceeds("cfapache", ".*httpd.*", "400000"),
         process_select  => vsize_exceeds("cfapache", ".*httpd.*", "300000"),
-        process_count => set_class("big_apache_httpd_procs");
+        process_count => set_class("restart_apache");
 
   commands:
-    big_apache_httpd_procs::
-      #"/usr/sbin/httpd -k graceful";
+    restart_apache::
       "/var/cfengine/httpd/bin/httpd -k graceful";
 
   reports:
-   big_apache_httpd_procs::
+   restart_apache::
       "Detected big apache httpd";
 
 }

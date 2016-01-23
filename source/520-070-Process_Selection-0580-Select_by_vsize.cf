@@ -16,6 +16,6 @@ bundle agent main {
 body process_select vsize_exceeds(vsize_limit) {
 
         vsize => irange("$(vsize_limit)","inf"); # vsize is over
-      # $(vsize_limit)
+                                                 # $(vsize_limit)
         process_result => "vsize";
 }

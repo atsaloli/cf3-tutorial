@@ -1,4 +1,4 @@
-## Promises + Patterns = Configuration
+### Promises + Patterns = Configuration
 
 Combining promises with patterns to describe where and when promises
 should apply is how CFEngine works.

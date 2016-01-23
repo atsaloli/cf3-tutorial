@@ -20,7 +20,7 @@ body process_select newborns
 
 
         stime_range => irange(ago(0,0,0,1,0,0), now);
-      # Processes started between 1 hour and 1 second ago
+      # Processes started less than 1 hour ago
 
         process_result => "stime";
 }

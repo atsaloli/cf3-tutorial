@@ -4,8 +4,6 @@ bundle agent main {
 
       "/etc/motd"
 
-        handle  => "files_motd",
-        comment  => "Create a nice motd",
         create  => "true",
         edit_line => greet_users;
 }

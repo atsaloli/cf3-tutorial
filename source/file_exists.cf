@@ -1,0 +1,23 @@
+bundle agent main 
+{
+# 
+# classes:
+#   "have_passwd"
+#      expression => fileexists("/etc/passwd");
+# 
+# reports:
+#    have_passwd::
+#      "I have /etc/passwd";
+
+
+
+vars:
+  "passwd"
+    string => "/etc/passwd";
+
+reports:
+   "I have $(passwd)"
+      if => fileexists("$(passwd)");
+
+}
+

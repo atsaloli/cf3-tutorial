@@ -1,16 +1,24 @@
 Render a JSON-backed Mustache template
 
-Make a JSON file
+1. Make a JSON file
+ 
+   Example:
 
-Make a Mustache file
+     food.json:
 
-Render the Mustache file using the data inside the JSON file
+     { "food" : "pizza" }
 
 
-Example:
+2. Make a Mustache template
 
-JSON file:  { "food" : "pizza" }
+   Example:
 
-Mustache file:  Waiter, I'd like to order {{food}}
+     order.mustache:
+
+     Waiter, I'd like to order {{food}}
+
+3. Write CFEngine policy that will render the Mustache 
+   template using the data in the JSON file (hint:
+   see readjson() function)
 
 

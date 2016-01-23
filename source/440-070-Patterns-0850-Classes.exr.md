@@ -1,9 +1,4 @@
 Practice using classes
 
-* Set a custom class if the file '/tmp/testme' exists.
+Use a custom class to report if the file '/tmp/testme' exists
 
-* Report the presence or absense of the file using "reports" type promises and the class defined in #1 above.
-
-* Have a "files" type promise create the file '/tmp/testme'.
-
-* Now, remove '/tmp/testme' and run your policy and observe and explain what happens.

@@ -9,7 +9,13 @@ body action logme(message)
 {
         log_string => "At $(sys.date), on $(sys.host), in bundle $(this.bundle) from $(this.promise_filename):$(this.promise_linenumber): $(this.handle): $(message)";
 
-        log_repaired => "/var/log/cfengine/repair.log";
-        log_kept => "/var/log/cfengine/kept.log";
-        log_failed => "/var/log/cfengine/notkept.log";
+linux:: log_repaired => "/var/log/cfengine/repair.log";
+windows:: log_repaired => "c:\temp\repairs.log";
+
+
+linux:: log_kept => "/var/log/cfengine/kept.log";
+windows:: log_kept => "c:\temp\kept.log";
+
+linux:: log_failed => "/var/log/cfengine/notkept.log";
+windows:: log_failed => "c:\temp\notkept.log";
 }

@@ -1,0 +1,9 @@
+bundle agent main 
+{
+
+commands:
+  major_failure::
+    "/bin/echo OMG save me | /bin/mail -s ALERT  123456789@txt.att.com"
+      contain => in_shell;
+
+}

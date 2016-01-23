@@ -1,0 +1,11 @@
+bundle agent main
+{
+
+  commands:
+    "Write-Output 'Hello world'"
+      contain => mycontainbody; 
+} 
+
+body contain mycontainbody  {
+  useshell => "powershell"; 
+}   

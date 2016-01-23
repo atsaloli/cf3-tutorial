@@ -8,7 +8,7 @@ bundle agent main
 bundle edit_xml set_value
 {
   set_text:
-      "prem.example.com"
+      "nancy.example.com"
         select_xpath => "/Server/Service/Engine/Host/Alias";
 
 }

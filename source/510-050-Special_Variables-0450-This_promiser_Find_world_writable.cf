@@ -1,3 +1,5 @@
+# remove this, we haven't covered file selection
+
 bundle agent main {
 
   files:

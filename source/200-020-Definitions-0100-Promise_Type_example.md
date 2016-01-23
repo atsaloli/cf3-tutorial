@@ -1,7 +1,3 @@
-### Example of Promise Type
-
-`files` followed by a single colon indicates the promise type.
-
 The promise type is always followed by a single colon.
 
 

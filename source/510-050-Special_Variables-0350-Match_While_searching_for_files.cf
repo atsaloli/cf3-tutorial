@@ -1,13 +1,12 @@
 # Create the following files before running this example:
-# /tmp/cf2_test1
-# /tmp/cf3_test2
+# /bin/touch /tmp/cf1_test1 /tmp/cf3_test2
 
 bundle agent main
 {
 
   files:
 
-      "/tmp/(cf[23])_(.*)"
+      "/tmp/(cf[^_]*)_(.*)"
         edit_line => show_match("$(match.0) $(match.1) $(match.2)");
 
 }

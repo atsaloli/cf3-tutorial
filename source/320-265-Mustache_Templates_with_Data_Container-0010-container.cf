@@ -5,8 +5,8 @@ bundle agent main {
         create => "true",
         template_method => "mustache",
         edit_template   => "$(this.promise_dirname)/320-260-0020.mustache",
-        template_data => parsejson('{
+        template_data => '{
                                         "organization" : "ACME, Inc.",
                                  "organizational_unit" : "Roadrunner Division",
-                                     }');
+                          }';
 }

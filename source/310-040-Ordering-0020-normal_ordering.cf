@@ -1,21 +1,16 @@
-bundle agent main {
+# run "/bin/rm /tmp/newfile" to setup for this example
 
-# run /bin/rm /tmp/newfile to setup for this example
+bundle agent main {
 
   classes:
       "file_exists"
-        expression => fileexists("/tmp/newfile"),
-        action => if_elapsed("30");
+        expression => fileexists("/tmp/newfile");
 
       "file_absent"
-        not => fileexists("/tmp/newfile"),
-        action => if_elapsed("30");
+        not => fileexists("/tmp/newfile");
 
   files:
       "/tmp/newfile"
-        handle => "create_a_file",
-        comment => "Give CFEngine something to do
-                          to change system state.",
         create => "true";
 
   reports:
@@ -25,5 +20,3 @@ bundle agent main {
     file_absent::
       "file /tmp/newfile does not exist";
 }
-
-body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }

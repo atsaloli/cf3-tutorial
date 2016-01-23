@@ -1,6 +1,3 @@
-# report "Hello world!  I love weekends!" on Saturday or Sunday,
-# report "Hello world!  I love Mondays|Tuesdays|...|Fridays on a weekday
-
 bundle agent main {
 
   vars:

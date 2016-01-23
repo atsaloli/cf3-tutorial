@@ -1,13 +1,21 @@
 bundle agent main {
 
+  vars:
+   "name"
+     string => "Inigo Montoya";
+
   reports:
+
+      "value of \$(name) is $(name)";
+      "value of $(const.dollar)(name) is $(name)";
+
+
+
 
       "A carriage return character is $(const.r)The carriage has returned.";
 
       "A report with a$(const.t)tab in it";
 
-      "Value of variable named $(const.dollar)(const.dollar)
-       is $(const.dollar)";
 
       "The value of variable named \$(const.dollar) is $(const.dollar)";
       # backslash does not work to stop interpolation of the variable

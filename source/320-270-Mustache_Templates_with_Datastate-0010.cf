@@ -1,17 +1,18 @@
 bundle common g {
-      # global settings
+# global settings
 
   vars:
       "organization"
         string => "Acme Inc.";
 
   classes:
-    "myclass"
-       expression => "linux";
+    "snow_day"
+       expression => "any";
 }
 
 
 bundle agent main {
+  vars: "foo" string => "bar";
 
   files:
       "/etc/motd"

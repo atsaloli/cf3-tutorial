@@ -1,0 +1,27 @@
+# Demonstrate by running this with DEBUG and then with DEBUG_$(bundle_name) classes
+# cf-agent -D DEBUG -f <thisfile>
+# cf-agent -D DEBUG_main -f <thisfile>
+# cf-agent -D DEBUG_prep -f <thisfile>
+
+bundle agent main {
+
+  vars:  
+    "name"
+      string => "George";
+ 
+  methods:
+    "prep";
+
+  reports:
+    DEBUG|DEBUG_main::
+      "DEBUG $(this.bundle)";
+      "$(const.t)DEBUG $(this.bundle): name = '$(name)'";
+}
+
+bundle agent prep {
+
+reports:
+  DEBUG|DEBUG_prep::
+      "DEBUG $(this.bundle)";
+      "$(const.t)DEBUG $(this.bundle): foo = 'bar'";
+}

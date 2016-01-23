@@ -2,7 +2,7 @@ bundle common global {
 
   vars:
 
-      "stuff[location]"     string => "Bloomington";
+      "stuff[location]"     string => "New York";
       "stuff[time]"         string => "May-2013";
       "stuff[students]"     string => "11";
       "stuff[lab]"          string => "true";

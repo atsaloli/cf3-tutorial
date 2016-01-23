@@ -1,9 +1,5 @@
-#######################################################
-#
-# Searching for permissions
-#
-#######################################################
 
+# GZIP pdf files over a year old
 
 ############################################
 
@@ -26,7 +22,7 @@ body file_select compound_filter
 
 {
 
-        leaf_name => { ".*\.pdf" , ".*\.fdf" };
+        leaf_name => { ".*\.pdf" };
       # leaf_name = regex to match
 
         mtime => irange(ago(1,0,0,0,0,0),now);

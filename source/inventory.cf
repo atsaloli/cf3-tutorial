@@ -1,0 +1,16 @@
+bundle agent inventory_example
+{
+
+classes:
+  "my_soft_class"
+     expression => "any",
+     scope => "namespace",
+     meta => { "inventory", "attribute_name=Reboot Me" };
+
+vars:
+  "name"
+    string => "Inigo Montoya",
+    meta => { "inventory", "attribute_name=Name" };
+
+}
+

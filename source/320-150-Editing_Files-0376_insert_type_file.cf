@@ -1,0 +1,20 @@
+bundle agent main {
+
+files:
+  "/tmp/test.txt" 
+    create => "true",
+    edit_line => mytext;
+
+}
+
+bundle edit_line mytext
+{
+insert_lines:
+"/tmp/template"
+  insert_type => "file";
+
+delete_lines:
+  ".*";
+
+}
+

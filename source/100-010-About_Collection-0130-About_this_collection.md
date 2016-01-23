@@ -8,4 +8,5 @@ engineers up to speed with CFEngine 3.
 These examples supplement the examples in the official
 documentation.
 
-All our examples are concrete and runnable.
+All our examples are standalone and runnable. If you have
+trouble with any of them, please let me know!

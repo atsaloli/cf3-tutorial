@@ -2,8 +2,8 @@ bundle agent main {
 
   services:
 
-      "www"
-        service_policy => "disable";
+      "httpd"
+        service_policy => "start";
 
       "sendmail"
         service_policy => "enable";

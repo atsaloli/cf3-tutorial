@@ -1,0 +1,17 @@
+bundle agent main 
+{
+
+vars:
+  "config"
+    data => '{  "name"    :  "Salmon sandwich",
+                "price"   :  "Nine dollars",
+                "dessert" :  "Cookie",
+             }';
+
+  "formatted_config"
+    string => format("%S", "config");
+
+reports:
+  "$(config)";
+
+}

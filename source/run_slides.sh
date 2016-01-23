@@ -6,7 +6,7 @@
 
 # working with the training collection requires the following packages:
 
-for REQUIRED in asciidoc elinks vim elinks regex-markup
+for REQUIRED in asciidoc elinks vim regex-markup
 do
   # check if it is installed, and if not, install it
   command -v ${REQUIRED} >/dev/null 2>&1 || \

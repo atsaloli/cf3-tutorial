@@ -1,0 +1,37 @@
+# Example of
+#     cfengine_word => builtin_function()
+
+bundle agent main {
+
+  vars:
+
+      "CRLF"
+        string => "$(const.r)$(const.n)",
+        comment => "HTTP requests are terminated by double CR/LF.
+                    Define CRLF variable or else my readtcp()
+                    function is too long (goes outside page boundary
+                    and gets hard to read).";
+
+      "http_reply"
+
+        handle => "http_client",
+        comment => "Demonstrate a function that returns a string. 
+                    Run 'GET / HTTP/1.0' and save the output into
+                    the 'http_reply' variable.",
+        string => readtcp("www.google.com",
+                          "80",
+                          "GET / HTTP/1.0$(CRLF)$(CRLF)",
+                          "4096");
+  classes:
+      "http_ok"
+        handle => "check_http_ok",
+        comment => "Check that the Web server is returning HTTP 200 OK",
+        expression => regcmp(".*200 OK.*\n.*","$(http_reply)");
+
+      reports:
+"HTTP OK
+
+$(http_reply)";
+
+
+}

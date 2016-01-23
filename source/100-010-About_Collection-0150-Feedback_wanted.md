@@ -1,7 +1,8 @@
 ### Feedback Wanted
 
-I would love to hear if you have wins with this collection,
-or if you need help with anything.  Write me at aleksey (at) verticalsysadmin.com
+If these examples are helpful, if you have any questions,
+or would like to contribute an example, please email me
+at aleksey (at) verticalsysadmin.com
 
 ### Training and Professional Services
-I'm available for on-site training and implemention consulting.
+I'm available for on-site training and consulting.

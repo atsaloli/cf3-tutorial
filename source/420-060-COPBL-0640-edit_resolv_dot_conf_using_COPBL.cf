@@ -13,7 +13,7 @@ bundle agent main {
         handle =>  "edit_resolv_conf",
         comment => "Setup up DNS resolver",
         edit_line =>  resolvconf("$(search_suffix)",
-                                 "@(example.nameservers)" );
+                                 "@($(this.bundle).nameservers)" );
 }
 
 

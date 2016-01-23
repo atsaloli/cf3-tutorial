@@ -9,4 +9,7 @@ bundle agent main {
 
       "/bin/echo hello world";   # this promise is NOT in the class "any" !!!
 
+    any::
+
+      "/bin/date";
 }

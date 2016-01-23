@@ -18,3 +18,44 @@ Purpose: practice writing a "remote copy" promise.
 
 Note: The special variable $(sys.policy_hub) contains the address of the Hub.  CFEngine records the address of the hub in /var/cfengine/policy_server.dat after a successful bootstrap 
 
+
+
+Exercise
+
+/tmp/cfe/ should be a copy of /var/cfengine/masterfiles/ from $(sys.policy_hub)
+
+(Hint: you can use "body copy_from remote_cp" or "body copy_from secure_cp")
+
+vars:
+  "myvar"
+    data => readjson ("/tmp/stuff.json", "100k"),
+    if => fileexists ("/tmp/stuff.json");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

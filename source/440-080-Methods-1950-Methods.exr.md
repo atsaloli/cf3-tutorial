@@ -1,8 +1,35 @@
 Configuring a web server.
 
-Write a bundle "webserver" that will ensure an Apache httpd package is installed and process is running if its argument is "on":
+- install "httpd" package
+ 
+   e.g. 
+
+       packages:
+          "php-mysql"
+            policy => "present";
+
+- start "httpd" service
+
+  e.g.
+
+      services:
+
+          "httpd"
+            service_policy => "start";
+
+
+- add parsing of argument to the bundle (if "on", then do the above;
+  if "off", then stop the service)
+
+
+TIP: The CFEngine function strcmp() can compare two strings.
+
+1. Write a bundle "webserver" that will ensure an Apache httpd package
+   is installed and the service is up and running when the argument is
+   "on":
 
 ```cfengine3
+
      methods:
 
         "any"
@@ -10,8 +37,7 @@ Write a bundle "webserver" that will ensure an Apache httpd package is installed
              usebundle => webserver("on");
 ```
 
-Then, make sure httpd is not running if its argument is "off".
+2. Make sure the service is off when the argument is "off".
 
-TIP: The CFEngine function strcmp() can compare two strings.
 
-NOTE: Reference: 039-0085_Basic_Examples:_Classes_and_Reports.__soft-class.cf
+

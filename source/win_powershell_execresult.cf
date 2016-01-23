@@ -1,0 +1,16 @@
+bundle agent powershell_execresult
+{
+  vars:
+    windows.powershell::
+      "mymessage"
+         string => execresult("Write-Output 'This is a message from PowerShell'",
+                              "powershell");
+    windows.!powershell::
+      "mymessage"
+         string => execresult("echo This is a message from CMD.exe",
+                              "useshell");
+  reports:
+    "$(mymessage)";
+ 
+}
+ 

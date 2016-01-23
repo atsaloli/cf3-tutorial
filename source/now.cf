@@ -1,0 +1,13 @@
+bundle agent main {
+
+  vars:
+    "now"
+      int => now();
+
+    "human_now"
+      string => execresult("/bin/date -d @$(now)", noshell);
+
+
+  reports:
+    "cf-agent started at $(now) $(human_now)";
+}
