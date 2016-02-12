@@ -43,11 +43,15 @@ bundle common global_vars {
                 "proxy"
             },
             policy => "overridable";
+  vars:
+    any::
+      "inplist"
+        slist => maplist( "$(this).cf", @(bseq) );
 }
 
 body common control {
 
-    inputs         => { @{global_vars.bseq} };
+    inputs         => { @{global_vars.inplist} };
     bundlesequence => { @{global_vars.bseq} };
 
 }
