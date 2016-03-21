@@ -19,7 +19,7 @@ doing all exercises as "root".
 Note: CFEngine normally runs as "root" but it can be run as non-root, and
 some large organizations even run it as both root and non-root on
 the same system (running off different policies from different divisions 
-of the organization, e.g. base config versus applicaiton-specific
+of the organization, e.g. base config versus application-specific
 config).
 
 CFEngine agent requires a list of bundles to evaluate (a bundle is a
@@ -31,7 +31,7 @@ cf-agent -f ./create_file.cf -b main
 ```
 
 To find out your CFEngine version, use the *-V* switch which is also
-available in long form as *--version**:
+available in long form as *--version*:
 
 ```bash
 # cf-agent -V
