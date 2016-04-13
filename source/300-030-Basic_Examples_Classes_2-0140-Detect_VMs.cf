@@ -8,11 +8,8 @@ bundle agent main {
   classes:
       "i_am_virtual"
         comment => "Check if we are running inside a VM",
-        expression => regline("(?i).*vmware.*|(?i).*vbox.*|(?i).*qemu.*",
+        expression => regline(".*(VMware|VBOX|QEMU).*",
                               "/proc/scsi/scsi");
-
-# Note: (?i) turns on case-insensitivity
-
 
 # This is what we would see in the shell on VMware guests:
 #
