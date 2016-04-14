@@ -1,7 +1,11 @@
 #!/bin/bash
 
-_DEBUG="off"
 _DEBUG="on"
+_DEBUG="off"
+# flip the order of the above two lines to enable or disable debug print statements
+
+SOFTCOVER_BASE=~/git/cf3-tutorial
+cd $SOFTCOVER_BASE/source
 
 function DEBUG()
 {
@@ -15,9 +19,11 @@ function process_files(){
 
 ### initialize environment
 if [ ! -d /tmp/mod_files ]; then mkdir /tmp/mod_files; fi
-rm /tmp/mod_files/*
-rm cfengine_???.md # delete book parts, these will be recreated
-                   # by concatenate_sc function
+rm /tmp/mod_files/*.md
+
+# delete book parts, these will be recreated
+# by concatenate_sc function
+rm $SOFTCOVER_BASE/chapters/cfengine_???.md
 
 
 EXERCISE_COUNTER=1
@@ -181,9 +187,11 @@ function concatenate_sc() {
 SOFTCOVER_CHAPTER_COUNTER=1
 
 echo entering concatenate_sc function
-for file in `find /tmp/mod_files/* -maxdepth 1 -type f -iname "[0-9]*[cf|txt|md|pl|sh|exr]" |  egrep -v '0038-0015' |  sort`
+for file in `find /tmp/mod_files/* -maxdepth 1 -type f -iname "[0-9]*[cf|txt|md|pl|sh|exr]" |
+  egrep -v '0038-0015' |
+  sort`
 	do
-                echo processing $file for concatenation
+               echo processing $file for concatenation
 	       book_part=`echo ${file^} | sed -e s:/tmp/mod_files/:: | awk -F"-" '{print $1}' | sed "s/_/ /g"`
                # concatenate files into one file per book part (to get softcover to build)
                DEBUG echo book_part = $book_part
@@ -202,8 +210,8 @@ echo exiting concatenate_sc function
 process_files && \
 concatenate_sc  
 
-mv cfengine_???.md  ~/cf3-tutorial/chapters/
-cd ~/cf3-tutorial/
+mv cfengine_???.md  $SOFTCOVER_BASE/chapters
+cd $SOFTCOVER_BASE
 softcover build:html
 
 #if [ $? -eq 0 ] ; then
