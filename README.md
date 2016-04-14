@@ -32,9 +32,11 @@ Backspace to go to the previous slide,
 "vv" to do so in verbose mode,
 "rr" to run shell scripts, etc. (see install_vim_slideshow_bindings.sh" for detail).
 
-4. Build the book (HTML/PDF) using the build_softcover.sh script in the
+4. Build the book HTML using the build_softcover.sh script in the
 "source" directory.
 This requires SoftCover from www.softcover.io
+Then look at html/cf3.html 
+
 
 ## Say hello
 Email @atsaloli if you have any questions or to say hello
