@@ -37,12 +37,12 @@ authors:
 
 faq:
   -
-    question: "Question 1 text"
-    answer: "Answer 1 text"
+    question: "What is CFEngine?"
+    answer: "CFEngine is a tool for automating system administration so you can have a reliable IT infrastructure."
 
   -
-    question: "Question 2 text"
-    answer: "Answer 2 text"
+    question: "Why should I use CFEngine?"
+    answer: "CFEngine is based on Promise Theory, which is a way of modeling distributed systems as composed of autonomous agents engaged in voluntary cooperation. Promise Theory tells us that distributed decentralized systems can work at scales beyond strongly centralized systems. CFEngine is small, fast and secure. Many world class companies trust their IT infrastructures to CFEngine."
 
 testimonials:
   -
