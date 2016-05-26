@@ -51,12 +51,6 @@ testimonials:
     image: /images/paul_reemeijer.png
     text: "It is a VERY practical book. I love the way you give examples and the flow of the chapters. It gives me a good feeling of what you can do with CFEngine."
 
-  -
-    name: "Person 2"
-    title: "Person 2 Title"
-    gravatar_email: "info@softcover.io"
-    text: "Testimonial 2 text"
-
 marketing_content: ''
 
 repo_url: ''
