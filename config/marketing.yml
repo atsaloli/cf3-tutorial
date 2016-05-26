@@ -46,10 +46,10 @@ faq:
 
 testimonials:
   -
-    name: "Person 1"
-    title: "Person 1 Title"
-    image: /images/testimonial_1.png
-    text: "Testimonial 1 text"
+    name: "Paul Reemeijer"
+    title: "System Administrator, SURFsara, Amsterdam"
+    image: /images/paul_reemeijer.png
+    text: "It is a VERY practical book. I love the way you give examples and the flow of the chapters. It gives me a good feeling of what you can do with CFEngine."
 
   -
     name: "Person 2"
