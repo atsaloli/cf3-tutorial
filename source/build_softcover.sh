@@ -153,7 +153,7 @@ fi
   cat <<EOF >> $target
 \begin{codelisting}
 \codecaption{${filename}}
-\`\`\`${filetype}, options: "linenos": true
+\`\`\`${filetype}, options: "linenos": false
 EOF
   cat $file >> $target
   cat <<EOF >> $target
