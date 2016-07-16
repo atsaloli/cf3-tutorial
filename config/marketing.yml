@@ -52,9 +52,9 @@ testimonials:
     text: "It is a VERY practical book. I love the way you give examples and the flow of the chapters. It gives me a good feeling of what you can do with CFEngine."
   -
     name: "Stanislav Yotov"
-    title: "Statistician / Data Scientist / CS at Cloudwick"
+    title: "Statistician / Data Scientist at Cloudwick"
     image: /images/stanislav_yotov.png
-    text: "I am learning CFEngine and I would like to express my gratitude for the tutorials. They are amazing and extremely useful!"
+    text: "I am learning CFEngine and I would like to express my gratitude for the tutorials. They are amazing and extremely useful for me to start getting a grasp of CFEngine's capabilities."
 
 
 
