@@ -47,9 +47,16 @@ faq:
 testimonials:
   -
     name: "Paul Reemeijer"
-    title: "System Administrator, SURFsara, Amsterdam"
+    title: "System Administrator at SURFsara"
     image: /images/paul_reemeijer.png
     text: "It is a VERY practical book. I love the way you give examples and the flow of the chapters. It gives me a good feeling of what you can do with CFEngine."
+  -
+    name: "Stanislav Yotov"
+    title: "Statistician / Data Scientist / CS at Cloudwick"
+    image: /images/stanislav_yotov.png
+    text: "I am learning CFEngine and I would like to express my gratitude for the tutorials. They are amazing and extremely useful!"
+
+
 
 marketing_content: ''
 
