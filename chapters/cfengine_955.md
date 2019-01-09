@@ -152,5 +152,4 @@ These promise attributes can be used in *any* promise.
 | $(sys.host) | Hostname
 | $(sys.policy\_hub) | Address of our policy server.
 
-\coloredtext{red}{ 955-000-Part-Title-0000-Vocab\_Primer.md }
 

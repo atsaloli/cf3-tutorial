@@ -88,5 +88,4 @@ To learn more, see ["Anomaly detection with cfenvd"](http://www.iu.hio.no/cfengi
 ["Monitoring with CFEngine"](https://auth.cfengine.com/archive/manuals/st-monitoring) (a CFEngine 3.0 document).
 
 
-\coloredtext{red}{ 600-000-Part-Title-0000-Monitoring.md }
 

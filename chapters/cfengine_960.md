@@ -5,7 +5,6 @@ Filename: 960-000-Part-Title-0000-Additional\_Examples.md
 
 # Appendix C - Additional Examples
 
-\coloredtext{red}{ 960-000-Part-Title-0000-Additional\_Examples.md }
 
 
 <!---
@@ -14,47 +13,10 @@ Filename: 960-010-Security-0000-Chapter-Title.md
 
 ## Security Examples
 
-\coloredtext{red}{ 960-010-Security-0000-Chapter-Title.md }
 
-\begin{codelisting}
-\codecaption{960-010-Security-0010-Processes\_not\_running\_a\_blacklist.cf}
-```cfengine3, options: "linenos": true
-!! SKIP !!
-
-body common control
-
-{
-        bundlesequence  => { "processes_not_running"  };
-}
-
-
-########################################
-
-
-bundle agent processes_not_running {
-
-
-  vars:
-
-      "bad_process"     slist   =>      {
-                                          "cupsd",
-                                          "ircd",
-                                          "ping",
-                                          "portmap",
-      };
-
-
-
-
-  processes:
-      "$(bad_process)"  signals => { "term", "kill" };
-
-}
-```
-\end{codelisting}
 \begin{codelisting}
 \codecaption{960-010-Security-0020-SELinux\_Allow\_httpd\_to\_connect\_to\_and\_to\_write\_to\_stream\_sockets.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
 
 bundle agent main {
@@ -162,11 +124,10 @@ Filename: 960-010-Security-0030-Change\_detection.md
 ### Change Detection
 In the "computer immunology" research and development phase, Mark added file change detection capability to CFEngine.
 
-\coloredtext{red}{ 960-010-Security-0030-Change\_detection.md }
 
 \begin{codelisting}
 \codecaption{960-010-Security-0040-Detect\_changes\_in\_etc.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   files:
@@ -185,7 +146,7 @@ body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
 \end{codelisting}
 \begin{codelisting}
 \codecaption{960-010-Security-0050-Detect\_changes\_in\_etc\_Uses\_classes.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
   files:
 
@@ -240,7 +201,7 @@ body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
 \end{codelisting}
 \begin{codelisting}
 \codecaption{960-010-Security-0060-Match\_suspicious\_process\_names.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   vars:
@@ -267,7 +228,7 @@ bundle agent main {
 \end{codelisting}
 \begin{codelisting}
 \codecaption{960-010-Security-0070-Check\_open\_ports.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   vars:
@@ -344,7 +305,7 @@ DANGER!!!
 \end{codelisting}
 \begin{codelisting}
 \codecaption{960-010-Security-0080-Configure\_sshd\_stub.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
   vars:
 
@@ -381,9 +342,8 @@ insert_lines:
 \end{codelisting}
 \begin{codelisting}
 \codecaption{960-010-Security-0090-Use\_edit\_sshd.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 !! SKIP !!
-
 
 # an example of a methods bundle accessing an
 # array from the parent bundle.
@@ -433,11 +393,10 @@ Filename: 960-020-More\_Examples-0000-Chapter-Title.md
 
 ## More Examples
 
-\coloredtext{red}{ 960-020-More\_Examples-0000-Chapter-Title.md }
 
 \begin{codelisting}
 \codecaption{960-020-More\_Examples-0120-WordPress\_Diego.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 #Install WordPress:
 #       1. Install Infrastructure:
 #               1.1. Install httpd and mod_php and PHP MySQL client.
@@ -698,7 +657,7 @@ body action logme(x)
 \end{codelisting}
 \begin{codelisting}
 \codecaption{960-020-More\_Examples-0160-Setting\_the\_environment\_for\_a\_command.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 body agent control
 {
         environment => { "A=123", "B=456", "PGK_PATH=/tmp"};
@@ -718,7 +677,7 @@ bundle agent main
 \end{codelisting}
 \begin{codelisting}
 \codecaption{960-020-More\_Examples-0170-Delete\_repo\_comments\_from\_CentOS\_repo\_and\_exclude\_postgresql.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 # edit CentOS repo file in /etc/yum.repos.d to exclude
  # Postgres packages from downloads/updates (because I want
 # to get them from the Postgres.org repo).
@@ -807,7 +766,7 @@ body select_region MyINISection(x)
 \end{codelisting}
 \begin{codelisting}
 \codecaption{960-020-More\_Examples-0180-Install\_php\_pecl\_module.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 # Install pecl_http PHP module to provide HttpRequest class
 # to our PHP Web app:
 #   - run "pecl install pecl_http" and set SELinux type
@@ -897,7 +856,6 @@ Filename: 960-030-EC2-0000-Chapter-Title.md
 
 ## Amazon EC2 Examples
 
-\coloredtext{red}{ 960-030-EC2-0000-Chapter-Title.md }
 
 
 <!---
@@ -916,11 +874,10 @@ Then we install CFEngine 3.1.4. Then we run casit_demo.cf to instantiate two ser
 
 Video: http://www.verticalsysadmin.com/cfengine/casit/
 
-\coloredtext{red}{ 960-030-EC2-0190-System\_provisioning\_and\_integration\_introduction.md }
 
 \begin{codelisting}
 \codecaption{960-030-EC2-0200-system\_provisioning\_and\_integration\_demo.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 #############################################
 bundle common global_vars {
 
@@ -1031,7 +988,7 @@ bundle agent wordpress_installer_distributed_and_run(desired_servers)
 \end{codelisting}
 \begin{codelisting}
 \codecaption{960-030-EC2-0210-system\_provisioning\_and\_integration\_wordpress\_installation.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 # Install WordPress:
 # 1. Install Infrastructure:
 #   1.1. Install httpd and mod_php and PHP MySQL client.
@@ -1399,7 +1356,7 @@ body classes always(x)
 \end{codelisting}
 \begin{codelisting}
 \codecaption{960-030-EC2-0220-system\_provisioning\_and\_integration\_Start\_micro\_instance.sh}
-```bash, options: "linenos": true
+```bash, options: "linenos": false
 #!/bin/sh
 
 MY_HOST_ALIAS=$1
@@ -1466,11 +1423,10 @@ Filename: 960-040-Class\_Examples-0000-Chapter-Title.md
 
 ## Advanced Usage of Classes
 
-\coloredtext{red}{ 960-040-Class\_Examples-0000-Chapter-Title.md }
 
 \begin{codelisting}
 \codecaption{960-040-Class\_Examples-0240-Parsing\_readtcp\_output\_to\_set\_a\_class.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 # TODO -- make this self-contained and runnable
 #
 #
@@ -1530,7 +1486,7 @@ $(webhosts_list):80 maxconn 32");
 \end{codelisting}
 \begin{codelisting}
 \codecaption{960-040-Class\_Examples-0250-Set\_a\_custom\_class\_based\_on\_hostname\_pattern.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   classes:
@@ -1547,7 +1503,7 @@ bundle agent main {
 \end{codelisting}
 \begin{codelisting}
 \codecaption{960-040-Class\_Examples-0260-class-driven-configuration.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 # a simple, all in one file, example of configuring
 # different policies per-country based on hostname naming pattern
 
@@ -1582,7 +1538,7 @@ bundle agent germany { commands: "/bin/echo I love Berlin"; }
 \end{codelisting}
 \begin{codelisting}
 \codecaption{960-040-Class\_Examples-0270-Persistent\_class.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 # FIXME - this example needs work
 
 bundle agent main
@@ -1652,11 +1608,10 @@ Filename: 960-045-Versioning\_Policy-0000-Chapter-Title.md
 
 Here are examples of versioning your policies and integrating CFEngine with a Version Control System.
 
-\coloredtext{red}{ 960-045-Versioning\_Policy-0000-Chapter-Title.md }
 
 \begin{codelisting}
 \codecaption{960-045-Versioning\_Policy-1040-Version\_number\_Plain.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 body common control
 {
         version => "1.1";
@@ -1683,11 +1638,10 @@ Filename: 960-080-Special\_Notes-0000-Chapter-Title.md
 
 ## Special Notes And Gotchas
 
-\coloredtext{red}{ 960-080-Special\_Notes-0000-Chapter-Title.md }
 
 \begin{codelisting}
 \codecaption{960-080-Special\_Notes-0640-Iteration\_over\_a\_global\_list\_Using\_parameterization.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 # Scalar references to *local* list variables imply iteration.
 # To iterate over a global list variable, map the global list
 # into the local context, or supply it to the bundle as a
@@ -1719,7 +1673,7 @@ bundle agent runme(x)
 \end{codelisting}
 \begin{codelisting}
 \codecaption{960-080-Special\_Notes-0650-Iteration\_over\_a\_global\_list\_Direct\_method.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 # Scalar references to *local* list variables imply iteration.
 # To iterate over a global list variable, map the global list
 # into the local context.  There are two ways to do it, this
@@ -1752,7 +1706,6 @@ Filename: 960-080-Special\_Notes-0660-Max\_scalar\_list\_and\_array\_sizes.md
 
 TIP: There is no limit to the length of lists or arrays, but there is a limit to the size of variable-expanded strings (scalars). The final result of any single variable expansion is limited to about 4k.
 
-\coloredtext{red}{ 960-080-Special\_Notes-0660-Max\_scalar\_list\_and\_array\_sizes.md }
 
 
 <!---
@@ -1765,7 +1718,6 @@ They don't all work, but most do.
 
 Potentially useful in learning CFEngine.
 
-\coloredtext{red}{ 960-080-Special\_Notes-0670-Unit\_tests.md }
 
 
 <!---
@@ -1817,7 +1769,6 @@ tomcat_server.cf       Setup a tomcat server.
 varnish.cf             Set up Varnish web accelerator
 ```
 
-\coloredtext{red}{ 960-080-Special\_Notes-0680-Orion\_Cloud\_Pack.md }
 
 
 <!---
@@ -1826,11 +1777,10 @@ Filename: 960-080-Special\_Notes-0690-Always\_specify\_the\_class.md
 
 TIP: Always specify the class , or else you may inadvertently inherit the class specification from an earlier promise
 
-\coloredtext{red}{ 960-080-Special\_Notes-0690-Always\_specify\_the\_class.md }
 
 \begin{codelisting}
 \codecaption{960-080-Special\_Notes-0700-Be\_careful\_with\_class.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
   commands:
     customclass::
@@ -1843,7 +1793,7 @@ bundle agent main {
 \end{codelisting}
 \begin{codelisting}
 \codecaption{960-080-Special\_Notes-0710-No\_safeguard\_for\_syntactically\_correct\_but\_insane\_policy.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 # a mutually exclusive configuration
 
 body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
@@ -1872,7 +1822,6 @@ Filename: 960-090-Packages-0000-Chapter-Title.md
 
 ## Packages
 
-\coloredtext{red}{ 960-090-Packages-0000-Chapter-Title.md }
 
 
 <!---
@@ -1889,11 +1838,10 @@ Which version is newer?
 
 NOTE: See http://semver.org/ for a proposal for a meaningful versioning standard.
 
-\coloredtext{red}{ 960-090-Packages-0740-A\_note\_on\_versioning.md }
 
 \begin{codelisting}
 \codecaption{960-090-Packages-0750-install\_packages\_from\_local\_filesystem\_based\_repository.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 # NOTE: This policy assumes pre-3.7 packages promises.
 # Packages promises were completely rewritten in 3.7
 # They still work but are deprecated.
@@ -1912,7 +1860,7 @@ bundle agent main {
 
 body package_method rpm_filebased(path)
 # Contributed by Aleksey Tsalolikhin. Written on 29-Feb-2012.
-# Based on yum_rpm body in COPBL by Trond Hasle Amundsen.
+# Based on yum_rpm body in CFEngine Standard Library by Trond Hasle Amundsen.
 # Intended to install packages from local package repository.
 # You must specify the path to the local package repository as the argument.
 
@@ -1971,7 +1919,7 @@ body package_method rpm_filebased(path)
 \end{codelisting}
 \begin{codelisting}
 \codecaption{960-090-Packages-0760-install\_RPM\_from\_a\_local\_directory.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 body common control {
         bundlesequence => { "commands__install_PGDG_yum_repo_RPM" };
 }
@@ -2020,11 +1968,10 @@ Filename: 960-100-Classes-0000-Chapter-Title.md
 
 ## Advanced Usage Of Classes
 
-\coloredtext{red}{ 960-100-Classes-0000-Chapter-Title.md }
 
 \begin{codelisting}
 \codecaption{960-100-Classes-0780-setting\_multiple\_classes\_as\_a\_result\_of\_a\_single\_promise.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
 
 bundle agent main {
@@ -2052,7 +1999,7 @@ body classes if_repaired_set_these_classes(list)
 \end{codelisting}
 \begin{codelisting}
 \codecaption{960-100-Classes-0790-Return\_codes.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   commands:
@@ -2082,7 +2029,7 @@ body classes cmd_kept(code,class)
 \end{codelisting}
 \begin{codelisting}
 \codecaption{960-100-Classes-0800-returncodes.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 # customize CFEngine's idea of promise kept, returned or failed
 # based on command's return code.
 #
@@ -2120,26 +2067,24 @@ body classes customized_for_userdel {
 \end{codelisting}
 \begin{codelisting}
 \codecaption{960-100-Classes-0810-Canonifying\_variables\_to\_use\_them\_as\_class\_names.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   vars:
-      "myarray[loc@t!on]" string  => "Bloomington";
-      "myarray[t!me###]"     string  => "first week of April";
+      "original" string  => "Bl@@mington";
+      "canonified" string => canonify("$(original)");
 
-
-      "index" slist =>  getindices("myarray");
-
-
-      "cindex[$(index)]" string => canonify("$(index)");
-
+  classes:
+     "$(original)"
+        expression => "any";
+     "$(canonified)"
+        expression => "any";
 
   reports:
-
-
-
-      "Original keys: $(index)";
-      "Canonified keys: $(cindex[$(index)])";
+    "match 1"
+      ifvarclass => "$(original)";
+    "match 2"
+      ifvarclass => "$(canonified)&any";
 }
 ```
 \end{codelisting}
@@ -2168,11 +2113,10 @@ loc@t!on,loc_t_on
 t!me###,t_me___
 ```
 
-\coloredtext{red}{ 960-100-Classes-0820-Canonifying\_variables\_to\_use\_them\_as\_class\_names.md }
 
 \begin{codelisting}
 \codecaption{960-100-Classes-0830-ifvarclass.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
 
@@ -2192,7 +2136,7 @@ bundle agent main {
 \end{codelisting}
 \begin{codelisting}
 \codecaption{960-100-Classes-0840-non\_persistent\_class.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
 
 
@@ -2222,11 +2166,10 @@ Filename: 960-110-Regular\_Expressions-0000-Chapter-Title.md
 
 ## Advanced Usage Of Regular Expressions
 
-\coloredtext{red}{ 960-110-Regular\_Expressions-0000-Chapter-Title.md }
 
 \begin{codelisting}
 \codecaption{960-110-Regular\_Expressions-0860-Backreferences.pl}
-```perl, options: "linenos": true
+```perl, options: "linenos": false
 #!/usr/bin/env perl
 
 $record =
@@ -2243,7 +2186,7 @@ if ( $record =~ /^(.*?) (.*) (.*)$/ ) {
 \end{codelisting}
 \begin{codelisting}
 \codecaption{960-110-Regular\_Expressions-0870-commentinging\_out\_file\_content.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
 
 
@@ -2271,7 +2214,7 @@ bundle edit_line comment_out_everything {
 \end{codelisting}
 \begin{codelisting}
 \codecaption{960-110-Regular\_Expressions-0880-replace\_patterns.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
 
 bundle agent main {
@@ -2306,7 +2249,6 @@ Let's say you want to write a regex that will match any string that does NOT con
 
 This is explained in http://stackoverflow.com/questions/406230/regular-expression-to-match-string-not-containing-a-word
 
-\coloredtext{red}{ 960-110-Regular\_Expressions-0890-Inverse\_match.md }
 
 
 <!---
@@ -2315,11 +2257,10 @@ Filename: 960-130-Commands-0000-Chapter-Title.md
 
 ## Advanced Usage Of Commands
 
-\coloredtext{red}{ 960-130-Commands-0000-Chapter-Title.md }
 
 \begin{codelisting}
 \codecaption{960-130-Commands-0960-ifelapsed.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 # do not use -K switch when running this example!!
 #
 # Run it in verbose mode and grep the output for "elapsed"
@@ -2341,7 +2282,7 @@ body action every_2_minutes
 \end{codelisting}
 \begin{codelisting}
 \codecaption{960-130-Commands-0970-Getting\_shell\_to\_interpolate\_a\_shell\_variable\_requires\_useshell.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
 
 bundle agent main {
@@ -2357,7 +2298,7 @@ bundle agent main {
 \end{codelisting}
 \begin{codelisting}
 \codecaption{960-130-Commands-0980-contain\_preview.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   commands:
@@ -2382,11 +2323,10 @@ Filename: 960-140-Linking\_Promises\_with\_Classes-0000-Chapter-Title.md
 
 ## Advanced Usage Of Classes: Linking Promises
 
-\coloredtext{red}{ 960-140-Linking\_Promises\_with\_Classes-0000-Chapter-Title.md }
 
 \begin{codelisting}
 \codecaption{960-140-Linking\_Promises\_with\_Classes-1000-if\_repaired.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
 
 bundle agent main {
@@ -2408,7 +2348,7 @@ bundle agent main {
 \end{codelisting}
 \begin{codelisting}
 \codecaption{960-140-Linking\_Promises\_with\_Classes-1010-if\_repaired\_stop\_cups\_and\_complain.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
 
 
@@ -2430,7 +2370,7 @@ bundle agent main {
 \end{codelisting}
 \begin{codelisting}
 \codecaption{960-140-Linking\_Promises\_with\_Classes-1020-Verbose\_logging\_of\_repairs.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main
 {
   files:
@@ -2460,7 +2400,7 @@ $(this.handle): $(msg)";
 \end{codelisting}
 \begin{codelisting}
 \codecaption{960-140-Linking\_Promises\_with\_Classes-1030-edit\_crontab\_and\_HUP\_crond.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
 
 
@@ -2498,11 +2438,10 @@ Filename: 960-150-Dynamic\_Bundlesequence-0000-Chapter-Title.md
 
 ## Dynamic Inputs And Bundlesequence
 
-\coloredtext{red}{ 960-150-Dynamic\_Bundlesequence-0000-Chapter-Title.md }
 
 \begin{codelisting}
 \codecaption{960-150-Dynamic\_Bundlesequence-1050-Activate\_a\_class\_if\_it\_is\_appropriate\_for\_my\_context.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 # I want to target a promise to a certain group of servers.
 # However I want to abstract the elements of that group from
 # the promises that target that group, so that when I add an
@@ -2546,7 +2485,7 @@ bundle agent main {
 \end{codelisting}
 \begin{codelisting}
 \codecaption{960-150-Dynamic\_Bundlesequence-1060-Jeff\_Blaine\_dynamic\_bundlesequence\_with\_parameterized\_mybundle.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 # by Jeff Blaine
 
 # Changes the order of NTP servers in ntp.conf based on site (using class)
@@ -2637,7 +2576,7 @@ body common control
 \end{codelisting}
 \begin{codelisting}
 \codecaption{960-150-Dynamic\_Bundlesequence-1070-Jeff\_Blaine\_ntp.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 #Author: Jeff Blaine
 
 #
@@ -2723,11 +2662,10 @@ Filename: 960-160-Databases-0000-Chapter-Title.md
 
 Demonstrate CFEngine integration with PostgreSQL.
 
-\coloredtext{red}{ 960-160-Databases-0000-Chapter-Title.md }
 
 \begin{codelisting}
 \codecaption{960-160-Databases-1090-clean\_slate\_for\_database\_demo.sh}
-```bash, options: "linenos": true
+```bash, options: "linenos": false
 #!/bin/sh
 
 yum -y remove postgresql postgresql-server
@@ -2736,7 +2674,7 @@ rm -rf /var/lib/pgsql
 \end{codelisting}
 \begin{codelisting}
 \codecaption{960-160-Databases-1100-db\_demo.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 # Demonstration of CFEngine's databases promises.
 # First, install and configure a PostgreSQL database
 # cluster and create an database.
@@ -2956,7 +2894,7 @@ local   all         all                               trust
 \end{codelisting}
 \begin{codelisting}
 \codecaption{960-160-Databases-1110-Create\_DB\_Users.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 body common control {
 
         bundlesequence => { "create_db_users" };
@@ -3063,11 +3001,10 @@ Filename: 960-310-Processes-0010-title\_card.md
 
 ## Making Sure A Process Is Running
 
-\coloredtext{red}{ 960-310-Processes-0010-title\_card.md }
 
 \begin{codelisting}
 \codecaption{960-320-Processes-0020-Restart\_a\_process\_if\_it\_is\_running\_or\_start\_it\_if\_it\_is\_not\_running.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent aingent main
 {
   processes:
@@ -3122,7 +3059,7 @@ body process_count anyprocs
 \end{codelisting}
 \begin{codelisting}
 \codecaption{960-330-Files-0030-perms\_groups.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   files:
@@ -3141,7 +3078,7 @@ body perms acceptable_groups {
 \end{codelisting}
 \begin{codelisting}
 \codecaption{960-330-Files-0040-rename.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
 
 
@@ -3161,11 +3098,10 @@ Filename: 960-330-Files-0050-title\_card.md
 
 ###  Files
 
-\coloredtext{red}{ 960-330-Files-0050-title\_card.md }
 
 \begin{codelisting}
 \codecaption{960-330-Files-0060-Disable\_And\_Rename.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 #body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
 
 bundle agent main {
@@ -3187,7 +3123,7 @@ body rename disable_for_good
 \end{codelisting}
 \begin{codelisting}
 \codecaption{960-330-Files-0070-Repository.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
 
 bundle agent main {
@@ -3229,7 +3165,7 @@ body edit_defaults timestamp
 \end{codelisting}
 \begin{codelisting}
 \codecaption{960-330-Files-0080-edit\_multiple\_files.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
       # Demonstrate using regex to edit multiple files
@@ -3254,7 +3190,7 @@ bundle edit_line has_my_name_in_it {
 \end{codelisting}
 \begin{codelisting}
 \codecaption{960-330-Files-0090-input\_type\_preserving\_order\_while\_editing\_a\_file.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
 
 
@@ -3285,7 +3221,7 @@ bundle edit_line  proper_greetings {
 \end{codelisting}
 \begin{codelisting}
 \codecaption{960-330-Files-0100-owners.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   files:
@@ -3345,11 +3281,10 @@ Yes, CFEngine (especially its the Knowledge Management aspect) is "super awesome
 
 The following was last tested a couple of years ago on CentOS 5.  It may need an update.
 
-\coloredtext{red}{ 960-340-PXEboot\_Kickstart\_Server-0110-title\_card.md }
 
 \begin{codelisting}
 \codecaption{960-340-PXEboot\_Kickstart\_Server-0120-Server.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 # configure a system to be a pxeboot kickstart server
 # and to serve CentOS 5.7 i386.  configure kickstart
 # config file to bootstrap CFEngine onto the new system:
@@ -3586,11 +3521,10 @@ Filename: 960-410-Monitor-0010-title\_card.md
 
 ## CFEngine Monitor daemon
 
-\coloredtext{red}{ 960-410-Monitor-0010-title\_card.md }
 
 \begin{codelisting}
 \codecaption{960-410-Monitor-0020-Example\_of\_using\_monitoring.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 # report environmental conditions
 
 bundle agent main {
@@ -3605,6 +3539,8 @@ bundle agent main {
         expression => isgreaterthan("$(mon.value_cpu)","$(threshold)");
 
   reports:
+    any::
+     "mon.value_cpu = $(mon.value_cpu)";
     CPU_load_high::
       "!!!!! CPU LOAD IS OVER THRESHOLD OF $(threshold) percent !!!! ";
 
@@ -3613,7 +3549,7 @@ bundle agent main {
 \end{codelisting}
 \begin{codelisting}
 \codecaption{960-420-CFEngine\_Templates-0379-template.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 # CFEngine template using insert_type and expand_scalars
 #
 # Create a file /tmp/template.dat which contains:

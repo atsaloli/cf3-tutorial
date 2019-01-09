@@ -5,7 +5,6 @@ Filename: 320-100-Part-Title-0000-Editing\_Files.md
 
 # Editing and Copying Files
 
-\coloredtext{red}{ 320-100-Part-Title-0000-Editing\_Files.md }
 
 
 <!---
@@ -14,19 +13,16 @@ Filename: 320-150-Editing\_Files-0000-Chapter-Title.md
 
 ## Editing Files: Line-based
 
-\coloredtext{red}{ 320-150-Editing\_Files-0000-Chapter-Title.md }
 
 \begin{codelisting}
 \codecaption{320-150-Editing\_Files-0330-insert\_lines.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   files:
 
       "/etc/motd"
 
-        handle  => "files_motd",
-        comment  => "Create a nice motd",
         create  => "true",
         edit_line => greet_users;
 }
@@ -36,9 +32,10 @@ bundle edit_line  greet_users {
   insert_lines:
 
       "Good morning!"
-        handle => "greet_user",
+
+        handle => "greeting",
         comment => "Happy users = less complaints. Greet the user
-politely.";
+                    politely.";
 }
 ```
 \end{codelisting}
@@ -47,7 +44,7 @@ Filename: 320-150-Editing\_Files-0340-Exercise.exr.md
 -->
 
 \begin{aside}
-\label{aside:exercise_26}
+\label{aside:exercise_27}
 \heading{Editing /etc/motd}
 
 
@@ -57,7 +54,6 @@ Write a policy that will ensure /etc/motd always contains:
 
 
 \end{aside}
-\coloredtext{red}{ 320-150-Editing\_Files-0340-Exercise.exr.md }
 
 <!---
 Filename: 320-150-Editing\_Files-0355-syntax\_pattern\_intro.BOOKONLY.md
@@ -65,11 +61,10 @@ Filename: 320-150-Editing\_Files-0355-syntax\_pattern\_intro.BOOKONLY.md
 
 ![Syntax Pattern 1](images/figures/syntax_pattern_intro.pdf)
 
-\coloredtext{red}{ 320-150-Editing\_Files-0355-syntax\_pattern\_intro.BOOKONLY.md }
 
 \begin{codelisting}
 \codecaption{320-150-Editing\_Files-0360-delete\_lines.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   files:
@@ -101,7 +96,7 @@ Filename: 320-150-Editing\_Files-0370-delete\_lines.exr.md
 -->
 
 \begin{aside}
-\label{aside:exercise_27}
+\label{aside:exercise_28}
 \heading{Making "delete_lines" promises}
 
 
@@ -111,7 +106,31 @@ text "Unauthorized use forbidden"
 
 
 \end{aside}
-\coloredtext{red}{ 320-150-Editing\_Files-0370-delete\_lines.exr.md }
+\begin{codelisting}
+\codecaption{320-150-Editing\_Files-0376\_insert\_type\_file.cf}
+```cfengine3, options: "linenos": false
+bundle agent main {
+
+files:
+  "/tmp/test.txt" 
+    create => "true",
+    edit_line => mytext;
+
+}
+
+bundle edit_line mytext
+{
+insert_lines:
+"/tmp/template"
+  insert_type => "file";
+
+delete_lines:
+  ".*";
+
+}
+
+```
+\end{codelisting}
 
 <!---
 Filename: 320-150-Editing\_Files-0380-replace\_patterns\_and\_edit\_field.md
@@ -127,7 +146,6 @@ There are two other promise types you can make in edit\_line bundles:
 
 We will look at them later.
 
-\coloredtext{red}{ 320-150-Editing\_Files-0380-replace\_patterns\_and\_edit\_field.md }
 
 
 <!---
@@ -136,11 +154,10 @@ Filename: 320-151-Editing\_Files\_XML-0000-Chapter-Title.md
 
 ## Editing Files: XML
 
-\coloredtext{red}{ 320-151-Editing\_Files\_XML-0000-Chapter-Title.md }
 
 \begin{codelisting}
 \codecaption{320-151-Editing\_Files\_XML-0010-edit\_xml.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main
 {
   files:
@@ -162,7 +179,7 @@ bundle edit_xml build_xpath
 \end{codelisting}
 \begin{codelisting}
 \codecaption{320-151-Editing\_Files\_XML-0030-edit\_xml.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main
 {
   files:
@@ -185,7 +202,7 @@ bundle edit_xml my_xml_example
 \end{codelisting}
 \begin{codelisting}
 \codecaption{320-151-Editing\_Files\_XML-0040-edit\_xml.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main
 {
   files:
@@ -196,7 +213,7 @@ bundle agent main
 bundle edit_xml set_value
 {
   set_text:
-      "prem.example.com"
+      "nancy.example.com"
         select_xpath => "/Server/Service/Engine/Host/Alias";
 
 }
@@ -207,13 +224,12 @@ Filename: 320-151-Editing\_Files\_XML-0090-edit\_xml.exr.md
 -->
 
 \begin{aside}
-\label{aside:exercise_28}
+\label{aside:exercise_29}
 \heading{TODO: edit_xml exercise}
 
 
 
 \end{aside}
-\coloredtext{red}{ 320-151-Editing\_Files\_XML-0090-edit\_xml.exr.md }
 
 <!---
 Filename: 320-210-Templates-0000-Chapter-Title.md
@@ -221,7 +237,6 @@ Filename: 320-210-Templates-0000-Chapter-Title.md
 
 ## Introduction to Templates
 
-\coloredtext{red}{ 320-210-Templates-0000-Chapter-Title.md }
 
 
 <!---
@@ -272,7 +287,6 @@ $
 
 ```
 
-\coloredtext{red}{ 320-210-Templates-0010-intro.md }
 
 
 <!---
@@ -281,7 +295,6 @@ Filename: 320-255-Mustache\_Templates-0000-Chapter-Title.md
 
 ## Mustache Templates
 
-\coloredtext{red}{ 320-255-Mustache\_Templates-0000-Chapter-Title.md }
 
 
 <!---
@@ -290,15 +303,14 @@ Filename: 320-255-Mustache\_Templates-0000-intro.md
 
 See [Mustache website](http://mustache.github.io/) for documentation of the popular Mustache templating system created by the CTO of GitHub and now available as a library for many languages.
 
-\coloredtext{red}{ 320-255-Mustache\_Templates-0000-intro.md }
 
 \begin{codelisting}
 \codecaption{320-260-0020.mustache}
-```text, options: "linenos": true
-Unauthorized use forbidden
+```text, options: "linenos": false
+                 Unauthorized use forbidden
 
-Property of {{organization}}
-{{organizational_unit}}
+              Property of {{organization}}
+                   {{organizational_unit}}
 ```
 \end{codelisting}
 
@@ -308,7 +320,6 @@ Filename: 320-260-Mustache\_Templates\_with\_Inline\_Data-0000-Chapter-Title.md
 
 ### Mustache Templates: Expanding with an Inline Data Structure
 
-\coloredtext{red}{ 320-260-Mustache\_Templates\_with\_Inline\_Data-0000-Chapter-Title.md }
 
 
 <!---
@@ -317,11 +328,10 @@ Filename: 320-265-Mustache\_Templates\_with\_Data\_Container-0000-Chapter-Title.
 
 ### Mustache Templates: Expanding with an External Data Container
 
-\coloredtext{red}{ 320-265-Mustache\_Templates\_with\_Data\_Container-0000-Chapter-Title.md }
 
 \begin{codelisting}
 \codecaption{320-265-Mustache\_Templates\_with\_Data\_Container-0010-container.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   files:
@@ -329,10 +339,10 @@ bundle agent main {
         create => "true",
         template_method => "mustache",
         edit_template   => "$(this.promise_dirname)/320-260-0020.mustache",
-        template_data => parsejson('{
+        template_data => '{
                                         "organization" : "ACME, Inc.",
-                                 "organizational_unit" : "Morale Division",
-                                     }');
+                                 "organizational_unit" : "Roadrunner Division",
+                          }';
 }
 ```
 \end{codelisting}
@@ -341,38 +351,58 @@ Filename: 320-265-Mustache\_Templates\_with\_Data\_Container-exercise.exr.md
 -->
 
 \begin{aside}
-\label{aside:exercise_29}
+\label{aside:exercise_30}
 \heading{Render a JSON-backed Mustache template}
 
 
-Make a JSON file
+1. Make a JSON file
+ 
+   Example:
 
-Make a Mustache file
+     food.json:
 
-Render the Mustache file using the data inside the JSON file
+     { "food" : "pizza" }
 
 
-Example:
+2. Make a Mustache template
 
-JSON file:  { "food" : "pizza" }
+   Example:
 
-Mustache file:  Waiter, I'd like to order {{food}}
+     order.mustache:
+
+     Waiter, I'd like to order {{food}}
+
+3. Write CFEngine policy that will render the Mustache 
+   template using the data in the JSON file (hint:
+   see readjson() function)
 
 
 
 
 \end{aside}
-\coloredtext{red}{ 320-265-Mustache\_Templates\_with\_Data\_Container-exercise.exr.md }
 \begin{codelisting}
 \codecaption{320-270-0015.mustache}
-```text, options: "linenos": true
-Uauthorized use forbidded
+```text, options: "linenos": false
+Unauthorized use forbidden
 
 Property of {{vars.g.organization}}
 
-{{#classes.myclass}}
-Yes we love UNIX
-{{/classes.myclass}}
+{{#classes.snow_day}}
+The office is closed today.
+{{/classes.snow_day}}
+
+{{#classes.dev}}
+DEVELOPMENT
+{{/classes.dev}}
+
+{{#classes.ops}}
+OPS ROCKS
+{{/classes.ops}}
+
+This system is managed by CFEngine
+my hostname is {{vars.sys.fqhost}}
+
+The value of foo is {{vars.main.foo}}
 
 Have a nice day.
 ```
@@ -384,25 +414,53 @@ Filename: 320-270-Mustache\_Templates\_with\_Datastate-0000-Chapter-Title.md
 
 ### Mustache Templates with Dataspace
 
-\coloredtext{red}{ 320-270-Mustache\_Templates\_with\_Datastate-0000-Chapter-Title.md }
 
 \begin{codelisting}
+\codecaption{320-270-Mustache\_Templates\_with\_Datastate-0005-datastate.cf}
+```cfengine3, options: "linenos": false
+# This policy will dump the first 4k of the datastate
+# (4096 bytes due to internal limits in CFEngine)
+#
+# Note: the datastate report will show a copy of the
+# datastate in vars.main.datastate (vars.main.datastate.vars
+# and vars.main.datastate.classes)
+
+bundle agent main
+{
+  vars:
+
+    "datastate"
+      data => datastate();
+
+    "formatted_datastate"
+      string => storejson("datastate");
+
+  reports:
+    "Datastate =
+$(formatted_datastate)
+";
+
+}
+```
+\end{codelisting}
+\begin{codelisting}
 \codecaption{320-270-Mustache\_Templates\_with\_Datastate-0010.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle common g {
-      # global settings
+# global settings
 
   vars:
       "organization"
         string => "Acme Inc.";
 
   classes:
-    "myclass"
-       expression => "WinXP";
+    "snow_day"
+       expression => "any";
 }
 
 
 bundle agent main {
+  vars: "foo" string => "bar";
 
   files:
       "/etc/motd"
@@ -417,14 +475,14 @@ Filename: 320-270-Mustache\_Templates\_with\_Datastate-0030-exercise.exr.md
 -->
 
 \begin{aside}
-\label{aside:exercise_30}
+\label{aside:exercise_31}
 \heading{Make a Mustache template that accesses CFEngine datastate}
 
 
 * Make a mustache template that accesses variables from CFEngine datastate
 
-Create the /etc/motd file from a Mustache template that will
-include the host name and time.
+Create /etc/motd from a Mustache template that includes the host name,
+time of last run, and time of last policy update.
 
 E.g.:
 
@@ -435,21 +493,19 @@ $ cat /etc/motd
 Welcome to apple.example.com
 
 This system is managed by CFEngine.
-CFEngine last ran at Thu Nov  5 19:22:03 GMT 2015
+Last CFEngine policy update: Thu Nov  5 19:22:02 GMT 2015
+Last CFEngine run: Thu Nov  5 19:22:03 GMT 2015
 $
 ```
 
 * Make a mustache template that accesses classes from CFEngine datastate
 
-```text
-{{#classes.linux}}
-we love linux {{vars.sys.flavour}}
-{{/classes.linux}}
-```
+Make /etc/motd say "Welcome to a Linux system" if the CFEngine linux "class" is set.
+
+
 
 
 \end{aside}
-\coloredtext{red}{ 320-270-Mustache\_Templates\_with\_Datastate-0030-exercise.exr.md }
 
 <!---
 Filename: 320-280-Copying\_Files-0000-Chapter-Title.md
@@ -461,5 +517,4 @@ It is sometimes simpler to copy files wholesale from a master location.
 
 We will show examples of how to do that after we cover the Standard Library (which facilitates file copying).
 
-\coloredtext{red}{ 320-280-Copying\_Files-0000-Chapter-Title.md }
 

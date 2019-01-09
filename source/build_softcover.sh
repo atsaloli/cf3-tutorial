@@ -18,8 +18,8 @@ output_target=z_cfengine_essentials
 function process_files(){
 
 ### initialize environment
-if [ ! -d /tmp/mod_files ]; then mkdir /tmp/mod_files; fi
-rm /tmp/mod_files/*.md
+rm -rf /tmp/mod_files/
+mkdir  /tmp/mod_files/
 
 # delete book parts, these will be recreated
 # by concatenate_sc function

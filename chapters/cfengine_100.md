@@ -5,7 +5,6 @@ Filename: 100-000-Part-Title-0000-Orientation.md
 
 # Orientation and Setup
 
-\coloredtext{red}{ 100-000-Part-Title-0000-Orientation.md }
 
 
 <!---
@@ -14,7 +13,6 @@ Filename: 100-010-About\_Collection-0000-Chapter-Title.md
 
 ## About the Collection
 
-\coloredtext{red}{ 100-010-About\_Collection-0000-Chapter-Title.md }
 
 
 <!---
@@ -31,32 +29,25 @@ engineers up to speed with CFEngine 3.
 These examples supplement the examples in the official
 documentation.
 
-All our examples are concrete and runnable.
+All our examples are standalone and runnable. If you have
+trouble with any of them, please let me know!
 
-\coloredtext{red}{ 100-010-About\_Collection-0130-About\_this\_collection.md }
 
 
 <!---
 Filename: 100-010-About\_Collection-0140-Using\_this\_collection.md
 -->
 
-### Using this collection
+### Online materials
 
-Our course "Automating System Administration using CFEngine 3" is
+My course "Automating System Administration using CFEngine 3" is
 based on demonstration of "CFEngine Essentials" examples, along with
-with discussion, lab exercises, and a policy-writing workshop.
+discussion, lab exercises, and a policy-writing workshop.
 
-To support the growing CFEngine 3 community, we are making available
-our course materials online.
+I'm now putting these materials online to make it easier for
+infrastructure engineers to learn CFEngine 3, to build a stable
+civilization.
 
-The materials are arranged in sequence, so your initial study
-should be in sequence.
-
-You can also use these materials as reference (feel free to pull
-out examples and use them to seed your policy set).
-
-
-\coloredtext{red}{ 100-010-About\_Collection-0140-Using\_this\_collection.md }
 
 
 <!---
@@ -65,15 +56,12 @@ Filename: 100-010-About\_Collection-0145-collection\_scripts.md
 
 ### Using the examples
 
-The materials are arranged in sequence, so we recommend you
-study them in sequence; however you can also use them as
-reference (to find specific examples of a feature or
-promise attribute).
+The materials are arranged in logical sequence for study.
 
-You are welcome to seed your policy set with any of these
-examples.  We hope they will be of use to you!
+You may also use them to find examples of a specific
+feature or promise attribute; and you are welcome to
+seed your policy set with any of these examples. 
 
-\coloredtext{red}{ 100-010-About\_Collection-0145-collection\_scripts.md }
 
 
 <!---
@@ -82,13 +70,13 @@ Filename: 100-010-About\_Collection-0150-Feedback\_wanted.md
 
 ### Feedback Wanted
 
-I would love to hear if you have wins with this collection,
-or if you need help with anything.  Write me at aleksey (at) verticalsysadmin.com
+If these examples are helpful, if you have any questions,
+or would like to contribute an example, please email me
+at aleksey (at) verticalsysadmin.com
 
 ### Training and Professional Services
-I'm available for on-site training and implemention consulting.
+I'm available for on-site training and consulting.
 
-\coloredtext{red}{ 100-010-About\_Collection-0150-Feedback\_wanted.md }
 
 
 <!---
@@ -97,20 +85,19 @@ Filename: 100-010-About\_Collection-148-run\_the\_examples.md
 
 ### Run the Examples
 
-Try out and run the examples. Modify them.  Do the provided
+Try out and run the examples. Modify them. Do the provided
 exercises to practice using this new tool and to get to know
 it.
 
 Work your way through the materials until you understand them
-and have done the provided exercises.  There are additional
+and have done the provided exercises. There are additional
 exercises at the end of the tutorial, or just start writing
 your own code!
 
 ### Look up any unfamiliar terms
 Misunderstood or not understood terms can block understanding.
-Look up unfamiliar terms in the [CFEngine Refernce Manual](http://docs.cfengine.com), or in a good [English dictionary](http://www.onelook.com).
+Look up unfamiliar terms in the [CFEngine Reference Manual](http://docs.cfengine.com), or in a good [English dictionary](http://www.onelook.com).
 
-\coloredtext{red}{ 100-010-About\_Collection-148-run\_the\_examples.md }
 
 
 <!---
@@ -119,7 +106,6 @@ Filename: 100-020-About\_Course-0000-Chapter-Title.md
 
 ## About the Course
 
-\coloredtext{red}{ 100-020-About\_Course-0000-Chapter-Title.md }
 
 
 <!---
@@ -133,11 +119,12 @@ Filename: 100-020-About\_Course-0070-About\_This\_Course.md
 Requirements: No knowledge of CFEngine or configuration management is
 required, only basic knowledge of system administration.
 
-Hardware Requirements: Bring a laptop with wi-fi capability so you can access the Internet.
+Hardware requirements: Bring a laptop with wi-fi capability so you can access the Internet.
 
-At the End of this Course You Will Be Able To: automate system administration using CFEngine 3.
+At the end of this course you will be able to:
+* Automate system administration (server setup, maintenance and compliance reporting),
+* Create a trustworthy and reliable computing services infrastructure.
 
-\coloredtext{red}{ 100-020-About\_Course-0070-About\_This\_Course.md }
 
 
 <!---
@@ -148,7 +135,6 @@ Filename: 100-020-About\_Course-0070-discussion\_question.md
 
 What problems would you like to solve with automation?
 
-\coloredtext{red}{ 100-020-About\_Course-0070-discussion\_question.md }
 
 
 <!---
@@ -170,7 +156,6 @@ Benefits of automation:
 
 See "Why Automation?" in [CFEngine 3 Tutorial (archived)](https://auth.cfengine.com/archive/manuals/cf3-tutorial#Why-automation_003f)
 
-\coloredtext{red}{ 100-030-Why\_Automation-0000-Chapter-Title.md }
 
 
 <!---
@@ -188,7 +173,6 @@ Filename: 100-040-Why\_CFEngine-0000-Chapter-Title.md
 
 To learn more, see [20 Years of CFEngine](http://markburgess.org/blog_principles.html), by Mark Burgess.
 
-\coloredtext{red}{ 100-040-Why\_CFEngine-0000-Chapter-Title.md }
 
 
 <!---
@@ -197,7 +181,6 @@ Filename: 100-060-CFEngine\_Components-0000-Chapter-Title.md
 
 ## CFEngine Components
 
-\coloredtext{red}{ 100-060-CFEngine\_Components-0000-Chapter-Title.md }
 
 
 <!---
@@ -206,8 +189,18 @@ Filename: 100-060-CFEngine\_Components-0400-The\_Agent\_cf\_promises\_and\_Cf\_a
 
 CFEngine 3 consists of a number of components.
 
-###  Agent (and the Syntax Checker it relies on)
+### Syntax Checker
 
+**cf-promises**
+: Syntax checker.
+
+```bash
+    cf-promises -f ./your_policy.cf
+```
+Every CFEngine component runs cf-promises on policy files before reading them in.
+
+
+### Agent
 
 **cf-agent**
 : The CFEngine component that audits and makes any needed repairs to your system system. Actually does the work, as far as configuration management is concerned.
@@ -216,16 +209,6 @@ CFEngine 3 consists of a number of components.
    cf-agent -f ./your_policy.cf
 ```
 
-**cf-promises**
-: Syntax checker.
-
-```bash
-    cf-promises -f ./your_policy.cf
-```
-
-Every CFEngine component runs cf-promises on policy files before reading them in.
-
-\coloredtext{red}{ 100-060-CFEngine\_Components-0400-The\_Agent\_cf\_promises\_and\_Cf\_agent.md }
 
 
 <!---
@@ -234,10 +217,10 @@ Filename: 100-060-CFEngine\_Components-0410-The\_Executor\_cf\_execd.md
 
 
 ### Executor
+
 **cf-execd**
 : Used to run cf-agent on a regular (and user-configurable) basis, and to handle its output.
 
-\coloredtext{red}{ 100-060-CFEngine\_Components-0410-The\_Executor\_cf\_execd.md }
 
 
 <!---
@@ -259,7 +242,6 @@ Filename: 100-060-CFEngine\_Components-0420-Networking\_cfserverd\_cfkey\_cfruna
 **cf-hub**
 : CFEngine Enterprise only, used to collect reports from hosts (connects to remote cf-serverd).
 
-\coloredtext{red}{ 100-060-CFEngine\_Components-0420-Networking\_cfserverd\_cfkey\_cfrunagent.md }
 
 
 <!---
@@ -272,6 +254,11 @@ Filename: 100-060-CFEngine\_Components-0430-cfmonitord\_cfknow\_cfreport\_cfhub.
 **cf-monitord**
 :
 Passive monitoring agent, collects information about the status of your system (which can be reported or used to influence when promises are enforced).
+
+**cf-consumer**
+:
+CFEngine Enterprise only, drains Redis cache into Postgres database
+
 
 The following add-on tools have to be installed separately:
 
@@ -291,7 +278,6 @@ The following add-on tools have to be installed separately:
 **cf-profile.pl**
 : Alternative profiler from Jon-Henrik (https://github.com/cfengineers-net/cf-profile)
 
-\coloredtext{red}{ 100-060-CFEngine\_Components-0430-cfmonitord\_cfknow\_cfreport\_cfhub.md }
 
 
 <!---
@@ -300,24 +286,19 @@ Filename: 100-060-CFEngine\_Components-0435-cfengine-versions.md
 
 ### CFEngine Packages
 
-
 **cfengine-community**
 : Open-source product, also known as CFEngine Core.
 
-The commercial product is called CFEngine Enterprise and it's Core plus Enterprise extensions (such as Reporting, native Windows build, etc.)
-
-
-The original name for the first generation of the CFEngine Enterprise product was "Nova" and this is still reflected in thename of the packages:
-
-
-**cfengine-nova-hub**
-: Core plus Mission Portal (which is Report Collection system and an Admin GUI on an Apache/PHP/PostgreSQL stack with a Redis cache for report collection)
-
+The name for the first generation of the CFEngine Enterprise product was "Nova" and this is still reflected in the name of the packages:
 
 **cfengine-nova**
-: Core plus Enterprise extensions (e.g. reporting)
+: Core plus Enterprise extensions (Reporting, native Windows build, etc.)
 
-\coloredtext{red}{ 100-060-CFEngine\_Components-0435-cfengine-versions.md }
+**cfengine-nova-hub**
+: Core plus Enterpise extensions plus Mission Portal (which is Report Collection system and an Admin GUI on an Apache/PHP/PostgreSQL stack with a Redis cache for report collection)
+
+Packages for systems not supported by cfengine.com (e.g. MacOS, FreeBSD, Android, etc.) can be obtained from [www.cfengineers.net](http://www.cfengineers.net) (e.g. HP-UX)
+
 
 
 <!---
@@ -332,15 +313,14 @@ Filename: 100-060-CFEngine\_Components-0440-examination\_of\_cfengine\_rpm.md
 wget https://cfengine-package-repos.s3.amazonaws.com/community_binaries/\
 cfengine-community-3.7.1-1.el6.x86_64.rpm
 ```
-or download from [CFEngine](https://cfengine.com/product/community/)
+or get it from [CFEngine](https://cfengine.com/product/community/)
 
-- Examine Core package:
+- Examine package:
 
 ```bash
 rpm -q --filesbypkg cfengine-community-3.7.1-1.el6.x86_64.rpm | less
 ```
 
-\coloredtext{red}{ 100-060-CFEngine\_Components-0440-examination\_of\_cfengine\_rpm.md }
 
 
 <!---
@@ -349,7 +329,6 @@ Filename: 100-065-Enterprise-0000-Chapter-Title.md
 
 ## CFEngine Enterprise - Reporting
 
-\coloredtext{red}{ 100-065-Enterprise-0000-Chapter-Title.md }
 
 
 <!---
@@ -373,7 +352,6 @@ CFEngine Enterprise introduces additional components:
 - Hub (report collection)
 - Mission Portal (Admin/Reporting GUI)
 
-\coloredtext{red}{ 100-065-Enterprise-0010-how\_enterprise\_works.md }
 
 
 <!---
@@ -382,7 +360,6 @@ Filename: 100-110-Lab\_VMs-0000-Chapter-Title.md
 
 ## Setting Up Your Lab Environment
 
-\coloredtext{red}{ 100-110-Lab\_VMs-0000-Chapter-Title.md }
 
 
 <!---
@@ -406,7 +383,6 @@ ping google.com
 Some companies allow Internet access only through proxies in Web
 browser. You will need access from the command line.
 
-\coloredtext{red}{ 100-110-Lab\_VMs-0010-VMs.md }
 
 
 <!---
@@ -415,7 +391,6 @@ Filename: 100-140-Installing\_CFE\_Hub-0000-Chapter-Title.md
 
 ## Installing CFEngine
 
-\coloredtext{red}{ 100-140-Installing\_CFE\_Hub-0000-Chapter-Title.md }
 
 
 <!---
@@ -432,7 +407,6 @@ have been tested on RHEL 6.  If you're not sure what OS to install
 on your VMs, we recommend you install the same OS as you use in
 production and let us know if you have any trouble.
 
-\coloredtext{red}{ 100-140-Installing\_CFE\_Hub-0050-Lab\_setup.md }
 
 <!---                 
 Filename: 100-140-Installing\_CFE\_Hub-0055-Installing\_CFE\_Hub.exr.md
@@ -490,7 +464,6 @@ from the host.
 
 
 \end{aside}
-\coloredtext{red}{ 100-140-Installing\_CFE\_Hub-0055-Installing\_CFE\_Hub.exr.md }
 <!---                 
 Filename: 100-140-Installing\_CFE\_Hub-0060-Installing\_CFE\_host.exr.md
 -->
@@ -526,7 +499,6 @@ cf-agent -B <hub IP address>
 
 
 \end{aside}
-\coloredtext{red}{ 100-140-Installing\_CFE\_Hub-0060-Installing\_CFE\_host.exr.md }
 
 <!---
 Filename: 100-150-Policy\_Flows-0000-Chapter-Title.md
@@ -534,7 +506,6 @@ Filename: 100-150-Policy\_Flows-0000-Chapter-Title.md
 
 ## Policy Flows
 
-\coloredtext{red}{ 100-150-Policy\_Flows-0000-Chapter-Title.md }
 
 
 <!---
@@ -551,7 +522,6 @@ TIP: Keep your policy in a Version Control System.
 ![policy flow diagram 2](images/figures/policy_flow.pdf)
 ![policy flow diagram 3](images/figures/policy_flow_clients.pdf)
 
-\coloredtext{red}{ 100-150-Policy\_Flows-0050-Policy\_Flow.md }
 
 
 <!---
@@ -563,7 +533,6 @@ Filename: 100-170-Installing\_Examples-0000-Chapter-Title.md
 This chapter takes us through installing everything needed to use the collection
 and do the exercises.
 
-\coloredtext{red}{ 100-170-Installing\_Examples-0000-Chapter-Title.md }
 
 
 <!---
@@ -576,7 +545,6 @@ We keep these examples on GitHub and may update them during or after class.
 
 With git, you can download the updates during or after class.
 
-\coloredtext{red}{ 100-170-Installing\_Examples-0150-GitHub\_URL.md }
 
 <!---                 
 Filename: 100-170-Installing\_Examples-0160-Install\_git.exr.md
@@ -599,7 +567,6 @@ apt-get install git
 
 
 \end{aside}
-\coloredtext{red}{ 100-170-Installing\_Examples-0160-Install\_git.exr.md }
 
 <!---
 Filename: 100-170-Installing\_Examples-0180-Downloading\_VSA\_Examples\_collection.md
@@ -619,7 +586,6 @@ Go to the Training Examples directory:
 cd source
 ```
 
-\coloredtext{red}{ 100-170-Installing\_Examples-0180-Downloading\_VSA\_Examples\_collection.md }
 
 
 <!---
@@ -635,7 +601,6 @@ updates to GitHub, run the following to pull in the updates:
 git pull
 ```
 
-\coloredtext{red}{ 100-170-Installing\_Examples-0190-Updating\_VSA\_Examples\_collection.md }
 
 
 <!---
@@ -644,7 +609,6 @@ Filename: 100-180-Installing\_Syntax\_Highlighter-0000-Chapter-Title.md
 
 ## Installing Syntax Highlighter
 
-\coloredtext{red}{ 100-180-Installing\_Syntax\_Highlighter-0000-Chapter-Title.md }
 
 
 <!---
@@ -658,7 +622,6 @@ Use a syntax highlighter to catch errors early. This will save you time and trou
 You can install the CFEngine 3 syntax highlighter for vim using the
 following shell script, or visit [Code Editors](http://www.cfengine.com/cfengine-code-editors/) on cfengine.com.
 
-\coloredtext{red}{ 100-180-Installing\_Syntax\_Highlighter-0260-Syntax\_highlighting\_in\_VIM.md }
 
 <!---                 
 Filename: 100-180-Installing\_Syntax\_Highlighter-0263-install\_syntax\_highlighter.exr.md
@@ -679,10 +642,9 @@ vim hello_world.cf
 
 
 \end{aside}
-\coloredtext{red}{ 100-180-Installing\_Syntax\_Highlighter-0263-install\_syntax\_highlighter.exr.md }
 \begin{codelisting}
 \codecaption{100-180-Installing\_Syntax\_Highlighter-0265-Install\_Vim\_Plugin.sh}
-```bash, options: "linenos": true
+```bash, options: "linenos": false
 #!/bin/sh
 #
 # Run this shell script on your Hub VM to add Neil Watson's
@@ -735,9 +697,11 @@ echo Installing vim plugin for CFEngine syntax highlighting
 mkdir -p ~/.vim/ftplugin  ~/.vim/syntax 
 
 wget -O ~/.vim/syntax/cf3.vim \
+      --no-check-certificate \
       https://github.com/neilhwatson/vim_cf3/raw/master/syntax/cf3.vim
 
 wget -O ~/.vim/ftplugin/cf3.vim \
+      --no-check-certificate \
       https://github.com/neilhwatson/vim_cf3/raw/master/ftplugin/cf3.vim
 ```
 \end{codelisting}
@@ -750,7 +714,8 @@ Filename: 100-180-Installing\_Syntax\_Highlighter-0270-Syntax\_highlighting\_in\
 
 See ["Learning CFEngine 3"](http://shop.oreilly.com/product/0636920022022.do) book or the [Code Editors](http://cfengine.com/cfengine-code-editors/) page on cfengine.com
 
-\coloredtext{red}{ 100-180-Installing\_Syntax\_Highlighter-0270-Syntax\_highlighting\_in\_EMACS.md }
+### Exercise
+
 
 <!---                 
 Filename: 100-180-Installing\_Syntax\_Highlighter-0280-Syntax\_highlighting\_exercise.exr.md
@@ -772,7 +737,6 @@ vim hello_world.cf
 
 
 \end{aside}
-\coloredtext{red}{ 100-180-Installing\_Syntax\_Highlighter-0280-Syntax\_highlighting\_exercise.exr.md }
 
 <!---
 Filename: 100-190-Using\_Examples-0000-Chapter-Title.md
@@ -780,7 +744,6 @@ Filename: 100-190-Using\_Examples-0000-Chapter-Title.md
 
 ## Using the Collection
 
-\coloredtext{red}{ 100-190-Using\_Examples-0000-Chapter-Title.md }
 
 
 <!---
@@ -831,7 +794,6 @@ CFEngine Enterprise 3.7.1
 
 Here we see the free open-source core ("CFEngine Core") is version 3.7.1 and so is the commercial extension ("CFEngine Enterprise"). 
 
-\coloredtext{red}{ 100-190-Using\_Examples-0240-Running\_the\_examples.md }
 
 <!---                 
 Filename: 100-190-Using\_Examples-0245-Running\_the\_examples.exr.md
@@ -848,7 +810,6 @@ cf-agent -f ./create_file.cf
 
 
 \end{aside}
-\coloredtext{red}{ 100-190-Using\_Examples-0245-Running\_the\_examples.exr.md }
 
 <!---
 Filename: 100-190-Using\_Examples-0250-Running\_the\_examples.md
@@ -856,11 +817,13 @@ Filename: 100-190-Using\_Examples-0250-Running\_the\_examples.md
 
 ### Running the Examples: Inform Mode
 
-We recommend adding *-I* to turn on Inform mode, to inform of
-changes made to the system.  By default CFEngine won't inform of changes
-as reports at scale (e.g. tens of thousands of systems) can be overwhelming.
+By default, CFEngine doesn't inform you of changes it makes as reports at scale (e.g. tens of thousands of systems) can be overwhelming.
+
 However, while learning, it's educational to know when CFEngine makes changes
 and what those changes are.
+
+You can use the *-I* switch to turn on Inform mode so that CFEngine informs of
+changes it makes to your system:
 
 Example:
 
@@ -868,7 +831,6 @@ Example:
 cf-agent -I -f ./create_file.cf
 ```
 
-\coloredtext{red}{ 100-190-Using\_Examples-0250-Running\_the\_examples.md }
 
 <!---                 
 Filename: 100-190-Using\_Examples-0255-Running\_the\_examples.exr.md
@@ -879,7 +841,7 @@ Filename: 100-190-Using\_Examples-0255-Running\_the\_examples.exr.md
 \heading{Inform Mode}
 
 
-Run the "Create File" example with "Inform" on:
+Run the "Create File" example with "Inform" mode:
 
 ```bash
 rm /tmp/test
@@ -888,17 +850,14 @@ cf-agent -I -f ./create_file.cf
 
 
 \end{aside}
-\coloredtext{red}{ 100-190-Using\_Examples-0255-Running\_the\_examples.exr.md }
 <!---                 
 Filename: 100-190-Using\_Examples-0290-List\_contents.exr.md
 -->
 
 \begin{aside}
 \label{aside:exercise_8}
-\heading{List contents}
+\heading{List collection contents using "l.sh"}
 
-
-List the collection contents:
 
 I've created a shell script to list the collection
 contents. It indents the part and chapter headings
@@ -913,20 +872,29 @@ Try running it:
 Notice the content is structured (the files are numbered).
 The materials proceed in sequence from basic to advanced.
 
-However, if you need to find something, the quickest way may be to just grep for it, e.g. to find an example of `process_stop`:
-
-```bash
-grep -l process_stop *.cf
-```
-
-If the `l.sh` script does not work on your system, use
+If the `l.sh` script does not work on your system
+(or you don't like it), you can just run:
 
 ```bash
 ls *.cf
 ```
 
-and [let me know](mailto:aleksey@verticalsysadmin.com).
+
+\end{aside}
+<!---                 
+Filename: 100-190-Using\_Examples-0300-grep.exr.md
+-->
+
+\begin{aside}
+\label{aside:exercise_9}
+\heading{To find something, the quickest way may be to grep for it.}
+
+
+E.g. to find an example of `process_stop`:
+
+```bash
+grep -l process_stop *.cf
+```
 
 
 \end{aside}
-\coloredtext{red}{ 100-190-Using\_Examples-0290-List\_contents.exr.md }

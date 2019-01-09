@@ -5,7 +5,6 @@ Filename: 200-000-Part-Title-0000-Introduction.md
 
 # Introduction
 
-\coloredtext{red}{ 200-000-Part-Title-0000-Introduction.md }
 
 
 <!---
@@ -25,7 +24,14 @@ CFEngine 101 webinar series (Feb 2014)
 
 2. [Getting Started with CFEngine](https://www.youtube.com/watch?v=riMkdQKBI0M)
 
-\coloredtext{red}{ 200-010-Introductory\_overview-0000-Chapter-Title.md }
+
+
+<!---
+Filename: 200-010-Introductory\_overview-0030-lifecycle.md
+-->
+
+Remy Evard, "An Analysis of UNIX System Configuration", USENIX Proceedings: Eleventh Systems Administration Conference (LISA 1997), October 26-31, 1997
+
 
 
 <!---
@@ -34,7 +40,6 @@ Filename: 200-010-Introductory\_overview-0032-lifecycle\_of\_a\_machine.BOOKONLY
 
 ![Alt text](images/figures/lifecycle.pdf)
 
-\coloredtext{red}{ 200-010-Introductory\_overview-0032-lifecycle\_of\_a\_machine.BOOKONLY.md }
 
 
 <!---
@@ -43,7 +48,6 @@ Filename: 200-020-Definitions-0000-Chapter-Title.md
 
 ## Definitions
 
-\coloredtext{red}{ 200-020-Definitions-0000-Chapter-Title.md }
 
 
 <!---
@@ -62,14 +66,13 @@ To improve trust we make promises. A promise is the documentation of
 an intention to act or behave in some manner. This is what we need to
 learn to trust systems.
 
-\coloredtext{red}{ 200-020-Definitions-0050-Promise.md }
 
 
 <!---
 Filename: 200-020-Definitions-0051-Promise\_outcomes.md
 -->
 
-### Promise Outcomes
+#### Everything is a promise
 
 CFEngine works on a simple notion of promises. Everything in CFEngine
 can be thought of as a promise to be kept by different resources in
@@ -80,7 +83,7 @@ CFEngine manages every intended system outcome as "promises" to be kept.
 Promises are always things that can be kept and repaired continuously,
 on a real time basis, not just once at install-time.
 
-### Every promise in CFEngine can have one of three outcomes
+#### Every promise in CFEngine can have one of three outcomes
 
 **KEPT**
 : No repairs needed, system matches spec (is already converged).
@@ -95,14 +98,13 @@ NOTKEPT outcomes likely require attention!
 
 REPAIRED outcomes may require attention (especially if they keep recurring).
 
-\coloredtext{red}{ 200-020-Definitions-0051-Promise\_outcomes.md }
 
 
 <!---
 Filename: 200-020-Definitions-0051-Promises\_plus\_Patterns\_equals\_Configuration.md
 -->
 
-## Promises + Patterns = Configuration
+### Promises + Patterns = Configuration
 
 Combining promises with patterns to describe where and when promises
 should apply is how CFEngine works.
@@ -119,7 +121,6 @@ or you may want to run extra file-integrity checking on hosts
 in your DMZ.  In both examples, you have a promise and a pattern
 as to when and where it applies.
 
-\coloredtext{red}{ 200-020-Definitions-0051-Promises\_plus\_Patterns\_equals\_Configuration.md }
 
 
 <!---
@@ -133,7 +134,6 @@ Filename: 200-020-Definitions-0060-Policy.md
 promises. A policy is not a standard, but the result of specific
 organizational management decisions.
 
-\coloredtext{red}{ 200-020-Definitions-0060-Policy.md }
 
 
 <!---
@@ -148,28 +148,27 @@ files:
     "/etc/nologin" 
 
         create  => "true",
-        comment => "Prevent non-root users from logging in so we can perform maintenance";
+        comment => "Prevent regular users from logging in
+                    during maintenance";
 ```
 
-\coloredtext{red}{ 200-020-Definitions-0065-simple\_promise\_files\_nologin.md }
 
 
 <!---
 Filename: 200-020-Definitions-0070-the\_most\_basic\_form\_of\_a\_promise.md
 -->
 
-### The Most Basic Form of a Promise
+### The Basic Form of a Promise
 
 ```cfengine3
 promise_type:
 
        "promiser" 
 
-            attribute1 => value1,
-            attribute2 => value2;
+            promise details;
+
 ```
 
-\coloredtext{red}{ 200-020-Definitions-0070-the\_most\_basic\_form\_of\_a\_promise.md }
 
 
 <!---
@@ -197,16 +196,11 @@ Filename: 200-020-Definitions-0090-Promise\_Type.md
 : A promise to execute a command.
 
 
-\coloredtext{red}{ 200-020-Definitions-0090-Promise\_Type.md }
 
 
 <!---
 Filename: 200-020-Definitions-0100-Promise\_Type\_example.md
 -->
-
-### Example of Promise Type
-
-`files` followed by a single colon indicates the promise type.
 
 The promise type is always followed by a single colon.
 
@@ -220,7 +214,6 @@ files:
         comment => "Prevent non-root users from logging in";
 ```
 
-\coloredtext{red}{ 200-020-Definitions-0100-Promise\_Type\_example.md }
 
 
 <!---
@@ -233,16 +226,14 @@ Filename: 200-020-Definitions-0110-Promiser.md
 : The promiser is the part of the system that will be affected by the
 promise. (We are affected by the promises we make.)
 
-\coloredtext{red}{ 200-020-Definitions-0110-Promiser.md }
 
 
 <!---
 Filename: 200-020-Definitions-0120-Promiser\_example.md
 -->
 
-### Example of Promiser
 
-'/etc/nologin' is the promiser (the affected system object).
+The promiser follows the promise type, and is in double quotes.
 
 ```cfengine3, options:  "hl_lines": [3]
 files:
@@ -253,7 +244,6 @@ files:
         comment => "Prevent non-root users from logging in";
 ```
 
-\coloredtext{red}{ 200-020-Definitions-0120-Promiser\_example.md }
 
 
 <!---
@@ -262,15 +252,16 @@ Filename: 200-020-Definitions-0130-Body.md
 
 ### Definition: "Body"
 
-**Body**
-: The main part of a book or document, not including the introduction,
-notes, or appendices (parts added at the end). --- Macmillan Dictionary
+> *Body*
+> - The main part of a book or document, not including the introduction,
+> notes, or appendices (parts added at the end).
+> 
+> --- Macmillan Dictionary
 
 Examples of bodies: body of a letter, body of a contract.
 
 The body is where the details are.
 
-\coloredtext{red}{ 200-020-Definitions-0130-Body.md }
 
 
 <!---
@@ -279,20 +270,19 @@ Filename: 200-020-Definitions-0132-Definition\_of\_Attribute.md
 
 ### Definition: "Attribute"
 
-> *Feature*
-> - an important part or aspect of something
-> "Each room has its own distinctive features."
-> 
-> *Quality*
-> - a feature of a thing, substance, place etc.
-> "the addictive qualities of tobacco"
-> 
 > *Attribute*
 > - a quality or feature of someone or something
 >
+> *Quality*
+> - a feature of a thing, substance, place etc.
+> "the addictive qualities of tobacco"
+>
+> *Feature*
+> - an important part or aspect of something
+> "Each room has its own distinctive features."
+>
 > --- Macmillan Dictionary
 
-\coloredtext{red}{ 200-020-Definitions-0132-Definition\_of\_Attribute.md }
 
 
 <!---
@@ -304,7 +294,6 @@ Filename: 200-020-Definitions-0135-Promise\_Body.md
 A promise body is a collection of promise attributes that details and
 constrains the nature of the promise.
 
-\coloredtext{red}{ 200-020-Definitions-0135-Promise\_Body.md }
 
 
 <!---
@@ -325,7 +314,6 @@ files:
         comment => "Prove CFEngine is running.";  
 ```
 
-\coloredtext{red}{ 200-020-Definitions-0140-Promise\_Body\_example\_2.md }
 
 
 <!---
@@ -380,7 +368,6 @@ bundle agent my_example
 
 Notice our syntax highlighter puts language keywords in green.
 
-\coloredtext{red}{ 200-020-Definitions-0150-Promise\_Bundle.md }
 
 
 <!---
@@ -397,7 +384,6 @@ Filename: 200-020-Definitions-0170-declarative\_vs\_imperativ\_sandwich\_example
 > state or goal to be achieved.
 > --- [Mike English](http://spin.atomicobject.com/2012/09/13/from-imperative-to-declarative-system-configuration-with-puppet/)
 
-\coloredtext{red}{ 200-020-Definitions-0170-declarative\_vs\_imperativ\_sandwich\_example.md }
 
 
 <!---
@@ -427,7 +413,6 @@ Filename: 200-020-Definitions-0180-declarative\_vs\_imperative.md
 > platforms.
 > --- [Mike English](http://spin.atomicobject.com/2012/09/13/from-imperative-to-declarative-system-configuration-with-puppet/)
 
-\coloredtext{red}{ 200-020-Definitions-0180-declarative\_vs\_imperative.md }
 
 
 <!---
@@ -440,7 +425,6 @@ A declarative language allows us to express intent more clearly, to let
 the intent shine through the syntax of the code.  It allows us to have
 a higher Signal to Syntax ratio.
 
-\coloredtext{red}{ 200-020-Definitions-0190-Declarative\_intent.md }
 
 
 <!---
@@ -449,18 +433,20 @@ Filename: 200-020-Definitions-0200-Convergence.md
 
 Convergence
 
-**Convergence**
-: coming to a desired end state  (Mark Burgess, http://markburgess.org/blog_cd.html)
+> *Convergence*
+> - coming to a desired end state
+>
+> --- Mark Burgess, http://markburgess.org/blog_cd.html)
 
 ![Convergence](images/figures/convergence.pdf)
 
-**converge**
-: come from different directions and meet at (a place).
-"half a million sports fans will converge on the capital"
-: (of a number of things) gradually change so as to become similar or develop something in common.
-OxfordDictionaries.com
+> *converge*
+> - come from different directions and meet at (a place).
+> "half a million sports fans will converge on the capital"
+> - (of a number of things) gradually change so as to become similar or develop something in common.
+>
+> --- OxfordDictionaries.com
 
-\coloredtext{red}{ 200-020-Definitions-0200-Convergence.md }
 
 
 <!---
@@ -476,14 +462,13 @@ Filename: 200-020-Definitions-0210-Thinking\_Declaratively.md
 3. Translate the desired end state into CFEngine Policy Language.
 
 
-\coloredtext{red}{ 200-020-Definitions-0210-Thinking\_Declaratively.md }
 
 <!---                 
 Filename: 200-020-Definitions-0220-Thiking\_Declaratively.exr.md
 -->
 
 \begin{aside}
-\label{aside:exercise_9}
+\label{aside:exercise_10}
 \heading{Learning to Think Declaratively}
 
 
@@ -495,4 +480,3 @@ In other words, focus on the WHAT and let CFEngine handle the HOW (which may var
 
 
 \end{aside}
-\coloredtext{red}{ 200-020-Definitions-0220-Thiking\_Declaratively.exr.md }

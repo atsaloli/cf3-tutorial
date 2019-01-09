@@ -5,7 +5,6 @@ Filename: 310-000-Part-Title-0000-Language\_Notes.md
 
 # Notes on Syntax and Internals
 
-\coloredtext{red}{ 310-000-Part-Title-0000-Language\_Notes.md }
 
 
 <!---
@@ -16,11 +15,10 @@ Filename: 310-010-Notes\_on\_Syntax-0000-Chapter-Title.md
 
 A bundle is a group of one or more promises.  
 
-\coloredtext{red}{ 310-010-Notes\_on\_Syntax-0000-Chapter-Title.md }
 
 \begin{codelisting}
 \codecaption{310-010-Notes\_on\_Syntax-0350-Two\_promises\_in\_one\_bundle.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   files:
@@ -46,11 +44,10 @@ CFEngine allows you to write shorter code without loss of meaning:
 don't specify the promise type, and CFEngine will re-use the promise
 type of the preceding promise.
 
-\coloredtext{red}{ 310-010-Notes\_on\_syntax-0353-reusing\_promise\_type.md }
 
 \begin{codelisting}
 \codecaption{310-010-Notes\_on\_syntax-0355-Two\_promises\_in\_one\_bundle\_Condensed.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   files:
@@ -65,7 +62,7 @@ bundle agent main {
 \end{codelisting}
 \begin{codelisting}
 \codecaption{310-010-Notes\_on\_syntax-0358-comments.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   files:
@@ -79,7 +76,7 @@ bundle agent main {
 \end{codelisting}
 \begin{codelisting}
 \codecaption{310-010-Notes\_on\_Syntax-0360-Two\_bundles\_in\_one\_file.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent your_bundle_name {
 
       files: "/tmp/file1" create  => "true";
@@ -95,7 +92,7 @@ bundle agent example {
 \end{codelisting}
 \begin{codelisting}
 \codecaption{310-010-Notes\_on\_Syntax-0370-Whitespace\_and\_indentation\_do\_not\_matter.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 # Whitespace/indentation does not matter, these bundles will both work
 
 bundle agent with_whitespace {
@@ -118,7 +115,6 @@ Filename: 310-030-Notes\_on\_running-0000-Chapter-Title.md
 
 ## Multiple passes and Convergence
 
-\coloredtext{red}{ 310-030-Notes\_on\_running-0000-Chapter-Title.md }
 
 
 <!---
@@ -133,11 +129,10 @@ CFEngine will make multiple passes in auditing/repairing a system. After depende
 
 Run cf-agent with the -v switch (verbose) and look for "pass 1", "pass 2", and "pass 3" to observe the three passes.
 
-\coloredtext{red}{ 310-030-Notes\_on\_Running-0010-three\_passes.md }
 
 \begin{codelisting}
 \codecaption{310-030-Notes\_on\_Running-0020-three\_passes.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 # demonstrate three passes through a bundle by using verbose mode
 
 bundle agent main {
@@ -158,7 +153,7 @@ Filename: 310-030-Notes\_on\_Running-0030-three\_passes.exr.md
 -->
 
 \begin{aside}
-\label{aside:exercise_24}
+\label{aside:exercise_25}
 \heading{Observe three passes}
 
 
@@ -166,7 +161,6 @@ Run one of your previous exercise files in verbose mode and observe what happens
 
 
 \end{aside}
-\coloredtext{red}{ 310-030-Notes\_on\_Running-0030-three\_passes.exr.md }
 
 <!---
 Filename: 310-040-Ordering-0000-Chapter-Title.md
@@ -174,7 +168,6 @@ Filename: 310-040-Ordering-0000-Chapter-Title.md
 
 ## Ordering
 
-\coloredtext{red}{ 310-040-Ordering-0000-Chapter-Title.md }
 
 
 <!---
@@ -187,11 +180,10 @@ Promises of the same type are evaluated in the order they appear in the file.
 
 Promises of different types are evaluated according to "normal ordering".
 
-\coloredtext{red}{ 310-040-Ordering-0004-intro.md }
 
 \begin{codelisting}
 \codecaption{310-040-Ordering-0005-ordering\_within\_a\_single\_promise\_type\_is\_linear.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 ### demonstrate ordering within a single promise type
 
 bundle agent main {
@@ -207,7 +199,7 @@ bundle agent main {
 \end{codelisting}
 \begin{codelisting}
 \codecaption{310-040-Ordering-0010-simple\_ordering\_example.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main
 {
   reports:
@@ -226,7 +218,7 @@ bundle agent main
 \end{codelisting}
 \begin{codelisting}
 \codecaption{310-040-Ordering-0015-fileexists.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 # This example introduces the fileexists() function
 #
 # We will use fileexists() in a later, more complicated
@@ -250,22 +242,20 @@ bundle agent main
 \end{codelisting}
 \begin{codelisting}
 \codecaption{310-040-Ordering-0020-normal\_ordering.cf}
-```cfengine3, options: "linenos": true
-bundle agent main {
+```cfengine3, options: "linenos": false
+# run "/bin/rm /tmp/newfile" to setup for this example
 
-# run /bin/rm /tmp/newfile to setup for this example
+bundle agent main {
 
   classes:
       "file_exists"
         expression => fileexists("/tmp/newfile");
+
       "file_absent"
         not => fileexists("/tmp/newfile");
 
   files:
       "/tmp/newfile"
-        handle => "create_a_file",
-        comment => "Give CFEngine something to do
-                          to change system state.",
         create => "true";
 
   reports:
@@ -282,14 +272,13 @@ Filename: 310-040-Ordering-0050-Classes\_and\_Reports\_Exercise.exr.md
 -->
 
 \begin{aside}
-\label{aside:exercise_25}
+\label{aside:exercise_26}
 \heading{Run the previous example in verbose mode so you can see}
 
 what happens during which pass.
 
 
 \end{aside}
-\coloredtext{red}{ 310-040-Ordering-0050-Classes\_and\_Reports\_Exercise.exr.md }
 
 <!---
 Filename: 310-050-Knowledge\_Management-0000-Chapter-Title.md
@@ -297,7 +286,6 @@ Filename: 310-050-Knowledge\_Management-0000-Chapter-Title.md
 
 ## Knowledge Management
 
-\coloredtext{red}{ 310-050-Knowledge\_Management-0000-Chapter-Title.md }
 
 
 <!---
@@ -306,11 +294,10 @@ Filename: 310-050-Knowledge\_Management-0240-is\_one\_of\_the\_key\_challenges\_
 
 TIP: Knowledge Management is one of the key challenges of scale.
 
-\coloredtext{red}{ 310-050-Knowledge\_Management-0240-is\_one\_of\_the\_key\_challenges\_of\_scale.md }
 
 \begin{codelisting}
 \codecaption{310-050-Knowledge\_Management-0250-handle.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   files:
@@ -327,23 +314,19 @@ bundle agent main {
 \end{codelisting}
 \begin{codelisting}
 \codecaption{310-050-Knowledge\_Management-0251-duplicate-handle.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
+# demonstrate handle conflict
+
 bundle agent main {
 
   files:
 
       "/tmp/testfile"
 
-        handle => "create_testfile", # a name for this promise.
-
-      # can be used with depends_on
-      # attribute in another promise
-      # to document dependency
-
+        handle => "create_testfile",
         create  => "true";
 
   reports:
-    # demonstrate handle conflict
      "hello world"
        handle => "create_testfile";
        
@@ -352,7 +335,7 @@ bundle agent main {
 \end{codelisting}
 \begin{codelisting}
 \codecaption{310-050-Knowledge\_Management-0260-depends\_on.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 # depends_on controls policy flow.
 
 bundle agent main
@@ -372,11 +355,32 @@ bundle agent main
         handle => "fuel_check";
 
 }
+
+# Try to think declaratively (not imperatively), and use depends_on
+# only when needed.
 ```
 \end{codelisting}
 \begin{codelisting}
 \codecaption{310-050-Knowledge\_Management-0265-promisee.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
+# promisee
+
+bundle agent main
+{
+
+  reports:
+
+      "Launch!!"
+        depends_on => { "fuel_check" },
+        handle => "launch",
+        comment => "Demonstrate flow control with depends_on";
+
+      "Fueling" -> { "launch" }
+        handle => "fuel_check",
+        comment => "Demonstrate promisee";
+
+}
+
 # In CFEngine, you can document not only the promiser
 # (what makes the promise) but also the promisee 
 # (to whom the promise is made, or what depends on
@@ -393,30 +397,11 @@ bundle agent main
 #
 # R: Fueling
 # R: Launch!!
-
-
-bundle agent main
-{
-
-  reports:
-
-      "Launch!!"
-        depends_on => { "fuel_check" },
-        handle => "ignition",
-        comment => "Demonstrate flow control with depends_on";
-
-      "Fueling" -> { "ignition" }
-        handle => "fuel_check",
-        comment => "Demonstrate promisee";
-
-}
-# Try to think declaratively (not imperatively), and use depends_on
-# only when needed.
 ```
 \end{codelisting}
 \begin{codelisting}
 \codecaption{310-050-Knowledge\_Management-0270-comment.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 # run this in verbose mode and notice the comment
 
 bundle agent main {
@@ -425,46 +410,46 @@ bundle agent main {
 
       "/tmp/testfile"
 
-
-        handle => "mk_file",
         comment => "Create a vital file, needed for XYZ.",
         create  => "true";
 }
 ```
 \end{codelisting}
 \begin{codelisting}
-\codecaption{310-050-Knowledge\_Management-0280-comment\_with\_file\_name\_and\_line\_number.cf}
-```cfengine3, options: "linenos": true
+\codecaption{310-050-Knowledge\_Management-0280-debug\_reports.cf}
+```cfengine3, options: "linenos": false
+# Demonstrate by running this with DEBUG and then with DEBUG_$(bundle_name) classes
+# cf-agent -D DEBUG -f <thisfile>
+# cf-agent -D DEBUG_main -f <thisfile>
+# cf-agent -D DEBUG_prep -f <thisfile>
+
 bundle agent main {
 
-  vars:
-      "name"
-        string => "George";
-
-  files:
-
-      "/tmp/testfile"
-
-
-        handle => "demo_special_variables_in_comment",
-        comment => "XYZ needs /tmp/testfile so make it.
-Line $(this.promise_linenumber) in $(this.promise_filename)
-",
-      # this comment will show up in verbose or debug modes
-
-        create  => "true";
+  vars:  
+    "name"
+      string => "George";
+ 
+  methods:
+    "prep";
 
   reports:
-    DEBUG|DEBUG_example::
-      "DEBUG bundle = $(this.bundle)";
-      "name = '$(name)'";
+    DEBUG|DEBUG_main::
+      "DEBUG $(this.bundle)";
+      "$(const.t)DEBUG $(this.bundle): name = '$(name)'";
+}
 
+bundle agent prep {
+
+reports:
+  DEBUG|DEBUG_prep::
+      "DEBUG $(this.bundle)";
+      "$(const.t)DEBUG $(this.bundle): foo = 'bar'";
 }
 ```
 \end{codelisting}
 \begin{codelisting}
 \codecaption{310-050-Knowledge\_Management-0290-promisee.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   files:
@@ -493,5 +478,4 @@ The `Dunbar numbers' are cognitive limits that we have to work around.
 
 See Mark Burgess's ["Notes from the USENIX/LISA Knowledge Management Workshop"](http://markburgess.org/blog_km.html)
 
-\coloredtext{red}{ 310-050-Knowledge-Management-0300-Dunbar\_numbers.md }
 

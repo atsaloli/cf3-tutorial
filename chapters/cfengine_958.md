@@ -5,14 +5,13 @@ Filename: 958-000-Part-Title-0000-Additional\_Exercises.md
 
 # Appendix B - Additional Exercises
 
-\coloredtext{red}{ 958-000-Part-Title-0000-Additional\_Exercises.md }
 
 <!---                 
 Filename: 958-010-Exercises-0020-Exercise.exr.md
 -->
 
 \begin{aside}
-\label{aside:exercise_41}
+\label{aside:exercise_42}
 \heading{Report the current time }
 
 
@@ -24,13 +23,12 @@ Report the current time using:
 
 
 \end{aside}
-\coloredtext{red}{ 958-010-Exercises-0020-Exercise.exr.md }
 <!---                 
 Filename: 958-010-Exercises-0030-Exercise.exr.md
 -->
 
 \begin{aside}
-\label{aside:exercise_42}
+\label{aside:exercise_43}
 \heading{Create (manually) a data file:}
 
 
@@ -44,13 +42,12 @@ Use cf-agent to replace "line 2" with "line two".
 
 
 \end{aside}
-\coloredtext{red}{ 958-010-Exercises-0030-Exercise.exr.md }
 <!---                 
 Filename: 958-010-Exercises-0040-Exercise.exr.md
 -->
 
 \begin{aside}
-\label{aside:exercise_43}
+\label{aside:exercise_44}
 \heading{CFEngine template}
 
 
@@ -78,13 +75,12 @@ Use all of the following promise types:
 
 
 \end{aside}
-\coloredtext{red}{ 958-010-Exercises-0040-Exercise.exr.md }
 <!---                 
 Filename: 958-010-Exercises-0050-Exercise.exr.md
 -->
 
 \begin{aside}
-\label{aside:exercise_44}
+\label{aside:exercise_45}
 \heading{Distribute policy}
 
 
@@ -92,13 +88,12 @@ Integrate your motd policy into the default cfengine policy in masterfiles so th
 
 
 \end{aside}
-\coloredtext{red}{ 958-010-Exercises-0050-Exercise.exr.md }
 <!---                 
 Filename: 958-010-Exercises-0060-Exercise.exr.md
 -->
 
 \begin{aside}
-\label{aside:exercise_45}
+\label{aside:exercise_46}
 \heading{Log repairs}
 
 
@@ -112,13 +107,12 @@ Reference: [CFEngine Special Topics Guide on Reporting](https://auth.cfengine.co
 
 
 \end{aside}
-\coloredtext{red}{ 958-010-Exercises-0060-Exercise.exr.md }
 <!---                 
 Filename: 958-010-Exercises-0070-Exercise.exr.md
 -->
 
 \begin{aside}
-\label{aside:exercise_46}
+\label{aside:exercise_47}
 \heading{File editing: preserving a block while inserting it}
 
 
@@ -133,13 +127,12 @@ fi
 
 
 \end{aside}
-\coloredtext{red}{ 958-010-Exercises-0070-Exercise.exr.md }
 <!---                 
 Filename: 958-010-Exercises-0080-Exercise.exr.md
 -->
 
 \begin{aside}
-\label{aside:exercise_47}
+\label{aside:exercise_48}
 \heading{Shutdown your VM at the end of the day}
 
 
@@ -149,13 +142,12 @@ Filename: 958-010-Exercises-0080-Exercise.exr.md
 
 
 \end{aside}
-\coloredtext{red}{ 958-010-Exercises-0080-Exercise.exr.md }
 <!---                 
 Filename: 958-010-Exercises-0090-Exercise.exr.md
 -->
 
 \begin{aside}
-\label{aside:exercise_48}
+\label{aside:exercise_49}
 \heading{File editing: replacing text}
 
 
@@ -180,13 +172,12 @@ Hint: use the following:
 
 
 \end{aside}
-\coloredtext{red}{ 958-010-Exercises-0090-Exercise.exr.md }
 <!---                 
 Filename: 958-010-Exercises-0100-Exercise.exr.md
 -->
 
 \begin{aside}
-\label{aside:exercise_49}
+\label{aside:exercise_50}
 \heading{Containing commands}
 
 
@@ -196,13 +187,12 @@ Hint: use "body contain setuid".
 
 
 \end{aside}
-\coloredtext{red}{ 958-010-Exercises-0100-Exercise.exr.md }
 <!---                 
 Filename: 958-010-Exercises-0110-Exercise.exr.md
 -->
 
 \begin{aside}
-\label{aside:exercise_50}
+\label{aside:exercise_51}
 \heading{Configure sshd}
 
 
@@ -223,13 +213,12 @@ Exercise:  use "body classes if\_repaired" to link 1 and 2 above to make sure 2 
 
 
 \end{aside}
-\coloredtext{red}{ 958-010-Exercises-0110-Exercise.exr.md }
 <!---                 
 Filename: 958-010-Exercises-0120-Exercise.exr.md
 -->
 
 \begin{aside}
-\label{aside:exercise_51}
+\label{aside:exercise_52}
 \heading{Reload sshd if config file was updated}
 
 
@@ -239,13 +228,12 @@ Send the solution to the author for a special prize.
 
 
 \end{aside}
-\coloredtext{red}{ 958-010-Exercises-0120-Exercise.exr.md }
 <!---                 
 Filename: 958-010-Exercises-0130-Exercise.exr.md
 -->
 
 \begin{aside}
-\label{aside:exercise_52}
+\label{aside:exercise_53}
 \heading{Install a wiki}
 
 
@@ -253,13 +241,12 @@ Write a CFEngine policy to install and configure a Wiki web service.
 
 
 \end{aside}
-\coloredtext{red}{ 958-010-Exercises-0130-Exercise.exr.md }
 <!---                 
 Filename: 958-010-Exercises-0150-Exercise.exr.md
 -->
 
 \begin{aside}
-\label{aside:exercise_53}
+\label{aside:exercise_54}
 \heading{Put your name into a text file}
 
 
@@ -267,13 +254,12 @@ Write a policy to create /tmp/myname.txt and put your name in it.
 
 
 \end{aside}
-\coloredtext{red}{ 958-010-Exercises-0150-Exercise.exr.md }
 <!---                 
 Filename: 958-010-Exercises-0160-Exercise.exr.md
 -->
 
 \begin{aside}
-\label{aside:exercise_54}
+\label{aside:exercise_55}
 \heading{Use a CFEngine template}
 
 
@@ -307,13 +293,12 @@ expand_scalars => "true";
 
 
 \end{aside}
-\coloredtext{red}{ 958-010-Exercises-0160-Exercise.exr.md }
 <!---                 
 Filename: 958-010-Exercises-0170-Exercise.exr.md
 -->
 
 \begin{aside}
-\label{aside:exercise_55}
+\label{aside:exercise_56}
 \heading{Set a custom class based on the existence of a file. }
 
 
@@ -333,13 +318,12 @@ Run it when the file exists, and when it does not, and observe how CFEngine dyna
 
 
 \end{aside}
-\coloredtext{red}{ 958-010-Exercises-0170-Exercise.exr.md }
 <!---                 
 Filename: 958-010-Exercises-0180-Exercise.exr.md
 -->
 
 \begin{aside}
-\label{aside:exercise_56}
+\label{aside:exercise_57}
 \heading{Edit /etc/motd (file editing and classes)}
 
 
@@ -361,4 +345,3 @@ cf-agent -D Saturday  --file ... --bundle ...
 
 
 \end{aside}
-\coloredtext{red}{ 958-010-Exercises-0180-Exercise.exr.md }

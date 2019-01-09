@@ -5,7 +5,6 @@ Filename: 420-000-Part-Title-0000-CFEngine\_Standard\_Library.md
 
 # CFEngine Standard Library
 
-\coloredtext{red}{ 420-000-Part-Title-0000-CFEngine\_Standard\_Library.md }
 
 
 <!---
@@ -14,7 +13,6 @@ Filename: 420-060-COPBL-0000-Chapter-Title.md
 
 ## CFEngine Standard Library
 
-\coloredtext{red}{ 420-060-COPBL-0000-Chapter-Title.md }
 
 
 <!---
@@ -37,47 +35,15 @@ The CFEngine Standard Library is growing to include all common aspects of system
 |##################========================================
 -->
 
-\coloredtext{red}{ 420-060-COPBL-0460-Introduction.md }
 
-\begin{codelisting}
-\codecaption{420-060-COPBL-0470-Package\_add\_using\_COPBL.cf}
-```cfengine3, options: "linenos": true
-#reports:
-# "sys.libdir = $(sys.libdir)/stdlib.cf" ;
-
-
-#NEEDS TO BE UPDATED TO 3.7 SYNTAX
-
-bundle agent main {
-
-reports:
- "sys.libdir = $(sys.libdir)/stdlib.cf" ;
-}
-#  packages:
-# 
-#       "php-mysql"
-# 
-#         handle => "install_package_php_mysql",
-#         comment => "Demonstrate installing a package",
-#         package_policy => "add",
-#         package_method => yum;
-# 
-
-#############################################
-
-#body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
-```
-\end{codelisting}
 \begin{codelisting}
 \codecaption{420-060-COPBL-0480-File\_Exists\_And\_Is\_Mode\_612\_Without\_COPBL.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   files:
 
       "/tmp/testfile"
-
-        handle  => "set_file_attributes",
         comment => "Demonstrate setting file attributes",
         create  => "true",
         perms   => mog("612","aleksey","cfengine");
@@ -97,7 +63,7 @@ body perms mog(mode,owner,group)
 \end{codelisting}
 \begin{codelisting}
 \codecaption{420-060-COPBL-0490-File\_exists\_and\_is\_mode\_6\_1\_2\_mog.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
 reports:
@@ -123,7 +89,7 @@ body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
 \end{codelisting}
 \begin{codelisting}
 \codecaption{420-060-COPBL-0500-Context\_sensitive\_file\_editing\_Set\_robs\_password.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   files:
@@ -136,13 +102,12 @@ bundle agent main {
                                     "$1$stIAaUZw$ptP75nVkz/EapeuvdWLNC0");
 }
 
-#body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
-body file control { inputs => { "/var/cfengine/inputs/lib/3.6/stdlib.cf" }; }
+body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
 ```
 \end{codelisting}
 \begin{codelisting}
 \codecaption{420-060-COPBL-0510-Removing\_a\_file.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   files:
@@ -157,9 +122,7 @@ bundle agent main {
 
 }
 
-
-#body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
-body file control { inputs => { "/var/cfengine/inputs/lib/3.6/stdlib.cf" }; }
+body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
 ```
 \end{codelisting}
 <!---                 
@@ -167,7 +130,7 @@ Filename: 420-060-COPBL-0520-Comment\_Out\_A\_File.exr.md
 -->
 
 \begin{aside}
-\label{aside:exercise_32}
+\label{aside:exercise_33}
 \heading{Run the following command to generate some content:}
 
 
@@ -186,10 +149,9 @@ out of the standard library.
 
 
 \end{aside}
-\coloredtext{red}{ 420-060-COPBL-0520-Comment\_Out\_A\_File.exr.md }
 \begin{codelisting}
 \codecaption{420-060-COPBL-0530-Commenting\_out\_file\_contents.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   files:
@@ -221,7 +183,7 @@ body replace_with comment(c)
 \end{codelisting}
 \begin{codelisting}
 \codecaption{420-060-COPBL-0540-Z.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   files:
@@ -257,7 +219,7 @@ body replace_with uncomment
 \end{codelisting}
 \begin{codelisting}
 \codecaption{420-060-COPBL-0550-Removing\_a\_file\_Remove\_centos\_httpd\_welcome\_page.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   files:
@@ -278,7 +240,7 @@ body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
 \end{codelisting}
 \begin{codelisting}
 \codecaption{420-060-COPBL-0560-Remove\_httpd\_welcome\_page\_by\_commenting\_out\_welcome\_conf.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 # welcome.conf is part of the Apache RPM
 # to preserve package integrity, comment out this file's contents
 # instead of deleting the file
@@ -321,9 +283,8 @@ body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
 \end{codelisting}
 \begin{codelisting}
 \codecaption{420-060-COPBL-0590-classes\_if\_else.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
-
 
   files:
 
@@ -351,10 +312,13 @@ body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
 \end{codelisting}
 \begin{codelisting}
 \codecaption{420-060-COPBL-0600-classes\_persistent.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
+# "body classes state_repaired" is in StdLib
+
 bundle agent main {
 
   files:
+    !file_fixed::
       "/tmp/file.txt"
         handle => "persistent_class_demo",
         comment => "Set a persistent class",
@@ -380,7 +344,7 @@ body classes state_repaired(x)
 \end{codelisting}
 \begin{codelisting}
 \codecaption{420-060-COPBL-0610-comment\_lines\_matching.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   files:
@@ -397,7 +361,7 @@ body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
 \end{codelisting}
 \begin{codelisting}
 \codecaption{420-060-COPBL-0620-contain\_silent.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   commands:
@@ -410,15 +374,12 @@ bundle agent main {
 
 }
 
-#body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
-body file control { inputs => { "/var/cfengine/inputs/lib/3.6/stdlib.cf" }; }
+body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
 ```
 \end{codelisting}
 \begin{codelisting}
 \codecaption{420-060-COPBL-0630-edit\_line\_insert\_lines.cf}
-```cfengine3, options: "linenos": true
-!! SKIP !!
-
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   files:
@@ -435,7 +396,7 @@ body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
 \end{codelisting}
 \begin{codelisting}
 \codecaption{420-060-COPBL-0640-edit\_resolv\_dot\_conf\_using\_COPBL.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   vars:
@@ -451,7 +412,7 @@ bundle agent main {
         handle =>  "edit_resolv_conf",
         comment => "Setup up DNS resolver",
         edit_line =>  resolvconf("$(search_suffix)",
-                                 "@(example.nameservers)" );
+                                 "@($(this.bundle).nameservers)" );
 }
 
 
@@ -460,7 +421,7 @@ body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
 \end{codelisting}
 \begin{codelisting}
 \codecaption{420-060-COPBL-0660-insert\_lines.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   files:
@@ -484,12 +445,12 @@ body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
 \end{codelisting}
 \begin{codelisting}
 \codecaption{420-060-COPBL-0680-set\_variable\_values.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle common global {
 
   vars:
 
-      "stuff[location]"     string => "Bloomington";
+      "stuff[location]"     string => "New York";
       "stuff[time]"         string => "May-2013";
       "stuff[students]"     string => "11";
       "stuff[lab]"          string => "true";
@@ -512,7 +473,8 @@ body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
 \end{codelisting}
 \begin{codelisting}
 \codecaption{420-060-COPBL-0690-standard\_services.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
+# DELETE ME
 bundle agent main {
 
   methods:
@@ -589,7 +551,7 @@ bundle agent standard_services(service,state)
 \end{codelisting}
 \begin{codelisting}
 \codecaption{420-060-COPBL-0700-modified\_set\_variable\_values.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 # this file contains a modified set_variable_values bundle.
 # the main difference is you won't get lines like
 # "name =value2" if you start with "name = value1".
@@ -668,5 +630,34 @@ body replace_with value(x)
         occurrences => "all";
 }
 
+```
+\end{codelisting}
+\begin{codelisting}
+\codecaption{420-060-StdLib-0470-Package\_add\_using\_StdLib.cf}
+```cfengine3, options: "linenos": false
+bundle agent main {
+
+  packages:
+      "php-mysql"
+        policy => "present";
+}
+
+body common control {
+# the following promise attributes support the 3.7 packages promises
+
+  debian|redhat::
+    package_inventory => { $(package_module_knowledge.platform_default) };
+    package_module => $(package_module_knowledge.platform_default);
+}
+
+body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
+
+# Example run:
+# root@localhost# cf-agent -f ~/p.cf -IC
+# Warning: RPMDB altered outside of yum.
+# ** Found 1 pre-existing rpmdb problem(s), 'yum check' output follows:
+# 1:gdm-plugin-fingerprint-2.30.4-64.el6.x86_64 has missing requires of fprintd-pam
+#     info: Successfully installed package 'php-mysql'
+# root@localhost#
 ```
 \end{codelisting}

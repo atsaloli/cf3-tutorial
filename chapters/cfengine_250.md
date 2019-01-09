@@ -5,7 +5,6 @@ Filename: 250-000-Part-Title-0000-Basic\_Promises.md
 
 # Basic Promises
 
-\coloredtext{red}{ 250-000-Part-Title-0000-Basic\_Promises.md }
 
 
 <!---
@@ -14,11 +13,10 @@ Filename: 250-010-Files-0000-Chapter-Title.md
 
 ## Files
 
-\coloredtext{red}{ 250-010-Files-0000-Chapter-Title.md }
 
 \begin{codelisting}
 \codecaption{250-010-Files-0210-Create\_a\_file.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   files:
@@ -34,7 +32,7 @@ bundle agent main {
 \end{codelisting}
 \begin{codelisting}
 \codecaption{250-010-Files-0220-Touch\_a\_file.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   files:
@@ -53,7 +51,7 @@ Filename: 250-010-Files-0230-Exercise.exr.md
 -->
 
 \begin{aside}
-\label{aside:exercise_10}
+\label{aside:exercise_11}
 \heading{Create a file}
 
 
@@ -62,7 +60,6 @@ Write and run a policy promising that /etc/ftp.deny is present
 
 
 \end{aside}
-\coloredtext{red}{ 250-010-Files-0230-Exercise.exr.md }
 
 <!---
 Filename: 250-020-Processes-0000-Chapter-Title.md
@@ -70,11 +67,10 @@ Filename: 250-020-Processes-0000-Chapter-Title.md
 
 ## Processes
 
-\coloredtext{red}{ 250-020-Processes-0000-Chapter-Title.md }
 
 \begin{codelisting}
 \codecaption{250-020-Processes-0010-Stopping\_A\_Process\_Gracefully.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 # Shut down print services.
 # To set up for this demo, run:
 # yum install cups
@@ -89,7 +85,7 @@ bundle agent main {
         handle => "shutdown_print_services",
         comment => "Shutdown print services on machines
                     that are not print servers",
-        process_stop => "/etc/init.d/cups stop";
+        process_stop => "/sbin/service cups stop";
 
 }
 ```
@@ -112,7 +108,6 @@ In CFEngine syntax, scalar values are enclosed in double quotes:
 process_stop => "/etc/init.d/cups stop",
 ```
 
-\coloredtext{red}{ 250-020-Processes-0255-Definition\_scalar.md }
 
 
 <!---
@@ -131,11 +126,10 @@ processes:
         signals => { "TERM", "KILL" };
 ```
 
-\coloredtext{red}{ 250-020-Processes-0257-Definition\_list.md }
 
 \begin{codelisting}
 \codecaption{250-020-Processes-0260-Terminating\_a\_process.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   processes:
@@ -154,7 +148,7 @@ Filename: 250-020-Processes-0270-Exercise.exr.md
 -->
 
 \begin{aside}
-\label{aside:exercise_11}
+\label{aside:exercise_12}
 \heading{Kill a process}
 
 
@@ -183,7 +177,6 @@ Add ps command line and how to find it.
 
 
 \end{aside}
-\coloredtext{red}{ 250-020-Processes-0270-Exercise.exr.md }
 
 <!---
 Filename: 250-030-Commands-0000-Chapter-Title.md
@@ -191,11 +184,10 @@ Filename: 250-030-Commands-0000-Chapter-Title.md
 
 ## Commands
 
-\coloredtext{red}{ 250-030-Commands-0000-Chapter-Title.md }
 
 \begin{codelisting}
 \codecaption{250-030-Commands-0290-date.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   commands:
@@ -207,7 +199,7 @@ bundle agent main {
 \end{codelisting}
 \begin{codelisting}
 \codecaption{250-030-Commands-0300-echo\_hello\_world.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main
 {
 
@@ -223,7 +215,7 @@ bundle agent main
 \end{codelisting}
 \begin{codelisting}
 \codecaption{250-030-Commands-0310-Relative\_path\_does\_not\_work.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main
 {
 
@@ -238,7 +230,7 @@ bundle agent main
 \end{codelisting}
 \begin{codelisting}
 \codecaption{250-030-Commands-0320-Dig\_a\_deep\_hole.sh}
-```bash, options: "linenos": true
+```bash, options: "linenos": false
 #!/bin/sh
 
 # demonstrate handling of multi-line output
@@ -254,7 +246,7 @@ ls -l /usr/bin/printf ${LONG_PATH}/printf
 \end{codelisting}
 \begin{codelisting}
 \codecaption{250-030-Commands-0330-Quoted\_multiline\_output.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 # demonstrate handling of multi-line output
 
 bundle agent main
@@ -273,7 +265,7 @@ Filename: 250-030-Commands-0340-command.exr.md
 -->
 
 \begin{aside}
-\label{aside:exercise_12}
+\label{aside:exercise_13}
 \heading{yum install mlocate}
 
 
@@ -281,7 +273,6 @@ Write and run a promise to run the "updatedb" command to update the "locate" dat
 
 
 \end{aside}
-\coloredtext{red}{ 250-030-Commands-0340-command.exr.md }
 
 <!---
 Filename: 250-032-Reports-0000-Chapter-Title.md
@@ -292,11 +283,10 @@ Filename: 250-032-Reports-0000-Chapter-Title.md
 A `reports` promise is a promise to output a report.
 
 
-\coloredtext{red}{ 250-032-Reports-0000-Chapter-Title.md }
 
 \begin{codelisting}
 \codecaption{250-032-Reports-0010-hello\_world.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main
 {
   reports:
@@ -484,7 +474,6 @@ Nov  7 21:46:37 ubuntu [109436]: CFEngine(agent)
 Notice that "reports" outputs are tagged with "R" and
 quoted "commands" outputs are tagged with "Q".
 
-\coloredtext{red}{ 250-032-Reports-0020-outputs.md }
 
 
 <!---
@@ -495,7 +484,6 @@ Filename: 250-101-Scalars-0000-Chapter-Title.md
 
 CFEngine variables can contain single values or collections of single values (lists, arrays and JSON containers).
 
-\coloredtext{red}{ 250-101-Scalars-0000-Chapter-Title.md }
 
 
 <!---
@@ -504,7 +492,6 @@ Filename: 250-101-Scalars-0005-scalars.md
 
 ### Scalars
 
-\coloredtext{red}{ 250-101-Scalars-0005-scalars.md }
 
 
 <!---
@@ -517,7 +504,6 @@ Scalars
 
 * Each scalar may have one of three types: string, int or real.
 
-\coloredtext{red}{ 250-101-Scalars-0010-intro.md }
 
 
 <!---
@@ -553,20 +539,20 @@ reports:
   "The product number is: $(machine_type)$(model)";
 ```
 
-\coloredtext{red}{ 250-101-Scalars-0015-naming\_scalar\_vars.md }
 
 \begin{codelisting}
 \codecaption{250-101-Scalars-0018-scalar.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   vars:
 
-      "name"
-        string => "Inigo Montoya";
 
       "greeting"
         string  => "Hello. My name is $(name). ";
+
+      "name"
+        string => "Inigo Montoya";
 
   reports:
 
@@ -576,7 +562,7 @@ bundle agent main {
 \end{codelisting}
 \begin{codelisting}
 \codecaption{250-101-Scalars-0020-Examples\_of\_scalar\_variables.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   vars:
@@ -602,7 +588,7 @@ $(my_second_string)";
 \end{codelisting}
 \begin{codelisting}
 \codecaption{250-101-Scalars-0170-typing.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   vars:
@@ -623,7 +609,7 @@ bundle agent main {
 \end{codelisting}
 \begin{codelisting}
 \codecaption{250-101-Scalars-0180-typing\_2.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   vars:
@@ -646,7 +632,7 @@ Filename: 250-101-Scalars-0190-vars.exr.md
 -->
 
 \begin{aside}
-\label{aside:exercise_13}
+\label{aside:exercise_14}
 \heading{Make and use a variable}
 
 
@@ -657,7 +643,6 @@ Then create a reports promise to have CFEngine say hello using this variable.
 
 
 \end{aside}
-\coloredtext{red}{ 250-101-Scalars-0190-vars.exr.md }
 
 <!---
 Filename: 250-101-Scalars-0200-variable\_scope.md
@@ -680,11 +665,18 @@ Unqualified: $(myvar)
 Qualified: $(mybundle.myvar) 
 
 
-\coloredtext{red}{ 250-101-Scalars-0200-variable\_scope.md }
 
 \begin{codelisting}
 \codecaption{250-101-Scalars-0410-Demo\_of\_variable\_scope.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
+bundle agent main {
+
+  methods:
+    "bundle_1";
+    "bundle_2";
+
+}
+
 bundle agent bundle_1 {
 
   vars:
@@ -699,16 +691,15 @@ bundle agent bundle_2 {
         string => "My fair lady";
 
   reports:
-      #"Variable value = $(bundle_1.var_1)";
-      #"Variable value = $(bundle_2.var_1)";
-      "Variable value = $(var_1)";
+      "var1 = $(var_1)";
+      "bundle_1.var1 = $(bundle_1.var_1)";
 
 }
 ```
 \end{codelisting}
 \begin{codelisting}
 \codecaption{250-101-Scalars-0411-variable\_scope\_2.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 # Simplify / break in parts
 
 bundle agent bundle_0 {
@@ -735,7 +726,7 @@ Filename: 250-101-Scalars-0420-variable\_scope.exr.md
 -->
 
 \begin{aside}
-\label{aside:exercise_14}
+\label{aside:exercise_15}
 \heading{Declare a variable in one bundle and then use it from another bundle.  Use the cf-agent -b switch to specify bundle sequence.}
 
 
@@ -745,7 +736,6 @@ cf-agent -f <filepath> -b <bundlesequence>
 
 
 \end{aside}
-\coloredtext{red}{ 250-101-Scalars-0420-variable\_scope.exr.md }
 
 <!---
 Filename: 250-110-Integer\_Constants-0000-Chapter-Title.md
@@ -753,7 +743,6 @@ Filename: 250-110-Integer\_Constants-0000-Chapter-Title.md
 
 ##### Integer Constants
 
-\coloredtext{red}{ 250-110-Integer\_Constants-0000-Chapter-Title.md }
 
 
 <!---
@@ -769,7 +758,6 @@ Which is easier to read?
 * 200000
 * 200k
 
-\coloredtext{red}{ 250-110-Integer\_Constants-0220-Special\_suffixes\_for\_Integer\_constants.md }
 
 
 <!---
@@ -794,24 +782,37 @@ Filename: 250-110-Integer\_Constants-0230-Special\_suffixes\_for\_Integer\_const
 
 **inf** a constant representing an unlimited value.
 
-\coloredtext{red}{ 250-110-Integer\_Constants-0230-Special\_suffixes\_for\_Integer\_constants\_refcard.md }
 
 \begin{codelisting}
 \codecaption{250-110-Integer\_Constants-0240-Integer\_suffixes\_demo.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   vars:
 
       "fourty_two_kilobytes"             int     => "42k";  # 42 x 1000
       "fourty_two_kibibytes"             int     => "42K";  # 42 x 1024
+
+
+  reports:
+
+      "42k (kilobytes) = $(fourty_two_kilobytes)";
+      "42K (kibibytes) = $(fourty_two_kibibytes)";
+}
+```
+\end{codelisting}
+\begin{codelisting}
+\codecaption{250-110-Integer\_Constants-0250-infinity.cf}
+```cfengine3, options: "linenos": false
+bundle agent main {
+
+  vars:
+
       "infinity"                         int     => "inf";  # infinity
 
 
   reports:
 
-      "42 x 1000 = $(fourty_two_kilobytes)";
-      "42 x 1024 = $(fourty_two_kibibytes)";
       "infinity = $(infinity)";
 }
 ```
@@ -823,7 +824,6 @@ Filename: 250-120-Lists-0000-Chapter-Title.md
 
 ### Lists
 
-\coloredtext{red}{ 250-120-Lists-0000-Chapter-Title.md }
 
 
 <!---
@@ -836,11 +836,10 @@ A list variable is represented as @(identifier) or @(bundlename.identifier)
 
 If you refer to a list variable in scalar context by using $(identifier), cfengine will implicitly loop over the values of @(list).
 
-\coloredtext{red}{ 250-120-Lists-0250-List\_variables.md }
 
 \begin{codelisting}
 \codecaption{250-120-Lists-0260-List\_variables\_and\_implicit\_looping.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   vars:
@@ -851,20 +850,20 @@ bundle agent main {
                      "apples",
                      "bananas",
                      "grapes",
-                     "plantains",
                      "coconuts",
-        };
+                     "hamburgers",
+                   };
 
   reports:
 
-      "buy $(shopping_list)";
+      "Buy $(shopping_list)";
 }
 
 ```
 \end{codelisting}
 \begin{codelisting}
 \codecaption{250-120-Lists-0280-List\_variables\_Concatenation\_of\_slists.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main0 {
 
   vars:
@@ -906,22 +905,20 @@ bundle agent main {
 \end{codelisting}
 \begin{codelisting}
 \codecaption{250-120-Lists-0290-Lists\_of\_integers.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   vars:
 
       "my_list"
 
-        handle => "int_list",
         comment => "Demonstrate a list of integers",
         ilist => { "1", "2", "3" };
+
   reports:
 
-
-
       "Iterating over the values in @(my_list):  $(my_list)"
-        handle => "demo_int_list",
+
         comment => "Demonstrate implicit looping over an ilist";
 }
 
@@ -929,7 +926,7 @@ bundle agent main {
 \end{codelisting}
 \begin{codelisting}
 \codecaption{250-120-Lists-0300-Lists\_of\_real\_numbers.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   vars:
@@ -956,7 +953,7 @@ Filename: 250-120-Lists-0310-exercise.exr.md
 -->
 
 \begin{aside}
-\label{aside:exercise_15}
+\label{aside:exercise_16}
 \heading{Create a list variable containing names of five files to create.  For example:}
 
 
@@ -971,13 +968,12 @@ Filename: 250-120-Lists-0310-exercise.exr.md
 
 
 \end{aside}
-\coloredtext{red}{ 250-120-Lists-0310-exercise.exr.md }
 <!---                 
 Filename: 250-120-Lists-0320-exercise.exr.md
 -->
 
 \begin{aside}
-\label{aside:exercise_16}
+\label{aside:exercise_17}
 \heading{Create a list containing names of processes that should not be running: for example "trn" and "eggdrop"}
 
 
@@ -988,7 +984,6 @@ If you finish before the rest of the class, please study your red CFEngine book.
 
 
 \end{aside}
-\coloredtext{red}{ 250-120-Lists-0320-exercise.exr.md }
 
 <!---
 Filename: 250-130-Data\_Structures\_Arrays-0000-Chapter-Title.md
@@ -996,7 +991,6 @@ Filename: 250-130-Data\_Structures\_Arrays-0000-Chapter-Title.md
 
 ### Arrays
 
-\coloredtext{red}{ 250-130-Data\_Structures\_Arrays-0000-Chapter-Title.md }
 
 
 <!---
@@ -1037,61 +1031,92 @@ Now we can use this variable:
 $(food_prices[Apple])
 ```
 
-\coloredtext{red}{ 250-130-Data\_Structures\_Arrays-0340-Arrays\_arrays.md }
 
 \begin{codelisting}
-\codecaption{250-130-Data\_Structures\_Arrays-0349-array\_simple\_example.cf}
-```cfengine3, options: "linenos": true
+\codecaption{250-130-Data\_Structures\_Arrays-0342-create\_array.cf}
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   vars:
 
       "food_prices[Apple]"
-        string =>  "59c";
+        string =>  "58c";
 
       "food_prices[Banana]"
         string =>  "30c";
-
-      "food_prices[numlist]"
-        ilist => { "1", "2", "3" };
 
 
   reports:
       "Apple costs $(food_prices[Apple])";
       "Banana costs $(food_prices[Banana])";
-      "Numlist: $(food_prices[numlist])";
 
 }
 ```
 \end{codelisting}
 \begin{codelisting}
-\codecaption{250-130-Data\_Structures\_Arrays-0350-Arrays\_Array\_of\_strings.cf}
-```cfengine3, options: "linenos": true
+\codecaption{250-130-Data\_Structures\_Arrays-0344-getindices.cf}
+```cfengine3, options: "linenos": false
 bundle agent main {
+
   vars:
-      "cfengine_components[cf-monitord]"
-        string => "The monitor";
 
-      "cfengine_components[cf-serverd]"
-        string => "The server";
+      "food_prices[Apple]"
+        string =>  "58c";
 
-      "cfengine_components[cf-execd]"
-        string => "The executor";
+      "food_prices[Banana]"
+        string =>  "30c";
 
-      "component_names"
-        comment => "Extract keys from cfengine_components array",
-        slist => getindices("cfengine_components");
+      "food"
+        slist => getindices("food_prices");
+
 
   reports:
-    "Key = '$(component_names)'";
-    "Value = $(cfengine_components[$(component_names)])";
-    "cf-monitord is $(cfengine_components[cf-monitord])";
-    "$(component_names) = $(cfengine_components[$(component_names)])";
-
-
+      "Keys of 'food_prices' array = $(food)";
 
 }
+```
+\end{codelisting}
+\begin{codelisting}
+\codecaption{250-130-Data\_Structures\_Arrays-0346-array\_values.cf}
+```cfengine3, options: "linenos": false
+bundle agent main {
 
+  vars:
+
+      "food_prices[Apple]"
+        string =>  "58c";
+
+      "food_prices[Banana]"
+        string =>  "30c";
+
+      "food"
+        slist => getindices("food_prices");
+
+
+  reports:
+      "Values of 'food_prices' array:  $(food): $(food_prices[$(food)])";
+}
+```
+\end{codelisting}
+\begin{codelisting}
+\codecaption{250-130-Data\_Structures\_Arrays-0349-array\_simple\_example.cf}
+```cfengine3, options: "linenos": false
+bundle agent main {
+
+  vars:
+
+      "food_prices[Apple]"
+        string =>  "58c";
+
+      "food_prices[Banana]"
+        string =>  "30c";
+
+
+  reports:
+      "Apple costs $(food_prices[Apple])";
+      "Banana costs $(food_prices[Banana])";
+
+}
 ```
 \end{codelisting}
 <!---                 
@@ -1099,21 +1124,26 @@ Filename: 250-130-Data\_Structures\_Arrays-0355-array.exr.md
 -->
 
 \begin{aside}
-\label{aside:exercise_17}
+\label{aside:exercise_18}
 \heading{Print array contents using getindices()}
 
 
-Print contents of the array from your last exercise
+Create an array with two things and their values.
+
+e.g.  BMW 120K
+      Audi 150K
+
+Print contents of this array
 by using the getindices() function to get a list of
 keys, and then iterate over the keys to extract the
 values.
 
 
+
 \end{aside}
-\coloredtext{red}{ 250-130-Data\_Structures\_Arrays-0355-array.exr.md }
 \begin{codelisting}
 \codecaption{250-130-Data\_Structures\_Arrays-0360-Arrays\_Keys\_are\_case\_senSiTiVE.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   vars:
@@ -1140,14 +1170,13 @@ Filename: 250-130-Data\_Structures\_Arrays-0370-Arrays\_Example.md
 
 See 960-010-Security-0080-Configure_sshd_stub.cf
 
-\coloredtext{red}{ 250-130-Data\_Structures\_Arrays-0370-Arrays\_Example.md }
 
 <!---                 
 Filename: 250-130-Data\_Structures\_Arrays-0380-Arrays.exr.md
 -->
 
 \begin{aside}
-\label{aside:exercise_18}
+\label{aside:exercise_19}
 \heading{Make an array, student_grades.}
 
 
@@ -1164,10 +1193,9 @@ Display the contents of the array.
 
 
 \end{aside}
-\coloredtext{red}{ 250-130-Data\_Structures\_Arrays-0380-Arrays.exr.md }
 \begin{codelisting}
 \codecaption{250-130-Data\_Structures\_Arrays-0390-Arrays\_Array\_of\_slists.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
       # implicit looping over slist in array
 
@@ -1205,23 +1233,25 @@ Filename: 250-150-Data\_Structures\_Containers-0000-Chapter-Title.md
 
 ### Data Containers
 
-\coloredtext{red}{ 250-150-Data\_Structures\_Containers-0000-Chapter-Title.md }
 
 \begin{codelisting}
 \codecaption{250-150-Data\_Structures\_Containers-0010-readjson.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   vars:
-      "mydata"
-        data => parsejson('{"Pizza" : "Pepperoni"} ');
+      "food"
+        data =>'{
+                   "Pizza"   : "Pepperoni",
+                   "Dessert" : "Ice Cream"
+                 }';
 
       "keys"
-        slist => getindices("mydata");
+        slist => getindices("food");
 
   reports:
 
-      "$(keys)  $(mydata[$(keys)])";
+      "$(keys) = $(food[$(keys)])";
 }
 ```
 \end{codelisting}
@@ -1230,7 +1260,7 @@ Filename: 250-150-Data\_Structures\_Containers-0011-readjson.exr.md
 -->
 
 \begin{aside}
-\label{aside:exercise_19}
+\label{aside:exercise_20}
 \heading{Data containers - readjson}
 
 
@@ -1240,28 +1270,24 @@ Filename: 250-150-Data\_Structures\_Containers-0011-readjson.exr.md
 phones.json:
 
 {
-  "iPhone" : "500$",
-  "Samsung" : "450$",
+  "iPhone"  : "$500",
+  "Samsung" : "$450"
 }
 
 2. Read it into a "data"-type variable with readjson(), e.g.:
+
   vars:
 
       "phones"
-        data => readjson("/path/to/phones.json", "100k");
+        data => readjson("$(this.promise_dirname)/phones.json", "100k");
 
 3. Report the contents of the data container
+
    - get the keys using getindices()
    - iterate over the keys to report the values
-  vars:
-      "keys"
-        slist => getindices("mydata");
-  reports:
-      "$(keys)  $(mydata[$(keys)])";
 
 
 \end{aside}
-\coloredtext{red}{ 250-150-Data\_Structures\_Containers-0011-readjson.exr.md }
 
 <!---
 Filename: 250-210-Methods-0000-Chapter-Title.md
@@ -1312,11 +1338,10 @@ methods:
 
 ```
 
-\coloredtext{red}{ 250-210-Methods-0000-Chapter-Title.md }
 
 \begin{codelisting}
 \codecaption{250-210-Methods-0010-simple\_example.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   vars:
@@ -1343,7 +1368,7 @@ Filename: 250-210-Methods-0011-methods.exr.md
 -->
 
 \begin{aside}
-\label{aside:exercise_20}
+\label{aside:exercise_21}
 \heading{Methods and normal ordering}
 
 
@@ -1357,4 +1382,3 @@ Why?
 
 
 \end{aside}
-\coloredtext{red}{ 250-210-Methods-0011-methods.exr.md }

@@ -1,6 +1,6 @@
 \begin{codelisting}
 \codecaption{275-030-Data\_Structures\_Arrays-0349-array\_simple\_example.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   vars:
@@ -20,7 +20,7 @@ bundle agent main {
 \end{codelisting}
 \begin{codelisting}
 \codecaption{275-030-Data\_Structures\_Arrays-0350-Arrays\_Array\_of\_strings.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
   vars:
       "cfengine_components[cf-monitord]"
@@ -54,7 +54,7 @@ Filename: 275-030-Data\_Structures\_Arrays-0355-array.exr.md
 -->
 
 \begin{aside}
-\label{aside:exercise_21}
+\label{aside:exercise_22}
 \heading{Using arrays}
 
 
@@ -68,10 +68,9 @@ keys to extract the values.
 
 
 \end{aside}
-\coloredtext{red}{ 275-030-Data\_Structures\_Arrays-0355-array.exr.md }
 \begin{codelisting}
 \codecaption{275-050-Data\_Structures\_Containers-0010-readjson.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main_0 {
 
   vars:

@@ -5,7 +5,6 @@ Filename: 300-000-Part-Title-0000-Classes.md
 
 # Classifying (Grouping) Hosts
 
-\coloredtext{red}{ 300-000-Part-Title-0000-Classes.md }
 
 
 <!---
@@ -14,7 +13,6 @@ Filename: 300-010-Basic\_Examples\_Classes-0000-Classes-Chapter-Title.md
 
 ## Hard classes
 
-\coloredtext{red}{ 300-010-Basic\_Examples\_Classes-0000-Classes-Chapter-Title.md }
 
 
 <!---
@@ -28,7 +26,6 @@ Filename: 300-010-Basic\_Examples\_Classes-0003-definition.md
 > or user defined. Hosts that pass the test are members of the class.
 > ---Neil Watson, CFEngine Consultant
 
-\coloredtext{red}{ 300-010-Basic\_Examples\_Classes-0003-definition.md }
 
 
 <!---
@@ -50,26 +47,24 @@ Let's start with examples of hard classes.
 ### Hard classes
 
 
-\coloredtext{red}{ 300-010-Basic\_Examples\_Classes-0004-soft\_and\_hard.md }
 
 \begin{codelisting}
 \codecaption{300-010-Basic\_Examples\_Classes-0005-Classes\_Reports.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
-  reports:
+  commands:
     linux::
-      "I love Linux";
+      "/bin/date";
 
-  reports:
-    WinXP::
-      "I love Windows";
+    windows::
+      "C:\Windows\System32\cmd.exe /c date /t";
 }
 ```
 \end{codelisting}
 \begin{codelisting}
 \codecaption{300-010-Basic\_Examples\_Classes-0010-Using\_classes\_to\_determine\_role.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   reports:
@@ -86,7 +81,7 @@ bundle agent main {
 \end{codelisting}
 \begin{codelisting}
 \codecaption{300-010-Basic\_Examples\_Classes-0050-Report\_OS\_Type.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   reports:
@@ -101,7 +96,7 @@ bundle agent main {
 \end{codelisting}
 \begin{codelisting}
 \codecaption{300-010-Basic\_Examples\_Classes-0060-Note\_on\_what\_happens\_to\_dashes\_in\_hostnames.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 # CFEngine automatically canonifies classes (converts any
 # character that is not alphanum/underscore to underscore)
 #
@@ -129,7 +124,7 @@ Filename: 300-010-Basic\_Examples\_Classes-0070-examine\_hard\_classes.exr.md
 -->
 
 \begin{aside}
-\label{aside:exercise_22}
+\label{aside:exercise_23}
 \heading{Examine hard classes}
 
 
@@ -143,13 +138,12 @@ Examine what CFEngine discovered about your system and what classes it set.
 
 
 \end{aside}
-\coloredtext{red}{ 300-010-Basic\_Examples\_Classes-0070-examine\_hard\_classes.exr.md }
 <!---                 
 Filename: 300-010-Basic\_Examples\_Classes-0080-using\_hard\_classes.exr.md
 -->
 
 \begin{aside}
-\label{aside:exercise_23}
+\label{aside:exercise_24}
 \heading{Using classes}
 
 
@@ -157,7 +151,6 @@ Print a report if you running in a CentOS 6 system.
 
 
 \end{aside}
-\coloredtext{red}{ 300-010-Basic\_Examples\_Classes-0080-using\_hard\_classes.exr.md }
 
 <!---
 Filename: 300-015-Basic\_Examples\_Classes\_2-0000-Chapter-Title.md
@@ -165,7 +158,6 @@ Filename: 300-015-Basic\_Examples\_Classes\_2-0000-Chapter-Title.md
 
 ## Class Expressions
 
-\coloredtext{red}{ 300-015-Basic\_Examples\_Classes\_2-0000-Chapter-Title.md }
 
 
 <!---
@@ -196,11 +188,10 @@ If necessary, review [truth tables](https://en.wikipedia.org/wiki/Truth_table#Lo
 
 ### Examples of class expressions
 
-\coloredtext{red}{ 300-015-Basic\_Examples\_Classes\_2-0080-Class\_expression\_operators.md }
 
 \begin{codelisting}
 \codecaption{300-015-Basic\_Examples\_Classes\_2-0090-Class\_expression\_operators.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   reports:
@@ -220,7 +211,7 @@ bundle agent main {
 \end{codelisting}
 \begin{codelisting}
 \codecaption{300-015-Basic\_Examples\_Classes\_2-0100-Report\_day\_of\_the\_week.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 # The following bundle does not use class expressions.
 # The next one will.
 
@@ -248,7 +239,7 @@ bundle agent main {
 \end{codelisting}
 \begin{codelisting}
 \codecaption{300-015-Basic\_Examples\_Classes\_2-0110-Condensed\_report\_day\_of\_week.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   reports:
@@ -264,29 +255,20 @@ bundle agent main {
 \end{codelisting}
 \begin{codelisting}
 \codecaption{300-015-Basic\_Examples\_Classes\_2-0120-OS\_and\_time\_expression.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   reports:
 
-      linux.Hr08:: "Linux system AND we are in the 8th hour.";
-      linux.Hr11:: "Linux system AND we are in the 11th hour.";
-      linux.Hr12:: "Linux system AND we are in the 12th hour.";
-
-      linux.Hr13:: "Linux system AND we are in the 13th hour.";
-      linux.Hr16:: "Linux system AND we are in the 16th hour.";
-
-
       linux&Hr22:: "Linux system AND we are in the 22nd hour.";
 
-      linux&Hr20:: "Linux system AND we are in the 20th hour.";
 }
 
 ```
 \end{codelisting}
 \begin{codelisting}
 \codecaption{300-015-Basic\_Examples\_Classes\_2-0130-Class\_expression\_OS\_and\_time.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   reports:
@@ -305,21 +287,24 @@ Filename: 300-015-Basic\_Examples\_Classes\_2-0133-soft\_classes.md
 
 ## Soft classes
 
-\coloredtext{red}{ 300-015-Basic\_Examples\_Classes\_2-0133-soft\_classes.md }
 
 \begin{codelisting}
 \codecaption{300-015-Basic\_Examples\_Classes\_2-0134-soft\_classes\_simple.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   classes:
       "weekend"
         expression => "Saturday|Sunday";
 
+      "weekday"
+        expression => "Monday|Tuesday|Wednesday|Thursday|Friday";
+
   reports:
     weekend::
       "Yay! I get to rest today.";
-
+    weekday::
+      "Yay! I get to work today.";
 }
 
 # When you run this in verbose mode, you should see when CFEngine sets
@@ -333,13 +318,11 @@ bundle agent main {
 # verbose: C: BEGIN classes / conditions (pass 1)
 # verbose: C: .........................................................
 # verbose: C:     +  Private class: weekend 
-# verbose: P: .........................................................
-# verbose: P: BEGIN promise 'p
 ```
 \end{codelisting}
 \begin{codelisting}
 \codecaption{300-030-Basic\_Examples\_Classes\_2-0140-Detect\_VMs.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 # You can set a soft class based on the outcome
 # of a function that returns true/false, such as
 # regline() which checks if there is a line in a
@@ -349,12 +332,11 @@ bundle agent main {
 
   classes:
       "i_am_virtual"
-        handle => "reality_check",
         comment => "Check if we are running inside a VM",
-        expression => regline(".*VMware.*",
+        expression => regline(".*(VMware|VBOX|QEMU).*",
                               "/proc/scsi/scsi");
 
-# This is what we wouls see in the shell:
+# This is what we would see in the shell on VMware guests:
 #
 # $ grep -i vmware /proc/scsi/scsi
 # Vendor: VMware,  Model: VMware Virtual S Rev: 1.0 
@@ -376,11 +358,10 @@ Filename: 300-040-Classes\_4-0000-Chapter-Title.md
 
 Some promise attributes can create Classes depending on the outcome of the promise.
 
-\coloredtext{red}{ 300-040-Classes\_4-0000-Chapter-Title.md }
 
 \begin{codelisting}
 \codecaption{300-040-Classes\_4-0020-Ensuring\_CUPSd\_is\_running.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   processes:
@@ -405,7 +386,7 @@ bundle agent main {
 \end{codelisting}
 \begin{codelisting}
 \codecaption{300-040-Classes\_4-0030-Ensuring\_httpd\_is\_running.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   processes:

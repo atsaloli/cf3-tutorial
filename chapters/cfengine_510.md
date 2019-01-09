@@ -5,7 +5,6 @@ Filename: 510-000-Part-Title-0000-Special\_Variables.md
 
 # Special Variables
 
-\coloredtext{red}{ 510-000-Part-Title-0000-Special\_Variables.md }
 
 
 <!---
@@ -14,20 +13,18 @@ Filename: 510-050-Special\_Variables-0000-Chapter-Title.md
 
 ## CFEngine Special Variables
 
-\coloredtext{red}{ 510-050-Special\_Variables-0000-Chapter-Title.md }
 
 
 <!---
 Filename: 510-050-Special\_Variables-0290-Introduction.md
 -->
 
-### Introduction2
+### Introduction
 
 CFEngine has some special variables.
 
 You can see the whole list in section "Special Variables" in the reference manual, but here is a taste of them.
 
-\coloredtext{red}{ 510-050-Special\_Variables-0290-Introduction.md }
 
 
 <!---
@@ -36,21 +33,28 @@ Filename: 510-050-Special\_Variables-0300-title\_card.md
 
 ### Constants
 
-\coloredtext{red}{ 510-050-Special\_Variables-0300-title\_card.md }
 
 \begin{codelisting}
 \codecaption{510-050-Special\_Variables-0310-Const.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
+  vars:
+   "name"
+     string => "Inigo Montoya";
+
   reports:
+
+      "value of \$(name) is $(name)";
+      "value of $(const.dollar)(name) is $(name)";
+
+
+
 
       "A carriage return character is $(const.r)The carriage has returned.";
 
       "A report with a$(const.t)tab in it";
 
-      "Value of variable named $(const.dollar)(const.dollar)
-       is $(const.dollar)";
 
       "The value of variable named \$(const.dollar) is $(const.dollar)";
       # backslash does not work to stop interpolation of the variable
@@ -76,11 +80,10 @@ Example:
 : Points to the filename of the file currently making an edit promise.
 
 
-\coloredtext{red}{ 510-050-Special\_Variables-0320-Edit.md }
 
 \begin{codelisting}
 \codecaption{510-050-Special\_Variables-0330-Edit.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 # INPUT
 # Put a few text files in /tmp (ending in .txt), and put
 # the line "hello world" in one of them.
@@ -127,21 +130,19 @@ Filename: 510-050-Special\_Variables-0340-Match.md
 
 ### Match
 
-\coloredtext{red}{ 510-050-Special\_Variables-0340-Match.md }
 
 \begin{codelisting}
 \codecaption{510-050-Special\_Variables-0350-Match\_While\_searching\_for\_files.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 # Create the following files before running this example:
-# /tmp/cf2_test1
-# /tmp/cf3_test2
+# /bin/touch /tmp/cf1_test1 /tmp/cf3_test2
 
 bundle agent main
 {
 
   files:
 
-      "/tmp/(cf[23])_(.*)"
+      "/tmp/(cf[^_]*)_(.*)"
         edit_line => show_match("$(match.0) $(match.1) $(match.2)");
 
 }
@@ -163,7 +164,7 @@ bundle edit_line show_match(data) {
 \end{codelisting}
 \begin{codelisting}
 \codecaption{510-050-Special\_Variables-0360-Match\_While\_editing\_a\_file.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 #   INPUT
 #
 #   File /tmp/cf3_test containing a Unix shell style comment:
@@ -197,7 +198,7 @@ bundle edit_line replace_shell_comments_with_C_comments
 
   replace_patterns:
 
-      "#(.*)"
+      "^#(.*)"
 
         replace_with => C_comment;
 
@@ -234,11 +235,10 @@ Filename: 510-050-Special\_Variables-0370-Monitoring.md
 
 ### Monitoring
 
-\coloredtext{red}{ 510-050-Special\_Variables-0370-Monitoring.md }
 
 \begin{codelisting}
 \codecaption{510-050-Special\_Variables-0380-Mon\_Report\_environmental\_conditions.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 # report environmental conditions
 # Current value: value_<name>       e.g. value_diskfree
 # Average: av_<name>                e.g. av_diskfree
@@ -310,7 +310,7 @@ wwws_out       ${mon.value_wwws_out}
 \end{codelisting}
 \begin{codelisting}
 \codecaption{510-050-Special\_Variables-0390-Mon\_React\_to\_environmental\_conditions.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 # report environmental conditions
 
 bundle agent main {
@@ -390,7 +390,6 @@ sys.winsysdir: /dev/null
 sys.workdir: /var/cfengine
 ```
 
-\coloredtext{red}{ 510-050-Special\_Variables-0400-Sys\_Report\_sys\_variables.md }
 
 
 <!---
@@ -449,7 +448,6 @@ Output on my system `myhost.example.com`:
    sys.workdir: /var/cfengine
 ```
 
-\coloredtext{red}{ 510-050-Special\_Variables-0401-system\_variables\_output.md }
 
 
 <!---
@@ -458,11 +456,10 @@ Filename: 510-050-Special\_Variables-0410-This.md
 
 ### This
 
-\coloredtext{red}{ 510-050-Special\_Variables-0410-This.md }
 
 \begin{codelisting}
 \codecaption{510-050-Special\_Variables-0420-This\_promise\_filename.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 
 bundle agent main
 {
@@ -487,14 +484,13 @@ bundle agent main
 \end{codelisting}
 \begin{codelisting}
 \codecaption{510-050-Special\_Variables-0430-This\_promise\_linenumber.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 # let's say this file is called
 # 00182_Special_Variables__this_promise_linenumber.cf
 
 bundle agent main
 {
   reports:
-
 
       "$(this.promise_linenumber)";
       "$(this.promise_linenumber)";
@@ -512,7 +508,7 @@ bundle agent main
 \end{codelisting}
 \begin{codelisting}
 \codecaption{510-050-Special\_Variables-0440-This\_promiser\_transformer\_simple.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 # To setup for this example, run:
 #   /bin/date > /var/log/date1.txt
 #   /bin/date > /var/log/date2.txt
@@ -541,7 +537,9 @@ bundle agent main {
 \end{codelisting}
 \begin{codelisting}
 \codecaption{510-050-Special\_Variables-0450-This\_promiser\_Find\_world\_writable.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
+# remove this, we haven't covered file selection
+
 bundle agent main {
 
   files:
@@ -563,7 +561,9 @@ body file_select world_writeable
 \end{codelisting}
 \begin{codelisting}
 \codecaption{510-050-Special\_Variables-0460-This\_promiser\_Compress\_pdf\_files.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
+# ditto
+
 #######################################################
 #
 # Find and compress PDF files
@@ -630,7 +630,7 @@ body depth_search recurse(d)
 \end{codelisting}
 \begin{codelisting}
 \codecaption{510-050-Special\_Variables-0470-This\_promiser\_Find\_world\_writable\_files\_but\_not\_symlinks.cf}
-```cfengine3, options: "linenos": true
+```cfengine3, options: "linenos": false
 bundle agent main {
 
   files:
