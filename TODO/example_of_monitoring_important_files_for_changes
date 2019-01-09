@@ -1,0 +1,65 @@
+
+bundle agent file_monitor
+
+{
+
+  vars:
+
+ 
+
+    "path1"
+
+      string => "/etc/foo.conf",
+
+      meta => { "managed_file" };
+
+ 
+
+    "path2"
+
+      string => "/etc/bar.conf",
+
+      meta => { "managed_file" };
+
+ 
+
+files:
+
+  “$(path1)”
+
+     insert_lines => “important setting 1”;
+
+  “$(path2)”
+
+     insert_lines => “important setting 2”;
+
+ 
+
+ 
+
+# now let’s monitor all files we managed, tagged “managed_files”, for changes
+
+ 
+
+vars:
+
+    "files_to_monitor" slist => variablesmatching(".*", "managed_file");
+
+ 
+
+  files:
+
+   "$($(files_to_monitor))"
+
+     changes => detect_all_change;
+
+ 
+
+reports:
+
+  DEBUG::
+
+  "Variable name: $(files_to_monitor). Variable value: $($(files_to_monitor))";
+
+}
+
