@@ -1,0 +1,3 @@
+To make http://www.cfenginetutorial.org/ redirect to http://www.cfenginetutorial.org/:
+
+Set up CloudFlare 301 redirect using CloudFlare "Page Rules as per https://support.cloudflare.com/hc/en-us/articles/200172286-How-do-I-perform-URL-forwarding-or-redirects-with-Cloudflare - according to https://www.cloudflare.com/plans/#compare-features you can have up to three Page Rules under Cloudflare's free plan.
