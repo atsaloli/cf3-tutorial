@@ -7,5 +7,5 @@ are a collection of comma-separated scalar values:
 ```cfengine3
 processes:
     "cupsd"
-        signals => { "TERM", "KILL" };
+        signals => { "term", "kill" };
 ```

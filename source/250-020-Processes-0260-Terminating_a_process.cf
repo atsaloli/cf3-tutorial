@@ -6,6 +6,6 @@ bundle agent main {
 
         handle => "kill_IRC_bots",
         comment => "We don't want IRC bots on our Web servers",
-        signals => { "TERM", "KILL" };
+        signals => { "term", "kill" };
 
 }
