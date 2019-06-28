@@ -12,6 +12,8 @@ WARNING: add example here
 
  processes:
 
+    # This example uses 3.7-style processes promises.  3.9 and later are much simpler.
+
     "^root\s+\d+\s+\d+\s+\d+\s+[89][0-9]\..*splunkd"
 
       comment => "Restart splunk if it's using more than 80% of the CPU.
