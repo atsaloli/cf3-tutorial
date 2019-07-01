@@ -1,3 +1,3 @@
 Using classes
 
-Print a report if you running in a CentOS 6 system.
+Print a report if you're running on a CentOS 6 system.
