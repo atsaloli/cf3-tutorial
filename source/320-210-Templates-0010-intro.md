@@ -29,7 +29,7 @@ Love,
 Company
 
 $ NAME=John
-$ sed -e 's:__NAME__:${NAME}:' < letter.template >  letter.txt
+$ sed -e "s:__NAME__:${NAME}:" < letter.template >  letter.txt
 $ cat letter.txt 
 Hello John,
 
