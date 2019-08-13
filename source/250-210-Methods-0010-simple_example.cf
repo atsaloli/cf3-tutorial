@@ -1,3 +1,9 @@
+body file control {
+  inputs => {
+    "$(sys.libdir)/stdlib.cf"
+  };
+}
+
 bundle agent main {
 
   vars:
@@ -14,6 +20,13 @@ bundle agent remove_user(user) {
   commands:
 
       "/usr/sbin/userdel $(user)";
-      "/bin/rm /var/spool/cron/$(user)";
-      "/bin/rm /var/mail/$(user)";
+
+  files:
+    any::
+      "/var/spool/cron/$(user)"
+        delete => tidy;
+
+      "/var/mail/$(user)"
+        delete => tidy;
+
 }

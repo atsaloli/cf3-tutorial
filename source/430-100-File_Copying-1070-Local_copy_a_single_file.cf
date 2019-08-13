@@ -6,6 +6,7 @@ bundle agent main {
 
       "/root/etc_group.bak"
 
+        edit_defaults => backup_timestamp,
         copy_from    => local_cp("/etc/group"),
         comment      => "Demonstrate local file copy";
 

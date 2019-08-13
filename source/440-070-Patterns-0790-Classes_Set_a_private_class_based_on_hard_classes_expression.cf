@@ -2,14 +2,39 @@ bundle agent main {
 
 
   classes:
+    GMT_Hr00|GMT_Hr01::
+      "maintenance_window_for_storage_changes"
+        scope => "namespace";
+
+    GMT_Hr02|GMT_Hr03::
+      "maintenance_window_for_ldap_changes"
+        scope => "namespace";
+
+  vars:
+    any::
+      "all_maintenance_window_classes"
+        slist => classesmatching("maintenance_window.*");
+
+  vars:
+    any::
+      "mw_numbers"
+        slist => { "1", "2" };
+
+  classes:
+    any::
+      "some_mw_is_set"
+        expression => "maintenance_window_$(mw_numbers)";
+
+  classes:
 
       "good_technology"
+        meta => { "some tag", "report" },
         handle => "good_technology_class",
         comment => "Set a custom class based on built-in classes",
-        expression => "linux|solaris";
+        expression => "linux|(solaris.x86_64)";
 
   reports:
-    good_technology::
+    linux|solaris::
       "I love good technology"
         handle => "show_respect",
         comment => "Show respect for good technology";

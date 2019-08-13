@@ -2,10 +2,10 @@ bundle agent main {
 
   processes:
       "httpd"
-        restart_class => "start_httpd";
+        restart_class => "httpd_is_not_running";
 
   commands:
-    start_httpd::
+    httpd_is_not_running::
       "/etc/init.d/httpd start";
 
 }

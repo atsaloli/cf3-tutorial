@@ -10,9 +10,10 @@ bundle agent main
         handle => "or_list",
         comment => "Demonstrate list form of class expression
                           useful for including functions",
-        or   => { "linux",
-                  "solaris",
-                  fileexists("/etc/fstab")
+        or   => {
+          "linux",
+          "solaris",
+          fileexists("/etc/fstab"),
         };
 
 

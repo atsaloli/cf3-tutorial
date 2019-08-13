@@ -3,11 +3,15 @@ bundle agent main {
   files:
 
       "/etc/motd"
-
         handle => "motd",
         comment => "Create and populate motd",
         create => "true",
         edit_line => my_motd;
+
+      "/tmp/motd_example"
+        create => "true",
+        edit_line => my_motd;
+
 }
 
 

@@ -2,14 +2,27 @@ bundle agent main {
 
   commands:
 
-
     linux&Hr08::
-
       "/bin/echo Linux system AND we are in the 8th hour.";
 
+    any::
       "/bin/echo hello world";   # this promise is NOT in the class "any" !!!
 
-    any::
+      "/bin/date";
 
       "/bin/date";
+
+      "/bin/date";
+
+    something::
+      "/bin/ls";
+
+      "/bin/date";
+
+      "/bin/date";
+
+      "/bin/date";
+
+      "/bin/something-else";
+
 }

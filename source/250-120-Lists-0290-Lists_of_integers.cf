@@ -5,7 +5,7 @@ bundle agent main {
       "my_list"
 
         comment => "Demonstrate a list of integers",
-        ilist => { "1", "2", "3" };
+        ilist => { 1, 2, 3 };
 
   reports:
 

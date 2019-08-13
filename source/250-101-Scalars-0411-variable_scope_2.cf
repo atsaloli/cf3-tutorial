@@ -1,5 +1,10 @@
 # Simplify / break in parts
 
+body common control {
+  bundlesequence => { bundle_0, "bundle_1", bundle_2, bundle_4, };
+}
+
+
 bundle agent bundle_0 {
       vars: "fruit" string => "banana";
       reports: "This is bundle_0";
@@ -17,3 +22,4 @@ bundle agent bundle_2 {
 }
 
 bundle agent bundle_4 { vars: "xyzzy" string => "magic"; }
+
