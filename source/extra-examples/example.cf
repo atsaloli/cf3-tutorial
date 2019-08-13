@@ -1,0 +1,30 @@
+body common control {
+  bundlesequence => { "example" };
+}
+
+bundle agent example {
+
+  classes:
+    any::
+      "file_compare"
+        expression => isnewerthan("/tmp/later", "/tmp/earlier");
+
+  classes:
+    any::
+      "do_it"
+        and => {
+          "class1",
+          "class2",
+          "class3",
+          "file_compare",
+        };
+        #expression => isnewerthan("/tmp/later", "/tmp/earlier");
+
+  reports:
+    do_it::
+      "/tmp/later is older than /tmp/earlier";
+
+    !class1::
+      "Class 1 wasn't set";
+
+}

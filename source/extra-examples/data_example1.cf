@@ -1,0 +1,24 @@
+bundle agent main {
+
+  vars:
+    any::
+
+      "phone_prices[Pixel]"
+        string => "$800";
+
+      "phone_prices[Galaxy]"
+        string => "$700";
+
+      "phone_prices[iPhone]"
+        string => "$999";
+
+  vars:
+    any::
+      "phones"
+        slist => getindices("phone_prices");
+
+  reports:
+    any::
+      "The price of a $(phones) is $(phone_prices[$(phones)])";
+
+}

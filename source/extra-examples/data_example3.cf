@@ -1,0 +1,23 @@
+bundle agent main {
+
+  vars:
+    any::
+      "phone_prices"
+        data => readjson("$(this.promise_dirname)/phone_prices.json");
+
+  vars:
+    any::
+      "phones"
+        slist => getindices("phone_prices");
+
+  reports:
+    any::
+      "The price of a $(phones) is $(phone_prices[$(phones)])";
+
+      "Attempt to iterate over a data container directly: $(phone_prices)";
+
+  files:
+    any::
+      "/etc/motd"
+
+}

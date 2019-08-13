@@ -1,0 +1,12 @@
+body file control {
+  inputs => {
+    "delme2.cf",
+  };
+}
+
+bundle agent my_name_can_be_anything {
+  vars:
+    "myvar" string => "This is the first bundle";
+  reports:
+    "$(myvar)";
+}

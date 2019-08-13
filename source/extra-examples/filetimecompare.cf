@@ -1,0 +1,25 @@
+bundle agent main {
+
+  classes:
+    any::
+      "motd_newer_than_passwd"
+        expression => isnewerthan("/etc/motd", "/etc/passwd");
+
+  reports:
+    motd_newer_than_passwd::
+      "The motd file is newer than the passwd file.";
+
+}
+
+bundle common students {
+
+  classes:
+    any::
+      "student"
+        expression => "working_on_exercises";
+
+    any::
+      "observer"
+        not => "working_on_exercises";
+
+}

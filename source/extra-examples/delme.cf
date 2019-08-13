@@ -1,0 +1,10 @@
+bundle agent apple {
+  vars:
+    any::
+      "mikes_var" string => "I am a cool var";
+}
+
+bundle agent orange {
+  reports:
+    "apple.mikes_var is: $(apple.mikes_var)";
+}

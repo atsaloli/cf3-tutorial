@@ -1,0 +1,5 @@
+bundle agent main {
+  reports:
+    ec2_instance::
+      "I am in AWS!";
+}

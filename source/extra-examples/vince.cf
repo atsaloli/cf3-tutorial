@@ -1,0 +1,31 @@
+bundle agent main { 
+ 
+  methods: 
+ 
+    "any" 
+      comment => "make sure the specified group is always present", 
+      usebundle => bundle_1; 
+ 
+} 
+ 
+bundle agent bundle_1 { 
+
+  classes:
+    any::
+      "namespace_context"
+        scope => "namespace",
+        expression => "whatever";
+
+  methods: 
+    any::
+      "bundle_2";
+ 
+} 
+ 
+ 
+bundle agent bundle_2 
+{ 
+  reports: 
+    webserver:: 
+      "Bundle bundle_1: I am a Web server"; 
+}

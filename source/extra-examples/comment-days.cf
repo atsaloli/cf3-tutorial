@@ -1,0 +1,8 @@
+bundle agent main {
+  files:
+    any::
+      "/tmp/date.txt"
+        edit_line => comment_lines_matching("[^#].*(Mon|Tue|Wed|Thur|Fri|Sat|Sun).*" , "#");
+}
+
+body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }

@@ -1,0 +1,28 @@
+bundle agent main {
+
+  vars:
+    any::
+      "files_to_create"
+        slist => {
+          "file1",
+          "file2",
+          "file3",
+          "file4",
+          "file5",
+        };
+
+  files:
+    any::
+      "/tmp/$(files_to_create)"
+        create => "true";
+
+  vars:
+    any::
+      "at_index_2"
+        string => nth("files_to_create", 2);
+
+  reports:
+    any::
+      "At index 2 is $(at_index_2)";
+
+}
