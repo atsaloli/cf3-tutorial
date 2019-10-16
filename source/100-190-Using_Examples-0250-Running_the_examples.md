@@ -5,7 +5,7 @@ By default, CFEngine doesn't inform you of changes it makes as reports at scale 
 However, while learning, it's educational to know when CFEngine makes changes
 and what those changes are.
 
-You can use the *-I* switch to turn on Inform mode so that CFEngine informs of
+You can use the `-I` switch to turn on Inform mode so that CFEngine informs of
 changes it makes to your system:
 
 Example:
