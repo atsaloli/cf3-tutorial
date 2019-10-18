@@ -3,14 +3,15 @@ Data containers - readjson
 1. Turn your array from the previous exercises into
    a JSON data file, e.g., `phones.json`:
 
-    ```json
+    ```
     {
       "iPhone"  : "$500",
       "Samsung" : "$450"
     }
     ```
 
-2. Read it into a "data"-type variable with readjson(), e.g.:
+2. Read it into a "data"-type variable with `readjson()`, e.g.:
+
 
     ```
       vars:
@@ -22,5 +23,6 @@ Data containers - readjson
 3. Report the contents of the data container
 
 Hint:
+
 - get the keys using getindices()
 - iterate over the keys to report the values
