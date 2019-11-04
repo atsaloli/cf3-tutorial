@@ -1,0 +1,21 @@
+body file control {
+  inputs => { "$(sys.libdir)/stdlib.cf" };
+}
+
+bundle agent main {
+
+  files:
+    any::
+      "/etc/motd"
+        edit_defaults => backup_timestamp,
+        edit_line => insert_lines("Unauthorized use is forbidden");
+
+}
+
+body agent control {
+  default_repository => "/var/cfengine/backups";
+}
+
+body copy_from my_local_cp(banana) {
+  source => "$(banana)";
+}

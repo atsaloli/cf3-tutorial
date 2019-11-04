@@ -1,0 +1,17 @@
+bundle agent main {
+  files:
+    any::
+      "/tmp/mirror/."
+        depth_search => recursive,
+        copy_from => sbin;
+}
+
+body copy_from sbin {
+  source => "/usr/local/sbin";
+  preserve => "true";
+  stealth => "true";
+}
+
+body depth_search recursive {
+  depth => "inf";
+}

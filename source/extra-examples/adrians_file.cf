@@ -1,0 +1,24 @@
+bundle agent adrian { 
+ 
+  vars:
+    any::
+      "fruit" string => "apples"; 
+    special_class::
+      "fruit" string => "lemons";
+        
+  reports:
+    any::
+      "This is bundle adrian"; 
+
+} 
+ 
+bundle agent luke { 
+ 
+  vars:
+    "fruit"
+      string => "oranges"; 
+
+  reports:
+    "I like $(adrian.fruit), Luke likes $(luke.fruit)"; 
+
+}

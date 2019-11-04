@@ -3,20 +3,20 @@
 bundle agent main {
 
   classes:
-      "file_exists"
+      "file_exists" # 4
         expression => fileexists("/tmp/newfile");
 
-      "file_absent"
+      "file_absent" # 1
         not => fileexists("/tmp/newfile");
 
   files:
-      "/tmp/newfile"
+      "/tmp/newfile" # 2
         create => "true";
 
   reports:
-    file_exists::
+    file_exists:: # 5
       "file /tmp/newfile exists";
 
-    file_absent::
+    file_absent:: # 3
       "file /tmp/newfile does not exist";
 }

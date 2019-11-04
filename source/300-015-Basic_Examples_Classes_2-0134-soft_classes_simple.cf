@@ -4,8 +4,18 @@ bundle agent main {
       "weekend"
         expression => "Saturday|Sunday";
 
+  classes:
+    any:: # Valid even as far back as 3.7
       "weekday"
         expression => "Monday|Tuesday|Wednesday|Thursday|Friday";
+
+    Monday|Tuesday|Wednesday|Thursday|Friday::
+      "weekday"
+        expression => "any"; # 3.7 and earlier require expression attribute
+
+    Monday|Tuesday|Wednesday|Thursday|Friday::
+      "weekday"; # In 3.10 and later the expression attribute can be left out.
+                 # When left out, it defaults to "any".
 
   reports:
     weekend::

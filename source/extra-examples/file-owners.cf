@@ -1,0 +1,34 @@
+bundle agent main {
+
+  vars:
+    any::
+      "file_owners"
+        data => '{
+          "/etc/passwd": "root",
+          "/etc/shadow": "root",
+          "/tmp/myfile": "mike",
+        }';
+
+    any::
+      "files"
+        slist => getindices("file_owners");
+
+  users:
+    any::
+      "pete"
+        policy => "absent";
+
+  files:
+    any::
+      "$(files)"
+        if => fileexists("$(files)"),
+        perms => owner("$(file_owners[$(files)])");
+
+}
+
+# Needs standard library to work standalone
+body file control {
+  inputs => {
+    "$(sys.libdir)/stdlib.cf",
+  };
+}

@@ -12,7 +12,7 @@ bundle common g {
 
 
 bundle agent main {
-  vars: "foo" string => "bar";
+  vars: "foo" string => "bar/baz<bif>";
 
   files:
       "/etc/motd"

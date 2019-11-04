@@ -1,0 +1,36 @@
+UNAUTHORIZED USE FORBIDDEN
+
+(This file is managed by CFEngine.)
+
+The organization is {{{vars.main.org}}}
+
+New reference to org: {{{org}}}
+
+This host is {{{vars.sys.fqhost}}}
+
+New reference to hostname: {{{hostname}}}
+
+{{#vars.sys.ip_addresses}}
+  One of its IP addresses is {{{.}}}
+{{/vars.sys.ip_addresses}}
+
+{{#classes.linux}}
+This is a linux host.
+
+{{#classes.ubuntu}}
+This is an Ubuntu host.
+{{/classes.ubuntu}}
+{{^classes.ubuntu}}
+This is not an Ubuntu host.
+{{/classes.ubuntu}}
+
+{{#classes.centos}}
+This is a CentOS host.
+{{/classes.centos}}
+{{^classes.centos}}
+This is not a CentOS host.
+{{/classes.centos}}
+{{/classes.linux}}
+{{^classes.linux}}
+This is not a linux host.
+{{/classes.linux}}

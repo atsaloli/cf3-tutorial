@@ -5,8 +5,8 @@ bundle agent main
 
   reports:
 
-      "System Check"
-        handle => "systems_check";
+      "We launched"
+        depends_on => { "ignition" };
 
       "Launch!!"
         depends_on => { "fuel_check", "systems_check" },
@@ -14,7 +14,11 @@ bundle agent main
         comment => "Demonstrate flow control with depends_on";
 
       "Fueling..." 
+        depends_on => { "systems_check" },
         handle => "fuel_check";
+
+      "System Check"
+        handle => "systems_check";
 
 }
 

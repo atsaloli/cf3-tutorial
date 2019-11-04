@@ -1,0 +1,19 @@
+bundle agent main {
+
+  reports:
+    any::
+      "$(this.bundle)";
+
+  methods:
+    any::
+      "apple";
+
+}
+
+bundle agent apple {
+
+  reports:
+    any::
+      "$(this.bundle)";
+
+}

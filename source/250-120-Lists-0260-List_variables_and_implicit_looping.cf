@@ -12,8 +12,15 @@ bundle agent main {
                      "hamburgers",
                    };
 
+      "second_list"
+        slist => {
+          "some item",
+          @(shopping_list),
+          "last item",
+        };
+
   reports:
 
-      "Buy $(shopping_list)";
+      "Buy $(second_list)";
 }
 

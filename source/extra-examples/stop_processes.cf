@@ -1,0 +1,16 @@
+bundle agent main {
+
+  vars:
+    any::
+      "process_blacklist"
+        slist => {
+          "eggdrop",
+          "trn",
+        };
+
+  processes:
+    any::
+      "$(process_blacklist)"
+        signals => { "term", "kill" };
+
+}

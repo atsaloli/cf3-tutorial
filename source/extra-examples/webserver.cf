@@ -1,0 +1,48 @@
+body file control {
+  inputs => { "$(sys.libdir)/stdlib.cf" };
+}
+
+body common control {
+  package_module => $(package_module_knowledge.platform_default);
+}
+
+bundle agent main {
+
+  methods:
+    any::
+      "Set up as not a webserver"
+        usebundle => webserver("off");
+
+}
+
+bundle agent webserver(on_or_off) {
+
+  classes:
+
+    any::
+      "webserver_on"
+        expression => strcmp("$(on_or_off)", "on");
+
+    any::
+      "webserver_off"
+        expression => strcmp("$(on_or_off)", "off");
+
+  packages:
+    webserver_on::
+      "httpd"
+        policy => "present";
+
+    webserver_off::
+      "httpd"
+        policy => "absent";
+
+  services:
+    webserver_on::
+      "httpd"
+        service_policy => "start";
+
+    webserver_off::
+      "httpd"
+        service_policy => "stop";
+
+}

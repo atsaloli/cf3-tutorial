@@ -1,0 +1,31 @@
+bundle agent main {
+
+  reports:
+    any::
+      "This is the main bundle";
+
+  methods:
+    any::
+      "banana";
+
+    any::
+      "The promiser is ignored when there is a usebundle attribute"
+        usebundle => apple("baz");
+
+}
+
+bundle agent banana {
+
+  reports:
+    any::
+      "This is the banana bundle.";
+
+}
+
+bundle agent apple(foo) {
+
+  reports:
+    any::
+      "The apple bundle received parameter $(foo)";
+
+}

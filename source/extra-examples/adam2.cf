@@ -1,0 +1,57 @@
+bundle agent main { 
+ 
+  methods: 
+ 
+    "any" 
+ 
+      handle => "group_exists", 
+      comment => "make sure the specified group is always present", 
+      usebundle => groupadd("adam"); 
+
+  methods:
+    any::
+      "add a students group"
+        usebundle => groupadd("students");
+ 
+} 
+ 
+bundle agent groupadd(groupname) { 
+
+  vars:
+    linux::
+      "groupadd"
+        string => "/usr/sbin/groupadd";
+ 
+    aix::
+      "groupadd"
+        string => "/sbin/addgroup";
+ 
+    hpux::
+      "groupadd"
+        string => "/usr/sbin/addgroup";
+ 
+  classes: 
+    "gname"
+      expression => groupexists("$(groupname)");
+ 
+  commands: 
+    !gname::
+      "$(groupadd)"
+        classes => if_repaired("group_$(groupname)_added"),
+        args => "$(groupname)"; 
+
+  reports: 
+ 
+    gname:: 
+      "Group $(groupname) exists!"
+        unless => "group_$(groupname)_added"; 
+ 
+    any::
+      "Group $(groupname) added!"
+        if => "group_$(groupname)_added"; 
+ 
+}
+
+body file control {
+  inputs => { "$(sys.libdir)/stdlib.cf" };
+}

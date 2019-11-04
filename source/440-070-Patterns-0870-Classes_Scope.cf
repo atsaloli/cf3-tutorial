@@ -1,8 +1,24 @@
+# Standalone example - in a real codebase, you can only have ONE body common control.
+body common control {
+  bundlesequence => {
+    "example_1",
+    "example_2",
+  };
+}
+
 bundle agent example_1 {
+# For common bundles, the default scope for classes promises is "namespace".
+# For agent bundles, the default scope for classes promises is "bundle".
+# Either one can be overridden explicitly.
 
   classes:
       "its_monday"
         expression => "Monday";
+
+  classes:
+      "its_wednesday"
+        scope => "namespace",
+        expression => "Wednesday";
 
   classes:
       "its_thur"
@@ -15,6 +31,10 @@ bundle agent example_2 {
   reports:
     its_monday::
       "Yay!  I love Mondays!";
+
+  reports:
+    its_wednesday::
+      "Yay!  I love Wednesdays!";
 
   reports:
     its_thur::

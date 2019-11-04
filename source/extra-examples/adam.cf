@@ -1,0 +1,65 @@
+bundle agent old_main { 
+ 
+  reports: 
+
+    linux:: 
+      "running on LINUX"; 
+
+    ubuntu_14:: 
+      "running on ubuntu 14"; 
+
+    redhat:: 
+      "running on redhat"; 
+
+    July:: 
+      "It is the month of July"; 
+}
+
+bundle agent main {
+
+  vars:
+    any::
+      "files"
+        slist => {
+          "/etc/passwd",
+          "/etc/shadow",
+          "/etc/adamfile",
+        };
+
+  classes:
+    any::
+      "file_exists$(files)"
+        expression => fileexists("$(files)");
+
+  reports:
+    file_exists_etc_passwd.file_exists_etc_shadow::
+      "Both the files exist";
+
+  reports:
+    any::
+      "$(files) is missing"
+        unless => fileexists("$(files)");
+
+  reports:
+    any::
+      "$(files) is present"
+        if => fileexists("$(files)");
+
+  classes:
+    any::
+      "adams_class"
+        handle => "file_check",
+        comment => "Checks for existence of a file",
+        and => {
+          fileexists("/etc/passwd"),
+          fileexists("/etc/shadow")
+        };
+
+  reports:
+    adams_class::
+      "/etc/password and /etc/shadow exists!";
+
+    !adams_class::
+      "/etc/password and/or /etc/shadow missing!!!!";
+
+}

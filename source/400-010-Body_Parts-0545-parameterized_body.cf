@@ -9,11 +9,11 @@ bundle agent main {
         handle  => "set_file_attributes_automagically",
         comment  => "Set appropriate file attributes everywhere",
         create  => "true",
-        perms   => set_mode_700_admin_group_and_specified_user("sam");
+        perms   => admin_700_file_owned_by("mike");
 
 }
 
-body perms set_mode_700_admin_group_and_specified_user(user) {
+body perms admin_700_file_owned_by(user) {
         mode   => "0700";
         owners => { "$(user)" };
 

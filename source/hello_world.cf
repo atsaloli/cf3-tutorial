@@ -1,4 +1,8 @@
-bundle agent main
+body common control {
+  bundlesequence => { "hello_world" };
+}
+
+bundle agent hello_world
 {
 
 reports:
@@ -13,4 +17,20 @@ reports:
 #    
 #      "$(myclasses)";
 
+  methods:
+    "whatever"
+      usebundle => second;
+
+  methods:
+    "whatever"
+      usebundle => second;
+
 } 
+
+bundle agent second {
+
+  reports:
+
+    "This is a reports promise";
+
+}

@@ -1,0 +1,6 @@
+bundle agent second_bundle {
+  vars:
+    "myvar" string => "This is the second bundle";
+  reports:
+    "$(myvar)";
+}

@@ -1,0 +1,18 @@
+bundle agent main {
+
+  files:
+    any::
+      "/etc/motd"
+        edit_template => "$(this.promise_dirname)/whatever_filename.mustache",
+        #template_data => '{
+          #"org": "AT&T",
+          #"hostname": "$(sys.fqhost)"
+        #}',
+        template_method => "mustache";
+
+  vars:
+    any::
+      "org"
+        string => "AT&T";
+
+}

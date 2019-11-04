@@ -2,16 +2,36 @@ bundle agent main {
 
   vars:
 
-      "food_prices[Apple]"
+    any::
+      "price_map"
+        data => '{ "Apple": 58, "Banana": 30 }';
+
+      "price_of[Apple]"
         string =>  "58c";
 
-      "food_prices[Banana]"
+      "price_of[Banana]"
         string =>  "30c";
 
       "food"
-        slist => getindices("food_prices");
+        slist => getindices("price_of");
 
+      "prices_only"
+        slist => getvalues("price_of");
+
+      "for_reporting_only"
+        string => format("%S", "price_map");
 
   reports:
-      "Values of 'food_prices' array:  $(food): $(food_prices[$(food)])";
+      "Values of 'price_of' array:  $(food): $(price_of[$(food)])";
+
+      "Just apples: $(price_of[Apple])";
+
+      "The result of the getindices call includes: $(food)";
+
+      "For printing only: $(for_reporting_only)";
+
+      "The prices (of what we don't know) include: $(prices_only)";
+
+      "Match everything with everything: $(food), $(prices_only)";
+
 }

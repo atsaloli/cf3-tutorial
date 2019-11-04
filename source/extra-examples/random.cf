@@ -1,0 +1,17 @@
+bundle agent main
+{
+  vars:
+      "low"    string => "4";
+      "high"   string => "60";
+
+      "random"    int => randomint($(low), $(high));
+  classes:
+      "isabove" expression => isgreaterthan($(random), 3);
+
+  reports:
+    isabove::
+      "The generated random number was above 3";
+
+    any::
+      "Randomly generated '$(random)'";
+}
