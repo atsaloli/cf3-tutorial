@@ -1,6 +1,6 @@
 Editing an XML config file
 
-Use CFEngine to create an XML file with the following structure and content:
+Use CFEngine's XML editing features to create an XML file with the following structure and content:
 
 ```xml
 <?xml version="1.0"?>
