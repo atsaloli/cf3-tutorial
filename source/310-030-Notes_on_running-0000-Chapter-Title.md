@@ -1,1 +1,1 @@
-## Multiple passes and Convergence
+## Multiple Passes and Convergence
