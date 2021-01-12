@@ -1,7 +1,7 @@
 ## Why Automation?
 
-> Every time someone logs onto a system by hand, they jeopardize everyone's understanding of the system. 
-> 
+> Every time someone logs onto a system by hand, they jeopardize everyone's understanding of the system.
+>
 > --- Mark Burgess, author of CFEngine
 
 
