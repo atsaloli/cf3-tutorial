@@ -25,17 +25,17 @@ indentation to indicate chapter/section/subsection etc.
 3. Run "install_vim_slideshow_bindings.sh" and then "run_slides.sh" --
 this is what I use when teaching.
 
-Key bindings: 
-press F7 to move to the next slide,
-Backspace to go to the previous slide,
-"ff" to feed the file to cf-agent,
-"vv" to do so in verbose mode,
-"rr" to run shell scripts, etc. (see install_vim_slideshow_bindings.sh" for detail).
+Key bindings:
+- SPACE or F7 to move to the next slide,
+- BACKSPACE to go to the previous slide,
+- "ff" to feed the file to cf-agent,
+- "vv" to do so in verbose mode,
+- "rr" to run shell scripts, etc. (see install_vim_slideshow_bindings.sh" for detail).
 
 4. Build the book HTML using the build_softcover.sh script in the
 "source" directory.
 This requires SoftCover from www.softcover.io
-Then look at html/cf3.html 
+Then look at html/cf3.html
 
 
 ## Say hello
