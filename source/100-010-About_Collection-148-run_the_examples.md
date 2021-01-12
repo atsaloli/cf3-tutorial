@@ -10,5 +10,5 @@ exercises at the end of the tutorial, or just start writing
 your own code!
 
 ### Look up any unfamiliar terms
-Misunderstood or not understood terms can block understanding.
+
 Look up unfamiliar terms in the [CFEngine Reference Manual](http://docs.cfengine.com), or in a good [English dictionary](http://www.onelook.com).
