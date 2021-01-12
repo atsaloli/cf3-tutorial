@@ -19,7 +19,7 @@ Filename: 100-010-About\_Collection-0000-Chapter-Title.md
 Filename: 100-010-About\_Collection-0130-About\_this\_collection.md
 -->
 
-### Training examples
+### Training Examples
 
 Vertical Sysadmin, an authorized CFEngine training partner,
 has put together a collection of over 200 standalone working
