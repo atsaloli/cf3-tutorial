@@ -1,4 +1,4 @@
-### Training examples
+### Training Examples
 
 Vertical Sysadmin, an authorized CFEngine training partner,
 has put together a collection of over 200 standalone working
