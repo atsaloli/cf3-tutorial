@@ -1,4 +1,4 @@
-### Using the examples
+### Using the Examples
 
 The materials are arranged in logical sequence for study.
 
