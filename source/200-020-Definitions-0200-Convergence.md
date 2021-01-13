@@ -3,7 +3,7 @@ Convergence
 > *Convergence*
 > - coming to a desired end state
 >
-> --- Mark Burgess, http://markburgess.org/blog_cd.html)
+> --- Mark Burgess, http://markburgess.org/blog_cd.html
 
 ![Convergence](images/figures/convergence.pdf)
 
