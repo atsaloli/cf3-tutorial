@@ -1,0 +1,8 @@
+yum install -y git
+yum install -y wget
+wget https://cfengine-package-repos.s3.amazonaws.com/community_binaries/Community-3.12.6/agent_rhel8_x86_64/cfengine-community-3.12.6-1.el8.x86_64.rpm
+rpm -ihv ./cfengine-community-3.12.6-1.el8.x86_64.rpm
+
+studnte questions
+- purpose for attending course
+- what editor do you use?
