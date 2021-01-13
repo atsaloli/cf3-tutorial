@@ -1,5 +1,5 @@
 
-### Miscellaneous components
+### Monitoring
 
 **cf-monitord**
 :
