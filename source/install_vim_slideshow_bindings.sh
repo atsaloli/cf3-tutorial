@@ -16,6 +16,7 @@ cat <<EOF >> $HOME/.vimrc
 " that gets invoked after a command is run eats spaces (that's the 'press
 " Enter to continue' prompt that vim gives you after running a command)
 map <F7> :next +1<CR>
+map <SPACE> :next +1<CR>
 map <BACKSPACE> :prev +1<CR>
 
 " feed current "f"ile to cf-agent in Inform mode
