@@ -9,6 +9,4 @@ The name for the first generation of the CFEngine Enterprise product was "Nova" 
 : Core plus Enterprise extensions (Reporting, native Windows build, etc.)
 
 **cfengine-nova-hub**
-: Core plus Enterpise extensions plus Mission Portal (which is Report Collection system and an Admin GUI on an Apache/PHP/PostgreSQL stack with a Redis cache for report collection)
-
-Packages for systems not supported by cfengine.com (e.g. MacOS, FreeBSD, Android, etc.) can be obtained from [www.cfengineers.net](http://www.cfengineers.net) (e.g. HP-UX)
+: Core plus Enterpise extensions plus Mission Portal (which is Report Collection system and an Admin GUI on an Apache/PHP/PostgreSQL stack)
