@@ -48,4 +48,11 @@ set statusline+=%f
 " Syntax highlighting for AsciiDoc
 autocmd BufRead,BufNewFile *.txt set ft=asciidoc
 
+" Colorize status bar (for working on cf3-tutorial)
+" Markdown: black on green
+au BufRead *.md hi StatusLine ctermbg=black ctermfg=green
+" CF3: black on yellow
+au BufRead *.cf hi StatusLine ctermbg=black ctermfg=yellow
+" Exercises: black on red
+au BufRead *.exr.md hi StatusLine ctermbg=black ctermfg=red
 EOF

@@ -4,12 +4,12 @@
 
 ```bash
 wget https://cfengine-package-repos.s3.amazonaws.com/community_binaries/\
-cfengine-community-3.7.1-1.el6.x86_64.rpm
+Community-3.12.6/agent_rhel8_x86_64/cfengine-community-3.12.6-1.el8.x86_64.rpm
 ```
 or get it from [CFEngine](https://cfengine.com/product/community/)
 
 - Examine package:
 
 ```bash
-rpm -q --filesbypkg cfengine-community-3.7.1-1.el6.x86_64.rpm | less
+rpm -q --filesbypkg cfengine-community-*.rpm | less
 ```
