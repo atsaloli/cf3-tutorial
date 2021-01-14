@@ -2,7 +2,7 @@
 ### Inter-Node Communication
 
 **cf-serverd**
-: File server, used to distribute files; listens for network requests for additional runs of the local agent.  
+: File server, used to distribute files; listens for network requests for additional runs of the local agent.
 
 **cf-key**
 : Key generation tool, used on every host to create public/private key pairs for secure communication.
