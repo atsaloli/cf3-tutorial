@@ -149,7 +149,7 @@ body #book {
   margin-left: 0.3em;
 }
 
-#book .codelisting .heading span.filepath {
+#book .codelisting .heading code.filepath {
   display: block;
   margin-left: 0.4em;
   margin-top: 0.2em;
@@ -169,11 +169,16 @@ body #book {
 
 #book .filepath {
   font-family: Courier, monospace;
-  font-size: 80%;
+  font-size: 100%;
+  color: #070707;
+  font-weight: normal;
 }
 
 #book .inline_verbatim {
   font-family: Courier, monospace;
+  color: #070707;
+  font-size: 100%;
+  font-weight: normal;
 }
 
 #book a.ref {
@@ -302,6 +307,7 @@ body #book {
 #book .footnotes {
   border-top: 1px solid black;
   margin-top: 5em;
+  padding-top: 1em;
   font-size: 90%;
 }
 
@@ -315,20 +321,12 @@ body #book {
   margin-right: 0px;
 }
 
+#book .footnote a {
+  text-decoration: underline;
+}
+
 #book sup.footnote a:visited {
   color: #002f72;
-}
-
-#book ol.footnotes a.arrow {
-  text-decoration: none !important;
-}
-
-#book ol.footnotes.nonumbers li {
-  list-style-type: none;
-}
-
-#book ul.footnotes.nonumbers li {
-  list-style-type: none;
 }
 
 #book .footnotes .header {
@@ -339,11 +337,11 @@ body #book {
   font-weight: bold;
 }
 
-#book a.arrow {
-  text-decoration: none !important;
+#book .footnote {
+  margin-bottom: 0.4em;
 }
 
-#book a:visited.arrow {
+#book a:visited.footnote-link {
   color: #002f72;
 }
 
@@ -355,6 +353,7 @@ body #book {
 #book a.heading {
   color: #000;
   text-decoration: none !important;
+  line-height: 1;
 }
 
 #book a:hover.heading {
@@ -435,7 +434,7 @@ body #book {
   color: red;
 }
 
-#book .sc {
+#book .smallcaps {
   font-variant: small-caps;
 }
 
@@ -471,4 +470,3 @@ body #book {
 #book span.intersentencespace {
   margin-right: 0.2em;
 }
-

@@ -165,8 +165,8 @@
 \newunicodechar{↵}{\returnkey}
 \newunicodechar{⌫}{\delkey}
 \newunicodechar{␣}{\textvisiblespace}
-\newunicodechar{—}{---}
-\newunicodechar{–}{--}
+\newunicodechar{—}{\textemdash}
+\newunicodechar{–}{\textendash}
 \newunicodechar{™}{\texttrademark}
 \newunicodechar{©}{\copyright}
 \newunicodechar{®}{\textregistered}
@@ -174,6 +174,24 @@
 \newunicodechar{£}{\pounds}
 \usepackage{eurosym}
 \newunicodechar{€}{\euro}
+\newunicodechar{¡}{!`}
+\newunicodechar{¿}{?`}
+\newunicodechar{ß}{\ss}
+\newunicodechar{✓}{\checkmark}
+
+% xelatex supports macrons by default, but for some reason they disappear.
+\newunicodechar{ā}{\={a}}
+\newunicodechar{ē}{\={e}}
+\newunicodechar{ī}{\={\i}}
+\newunicodechar{ō}{\={o}}
+\newunicodechar{ū}{\={u}}
+\newunicodechar{Ā}{\={A}}
+\newunicodechar{Ē}{\={E}}
+\newunicodechar{Ī}{\={I}}
+\newunicodechar{Ō}{\={O}}
+\newunicodechar{Ū}{\={U}}
+\newunicodechar{«}{\guillemotleft}
+\newunicodechar{»}{\guillemotright}
 
 \usepackage{latex_styles/language_customization}
 
@@ -188,6 +206,15 @@
     \let'\textquotesingle
     \let\PYZsq\textquotesingle}
 \endgroup
+
+% Add smallcaps
+\usepackage{fontspec}
+\setmainfont[ItalicFont     = Times New Roman Italic,
+             BoldFont       = Times New Roman Bold,
+             BoldItalicFont = Times New Roman Bold Italic,
+             SmallCapsFont  = Bodoni 72 Smallcaps]
+            {Times New Roman}
+\setmonofont{Courier}
 
 % Include custom commands.
 \usepackage{latex_styles/custom}
