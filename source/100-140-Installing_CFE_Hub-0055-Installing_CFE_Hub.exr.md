@@ -1,20 +1,18 @@
-Install CFEngine on your Hub VM
+### First VM -- the Hub
 
-- Ensure your Hub VM has an FQDN hostname (required by Hub package)
-
-  - Add line for FQDN hostname, e.g. "1.2.3.4 alpha.example.com"
+- Ensure your Hub VM has an FQDN hostname (required by Hub package).
+Add line for FQDN hostname, e.g. "1.2.3.4 alpha.example.com"
 
 ```bash
 vi /etc/hosts
 ```
-  - Set hostname to FQDN:
+Set hostname to FQDN:
 
 ```bash
 /bin/hostname alpha.example.com
 ```
 
 - Download hub package
-
 ```bash
 wget https://cfengine-package-repos.s3.amazonaws.com/enterprise/\
 Enterprise-3.7.1/hub/redhat_6_x86_64/cfengine-nova-hub-3.7.1-1.x86_64.rpm
@@ -24,13 +22,11 @@ If the above URL stops working, you can download the hub package
 from [CFEngine.com](http://cfengine.com/download/)
 
 - Install the hub package.
-
 ```bash
 rpm -ihv ./cfengine-nova-hub-3.7.1-1.x86_64.rpm
 ```
 
 - Bootstrap the hub to itself:
-
 ```bash
 cf-agent -B <hostname>
 ```

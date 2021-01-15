@@ -11,5 +11,5 @@
 
 NOTKEPT outcomes likely require attention!
 
-REPAIRED outcomes may require attention (especially if they keep recurring).
+REPAIRED outcomes _may_ require attention (especially if they keep recurring).
 

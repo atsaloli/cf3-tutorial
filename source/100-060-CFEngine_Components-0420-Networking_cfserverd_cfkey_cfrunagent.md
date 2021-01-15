@@ -1,14 +1,11 @@
 
-### Inter-Node Communication
+### Network Communication
 
 **cf-serverd**
-: File server, used to distribute files; listens for network requests for additional runs of the local agent.
-
-**cf-key**
-: Key generation tool, used on every host to create public/private key pairs for secure communication.
+: Has three functions: file server, for distributing files; it also listens for network requests for additional runs of the local agent (triggered by cf-runagent); in CFEngine Enterprise, it also serves inventory and compliance reports (when the hub asks for them).
 
 **cf-runagent**
-: Remote run agent, is used to execute cf-agent on a remote machine.  cf-runagent does not keep any promises, but instead is used to ask another machine to do so.
+: Triggers cf-agent on a remote machine (connects to remote cf-serverd).
 
 **cf-hub**
-: CFEngine Enterprise only, used to collect reports from hosts (connects to remote cf-serverd).
+: CFEngine Enterprise only, collects reports from hosts (connects to remote cf-serverd).

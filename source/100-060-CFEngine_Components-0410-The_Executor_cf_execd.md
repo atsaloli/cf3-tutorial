@@ -2,4 +2,4 @@
 ### Executor
 
 **cf-execd**
-: Used to run cf-agent on a regular (and user-configurable) basis, and to handle its output.
+: Runs cf-agent on a regular basis, and handles its output.

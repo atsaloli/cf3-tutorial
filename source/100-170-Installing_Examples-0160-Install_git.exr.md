@@ -1,11 +1,11 @@
-Install git
+#### Install git
 
-On RHEL/Centos 6:
+On RHEL/Centos:
 ```bash
-yum install git
+yum install -y git
 ```
 
 On Debian/Ubuntu:
 ```bash
-apt-get install git
+apt-get install -y git
 ```

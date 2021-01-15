@@ -1,9 +1,4 @@
-Inform Mode
-
-Use the `-I` switch to turn on Inform mode so that CFEngine informs of
-changes it makes to your system.
-
-Run the "Create File" example with "Inform" mode:
+Run the "Create File" example with "Inform" mode enabled:
 
 ```bash
 rm /tmp/test

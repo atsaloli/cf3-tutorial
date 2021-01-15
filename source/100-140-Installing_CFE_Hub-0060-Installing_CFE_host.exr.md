@@ -1,14 +1,13 @@
-Install CFEngine on your 2nd VM (the managed host)
+### Second VM - a Managed Host
 
-- Ensure your Host VM has an FQDN hostname.
-```bash
-vi /etc/hosts
-/bin/hostname <hostname.domain>
-```
+Install CFEngine on your 2nd VM (the managed host).
 
 - Download host package.
+
 ```bash
-wget https://cfengine-package-repos.s3.amazonaws.com/enterprise/Enterprise-3.7.1/\
+wget \
+https://cfengine-package-repos.s3.amazonaws.com/\
+enterprise/Enterprise-3.7.1/\
 agent/agent_rhel6_x86_64/cfengine-nova-3.7.1-1.x86_64.rpm
 ```
 
