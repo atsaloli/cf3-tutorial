@@ -1,6 +1,6 @@
 ### About the Course
 
-*Automating System Administration with CFEngine 3 (5 days)*
+"Automating System Administration with CFEngine 3 (5 days)"
 
 **Requirements**: No knowledge of CFEngine or configuration management is
 required, only basic knowledge of system administration.
