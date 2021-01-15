@@ -28,17 +28,6 @@ map vv :!clear;/var/cfengine/bin/cf-agent --color=always -KIv -f '%:p' \| less -
 " "r"un current file using /bin/sh
 map rr :!clear;/bin/sh '%:p'
 
-" Binding to render "t"ext:
-" run asciidoc to render AsciiDoc file; display it with elinks
-" but filter out the Last-updated footer that elinks adds.
-" Throw away warnings from asciidoc; some heading levels generate 
-" warnings when processed standalone but they are needed for the
-" compiled materials (in book form) to be more readable.
-map tt :!clear;asciidoc -a source-highlighter=pygments -o - '%:p' 2>/dev/null \| elinks -dump -config-dir $HOME -config-file vsa-elinks.conf \| grep -v '^   Last updated '
-
-" autocommand to render asciidoc files (*.txt) (should be the same as "tt" mapping above)
-:autocmd BufRead *.txt :!clear; asciidoc -a source-highlighter=pygments -o - '%:p' 2>/dev/null  | elinks -dump -config-dir $HOME -config-file vsa-elinks.conf | grep -v '^   Last updated '
-
 " Make status line visible
 set laststatus=2
 
@@ -48,6 +37,23 @@ set statusline+=%f
 " Syntax highlighting for AsciiDoc
 autocmd BufRead,BufNewFile *.txt set ft=asciidoc
 
+" render markdown to "t"ext with mdless (see below)
+map tt :term++curwin mdless --no-pager %:p
+
+" mdless is a markdown to text converter: https://brettterpstra.com/projects/mdless/
+" Let's use it to render markdown formatting
+" We use Vim "terminal" because it can handle the escape codes
+" that mdless generates (it outputs color by default -- we could turn that off but
+" it looks better with color).
+" Install mdless with "gem install mdless" 
+:autocmd BufRead *.md :term++curwin mdless --no-pager --width=80 %:p
+:autocmd BufRead *.cf :term++curwin pygmentize -l cfengine3 %:p
+
+" add a shortcut for "e"diting the previous file (alternate-file in Vim terminology).
+" This lets us edit the source markdown file.
+" We have to add "noautocmd" to prevent Vim from rendering it with mdless
+" as per the autocmd above.
+map ee :noautocmd e #
 " Colorize status bar (for working on cf3-tutorial)
 " Markdown: black on green
 au BufRead *.md hi StatusLine ctermbg=black ctermfg=green
