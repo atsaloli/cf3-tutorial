@@ -1,5 +1,3 @@
-CFEngine 3 consists of a number of components.
-
 ### Syntax Checker
 
 **cf-promises**
