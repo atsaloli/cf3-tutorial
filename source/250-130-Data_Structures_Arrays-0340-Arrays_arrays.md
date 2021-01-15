@@ -14,9 +14,10 @@ or
 $(bundle_name.array_name[key_name])
 ```
 
-Example: 
+Example:
 
 Food Prices
+
 | Apple | 59c |
 | Banana | 30c |
 | Oranges | 35c |
