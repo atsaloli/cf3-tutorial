@@ -1,19 +1,24 @@
 ### Policy Flow Diagram
 
-The policy distribution point is /var/cfengine/masterfiles on a policy server.
+#### Definitions
 
-TIP: Keep your policy in a Version Control System.
+**Policy server**
+: A server that shares CFEngine files (policy, data, templates, scripts, binaries) with the rest of the infrastructure using cf-serverd. Also called the hub.
 
-Here is the policy distribution flow on the the policy server itself:
+**Policy distribution point**
+: The default policy distribution point is /var/cfengine/masterfiles on the policy server. Policy comes from here; in other words, the managed hosts get their policy from /var/cfengine/masterfiles on the policy server (also called the hub).
 
-![policy flow diagram 1](images/figures/policy_flow_server.pdf)
+**Inputs directory**
+: The inputs directory is where CFEngine looks for its policy files (defaults to /var/cfengine/inputs).
 
+#### Policy Distribution Flow
 
-And now let's add a host (client) to the picture:
+The CFEngine agent runs twice in each cycle:
+- Checks for policy updates (and copies them from /var/cfengine/masterfiles/ on the hub to the local /var/cfengine/inputs/)
+- Runs the policy in /var/cfengine/inputs/
 
-![policy flow diagram 2](images/figures/policy_flow.pdf)
+This "caching" of policy makes CFEngine resilient to network outages. CFEngine uses the network opportunistically.
 
+The default schedule is the agent runs every 5 minutes.
 
-And now let's add many hosts to the picture:
-
-![policy flow diagram 3](images/figures/policy_flow_clients.pdf)
+So you can update hundreds of thousands of servers within minutes. Very powerful!

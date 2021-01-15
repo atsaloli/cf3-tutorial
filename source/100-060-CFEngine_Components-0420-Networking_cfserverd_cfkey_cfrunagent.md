@@ -2,7 +2,10 @@
 ### Network Communication
 
 **cf-serverd**
-: Has three functions: file server, for distributing files; it also listens for network requests for additional runs of the local agent (triggered by cf-runagent); in CFEngine Enterprise, it also serves inventory and compliance reports (when the hub asks for them).
+: Has three functions:
+- file server, for distributing files
+- reports server (Enterprise only)
+- listens for network requests for additional runs of the local agent
 
 **cf-runagent**
 : Triggers cf-agent on a remote machine (connects to remote cf-serverd).

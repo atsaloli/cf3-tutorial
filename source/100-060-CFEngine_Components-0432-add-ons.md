@@ -3,7 +3,7 @@
 There are a number of add-on tools, they have to be installed separately:
 
 **cf-diag**
-: Diagnostic tool (check the health of a CFEngine host).
+: Diagnostic tool (checks the health of a CFEngine host).
 
 **masterfiles-stage**
 : Policy deployment tool - designed to run on the Policy Server and safely deploy policy from upstream locations to a directory on the Policy Server for distribution to clients.
@@ -12,7 +12,7 @@ There are a number of add-on tools, they have to be installed separately:
 : Source code reformatter (like "tidy").
 
 **cf-profile**
-: Profiler (measures how long your bundles take to run so you can find and tune any slow spots).
+: Profiler (measures how long your bundles take to run so you can find and fix any slow spots).
 
 **cf-remote**
 : Tooling to deploy CFEngine.
