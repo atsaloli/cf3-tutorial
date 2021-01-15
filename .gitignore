@@ -14,11 +14,12 @@ chapters/cfengine_*.md
 *.tmp.*
 tmp/
 generated_polytex/
-
+latex_styles/*.sty
 .highlight_cache
 
 # Generated HTML files
 html/*.html
+html/stylesheets/*.css
 
 # Generated EPUB files
 epub/OEBPS/*.html
