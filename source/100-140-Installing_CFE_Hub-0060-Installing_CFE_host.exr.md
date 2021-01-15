@@ -1,5 +1,7 @@
 ### Second VM - a Managed Host
 
+TODO -- this needs to be updated for 3.12 or newer
+
 Install CFEngine on your 2nd VM (the managed host).
 
 - Download host package.
