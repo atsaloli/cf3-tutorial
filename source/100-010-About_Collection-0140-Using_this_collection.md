@@ -6,3 +6,5 @@ discussion, lab exercises, and a policy-writing workshop.
 
 I've put these materials online to make it easier for infrastructure
 engineers to learn CFEngine 3, to build a stable civilization.
+
+https://github.com/atsaloli/cf3-tutorial
