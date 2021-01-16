@@ -18,5 +18,5 @@ bundle agent main {
       "/etc/motd"
         create => "true",
         template_method => "mustache",
-        edit_template   => "$(this.promise_dirname)/320-270-0015.mustache";
+        edit_template   => "$(this.promise_dirname)/320-270-Mustache_Templates_with_Datastate-0010.cf";
 }
