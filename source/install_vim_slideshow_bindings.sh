@@ -37,7 +37,7 @@ map ff :!clear;/var/cfengine/bin/cf-agent --color=always -KI -f '#:p'
 map vv :!clear;/var/cfengine/bin/cf-agent --color=always -KIv -f '#:p' \| less -R
 
 " "r"un file using /bin/sh
-map rr :!clear;/bin/sh '#:p'
+map rr :!clear;/bin/sh '%:p'
 
 " Commenting out until
 " https://vi.stackexchange.com/questions/28752/vim-terminal-interferes-with-statusline?noredirect=1#comment52552_28752
@@ -75,6 +75,8 @@ function! CustomStatusline()
   " - this Function will also label Exercises as such so I don't blow past them in class
 
   let current_buffer = bufnr('#')
+  " get number of buffer of alternate-file
+  " (https://stackoverflow.com/questions/5547943/display-number-of-current-buffer)
   let total_buffers = len(getbufinfo({'buflisted':1}))
   let file_name = expand('%:t:r') " we'll use this to detect exercise files which are named *.exr.md (my own invention)
   let extension = expand('%:e') " this can detect *.cf files if we should want to do something with it
@@ -88,20 +90,7 @@ function! CustomStatusline()
   return current_buffer . '/' . total_buffers . label
 endfunction
 
-" Colorize status bar (to distinguish cf3, exercises and regular markdown files)
-" Markdown: black on green
-"au BufRead *.md hi StatusLine ctermbg=black ctermfg=green
-"au BufRead *.md set laststatus=0
-" display number of current buffer
-" (https://stackoverflow.com/questions/5547943/display-number-of-current-buffer)
-au BufRead *.md set laststatus=2 statusline=%{CustomStatusline()}
-
-" CF3: black on yellow
-"au BufRead *.cf hi StatusLine ctermbg=black ctermfg=yellow
-"au BufRead *.cf set laststatus=0
-"au BufRead *.cf set laststatus=2 statusline=%!bufnr('#')
-" Exercises: black on red
-"au BufRead *.exr.md hi StatusLine ctermbg=black ctermfg=red
+au BufRead *.md     set laststatus=2 statusline=%{CustomStatusline()}
 au BufRead *.cf     set laststatus=2 statusline=%{CustomStatusline()}
 au BufRead *.exr.md set laststatus=2 statusline=%{CustomStatusline()}
 
