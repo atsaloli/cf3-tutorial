@@ -1,11 +1,13 @@
-### About the Author
+### About the Course
 
-I've been working in IT Operations since the mid-nineties, mostly as a
-UNIX/Linux System Administrator of one kind or another, though now they
-call me DevOps Engineer.
+*Automating System Administration with CFEngine 3 (5 days)*
 
-I've helped a number of organizations, large and small, adopt CFEngine,
-and have been recognized as CFEngine Community Champion by Northern.tech,
-the company behind CFEngine.
+**Requirements**: No knowledge of CFEngine or configuration management is
+required, only basic knowledge of system administration.
 
-I was trained on CFEngine by Mark Burgess, the author of CFEngine.
+**Hardware requirements**: Bring a laptop with wi-fi capability so you can access the Internet.
+
+At the end of this course you will be able to:
+
+- Automate system administration (server setup, maintenance and compliance reporting),
+- Create a trustworthy and reliable computing services infrastructure.
