@@ -1,6 +1,6 @@
 ### Add-ons
 
-There are a number of add-on tools, they have to be installed separately:
+A number of add-on tools are available, thanks to community contributions. For example:
 
 **cf-diag**
 : Diagnostic tool (checks the health of a CFEngine host).
@@ -9,7 +9,7 @@ There are a number of add-on tools, they have to be installed separately:
 : Policy deployment tool - designed to run on the Policy Server and safely deploy policy from upstream locations to a directory on the Policy Server for distribution to clients.
 
 **cf-profile**
-: Measures how long your code takes to run so you can make it blazing fast.
+: Measures how long your code takes to run so you can keep CFEngine agent runs blazing fast.
 
 **cf-remote**
 : Tooling to deploy CFEngine on remote hosts.

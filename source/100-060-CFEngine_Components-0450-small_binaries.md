@@ -1,6 +1,6 @@
-### Small Binaries
+### A Note on Size
 
-The CFEngine binaries are small:
+The CFEngine agent is a small C binary. The other components are even smaller C binaries.
 
 ```console
 $ ls -lh /var/cfengine/bin/cf-* |
@@ -18,4 +18,12 @@ $ ls -lh /var/cfengine/bin/cf-* |
 $
 ```
 
-CFEngine is very lightweight. This is how it's so fast and can be run frequently to monitor and maintain infrastructure health.
+Because CFEngine is lightweight, it's fast. It can be run frequently to monitor and maintain infrastructure health.
+
+CFEngine 1 was intended to be run once a day.
+
+CFEngine 2 was intended to be run once an hour.
+
+CFEngine 3 default run frequency is every 5 minutes.
+
+At this frequency, systems can self-heal often faster than if they were repaired by human operators.
