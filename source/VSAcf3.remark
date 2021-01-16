@@ -23,7 +23,7 @@ style BoldBlue
 
 # Part Title cards -- they serve to separate the Book Parts
 /(.*Part-Title.*)/  {
-  s/^.*-(.*)\.txt/$1         === $0 ===/
+  s/^.*-(.*)\.md/$1         === $0 ===/
   green
   break
 }
@@ -36,13 +36,19 @@ style BoldBlue
 }
 
 /^([0-9]+)-([0-9]+)-([^0-9]+)-([0-9]+)-(.*)(\..*)$/ {
+  s/^([0-9]+)-([0-9]+)-([^0-9]+)-([0-9]+)-(.*)$/$5        << $0 >>/
+}
+
+/^([^0-9]+)        (<<) ([0-9]+)-([0-9]+)-([^0-9]+)-([0-9]+)-(.*)(\..*)$/ {
   default
   1 cyan
-  2 BoldBlue
-  3 BoldBlue
+  2 yellow
+  3 yellow
   4 yellow
-  5 green
-  6 cyan
+  5 yellow
+  6 yellow
+  7 yellow
+  8 yellow
   s/^/        /
   break
 }
