@@ -19,8 +19,5 @@ done
 # pygments is used to colorize/syntax-highlight code
 command -v pygmentize >/dev/null 2>&1 || sudo yum install python3-pygments || sudo apt-get install python-pygments
 
-# libreoffice-impress is used to display a presentation
-command -v libreoffice >/dev/null 2>&1 || sudo yum install libreoffice-impress || sudo apt-get install libreoffice-impress
-
 # start slideshow
 vim `ls -1 | egrep -v '.png$|.pdf$|.skip$|BOOKONLY' `
