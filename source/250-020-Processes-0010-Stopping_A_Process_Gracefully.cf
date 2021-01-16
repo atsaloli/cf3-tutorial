@@ -1,7 +1,9 @@
 # Shut down print services.
 # To set up for this demo, run:
-# yum install cups
-# /etc/init.d/cups start
+#
+# yum install -y cups
+# service cups start
+# ps -ef | grep cupsd
 
 bundle agent main {
 

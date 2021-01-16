@@ -7,9 +7,9 @@ The type corresponds to a specific CFEngine component which handles those promis
 | Bundle     | Contains promises for |
 |------------|-----------------------|
 | `agent`    | *cf-agent*, the part of CFEngine that checks and repairs system state
-| `edit_xml` | *cf-agent* promises about file contents when they are structured data (XML)
-| `edit_line`| *cf-agent* promises about file contents when they are unstructured data (everything else)
+| `edit_xml` | *cf-agent*, promises about file contents when they are structured data (XML)
+| `edit_line`| *cf-agent*, promises about file contents when they are unstructured data (not XML)
 | `monitor`  | *cf-monitord*, the system monitoring component installed on every host
 | `server`   | *cf-serverd*, the policy/file server component - usually ACL promises
-| `common`   | Any CFEngine component - usually used to define variables and to classify systems (group hosts by type)
+| `common`   | Any CFEngine component - usually used to define variables and to classify hosts
 
