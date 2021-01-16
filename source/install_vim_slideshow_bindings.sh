@@ -68,4 +68,8 @@ au BufRead *.md hi StatusLine ctermbg=black ctermfg=green
 au BufRead *.cf hi StatusLine ctermbg=black ctermfg=yellow
 " Exercises: black on red
 au BufRead *.exr.md hi StatusLine ctermbg=black ctermfg=red
+
+" Hide ~ marks that show past end of text (cosmetic change)
+highlight EndOfBuffer ctermfg=black ctermbg=black
+
 EOF
