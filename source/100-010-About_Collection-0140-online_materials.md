@@ -1,4 +1,4 @@
-### Online Materials
+### GitHub Repo
 
 This collection grew to support my professional course "Introduction
 to Automating System Administration using CFEngine 3".
