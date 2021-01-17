@@ -1,0 +1,1 @@
+## CFEngine Language is Declarative
