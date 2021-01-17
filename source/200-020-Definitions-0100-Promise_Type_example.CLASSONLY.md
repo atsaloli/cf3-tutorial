@@ -1,5 +1,6 @@
-The promise type is always followed by a single colon.
+### Promise type is followed by one colon
 
+The promise type is always followed by a single colon.
 
 ```cfengine3
 files:    
