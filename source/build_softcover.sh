@@ -33,6 +33,7 @@ find . -maxdepth 1 -type f -iname "[0-9]*.md" \
                         -o -iname "[0-9]*.cf" \
                         -o -iname "[0-9]*.pl" \
                         -o -iname "[0-9]*.sh" \
+                        -o -iname "[0-9]*.json" \
                         -o -iname "[0-9]*.mustache" \
   | sort > /tmp/file_list.txt
 
@@ -81,6 +82,8 @@ elif [[ "${file}" =~ mustache$ ]]; then
   filetype=text # no syntax highlighting in pygments for mustache yet
 elif [[ "${file}" =~ pl$ ]]; then
   filetype=perl
+elif [[ "${file}" =~ json$ ]]; then
+  filetype=json
 elif [[ "${file}" =~ sh$ ]]; then
   filetype=bash
 elif [ -z ${filetype} ]; then
