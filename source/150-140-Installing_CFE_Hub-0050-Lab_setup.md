@@ -1,4 +1,5 @@
-### Lab Infrastructure 
+### Lab Infrastructure
+
 #### Two VMs
 
 To do the exercises, each student should have two VMs:
