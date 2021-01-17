@@ -1,5 +1,8 @@
 
-### Basic promise types
+### Some Basic Promise Types
+
+Here are some basic promise types:
+
 **files**
 : A promise about a file, including its existence, attributes and contents.
 
