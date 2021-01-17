@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# TODO: update Book.txt with the book parts (cfengine_NNN.md)
+
+
+#### Variables
+
 _DEBUG="on"
 _DEBUG="off"
 # flip the order of the above two lines to enable or disable debug print statements
@@ -7,14 +12,14 @@ _DEBUG="off"
 SOFTCOVER_BASE=~/git/cf3-tutorial
 cd $SOFTCOVER_BASE/source
 
-function DEBUG()
-{
+output_target=z_cfengine_essentials
+
+#### Functions
+
+function DEBUG() {
 	 [ "$_DEBUG" == "on" ] &&  $@
 }
 
-output_target=z_cfengine_essentials
-
-###########################################################################
 function process_files(){
 
 ### initialize environment
@@ -49,6 +54,7 @@ do
 	section=${wordb[@]^}
 
         DEBUG echo
+        DEBUG echo AT_part = $AT_part
         DEBUG echo file = $file
         DEBUG echo chapter = $chapter
         DEBUG echo section = $section
@@ -171,27 +177,13 @@ done
 
 #########################################
 ### Create single Softcover markdown formatted file
-function concatenate() {
-
-######### book target first
-echo "Concatenating files into single ${output_target}.txt..."
-if [ -f ${output_target}.txt ]; then echo "Removing old ${output_target}.txt file..."; rm ${output_target}.txt; fi
-for file in `find /tmp/mod_files/* -maxdepth 1 -type f -iname "[0-9]*[cf|txt|md|pl|sh|exr]" |  egrep -v '0038-0015' |  sort`
-	do
-		cat $file >> ${output_target}.txt
-	done
-echo "${output_target}.txt has been created"
-}
-
 
 function concatenate_sc() {
-# softcover version of concatenate()
 
 SOFTCOVER_CHAPTER_COUNTER=1
 
 echo entering concatenate_sc function
-for file in `find /tmp/mod_files/* -maxdepth 1 -type f -iname "[0-9]*[cf|txt|md|pl|sh|exr]" |
-  egrep -v '0038-0015' |
+for file in `find /tmp/mod_files/* -maxdepth 1 -type f -iname "[0-9]*[cf|txt|md|pl|json|mustache|sh|exr]" |
   sort`
 	do
                echo processing $file for concatenation
@@ -211,7 +203,7 @@ echo exiting concatenate_sc function
 
 ## Start Main Program ##
 process_files && \
-concatenate_sc  
+concatenate_sc
 
 mv cfengine_???.md  $SOFTCOVER_BASE/chapters
 cd $SOFTCOVER_BASE
