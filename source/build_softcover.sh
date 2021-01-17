@@ -197,16 +197,34 @@ for file in `find /tmp/mod_files/* -maxdepth 1 -type f -iname "[0-9]*[cf|txt|md|
 echo exiting concatenate_sc function
 }
 
+generate_book_txt(){
+# Builds a SoftCover Book.txt file which contains an entry for every chapter
+# (Book.txt controls the structure of the book)
+cat <<EOF > $SOFTCOVER_BASE/Book.txt
+cover
+frontmatter:
+maketitle
+tableofcontents
+foreword.md
+acknowledgements.md
+abouttheauthor.md
+copyrightandlicense.md
+mainmatter:
+EOF
+
+ls $SOFTCOVER_BASE/chapters/ | grep ^cfengine_ >> $SOFTCOVER_BASE/Book.txt
+}
 
 ##### End Functions
 
 
 ## Start Main Program ##
-process_files && \
+process_files && 
 concatenate_sc
 
 mv cfengine_???.md  $SOFTCOVER_BASE/chapters
 cd $SOFTCOVER_BASE
+generate_book_txt
 softcover build:html
 
 #if [ $? -eq 0 ] ; then
