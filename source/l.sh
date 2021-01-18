@@ -32,6 +32,7 @@ command -v remark >/dev/null 2>&1 || install_remark
 
 # display a colorized file list, in alphanumeric order
 
-ls -1F| \
-  remark ./VSAcf3.remark | \
+ls -1F |
+  remark ./VSAcf3.remark |
+  nl |
   less -r  # the -r switch preserves colorization
