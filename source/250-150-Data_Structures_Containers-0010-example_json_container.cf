@@ -1,0 +1,17 @@
+bundle agent main
+{
+
+  vars:
+      "food"
+        data => '{
+                   "Lunch"   : "Pizza",
+                   "Dinner" : "Roast Beef"
+                 }'; # JSON
+
+      "keys"
+        slist => getindices("food");
+
+  reports:
+
+      "$(keys) : $(food[$(keys)])";
+}

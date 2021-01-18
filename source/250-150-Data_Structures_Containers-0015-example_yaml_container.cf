@@ -1,0 +1,12 @@
+bundle agent main
+{
+
+  vars:
+      "mydata" data => '---
+- key1: value1
+- key2: value2'; # YAML requires "---\n" header
+      "stringified_container" string => format("%S", "mydata");
+
+  reports:
+      "$(stringified_container)";
+}
