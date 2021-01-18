@@ -1,7 +1,7 @@
-Split "orientation and setup" chapters into
-- orientation
-- setup
+Add links to "create" and "touch" attributes in the reference manual.
+https://docs.cfengine.com/docs/3.12/reference-promise-types-files.html#create
 
+Update "Recap:" to say that "/var/cfengine/promise_summary.log records the times of agent runs and the outcome summary for each run)
 
 Add a separate slide to introduce the "handle"
 attribute.  and a separate slide to introduce
@@ -16,7 +16,6 @@ services/ directory in masterfiles and then
 call them from main.cf as methods promises,
 will that work? or do we need to 'input' these
 files first? DOCUMENT HOW TO ENABLE AUTOLOAD
-
 
 
 add irange to the right hand side of promise attributes (e.g. vsize under process_select)
