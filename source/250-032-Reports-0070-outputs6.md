@@ -1,4 +1,4 @@
-We expect to see two entries appear in promise_summary.log, as
+We expect to see two entries appear, as
 `cf-execd` will run `cf-agent` twice: first to update policy (update.cf)
 and then to evaluate the policy (promises.cf):
 
@@ -9,7 +9,7 @@ and then to evaluate the policy (promises.cf):
   Promises observed to be kept 97.30%, Promises repaired 2.70%, Promises not repaired 0.00%
 ```
 
-There are two timestamps at the start of each line: start and end times of the `cf-agent` run.
+There are two comma-delimited timestamps at the start of each line: start and end times of the `cf-agent` run.
 
 The timestamps are in UNIX epoch format.
 

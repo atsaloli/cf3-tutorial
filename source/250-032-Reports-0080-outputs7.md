@@ -1,4 +1,4 @@
-Finally, let's check the output from the previous run of `cf-agent`
+Let's check the output from the previous run of `cf-agent`
 in "/var/cfengine/outputs":
 
 ```console

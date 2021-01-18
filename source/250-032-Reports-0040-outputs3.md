@@ -1,5 +1,3 @@
-#### Demonstration of handling reports: promises output
-
 Now let's run the "update" policy to update our /var/cfengine/inputs/
 directory from /var/cfengine/masterfiles/ :
 
