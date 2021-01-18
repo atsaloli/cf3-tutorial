@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Demonstrate how CFEngine trunates names of long
+# Demonstrate how CFEngine truncates names of long
 # commands.
 #
 # Create an executable with a long path name - we'll need
@@ -8,5 +8,5 @@
 
 LONG_PATH=/usr/local/sbin/a/really/long/path/to
 /bin/mkdir  -p ${LONG_PATH}
-/bin/cp -p /usr/bin/printf ${LONG_PATH}/printf >/dev/null
-ls -l /usr/bin/printf ${LONG_PATH}/printf
+/bin/cp -p /bin/echo ${LONG_PATH} >/dev/null
+ls -l /bin/echo ${LONG_PATH}/echo

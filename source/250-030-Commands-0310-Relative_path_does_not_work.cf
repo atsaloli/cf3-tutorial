@@ -3,7 +3,8 @@ bundle agent main {
   commands:
 
       "echo"
-        args => "Hello world";
+        args => "Hello world",
+        comment => "Relative path does not work.";
 
 }
 
