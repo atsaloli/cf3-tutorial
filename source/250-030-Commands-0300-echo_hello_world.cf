@@ -4,7 +4,11 @@ bundle agent main {
 
       "/bin/echo"
 
-        comment => "Demonstrate a command with arguments",
-        args => "Hello world!";
+        comment => "Sometimes it is convenient to separate command
+                    and arguments.",
+        args => "Hello, World!";
 
 }
+
+# Reference:
+# https://docs.cfengine.com/latest/reference-promise-types-commands.html#args
