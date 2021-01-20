@@ -6,8 +6,8 @@
 
 
 # First, install Neil Watson's cf3 syntax highlighter
-ls ./100-180-Installing_Syntax_Highlighter-0265-Install_Vim_Plugin.sh
-. ./100-180-Installing_Syntax_Highlighter-0265-Install_Vim_Plugin.sh
+ls ./150-180-Installing_Syntax_Highlighter-0265-Install_Vim_Plugin.sh
+. ./150-180-Installing_Syntax_Highlighter-0265-Install_Vim_Plugin.sh
 
 # Now, add the slideshow bindings
 #
