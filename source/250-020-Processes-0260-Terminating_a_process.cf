@@ -1,11 +1,13 @@
+# Example of a list value in CFEngine policy
+
 bundle agent main {
 
   processes:
 
-      "eggdrop"
+      "eggdrop"  # IRC bot, see https://www.eggheads.org/
 
-        handle => "kill_IRC_bots",
         comment => "We don't want IRC bots on our Web servers",
         signals => { "term", "kill" };
 
 }
+

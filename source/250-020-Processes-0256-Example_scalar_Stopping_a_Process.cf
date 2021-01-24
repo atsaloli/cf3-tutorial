@@ -1,4 +1,4 @@
-# Stop print services.
+# Point out the scalar values
 
 bundle agent main {
 

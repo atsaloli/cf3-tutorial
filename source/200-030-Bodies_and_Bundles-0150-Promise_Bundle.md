@@ -3,7 +3,8 @@
 The promise bundle is one of the basic building blocks of configuration
 in CFEngine.
 
-A promise bundle is a group of one or more logically related promises.
+**Promise bundle**
+: A promise bundle is a group of one or more logically related promises.
 
 The bundle allows us to group related promises, and to refer to such
 groups by name.
