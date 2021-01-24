@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Install and start CUPS (print service), so we can
-# setup for using CFEngine to disable CUPS
+# practice using CFEngine to ensure a process ("cupsd")
+# is absent.
 
 yum install -y cups
 service cups start
