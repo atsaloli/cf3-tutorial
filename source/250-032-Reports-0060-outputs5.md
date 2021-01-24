@@ -1,7 +1,7 @@
 Wait 5-10 minutes for `cf-execd` to run `cf-agent` during the next scheduled run.
 We know when it's done that by watching the promise summary log on the command line:
 
-```bash
+```console
 tail -f /var/cfengine/promise_summary.log
 ```
 

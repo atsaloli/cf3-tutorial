@@ -3,8 +3,6 @@ Make sure I have examples of `services:` promises
 Add links to "create" and "touch" attributes in the reference manual.
 https://docs.cfengine.com/docs/3.12/reference-promise-types-files.html#create
 
-Update "Recap:" to say that "/var/cfengine/promise_summary.log records the times of agent runs and the outcome summary for each run)
-
 Add a separate slide to introduce the "handle"
 attribute.  and a separate slide to introduce
 the "comment" attribute.
