@@ -1,15 +1,13 @@
-bundle agent main {
+bundle agent main
+{
 
   vars:
-
-
       "greeting"
-        string  => "Hello. My name is $(name). ";
+        string  => "Hello. My name is $(name).";
 
       "name"
         string => "Inigo Montoya";
 
   reports:
-
       "$(greeting)";
 }
