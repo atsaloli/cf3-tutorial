@@ -7,10 +7,13 @@ You can use them to group together related promises.
 Example:
 
 ```cfengine3
-bundle agent main 
+bundle agent main
 {
 
   methods:
       "base_os_config";  # configure the OS
       "application-config"; # and the application
 }
+```
+
+We will learn more about `methods:` promises later.
