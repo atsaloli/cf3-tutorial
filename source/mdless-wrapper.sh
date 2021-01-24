@@ -1,4 +1,4 @@
-#!/bin/bash -xe
+#!/bin/bash -e
 
 #  mdless is a markdown to text converter: https://brettterpstra.com/projects/mdless/
 
@@ -11,7 +11,9 @@ if [[ $1 =~ \.exr.md$ ]]
 then
   # insert Exercise header for in-class presentation
   # works around https://github.com/ttscoff/mdless/issues/60 
-  { echo '### Exercise'; echo; cat "$1"; } | mdless --no-pager --width=100 | head -n -3 | tail -n +3
+  echo '### Exercise'
+  echo
+  cat "$1";
 else
-  mdless --no-pager --width=100 "$1" | head -n -3 | tail -n +3
-fi
+  cat "$1"
+fi  | mdless --no-pager --width=100 | head -n -3 | tail -n +3

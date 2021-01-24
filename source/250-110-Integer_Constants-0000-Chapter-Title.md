@@ -1,1 +1,1 @@
-##### Integer Constants
+## Integers

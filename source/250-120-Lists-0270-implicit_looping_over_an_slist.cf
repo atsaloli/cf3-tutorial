@@ -1,0 +1,12 @@
+bundle agent main
+{
+
+  vars:
+      "my_slist"
+        slist => { "String contents...", "...are great!" };
+
+  reports:
+      "Iterating over @(my_slist): $(my_slist)";
+      # @(my_slist) is not treated specially here
+      # But $(my_slist) is!
+}

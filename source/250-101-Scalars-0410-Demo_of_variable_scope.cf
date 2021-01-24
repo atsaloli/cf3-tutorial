@@ -3,24 +3,18 @@ bundle agent main {
   methods:
     "bundle_1";
     "bundle_2";
-
+    "bundle_3";
 }
 
 bundle agent bundle_1 {
-
-  vars:
-      "var_1"
-        string  =>  "Hello World";
+  vars: "first_name" string => "John";
+  reports: "This works: Hello, $(first_name)";
 }
 
 bundle agent bundle_2 {
+  reports: "But this doesn't: Hello, $(first_name)";
+}
 
-  vars:
-      "var_1"
-        string => "My fair lady";
-
-  reports:
-      "var1 = $(var_1)";
-      "bundle_1.var1 = $(bundle_1.var_1)";
-
+bundle agent bundle_3 {
+  reports: "Qualified works: Hello, $(bundle_1.first_name)";
 }

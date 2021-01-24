@@ -1,37 +1,17 @@
-bundle agent main0 {
-
-  vars:
-
-      "my_slist"
-        slist => { "String contents...", "...are great!" };
-
-  reports:
-
-      " Iterating over list 'my_slist':";
-      "$(my_slist)"
-        comment => "Demonstrate how list variables are handled";
-
-}
-
-
-
-
-
-bundle agent main {
-
+bundle agent main
+{
   vars:
       "preface"
         string => "Now hear this: ";
 
-      "my_slist"
+      "main_slist"
         slist => { "String contents...", "...are great!" };
 
       "the_sum_of_all_parts"
-        slist => { $(preface), @(my_slist) };
+        slist => { $(preface), @(main_slist) };
+        # Demonstrate referring to a list as a complete collection
+        # (without implicit looping)
 
   reports:
-
-      " Iterating over list 'the_sum_of_all_parts': $(the_sum_of_all_parts)"
-        comment => "Demonstrate how list variables are handled";
-
+      "Iterating over list '@(the_sum_of_all_parts)': $(the_sum_of_all_parts)";
 }

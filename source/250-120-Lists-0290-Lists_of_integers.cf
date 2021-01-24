@@ -1,16 +1,12 @@
 bundle agent main {
 
   vars:
-
       "my_list"
-
         comment => "Demonstrate a list of integers",
         ilist => { "1", "2", "3" };
 
   reports:
-
-      "Iterating over the values in @(my_list):  $(my_list)"
-
-        comment => "Demonstrate implicit looping over an ilist";
+      "Iterating over the values in @(my_list):  $(my_list)";
+      # Implicit looping works the same
 }
 
