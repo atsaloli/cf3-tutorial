@@ -6,3 +6,5 @@ cf-agent -I -f ./create_file.cf
 ```
 
 What do you see?
+
+Why?
