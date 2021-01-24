@@ -1,0 +1,11 @@
+bundle agent main {
+
+  processes:
+
+      "cupsd"
+
+        comment => "We don't want CUPS running",
+        signals => { "term", "kill" };
+
+}
+

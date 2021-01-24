@@ -11,4 +11,4 @@ In CFEngine syntax, scalar values are enclosed in double quotes (or single quote
 process_stop => "/etc/init.d/cups stop",
 ```
 
-See [Quoting](https://docs.cfengine.com/latest/reference-language-concepts-variables.html#quoting) to learn more.
+Would you like to know more? See [Quoting](https://docs.cfengine.com/latest/reference-language-concepts-variables.html#quoting)

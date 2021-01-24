@@ -1,6 +1,8 @@
-# Stop print services.
+Point out the scalar values in the following CFEngine policy.
 
-bundle agent main {
+```cfengine3
+bundle agent main
+{
 
   processes:
 
@@ -10,3 +12,4 @@ bundle agent main {
         process_stop => "/sbin/service cups stop";
 
 }
+```

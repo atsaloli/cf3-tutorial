@@ -19,3 +19,4 @@ Example:
         process_stop => "/sbin/service cups stop";
 ```
 
+Reference: <https://docs.cfengine.com/docs/3.17/reference-promise-types-processes.html#process_stop>

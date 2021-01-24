@@ -24,4 +24,4 @@ Allowed input range:
 - bus
 - segv
 
-Reference: https://docs.cfengine.com/latest/reference-promise-types-processes.html#process_stop
+Reference: <https://docs.cfengine.com/latest/reference-promise-types-processes.html#process_stop>
