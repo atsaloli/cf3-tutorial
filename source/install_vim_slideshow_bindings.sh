@@ -53,9 +53,9 @@ map rr :!clear;/bin/sh '%:p'
 " that mdless generates (it outputs color by default -- we could turn that off but
 " it looks better with color).
 " Install mdless with "gem install mdless" 
-map tt :term++curwin mdless --no-pager --width=100 %:p
+map tt :term++curwin /root/git/cf3-tutorial/source/mdless-wrapper.sh %:p
 
-:autocmd BufRead *.md :term++curwin mdless --no-pager --width=100 %:p
+:autocmd BufRead *.md :term++curwin /root/git/cf3-tutorial/source/mdless-wrapper.sh %:p
 :autocmd BufRead *.cf :term++curwin pygmentize -l cfengine3 %:p
 
 " add a shortcut for "e"diting the previous file (alternate-file in Vim terminology).
