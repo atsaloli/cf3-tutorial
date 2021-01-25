@@ -14,7 +14,8 @@ bundle agent remove_user(user)
 {
   commands:
 
-      "/usr/sbin/userdel $(user)";
-      "/bin/rm /var/spool/cron/$(user)";
-      "/bin/rm /var/mail/$(user)";
+      "/bin/crontab -r -u $(user)"
+        if => fileexists("/var/spool/cron/$(user)");
+      "/usr/sbin/userdel -r $(user)"
+        if => userexists("$(user)");
 }

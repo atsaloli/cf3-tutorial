@@ -1,0 +1,9 @@
+bundle agent main
+{
+  reports:
+    ipv4_205_186_156::
+      "I am on our public net. I am a Web server.";
+
+    ipv4_10::
+      "I am on our private net. I am a database server.";
+}

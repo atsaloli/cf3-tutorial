@@ -3,18 +3,13 @@
 #
 # To setup for this example, run "hostname my-hostname-has-dashes"
 
-bundle agent main {
-
+bundle agent main
+{
   reports:
+      "hello world";
 
-      #my-hostname-has-dashes::
-    my_hostname_has_dashes::
-
-      "Hello world";
-
-    banana::
-
-      "My hostname is banana";
+    my-hostname-has-dashes:: "One";
+    my_hostname_has_dashes:: "Two";
 
 }
 

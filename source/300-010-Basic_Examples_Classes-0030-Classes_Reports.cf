@@ -1,5 +1,5 @@
-bundle agent main {
-
+bundle agent main
+{
   commands:
     linux::
       "/bin/date";
