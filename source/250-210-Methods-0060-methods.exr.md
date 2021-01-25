@@ -4,6 +4,4 @@ Methods and normal ordering
 
 2. Additionally, have bundle #1 call bundle #2.
 
-What will be the order of the bundle names in the reports?
-
-Why?
+What is the order of the bundle names in the reports and why?

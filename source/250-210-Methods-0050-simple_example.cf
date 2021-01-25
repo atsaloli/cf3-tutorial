@@ -1,16 +1,17 @@
-bundle agent main {
+# Example of parameterizing a methods promise
 
+bundle agent main
+{
   vars:
       "userlist" slist => { "alex", "ben", "charlie", "diana", "rob" };
 
   methods:
       "Remove Users"
         usebundle => remove_user("$(userlist)");
-
 }
 
-bundle agent remove_user(user) {
-
+bundle agent remove_user(user)
+{
   commands:
 
       "/usr/sbin/userdel $(user)";

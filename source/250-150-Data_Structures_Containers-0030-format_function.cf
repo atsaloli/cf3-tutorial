@@ -1,0 +1,20 @@
+# The format() function, when used with a special format specifier %S,
+# will pack the data container contents into a one-line string you can
+# put into a log message, for example
+#
+# %S stands for "string"
+
+bundle agent main
+{
+  vars:
+      "food"
+        data => '---
+Lunch: Pizza
+Dinner: Roast Beef';
+
+      "data_contents"
+        string => format("%S", "food");
+
+  reports:
+      "$(data_contents)";
+}

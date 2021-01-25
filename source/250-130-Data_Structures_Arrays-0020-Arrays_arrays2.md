@@ -9,11 +9,14 @@ Example:
 Variable assignment:
 
 ```cfengine3
-vars:   "food_prices[Apple]"    string =>  "59c";
+vars:
+    "food_prices[Apple]"
+      string =>  "59c";
 ```
   
 Now we can use this variable:
 ```cfengine3
-$(food_prices[Apple])
+reports:
+    "An apple costs $(food_prices[Apple])";
 ```
 

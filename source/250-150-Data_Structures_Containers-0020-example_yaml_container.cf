@@ -1,11 +1,13 @@
+# You can represent data containers as YAML documents
+
 bundle agent main
 {
   vars:
       "food"
-        data => '{
-                   "Lunch"   : "Pizza",
-                   "Dinner" : "Roast Beef"
-                 }'; # JSON
+        data => '---
+Lunch: Pizza
+Dinner: Roast Beef'; # YAML
+
       "keys"
         slist => getindices("food");
 

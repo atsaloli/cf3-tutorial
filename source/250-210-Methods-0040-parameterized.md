@@ -1,4 +1,4 @@
-You can parameterize a methods promise:
+However, you do need the `usebundle` if you want to parameterize the methods call:
 
 ```cfengine3
   methods:                                                                                                                             

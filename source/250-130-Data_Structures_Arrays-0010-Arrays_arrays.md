@@ -1,4 +1,4 @@
-Arrays are associative (hashes). 
+CFEngine arrays are associative (hashes).
 
 They may contain scalars or lists as their elements.
 

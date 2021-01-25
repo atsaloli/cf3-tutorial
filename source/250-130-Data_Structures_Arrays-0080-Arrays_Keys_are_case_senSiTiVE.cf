@@ -1,17 +1,15 @@
-bundle agent main {
+# Variable names, including array keys, are case-sensitive
 
+bundle agent main
+{
   vars:
-
       "cfengine_components[cf-execd]"
         handle => "describe_executor",
         comment => "Document the cf-execd component",
         string => "The executor";
 
   reports:
-
       "$(cfengine_components[CF-exEcD])"
         handle => "case_demo",
         comment => "Case maTTerS!";
-
 }
-
