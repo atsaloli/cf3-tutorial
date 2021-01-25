@@ -1,16 +1,16 @@
-# What are we going to see? (What will be the order of the output statements?)
+# Promises of different types are evaluated according to "normal
+# ordering".
+#
+# What are we going to see? What will be the order of the output statements?
 
 bundle agent main
 {
   reports:
-
       "Hello world!";
 
   commands:
-
       "/bin/echo Good morning!";
 
   reports:
-      " I love tomatoes";
-
+      "I love tomatoes";
 }

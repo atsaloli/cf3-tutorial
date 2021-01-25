@@ -1,4 +1,6 @@
-# run "/bin/rm /tmp/newfile" to setup for this example
+# Run "/bin/rm /tmp/newfile" to setup for this example
+#
+# Why does CFEngine print both reports when /tmp/newfile is absent?
 
 bundle agent main {
 

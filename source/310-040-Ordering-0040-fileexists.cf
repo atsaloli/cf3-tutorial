@@ -1,11 +1,10 @@
-# This example introduces the fileexists() function
+# This example introduces the fileexists() function.
 #
 # We will use fileexists() in a later, more complicated
 # demonstration of normal ordering
 
 bundle agent main
 {
-
   classes:
       "motd_present"
         expression => fileexists("/etc/motd");
