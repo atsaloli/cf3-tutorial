@@ -11,7 +11,6 @@ Class expressions are composed of classes and logical operators.
 
 --- http://encyclopedia2.thefreedictionary.com/operator
 
-
 Logical operators (in order of precedence of operation)
 
 | ( ) |  Groupers |
@@ -19,7 +18,3 @@ Logical operators (in order of precedence of operation)
 | & or . | AND |
 | \| or \|\| | OR |
 
-### Truth tables
-If necessary, review [truth tables](https://en.wikipedia.org/wiki/Truth_table#Logical_conjunction_.28AND.29) for logical operations AND, OR, and NOT
-
-### Examples of class expressions
