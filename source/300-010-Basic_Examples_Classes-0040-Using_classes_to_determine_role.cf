@@ -1,3 +1,5 @@
+# IPv4 network blocks
+
 bundle agent main
 {
   reports:

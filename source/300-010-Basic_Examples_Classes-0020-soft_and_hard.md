@@ -16,10 +16,3 @@ flexibility in classifying hosts (e.g. by application, or primary vs
 DR) and controlling promise execution (e.g. only evaluate promise2 if
 promise1 was repaired).
 
-Note on syntax: CFEngine identifiers (class names, variable names, bundle
-names, etc.) may only contain alphanumeric and underscore characters (a-zA-Z0-9_).
-
-Let's see some examples of hard classes.
-
-### Hard classes
-
