@@ -1,4 +1,4 @@
-Methods and normal ordering
+Ordering of promises
 
 1. Create two bundles and make each bundle report its name.
 
