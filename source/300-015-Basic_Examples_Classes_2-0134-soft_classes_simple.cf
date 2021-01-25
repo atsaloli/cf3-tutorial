@@ -14,7 +14,7 @@ bundle agent main {
       "Yay! I get to work today.";
 }
 
-# When you run this in verbose mode, you should see when CFEngine sets
+# When you run this in verbose mode, you should see when CFEngine adds
 # the soft class:
 #
 # verbose: Using bundlesequence =>  {'main'}

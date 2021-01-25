@@ -1,8 +1,7 @@
-bundle agent main {
-
+bundle agent main
+{
   reports:
-
-      linux&Hr22:: "Linux system AND we are in the 22nd hour.";
-
+      linux&Hr22::
+        "Linux system AND we are in the 22nd hour.";
 }
 

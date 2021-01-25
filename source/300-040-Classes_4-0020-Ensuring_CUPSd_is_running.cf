@@ -1,20 +1,14 @@
-bundle agent main {
+# restart_class will set the class if the process is ABSENT
+# <https://docs.cfengine.com/latest/reference-promise-types-processes.html#restart_class>
 
+bundle agent main
+{
   processes:
-
       "cupsd"
-
         restart_class => "cups_needs_to_be_started",
         comment => "We want print services";
 
-
   commands:
-
     cups_needs_to_be_started::
-
-      "/etc/init.d/cups"
-
-        args => "start";
-
-
+      "/etc/init.d/cups start";
 }

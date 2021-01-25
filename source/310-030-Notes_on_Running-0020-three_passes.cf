@@ -1,13 +1,9 @@
 # demonstrate three passes through a bundle by using verbose mode
 
-bundle agent main {
-
+bundle agent main
+{
   files:
-
-      "/etc/nologin"
-
-        handle => "touch_etc_nologin",
-        comment => "Quiesce the system for maintenance",
+      "/tmp/example"
+        handle => "create_a_file",
         create  => "true";
-
 }

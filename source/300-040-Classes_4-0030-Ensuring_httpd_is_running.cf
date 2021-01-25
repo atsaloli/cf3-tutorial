@@ -6,6 +6,6 @@ bundle agent main {
 
   commands:
     start_httpd::
-      "/etc/init.d/httpd start";
+      "/sbin/service httpd start";
 
 }

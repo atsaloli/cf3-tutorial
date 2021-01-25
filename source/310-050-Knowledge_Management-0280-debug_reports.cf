@@ -1,7 +1,9 @@
-# Demonstrate by running this with DEBUG and then with DEBUG_$(bundle_name) classes
+# Demonstrate by running this with DEBUG and then with DEBUG_main and
+# DEBUG_prep classes to control debug reporting
+#
 # cf-agent -D DEBUG -f <thisfile>
-# cf-agent -D DEBUG_main -f <thisfile>
-# cf-agent -D DEBUG_prep -f <thisfile>
+# cf-agent -K -D DEBUG_main -f <thisfile>
+# cf-agent -K -D DEBUG_prep -f <thisfile>
 
 bundle agent main {
 

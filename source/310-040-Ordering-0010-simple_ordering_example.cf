@@ -1,3 +1,5 @@
+# What are we going to see? (What will be the order of the output statements?)
+
 bundle agent main
 {
   reports:
@@ -8,7 +10,7 @@ bundle agent main
 
       "/bin/echo Good morning!";
 
-#  reports:
-#      " I love tomatoes";
+  reports:
+      " I love tomatoes";
 
 }

@@ -1,16 +1,13 @@
-# demonstrate handle conflict
+# demonstrate handle conflict (try to re-use a promise handle)
 
-bundle agent main {
-
+bundle agent main
+{
   files:
-
       "/tmp/testfile"
-
         handle => "create_testfile",
         create  => "true";
 
   reports:
      "hello world"
        handle => "create_testfile";
-       
 }

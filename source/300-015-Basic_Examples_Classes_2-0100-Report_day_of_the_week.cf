@@ -1,23 +1,17 @@
 # The following bundle does not use class expressions.
 # The next one will.
 
-bundle agent main {
+bundle agent main
+{
 
   reports:
 
-    Monday::
-      "Hello world! I love Mondays!";
+    Monday::    "Hello world! I love Mondays!";
+    Tuesday::   "Hello world! I love Tuesdays!";
+    Wednesday:: "Hello world! I love Wednesdays!";
+    Thursday::  "Hello world! I love Thursdays!";
+    Friday::    "Hello world! I love Fridays!";
 
-      Tuesday::   "Hello world! I love Tuesdays!";
-
-      Wednesday:: "Hello world! I love Wednesdays!";
-
-      Thursday::  "Hello world! I love Thursdays!";
-
-      Friday::    "Hello world! I love Fridays!";
-
-      Saturday::  "Hello world! I love weekends!";
-
-      Sunday::    "Hello world! I love weekends!";
-
+    Saturday::  "Hello world! I love weekends!";
+    Sunday::    "Hello world! I love weekends!";
 }
