@@ -1,9 +1,12 @@
-bundle agent main {
+# What if there is other content in /etc/motd?
+# You can control the entire file with
+# delete_lines: "*"
+
+bundle agent main
+{
 
   files:
-
       "/etc/motd"
-
         handle => "motd",
         comment => "Create and populate motd",
         create => "true",
@@ -11,14 +14,12 @@ bundle agent main {
 }
 
 
-bundle edit_line  my_motd {
-
+bundle edit_line my_motd
+{
   insert_lines:
-
       "Good morning!";
 
   delete_lines:
-
       ".*";
 }
 

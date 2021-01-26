@@ -1,20 +1,13 @@
-bundle agent main {
-
+bundle agent main
+{
   files:
-
       "/etc/motd"
-
         create  => "true",
         edit_line => greet_users;
 }
 
-bundle edit_line  greet_users {
-
+bundle edit_line  greet_users
+{
   insert_lines:
-
-      "Good morning!"
-
-        handle => "greeting",
-        comment => "Happy users = less complaints. Greet the user
-                    politely.";
+      "Good morning!";
 }
