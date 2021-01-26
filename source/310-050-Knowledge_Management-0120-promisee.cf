@@ -2,7 +2,7 @@ bundle agent main {
 
   files:
 
-      "/etc/httpd/conf/httpd.conf" -> "Web Services team"
+      "/etc/httpd/conf/httpd.conf" -> { "Web Services team", "NOC" }
       # document stakeholders
 
         create  => "true";
