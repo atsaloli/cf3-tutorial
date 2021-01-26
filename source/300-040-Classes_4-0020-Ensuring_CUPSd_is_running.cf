@@ -10,5 +10,5 @@ bundle agent main
 
   commands:
     cups_needs_to_be_started::
-      "/etc/init.d/cups start";
+      "/sbin/service cups start";
 }

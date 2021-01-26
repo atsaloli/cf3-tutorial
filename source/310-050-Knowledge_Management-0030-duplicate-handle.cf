@@ -1,4 +1,6 @@
-# demonstrate handle conflict (try to re-use a promise handle)
+# Promise handles MUST be unique.
+#
+# The following is NOT valid CFEngine.
 
 bundle agent main
 {

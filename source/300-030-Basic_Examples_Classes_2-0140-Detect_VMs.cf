@@ -3,7 +3,8 @@
 # regline() which checks if there is a line in a
 # file matching a regular expression.
 
-bundle agent main {
+bundle agent main
+{
 
   classes:
       "i_am_virtual"

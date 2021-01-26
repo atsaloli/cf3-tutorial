@@ -1,0 +1,11 @@
+# Example of a promise handle
+
+bundle agent main
+{
+
+  files:
+      "/tmp/testfile"
+        handle => "create_testfile", # a name for this promise.
+        create => "true";
+
+}

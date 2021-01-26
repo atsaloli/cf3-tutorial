@@ -4,7 +4,7 @@ bundle agent main
       "weekend"
         expression => "Saturday|Sunday";
       "weekday"
-        not => "weekend";
+        expression => "Monday|Tuesday|Wednesday|Thursday|Friday";
 
   reports:
     weekend::

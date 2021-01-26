@@ -1,8 +1,8 @@
 # Promises of the same type are evaluated in the order they appear in
 # the file.
 
-bundle agent main {
-
+bundle agent main
+{
   reports:
       "Two";
       "Three";

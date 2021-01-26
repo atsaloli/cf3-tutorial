@@ -32,3 +32,6 @@ bundle agent main
 #
 # R: Fueling
 # R: Launch!!
+#
+# Run this in verbose mode -- how many passes through
+# the bundle did it take to report both promises?

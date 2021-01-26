@@ -2,10 +2,14 @@
 
 bundle agent bundle_1
 {
-  files: "/tmp/file1" create  => "true";
+  files:
+      "/tmp/file1"
+        create  => "true";
 }
 
 bundle agent bundle_2
 {
-  files: "/tmp/file2" create  => "true";
+  files:
+      "/tmp/file2"
+        create  => "true";
 }

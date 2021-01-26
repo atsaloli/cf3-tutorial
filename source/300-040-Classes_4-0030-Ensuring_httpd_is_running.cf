@@ -1,4 +1,5 @@
-bundle agent main {
+bundle agent main
+{
 
   processes:
       "httpd"
