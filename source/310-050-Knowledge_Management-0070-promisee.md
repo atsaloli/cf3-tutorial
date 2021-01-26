@@ -1,4 +1,4 @@
-### Promisee
+## Promisees
 
 In CFEngine, you can document not only the promiser
 (what makes the promise) but also the **promisee**

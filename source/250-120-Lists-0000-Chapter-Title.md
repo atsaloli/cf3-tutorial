@@ -1,4 +1,4 @@
-## List Variables
+### List Variables
 
 A list is a collection of scalars (single values).
 

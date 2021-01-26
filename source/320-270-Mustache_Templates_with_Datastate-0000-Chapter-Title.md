@@ -1,8 +1,6 @@
-### Mustache Templates with Datastate
+### Populating from Datastate
 
-Function `datastate()`
-
-Returns a data container with the current evaluation data state.
+Function `datastate()` returns a data container with the current evaluation data state (all the classes and variables in cf-agent memory).
 
 The returned data container will have the keys `classes` and `vars`.
 

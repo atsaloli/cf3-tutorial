@@ -1,4 +1,4 @@
-### Dunbar numbers
+## Dunbar Numbers
 
 Robin Dunbar pointed out that there are limits to human cognition:
 

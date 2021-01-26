@@ -1,5 +1,3 @@
-### Ordering
-
 There is an order to promise evaluation.
 
 Promises are evaluated in order by promise type.

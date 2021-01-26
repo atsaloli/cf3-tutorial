@@ -1,1 +1,1 @@
-### Mustache Templates: Expanding with an External Data Container
+### Populating from an External Data Container

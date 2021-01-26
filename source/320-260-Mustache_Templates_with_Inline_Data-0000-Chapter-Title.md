@@ -1,1 +1,1 @@
-### Mustache Templates: Expanding with an Inline Data Structure
+### Populating from an Inline Data Container
