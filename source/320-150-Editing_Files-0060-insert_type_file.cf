@@ -1,20 +1,18 @@
-bundle agent main {
+# You can insert an entire file using "insert_type"
+# attribute of "insert_lines" promises.
 
-files:
-  "/tmp/test.txt" 
-    create => "true",
-    edit_line => mytext;
+bundle agent main
+{
 
+  files:
+      "/tmp/test.txt" 
+        create => "true",
+        edit_line => mytext;
 }
 
 bundle edit_line mytext
 {
-insert_lines:
-"/tmp/template"
-  insert_type => "file";
-
-delete_lines:
-  ".*";
-
+  insert_lines:
+    "/etc/os-release"
+      insert_type => "file";
 }
-

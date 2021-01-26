@@ -7,12 +7,10 @@ bundle agent main
 
 bundle edit_xml my_xml_example
 {
-
   insert_tree:
-      "<Host name=\"a014848585.example.com\">
+      '<Host name="a014848585.example.com">
              <Alias>mail.example.com</Alias>
-       </Host>"
+       </Host>'
         select_xpath => "/Server/Service/Engine";
-
 }
 

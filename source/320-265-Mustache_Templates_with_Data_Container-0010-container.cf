@@ -1,12 +1,18 @@
-bundle agent main {
+# Template data from standalone data container
+
+bundle agent main
+{
+  vars:
+      "my_template_data"
+        data => '{
+                   "organization" : "ACME, Inc.",
+                   "organizational_unit" : "Roadrunner Division",
+                 }';
 
   files:
       "/etc/motd"
         create => "true",
         template_method => "mustache",
-        edit_template   => "$(this.promise_dirname)/320-260-0020.mustache",
-        template_data => '{
-                                        "organization" : "ACME, Inc.",
-                                 "organizational_unit" : "Roadrunner Division",
-                          }';
+        edit_template   => "$(this.promise_dirname)/templates/motd.mustache",
+        template_data => @(my_template_data);
 }

@@ -9,9 +9,7 @@ bundle agent main
 
 bundle edit_xml build_xpath
 {
-
    build_xpath:
-
       "/Server/Service/Engine";
 
 }
