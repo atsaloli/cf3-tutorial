@@ -1,6 +1,6 @@
-bundle common g {
+bundle common g
 # global settings
-
+{
   vars:
       "organization"
         string => "Acme Inc.";
@@ -10,13 +10,15 @@ bundle common g {
        expression => "any";
 }
 
-
-bundle agent main {
-  vars: "foo" string => "bar";
+bundle agent main
+{
+  vars:
+      "foo"
+        string => "bar";
 
   files:
       "/etc/motd"
         create => "true",
         template_method => "mustache",
-        edit_template   => "$(this.promise_dirname)/320-270-Mustache_Templates_with_Datastate-0010.cf";
+        edit_template   => "$(this.promise_dirname)/templates/datastate-example.mustache";
 }
