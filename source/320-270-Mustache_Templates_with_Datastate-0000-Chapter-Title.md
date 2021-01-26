@@ -1,4 +1,4 @@
-### Populating from Datastate
+### With Datastate
 
 Function `datastate()` returns a data container with the current evaluation data state (all the classes and variables in cf-agent memory).
 
