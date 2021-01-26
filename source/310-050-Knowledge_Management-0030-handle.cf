@@ -5,7 +5,7 @@ bundle agent main
 
   files:
       "/tmp/testfile"
-        handle => "create_testfile", # a name for this promise.
+        handle => "create_testfile", # <-- promise handle 
         create => "true";
 
 }

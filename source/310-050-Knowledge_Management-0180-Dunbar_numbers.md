@@ -9,3 +9,5 @@ Robin Dunbar pointed out that there are limits to human cognition:
 The `Dunbar numbers' are cognitive limits that we have to work around.
 
 See Mark Burgess's ["Notes from the USENIX/LISA Knowledge Management Workshop"](http://markburgess.org/blog_km.html)
+
+You can use this to structure CFEngine policy.

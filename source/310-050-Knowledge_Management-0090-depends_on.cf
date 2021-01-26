@@ -1,0 +1,17 @@
+# You can have multiple dependencies
+
+bundle agent main
+{
+  reports:
+
+      "Launch!!"
+        depends_on => { "systems_check", "fuel" },
+        handle => "ignition";
+
+      "Systems Check"
+        handle => "systems_check";
+
+      "Fueling..." 
+        handle => "fuel";
+
+}

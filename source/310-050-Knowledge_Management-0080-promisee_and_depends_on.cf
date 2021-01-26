@@ -1,0 +1,15 @@
+# Documenting what depends on this promise
+
+bundle agent main
+{
+  reports:
+
+      "Launch!!"
+        depends_on => { "fuel" },
+        handle => "launch";
+
+      "Fueling" -> { "launch" }   # <-- promisee
+        handle => "fuel";
+
+}
+

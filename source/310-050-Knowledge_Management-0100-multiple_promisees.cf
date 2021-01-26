@@ -1,0 +1,10 @@
+# You can have multiple promisees
+
+bundle agent main
+{
+  reports:
+
+      "Systems Check" -> { "fuel", "launch" }
+        handle => "systems_check";
+
+}
