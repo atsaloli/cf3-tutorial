@@ -1,4 +1,4 @@
-# ( ) for grouping
+# Example of using ( ) for grouping
 
 bundle agent main
 {
