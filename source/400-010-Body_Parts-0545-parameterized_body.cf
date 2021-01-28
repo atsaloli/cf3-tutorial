@@ -1,5 +1,4 @@
-# Two bundles sharing a body-part that automagically sets
-# the correct group ownership based on OS
+# You can parameterize body parts
 
 bundle agent main {
 

@@ -1,5 +1,7 @@
-bundle agent main {
+# You can use class expressions in body parts
 
+bundle agent main
+{
   files:
 
       "/tmp/testfile"

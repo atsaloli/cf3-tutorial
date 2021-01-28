@@ -11,4 +11,5 @@ all lines that start with a day of the week:
     edit_line => comment_lines_matching("(Mon|Tue|Wed|Thur|Fri|Sat|Sun).*" ,
                                         "#")
 
-out of the standard library.
+The `edit_line` bundle `comment_lines_matching` is in the standard
+library.

@@ -1,21 +1,16 @@
-bundle agent main {
-
-reports:
-"$(sys.libdir)/stdlib.cf" ; 
-
-  files:
-
-      "/tmp/testfile"
-
-        handle => "set_file_attributes",
-        comment => "/tmp/testfile must be mode 612 for application X
-                          to work; it must be owned by user 'aleksey' and
-                          group 'cfengine'",
-        create  => "true",
-        perms   => mog("612","aleksey","cfengine");
-
+body file control
+{
+  inputs => { "$(sys.libdir)/stdlib.cf" };  # <-- read in the library
 }
 
-###########################################################
+bundle agent main
+{
+  reports:
+      "CFEngine StdLib is here: $(sys.libdir)/stdlib.cf" ; 
 
-body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
+  files:
+      "/tmp/testfile"
+        create  => "true",
+        perms   => mog("612","root","nobody");
+}
+

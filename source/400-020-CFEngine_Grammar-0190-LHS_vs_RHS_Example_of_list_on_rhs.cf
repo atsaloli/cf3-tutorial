@@ -2,30 +2,23 @@
 #
 #      cfengine_word => { list }    #  (directly and via variable)
 
-body common control {
+body common control
+# "body common control" contains attributes that control the behavior
+# of CFEngine
+{
 
-        bundlesequence => { "example_1", "example_2" };
+  bundlesequence => { "example_1", "example_2" };
 
 }
 
-bundle agent example_2 {
-
+bundle agent example_2
+{
   reports:
-
-
-
-      "Second things second"
-        handle => "identify_2nd_bundle",
-        comment => "Identify 2nd bundle to demonstrate bundlesequence";
+      "Second things second";
 }
 
-bundle agent example_1 {
-
+bundle agent example_1
+{
   reports:
-
-
-
-      "First things first"
-        handle => "identify_1st_bundle",
-        comment => "Identify 1st bundle to demonstrate bundlesequence";
+      "First things first";
 }

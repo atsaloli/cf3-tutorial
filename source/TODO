@@ -1,3 +1,5 @@
+Add a chapter to "templates" section that would cover legacy CFEngine templates but would say they are deprecated.
+
 Make sure I have examples of `services:` promises
 
 Add links to "create" and "touch" attributes in the reference manual.

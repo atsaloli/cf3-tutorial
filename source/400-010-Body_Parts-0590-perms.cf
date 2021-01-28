@@ -1,20 +1,16 @@
-bundle agent main {
+# A body part can be re-used across promises
 
+bundle agent main
+{
   files:
-
       "/tmp/bobsfile"
-
         create  => "true",
-        comment => "Set mode, ownership and group on /tmp/bobsfile",
         perms   => mog("777", "bob", "mail");
 
       "/tmp/susansfile"
-
         create  => "true",
-        comment => "Set mode, ownership and group on /tmp/susansfile",
         perms   => mog("000", "susan", "games");
 }
-
 
 body perms mog(mode,owner,group)
 {

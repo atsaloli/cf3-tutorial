@@ -1,4 +1,5 @@
-bundle agent main {
+bundle agent main
+{
 
   files:
       "/tmp/data.txt"

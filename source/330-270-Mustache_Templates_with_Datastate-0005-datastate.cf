@@ -1,3 +1,5 @@
+# Show datastate
+#
 # This policy will dump the first 4k of the datastate
 # (4096 bytes due to internal limits in CFEngine)
 #
