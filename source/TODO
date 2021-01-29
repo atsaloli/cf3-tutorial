@@ -1,3 +1,6 @@
+Add a section on "control bodies" (e.g. boddy common control, body file control) to teh chapter on body parts
+They are attributes of an inherent "control" promise.
+
 Add a chapter to "templates" section that would cover legacy CFEngine templates but would say they are deprecated.
 
 Make sure I have examples of `services:` promises
