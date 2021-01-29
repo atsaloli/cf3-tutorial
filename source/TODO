@@ -1,3 +1,6 @@
+classes have scope -- this needs to be mentioned earlier when I first
+introduce soft classes
+
 Add a chapter to "templates" section that would cover legacy CFEngine templates but would say they are deprecated.
 
 Make sure I have examples of `services:` promises
