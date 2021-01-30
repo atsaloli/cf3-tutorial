@@ -1,4 +1,22 @@
 
+https://github.com/nickanderson/CFEngine-zero-to-hero-primer
+https://docs.cfengine.com/latest/guide-printable.html
+https://docs.cfengine.com/latest/reference-printable.html
+https://docs.cfengine.com/latest/examples-printable.html
+
+CFEngine "with" attribute
+
+
+It would be nice if cf-promises didn't require a -f switch:
+
+sudo cf-promises --syntax-description json --file /dev/null
+
+Add a mention of namespace somewhere?? Maybe in teh section "Scope of
+variables" ?
+
+classes have scope -- this needs to be mentioned earlier when I first
+introduce soft classes
+
 
 Add a section on "control bodies" (e.g. boddy common control, body file control) to teh chapter on body parts
 They are attributes of an inherent "control" promise.
@@ -207,17 +225,3 @@ to do
 - add example screenshot of Topic Maps
 
 00000
-
-https://docs.cfengine.com/latest/guide-printable.html
-https://docs.cfengine.com/latest/reference-printable.html
-https://docs.cfengine.com/latest/examples-printable.html
-
-CFEngine "with" attribute
-
-
-It would be nice if cf-promises didn't require a -f switch:
-
-sudo cf-promises --syntax-description json --file /dev/null
-
-Add a mention of namespace somewhere?? Maybe in teh section "Scope of
-variables" ?
