@@ -1,6 +1,5 @@
 bundle agent main
 {
-
   vars:
       "infinity" int => "inf";  # infinity
 

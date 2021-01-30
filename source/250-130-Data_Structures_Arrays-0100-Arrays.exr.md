@@ -1,4 +1,4 @@
-Make an array, `student_grades`.
+Make an array, `student\_grades`.
 
 Populate it with the following data:
 

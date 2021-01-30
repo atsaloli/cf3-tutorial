@@ -4,22 +4,21 @@ Let's say the variable `first_name` is defined in the bundle `names`:
 
 ```cfengine3
 bundle agent names
-{                                                                       
-  vars:                                                                                    
-      "first_name"                                                                         
-        string => "John";                                                                  
-}                                                                                          
+{
+  vars:
+      "first_name"
+        string => "John";
+}
 ```
 
-
-Unqualified:
-
+Unqualified reference:
 
 ```cfengine3
-reports: "Hello, $(first_name)";                                                           
+reports: "Hello, $(first_name)";
 ```
 
-Qualified:
+Qualified reference:
+
 ```cfengine3
-reports: "Hello, $(names.first_name)";                                                     
+reports: "Hello, $(names.first_name)";
 ```

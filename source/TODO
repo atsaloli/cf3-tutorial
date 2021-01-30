@@ -219,3 +219,5 @@ It would be nice if cf-promises didn't require a -f switch:
 
 sudo cf-promises --syntax-description json --file /dev/null
 
+Add a mention of namespace somewhere?? Maybe in teh section "Scope of
+variables" ?

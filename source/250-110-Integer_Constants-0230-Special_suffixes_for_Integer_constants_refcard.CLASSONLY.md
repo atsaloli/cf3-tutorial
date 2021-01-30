@@ -1,3 +1,5 @@
+#### Table of Integer Suffixes
+
 | Suffix | Meaning                   |
 |--------|---------------------------|
 | `k`  | value times 1000
