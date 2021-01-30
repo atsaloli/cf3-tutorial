@@ -1,6 +1,4 @@
 # Run "/bin/rm /tmp/newfile" to setup for this example
-#
-# Why does CFEngine print both reports when /tmp/newfile is absent?
 
 bundle agent main {
 
@@ -22,3 +20,5 @@ bundle agent main {
     file_absent::
       "file /tmp/newfile does not exist";
 }
+
+# Why does CFEngine print both reports when /tmp/newfile is absent?

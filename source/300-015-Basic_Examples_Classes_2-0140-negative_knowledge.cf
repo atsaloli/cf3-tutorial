@@ -1,5 +1,6 @@
 # Example of "negative knowledge" -- not recommended!
-# Better to be certain (rely on the presence of something).
+# Better to be certain (rely on the presence of something,
+# not its absence).
 
 bundle agent main
 {
@@ -18,4 +19,6 @@ bundle agent main
 
 # Knowing that something is not the case is not the same as not knowing
 # whether something is the case. That a class is not set could mean
-# either. See <https://docs.cfengine.com/docs/3.17/reference-language-concepts-classes.html#negative-knowledge>
+# either.
+#
+# Reference:  <https://docs.cfengine.com/docs/3.17/reference-language-concepts-classes.html#negative-knowledge>

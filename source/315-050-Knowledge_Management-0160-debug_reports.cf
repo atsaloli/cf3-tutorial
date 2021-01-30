@@ -7,10 +7,10 @@
 
 bundle agent main {
 
-  vars:  
+  vars:
     "name"
       string => "George";
- 
+
   methods:
     "prep";
 

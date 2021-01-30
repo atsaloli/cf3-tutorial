@@ -1,4 +1,4 @@
-# demonstrate three passes through a bundle by using verbose mode
+# Demonstrate three passes through a bundle by using verbose mode
 
 bundle agent main
 {

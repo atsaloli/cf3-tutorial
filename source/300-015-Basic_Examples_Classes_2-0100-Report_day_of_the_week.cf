@@ -1,5 +1,4 @@
-# The following bundle does not use class expressions.
-# The next one will.
+# This bundle does not use class expressions.
 
 bundle agent main
 {

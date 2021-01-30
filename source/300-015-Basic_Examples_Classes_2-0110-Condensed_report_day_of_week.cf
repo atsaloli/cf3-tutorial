@@ -1,3 +1,5 @@
+# This bundle uses class expressions.
+
 bundle agent main
 {
 

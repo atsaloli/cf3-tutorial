@@ -1,25 +1,23 @@
-# What if there is other content in /etc/motd?
-# You can control the entire file with
-# delete_lines: "*"
+# You can control the entire file content by adding
+# the edit_line promise `delete_lines: "*";`
 
 bundle agent main
 {
 
   files:
       "/etc/motd"
-        handle => "motd",
-        comment => "Create and populate motd",
         create => "true",
         edit_line => my_motd;
 }
 
-
 bundle edit_line my_motd
 {
   insert_lines:
-      "Good morning!";
+      "Good afternoon!";
 
   delete_lines:
       ".*";
 }
+
+# Why doesn't this just leave the file empty?
 

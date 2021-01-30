@@ -1,4 +1,5 @@
-# Create a file and populate its content
+# Change "good morning" to "good afternoon".
+# What will the file contain after we run cf-agent?
 
 bundle agent main
 {
@@ -11,5 +12,5 @@ bundle agent main
 bundle edit_line greet_users
 {
   insert_lines:
-      "Good morning!";
+      "Good afternoon!";
 }

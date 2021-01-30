@@ -1,5 +1,5 @@
 Making "delete\_lines" promises
 
-Create an /etc/motd file that contains only the 
-text "Unauthorized use forbidden"
+Write a policy to ensure the /etc/motd file (a) exists, and (b) contains
+_only_ the line  "Unauthorized use forbidden".
 

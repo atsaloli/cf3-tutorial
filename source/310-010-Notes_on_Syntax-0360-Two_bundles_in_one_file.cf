@@ -1,15 +1,22 @@
 # Example of two bundles in one file
+#
+# $(this.bundle) is a special variable that contains the name of the
+# current bundle.
+#
+# A `methods:` promise is a promise to take on a whole another bundle of
+# promises.
 
-bundle agent bundle_1
+bundle agent main
 {
-  files:
-      "/tmp/file1"
-        create  => "true";
+  methods:
+      "bundle_2";
+
+  reports:
+      "I am in the $(this.bundle) bundle";
 }
 
 bundle agent bundle_2
 {
-  files:
-      "/tmp/file2"
-        create  => "true";
+  reports:
+      "I am in the $(this.bundle) bundle";
 }

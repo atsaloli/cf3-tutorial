@@ -1,4 +1,4 @@
-### More Later
+### More edit_line promise types
 
 There are two other promise types you can make in edit\_line bundles:
 

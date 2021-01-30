@@ -1,9 +1,8 @@
-bundle agent main {
-
+bundle agent main
+{
   files:
-
       "/tmp/hello"
         create  => "true",
         comment => "inline-comments show up in verbose mode";
-      # hash-comments are thrown away by parser.
+      # hash-comments are thrown away by parser
 }

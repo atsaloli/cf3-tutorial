@@ -1,6 +1,6 @@
 # You can set a soft class based on the outcome
 # of a function that returns true/false, such as
-# regline() which checks if there is a line in a
+# `regline()` which checks if there is a line in a
 # file matching a regular expression.
 
 bundle agent main
@@ -12,10 +12,10 @@ bundle agent main
         expression => regline(".*(VMware|VBOX|QEMU).*",
                               "/proc/scsi/scsi");
 
-# This is what we would see in the shell on VMware guests:
+# E.g., on a VMware guest, we have:
 #
 # $ grep -i vmware /proc/scsi/scsi
-# Vendor: VMware,  Model: VMware Virtual S Rev: 1.0 
+# Vendor: VMware,  Model: VMware Virtual S Rev: 1.0
 # Vendor: NECVMWar Model: VMware SATA CD01 Rev: 1.00
 # $
 
@@ -23,3 +23,5 @@ bundle agent main
     i_am_virtual::
       "Running inside a VM";
 }
+
+# See also the "virt-what" utility
