@@ -8,5 +8,5 @@
 # - run configure_vm.sh first to install required packages
 # - use latest Vim (built from source) to get the best Vim Terminal
 
-# start slideshow
-vim `ls -1 | egrep -v '.png$|.pdf$|.skip$|BOOKONLY' `
+# start slideshow (using latest version of Vim)
+~/bin/vim `ls -1 | egrep -v '.png$|.pdf$|.skip$|BOOKONLY' `
