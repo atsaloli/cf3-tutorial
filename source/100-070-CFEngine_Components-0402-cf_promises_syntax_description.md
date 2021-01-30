@@ -8,8 +8,4 @@ sudo cf-promises --syntax-description json --file /dev/null
 ```
 
 Note: The syntax dump feature was "bolted on" to `cf-promises`,
-so `cf-promises` requires the `--file` switch.
-
-```bash
-alias cf-syntax='sudo cf-promises --syntax-description json --file /dev/null | jq .'
-```
+so that's why `cf-promises` _requires_ the `--file` switch.

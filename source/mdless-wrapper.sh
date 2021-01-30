@@ -6,7 +6,6 @@
 
 # plus truncate its output (workaround for https://github.com/ttscoff/mdless/issues/63)
 
-
 if [[ $1 =~ \.exr.md$ ]]
 then
   # insert Exercise header for in-class presentation
@@ -16,4 +15,4 @@ then
   cat "$1";
 else
   cat "$1"
-fi  | mdless --no-pager --width=100 | head -n -3 | tail -n +3
+fi  | /opt/git/.gem/bin/mdless --no-pager --width=100 | head -n -3 | tail -n +3

@@ -13,16 +13,10 @@ showfile(){
   clear
   filename=$(grep -m1 "^$1 " index.txt | awk '{print $2}')
   echo "Showing [$slide_number/$total_slides] $filename"
+  echo
 
-  if [[ $filename =~ \.exr.md$ ]]
-  then
-    # insert Exercise header for in-class presentation
-    # works around https://github.com/ttscoff/mdless/issues/60
-    echo '### Exercise'
-    echo
-    cat "$filename";
-  elif [[ $filename =~ \.md$ ]]; then
-    cat "$filename"
+  if [[ $filename =~ \.md$ ]]; then
+	  /opt/git/cf3-tutorial/source/mdless-wrapper.sh $filename
   elif [[ $filename =~ \.cf$ ]]; then
     pygmentize -l cfengine3 "$filename"
   elif [[ $filename =~ \.sh$ ]]; then
@@ -87,8 +81,9 @@ do
 		e) edit_file "$slide_number"; showfile "$slide_number" ;;
         f|r) run_file "$slide_number" ;; # Run the file (with cf-agent or bash)
         v) verbose_run_file "$slide_number" ;; # Run the file (with cf-agent -v)
+        !) bash; showfile "$slide_number" ;; # shell out
 		+) ((slide_number=slide_number+10)); showfile "$slide_number" ;;
-		'-') ((slide_number=slide_number-10)); showfile "$slide_number" ;;
+		\-) ((slide_number=slide_number-10)); showfile "$slide_number" ;; ## this doesn't work for some reason. TODO fix it
         *) get_keystroke ;; # bad input.  try again.
 
 
