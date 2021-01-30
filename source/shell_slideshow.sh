@@ -10,10 +10,21 @@ buildindex(){
 
 showfile(){
   # Display a file
-  clear
+
+  # Look up filename from slide_number index
   filename=$(grep -m1 "^$1 " index.txt | awk '{print $2}')
-  echo "Showing [$slide_number/$total_slides] $filename"
+
+  # Prepare the content for the slideshow header message (the first row)
+  status_line="[$slide_number/$total_slides] $filename"
+
+  # Print filename in a reverse video bar across the 1st row
+  clear
+  cols=$(tput cols) # Get the number of columns for the current terminal.
+  tput rev # start reverse video
+  printf "%-${cols}s" "$status_line"
+  tput sgr0 # turn off all attributes
   echo
+  #echo '---------------------------------------------------------------------'
 
   if [[ $filename =~ \.md$ ]]; then
 	  /opt/git/cf3-tutorial/source/mdless-wrapper.sh $filename
@@ -83,7 +94,10 @@ do
         v) verbose_run_file "$slide_number" ;; # Run the file (with cf-agent -v)
         !) bash; showfile "$slide_number" ;; # shell out
 		+) ((slide_number=slide_number+10)); showfile "$slide_number" ;;
-		\-) ((slide_number=slide_number-10)); showfile "$slide_number" ;; ## this doesn't work for some reason. TODO fix it
+		\-) ((slide_number=slide_number-10)); showfile "$slide_number"
+			;; ## this doesn't work for some reason (patterns). TODO fix it
+		B) ((slide_number=slide_number-10)); showfile "$slide_number" ;;
+		## go Back 10 slides
         *) get_keystroke ;; # bad input.  try again.
 
 
