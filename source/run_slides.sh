@@ -9,4 +9,4 @@
 # - use latest Vim (built from source) to get the best Vim Terminal
 
 # start slideshow (using latest version of Vim)
-~/bin/vim `ls -1 | egrep -v '.png$|.pdf$|.skip$|BOOKONLY' `
+vim `ls -1 | egrep -v '.png$|.pdf$|.skip$|BOOKONLY' `
