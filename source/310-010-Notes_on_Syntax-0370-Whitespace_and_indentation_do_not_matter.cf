@@ -1,15 +1,10 @@
-# Whitespace/indentation does not matter:
-# both of below work just fine.
-#
-# Whitespace is for readability.
+# Whitespace/indentation does not matter, these bundles will both work
 
-bundle agent main
+bundle agent with_whitespace
 {
-  methods:
-      "no_whitespace";
-
-  reports:
-      "With whitespace";
+  files:
+      "/etc/nologin"
+        create => "true";
 }
 
-bundle agent no_whitespace {reports:"Without whitespace";}
+bundle agent no_whitespace { files: "/etc/nologin" create => "true"; }
