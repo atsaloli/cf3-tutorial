@@ -5,7 +5,6 @@
 
 bundle agent main
 {
-
   classes:
       "i_am_virtual"
         comment => "Check if we are running inside a VM",

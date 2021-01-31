@@ -1,11 +1,9 @@
 body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
 
-bundle agent main {
-
+bundle agent main
+{
   files:
-
       "/tmp/."
-
         file_select => compound_filter,
         depth_search => recurse("inf"),
         delete  => tidy;

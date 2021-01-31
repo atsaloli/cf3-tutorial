@@ -1,19 +1,15 @@
-bundle agent main {
-
+bundle agent main
+{
   files:
-
       "/etc/httpd/conf.d/maintenance.conf"
-
         handle    => "take_website_out_of_maintenance",
         comment   => "Disable maintenance-mode config block",
         edit_line => comment_out_everything;
-
 }
 
-bundle edit_line comment_out_everything {
-
+bundle edit_line comment_out_everything
+{
   replace_patterns:
-
       "^([^#].*)"
         replace_with => comment("# ");
 }

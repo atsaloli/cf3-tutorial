@@ -1,12 +1,6 @@
-########################################################
-#
 # Simple test processes
-#
-########################################################
-
 
 bundle agent main
-
 {
   processes:
 
@@ -27,10 +21,7 @@ bundle agent main
 
 }
 
-########################################################
-
 body process_select proc_finder
-
 {
 
         command => "vim .*";
@@ -46,10 +37,7 @@ body process_select proc_finder
 
 }
 
-########################################################
-
 body process_count anyprocs
-
 {
         match_range => "0,0";
       # Integer range for acceptable number of matches for this process

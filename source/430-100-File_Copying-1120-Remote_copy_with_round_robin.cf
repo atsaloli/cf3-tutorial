@@ -1,20 +1,16 @@
 # Use two remote servers, and round-robin between them.
 #
-# In practice, large sites run policy servers behind SLB's
-# (such as F5 Big IP). But you could also do a software
-# load-balance, client-side, with CFEngine alone, as this
-# policy illustrates.
-
+# In practice, large sites run policy servers behind load
+# balancers. But you could also do a software load-balance,
+# client-side, with CFEngine alone, as this policy illustrates.
 
 bundle agent main
 {
-
   classes:
       "heads"
         handle => "flip_a_coin",
         comment => "Generate a class with a 50% probability",
         expression => isgreaterthan(randomint(1,100), 50);
-
 
   files:
       "/tmp/test1copy"
@@ -22,7 +18,6 @@ bundle agent main
                                     "10.1.1.10",
                                     "10.1.1.12");
 }
-
 
 body copy_from round_robin_cp(from,server1, server2)
 {

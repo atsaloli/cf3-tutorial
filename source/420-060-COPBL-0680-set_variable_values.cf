@@ -1,9 +1,9 @@
-bundle common global {
-
+bundle common g
+{
   vars:
 
       "stuff[location]"     string => "New York";
-      "stuff[time]"         string => "May-2013";
+      "stuff[time]"         string => "May-2027";
       "stuff[students]"     string => "11";
       "stuff[lab]"          string => "true";
 }
@@ -16,7 +16,7 @@ bundle agent main {
         handle => "populate_config_file_from_array",
         comment => "Demonstrate 'bundle edit_line set_variable_values'",
         create => "true",
-        edit_line => set_variable_values("global.stuff");
+        edit_line => set_variable_values("g.stuff");
 }
 
 

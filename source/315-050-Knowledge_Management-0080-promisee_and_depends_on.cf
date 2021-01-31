@@ -10,6 +10,5 @@ bundle agent main
 
       "Fueling" -> { "launch" }   # <-- promisee
         handle => "fuel";
-
 }
 

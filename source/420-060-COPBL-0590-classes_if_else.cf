@@ -1,8 +1,7 @@
-bundle agent main {
-
+bundle agent main
+{
   files:
-
-      "/tmp/etc/motd"
+      "/dev/null/motd"
         handle => "touch_file",
         comment => "Demonstrate body classes if_else",
         create => "true",
@@ -17,8 +16,6 @@ bundle agent main {
     file_missing::
       "WARNING! Unable to create vital file!"
         handle => "report_WARN";
-
 }
-
 
 body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }

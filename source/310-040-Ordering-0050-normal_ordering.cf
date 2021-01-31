@@ -1,7 +1,7 @@
 # Run "/bin/rm /tmp/newfile" to setup for this example
 
-bundle agent main {
-
+bundle agent main
+{
   classes:
       "file_exists"
         expression => fileexists("/tmp/newfile");

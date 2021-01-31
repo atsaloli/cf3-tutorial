@@ -1,13 +1,12 @@
 # - demonstrate setting a custom class using a function
 
-bundle agent main {
-
+bundle agent main
+{
   classes:
       "islink"
         handle => "class_islink",
         comment => "Test if /tmp/a is a symbolic link",
         expression => islink("/tmp/a");
-
 
   reports:
     islink::

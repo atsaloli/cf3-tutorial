@@ -6,10 +6,12 @@
 bundle agent main
 {
   reports:
+    any::
       "hello world";
-
-    my-hostname-has-dashes:: "One";
-    my_hostname_has_dashes:: "Two";
+    my-hostname-has-dashes::
+      "One";
+    my_hostname_has_dashes::
+      "Two";
 
 }
 

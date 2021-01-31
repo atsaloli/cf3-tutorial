@@ -1,3 +1,4 @@
+# How deep can you nest bundles?
 bundle agent main { methods: "any" usebundle => bundle1; }
 bundle agent bundle1 { methods: "any" usebundle => bundle2; }
 bundle agent bundle2 { methods: "any" usebundle => bundle3; }

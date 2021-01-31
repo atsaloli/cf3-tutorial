@@ -3,7 +3,6 @@
 
 bundle agent main
 {
-
   vars:
 
       "variable_0"
@@ -11,13 +10,10 @@ bundle agent main
         string  => "String contents...";  # a scalar value
 
       "variable_1"
-        comment => "RHS uses a variable",
+        comment => "RHS uses a variable but it's still a scalar",
         string  => "$(variable_0)";       # a scalar variable
-  reports:
 
-      "
-variable_0: $(variable_0)
-variable_1: $(variable_1)
-"
-        comment => "Display values of both variables";
+  reports:
+      "variable_0: $(variable_0)";
+      "variable_1: $(variable_1)";
 }

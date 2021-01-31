@@ -3,7 +3,6 @@
 
 bundle agent main
 {
-
   files:
       "/etc/motd"
         create => "true",

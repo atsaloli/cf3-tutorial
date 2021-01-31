@@ -1,12 +1,11 @@
-body common control {
-
+body common control
+{
         bundlesequence => { "example_1", "example_2" };
-
 }
 
 
-bundle agent example_1 {
-
+bundle agent example_1
+{
       # Classes defined in common bundles are global.
       #
       # They appear in the Defined Classes section at the start of
@@ -15,8 +14,8 @@ bundle agent example_1 {
       # Classes defined in agent bundles are local
 
   classes:
-      "webserver"
-        expression  =>  "any";
+    any::
+      "webserver";
 
       # Because this is an "agent" bundle, other bundles won't
       # see this class.

@@ -1,9 +1,8 @@
 # report environmental conditions
 
-bundle agent main {
-
+bundle agent main
+{
   reports:
-
       "Percent CPU utilization         ${mon.value_cpu}";
       "Percent CPU0 utilization         ${mon.value_cpu0}";
       "Percent CPU1 utilization         ${mon.value_cpu1}";
@@ -15,5 +14,4 @@ bundle agent main {
   reports:
     CPUoverload::
       "CPU utilization is over threshold!!!";
-
 }

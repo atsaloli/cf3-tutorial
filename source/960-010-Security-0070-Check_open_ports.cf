@@ -1,5 +1,5 @@
-bundle agent main {
-
+bundle agent main
+{
   vars:
       "listening_ports_and_processes_ideal_scene"
         handle => "expected_tcp_profile",

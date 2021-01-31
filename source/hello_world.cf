@@ -1,16 +1,7 @@
 bundle agent main
 {
 
-reports:
+  reports:
+      "$(sys.date)";
 
-    "$(sys.date)";
-
-#  vars:
-#    "myclasses"
-#      slist => classesmatching(".*day");
-#
-#  reports:
-#    
-#      "$(myclasses)";
-
-} 
+}

@@ -1,5 +1,5 @@
 # Referring to an slist in scalar context implies looping.
-# 
+#
 # In this example, we set up a nested implicit loop by referring to TWO
 # slists in scalar context
 

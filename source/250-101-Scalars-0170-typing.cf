@@ -1,16 +1,8 @@
-bundle agent main {
-
+bundle agent main
+{
   vars:
-
       "my_int"
-
-        comment => "Try to assign a real number to an integer
-                          variable to see how CFEngine handles
-                          data typing.",
+        comment => "Try to assign a real number to an integer",
         int => "1.5";
-
-  reports:
-
-      "My value is $(my_int).";
 
 }

@@ -3,18 +3,16 @@
 # "name =value2" if you start with "name = value1".
 # Instead you get lines like "name=value2".
 
-bundle common global {
-
+bundle common global
+{
   vars:
-
       "stuff[Location]" string => "Chicago";
       "stuff[Time]"     string => "Monday, April 2nd";
 }
 
 
-
-bundle agent main {
-
+bundle agent main
+{
   files:
 
       "/tmp/example"
@@ -24,7 +22,6 @@ bundle agent main {
 
 
 bundle edit_line set_variable_values(v)
-
 {
   vars:
 

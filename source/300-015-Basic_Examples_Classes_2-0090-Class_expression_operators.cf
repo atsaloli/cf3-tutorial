@@ -1,10 +1,8 @@
 bundle agent main
 {
-
   reports:
-
-      !WinXP:: "This isn't Windows XP";
-      windows|linux::  "Am I laughing or crying?";
-      windows&linux::  "We should never see this report.";
+    !WinXP:: "This isn't Windows XP";
+    windows|linux::  "Am I laughing or crying?";
+    windows&linux::  "We should never see this report.";
 
 }

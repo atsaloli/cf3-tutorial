@@ -2,7 +2,6 @@
 
 bundle agent main
 {
-
   commands:
       "/usr/local/sbin/a/really/long/path/to/echo"
         args => "Hello, World!";

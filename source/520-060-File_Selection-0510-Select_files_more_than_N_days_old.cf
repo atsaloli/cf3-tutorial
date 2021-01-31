@@ -6,22 +6,16 @@
 
 
 bundle agent main
-
 {
   files:
-
       "/tmp/test_from"
-
         file_select => modified_over_a_year_ago,
         transformer => "/bin/echo FOUND $(this.promiser)",
         depth_search => recurse("inf");
 
 }
 
-############################################
-
 body file_select modified_over_a_year_ago
-
 {
         mtime => irange(ago(100,0,0,0,0,0),ago(1,0,0,0,0,0));
       # modified between 1-100 years ago
@@ -30,10 +24,7 @@ body file_select modified_over_a_year_ago
         file_result => "mtime";
 }
 
-############################################
-
 body depth_search recurse(d)
-
 {
         depth => "$(d)";
 }

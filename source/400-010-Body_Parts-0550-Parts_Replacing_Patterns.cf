@@ -1,6 +1,8 @@
+# Run "echo I am going to walk my dog > /tmp/data.txt" to set up for
+# this example
+
 bundle agent main
 {
-
   files:
       "/tmp/data.txt"
         handle    => "turn_dogs_into_cats",
@@ -8,15 +10,15 @@ bundle agent main
         edit_line => transform_dogs_to_cats;
 }
 
-bundle edit_line transform_dogs_to_cats {
-
+bundle edit_line transform_dogs_to_cats
+{
   replace_patterns:
       "[Dd]og"
         replace_with => value("cat");
 }
 
-body replace_with value(x) {
-
+body replace_with value(x)
+{
         replace_value => "$(x)";
         occurrences => "all";
 }

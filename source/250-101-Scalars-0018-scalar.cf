@@ -1,6 +1,5 @@
 bundle agent main
 {
-
   vars:
       "greeting"
         string  => "Hello. My name is $(name).";

@@ -1,6 +1,5 @@
 bundle agent main
 {
-
   files:
 
       "/tmp/hello"

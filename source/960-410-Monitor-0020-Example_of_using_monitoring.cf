@@ -1,7 +1,7 @@
 # report environmental conditions
 
-bundle agent main {
-
+bundle agent main
+{
   vars:
       "threshold" int => "50";
 
@@ -16,5 +16,4 @@ bundle agent main {
      "mon.value_cpu = $(mon.value_cpu)";
     CPU_load_high::
       "!!!!! CPU LOAD IS OVER THRESHOLD OF $(threshold) percent !!!! ";
-
 }

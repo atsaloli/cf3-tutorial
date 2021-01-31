@@ -1,11 +1,8 @@
-bundle agent main {
-
+bundle agent main
+{
   files:
-
       "/etc/nologin"
-
         handle => "touch_etc_nologin",
         comment => "Quiesce the system for maintenance",
         create  => "true";
-
 }

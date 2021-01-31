@@ -3,24 +3,17 @@
 
 bundle agent main
 {
-
   files:
-
       "/tmp/(cf[^_]*)_(.*)"
         edit_line => show_match("$(match.0) $(match.1) $(match.2)");
-
 }
 
-bundle edit_line show_match(data) {
-
+bundle edit_line show_match(data)
+{
   reports:
-
-
       "$(data)";
-
       # OUTPUT
       # You should see:
       # R: /tmp/cf2_test1 cf2 test1
       # R: /tmp/cf3_test2 cf3 test2
-
 }

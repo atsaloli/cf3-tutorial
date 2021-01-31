@@ -1,19 +1,14 @@
-bundle agent main {
-
+bundle agent main
+{
   files:
-
       "/etc/httpd/conf.d/maintenance.conf"
-
         handle    => "put_website_into_maintenance",
         comment   => "Enable maintenance-mode config block",
         edit_line => uncomment_everything;
-
 }
 
 bundle edit_line uncomment_everything {
-
   replace_patterns:
-
       "^#(.*)"
         handle => "uncomment_everything_replace_pattern",
         comment => "If it starts with a hash mark, grab everything

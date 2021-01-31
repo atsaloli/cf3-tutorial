@@ -1,6 +1,5 @@
 bundle agent main
 {
-
   processes:
       "httpd"
         restart_class => "start_httpd";
@@ -8,5 +7,4 @@ bundle agent main
   commands:
     start_httpd::
       "/sbin/service httpd start";
-
 }

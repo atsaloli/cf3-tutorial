@@ -1,15 +1,10 @@
-bundle agent main {
-
+bundle agent main
+{
   vars:
-
       "my_int"
-
         comment => "Try to assign a string to an integer variable.",
         int => "hello world";
 
-
   reports:
-
       "my int is $(my_int)";
-
 }

@@ -2,10 +2,8 @@
 
 bundle agent main
 {
-
   files:
       "/tmp/testfile"
         handle => "create_testfile", # <-- promise handle 
         create => "true";
-
 }

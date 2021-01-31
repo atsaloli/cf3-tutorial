@@ -1,13 +1,10 @@
-bundle agent main {
-
+bundle agent main
+{
   commands:
-
       "/bin/echo"
-
         comment => "Sometimes it is convenient to separate command
                     and arguments.",
         args => "Hello, World!";
-
 }
 
 # Reference:

@@ -1,0 +1,10 @@
+bundle agent main
+{
+  vars:
+      "my_result"
+        string => execresult("/bin/ls /etc/motd /nosuchfile 2>/dev/null",
+                             "useshell");
+
+  reports:
+      "Variable is $(my_result)";
+}

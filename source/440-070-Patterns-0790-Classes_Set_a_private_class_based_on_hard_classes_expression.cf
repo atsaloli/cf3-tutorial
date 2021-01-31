@@ -1,8 +1,6 @@
-bundle agent main {
-
-
+bundle agent main
+{
   classes:
-
       "good_technology"
         handle => "good_technology_class",
         comment => "Set a custom class based on built-in classes",
@@ -10,8 +8,6 @@ bundle agent main {
 
   reports:
     good_technology::
-      "I love good technology"
-        handle => "show_respect",
-        comment => "Show respect for good technology";
+      "I love good technology";
 
 }

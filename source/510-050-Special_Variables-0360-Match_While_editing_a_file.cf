@@ -13,35 +13,21 @@
 ########################################################
 
 bundle agent main
-
 {
-
   files:
-
       "/tmp/cf3_test"
-
         create    => "true",
         edit_line => replace_shell_comments_with_C_comments;
 }
 
-########################################################
-
 bundle edit_line replace_shell_comments_with_C_comments
 {
-
   replace_patterns:
-
       "^#(.*)"
-
         replace_with => C_comment;
-
 }
 
-
-########################################################
-
 body replace_with C_comment
-
 {
         replace_value => "/* $(match.1) */"; # backreference 0
         occurrences => "all";  # first, last all

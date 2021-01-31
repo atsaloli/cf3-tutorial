@@ -1,5 +1,5 @@
-bundle agent main {
-
+bundle agent main
+{
   vars:
       "my_list"
         rlist => { "1.5", "3.0", "4.5" };

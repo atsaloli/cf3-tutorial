@@ -1,27 +1,18 @@
-bundle agent main
+# Start a backgrounded sleep process:  "nohup sleep 1000 &"
+#
+# CFEngine will kill it if it is less than an hour old
 
+bundle agent main
 {
   processes:
-
       ".*sleep.*"
-
-        process_select  => newborns,
+        process_select  => less_than_an_hour_old,
         signals => { "term" };
-
-
-
 }
 
-########################################################
-
-body process_select newborns
-
+body process_select less_than_an_hour_old
 {
-
-
         stime_range => irange(ago(0,0,0,1,0,0), now);
       # Processes started less than 1 hour ago
-
         process_result => "stime";
 }
-

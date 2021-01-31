@@ -1,5 +1,5 @@
-bundle agent main {
-
+bundle agent main
+{
   vars:
 
       "suspicious_process_names"

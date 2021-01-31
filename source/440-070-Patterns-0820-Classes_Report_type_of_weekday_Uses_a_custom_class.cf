@@ -1,9 +1,8 @@
-bundle agent main {
-
+bundle agent main
+{
   classes:
       "weekday"
         expression => "Monday|Tuesday|Wednesday|Thursday|Friday";
-
 
       "weekend"
         expression => "Saturday|Sunday";
@@ -11,5 +10,4 @@ bundle agent main {
   reports:
     weekday::
       "Today is a weekday.";
-
 }

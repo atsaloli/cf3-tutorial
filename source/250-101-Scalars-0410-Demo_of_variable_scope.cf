@@ -1,9 +1,10 @@
-bundle agent main {
+bundle agent main
+{
 
   methods:
-    "bundle_1";
-    "bundle_2";
-    "bundle_3";
+      "bundle_1";
+      "bundle_2";
+      "bundle_3";
 }
 
 bundle agent bundle_1 {

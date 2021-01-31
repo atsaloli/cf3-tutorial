@@ -2,7 +2,6 @@
 
 bundle agent main
 {
-
   reports:
 
     Monday::    "Hello world! I love Mondays!";

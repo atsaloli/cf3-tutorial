@@ -1,5 +1,5 @@
-bundle agent main {
-
+bundle agent main
+{
   commands:
       "/tmp/etc/nologin"
         action => logme("creation of /tmp/etc/nologin");

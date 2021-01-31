@@ -7,7 +7,8 @@ bundle common g
 
   classes:
     "snow_day"
-       expression => "any";
+       expression => "any",
+       comment => "set a class so we can then pull it out, for the demo";
 }
 
 bundle agent main

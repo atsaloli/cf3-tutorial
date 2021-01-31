@@ -1,17 +1,16 @@
-bundle common global_definitions {
+# Classes set in "common" bundles have global scope by default
 
+bundle common global_definitions
+{
   classes:
-      "myclass"
-        expression => "any";
-
+    any::
+      "myclass";
 }
 
-
-bundle agent main {
-
+bundle agent main
+{
   reports:
     myclass::
       "Yay!  myclass is set";
-
 }
 

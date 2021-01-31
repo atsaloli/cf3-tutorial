@@ -1,26 +1,23 @@
 # "common" bundles will be evaluated even if not listed in bundlesequence
 
-body common control {
-
+body common control
+{
         bundlesequence => { "example_2" };
-      
 }
 
 
-bundle common example_1 {
-
+bundle common example_1
+{
   classes:
-      "webserver"
-        expression  =>  "any";
-
+    any::
+      "webserver";
 }
-
 
 bundle agent example_2
 {
   reports:
     webserver::
-      "Bundle example_1: I am a Web server";
+      "Bundle $(this.bundle): I am a Web server";
 }
 
 

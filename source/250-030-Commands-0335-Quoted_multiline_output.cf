@@ -2,9 +2,8 @@
 
 bundle agent main
 {
-
   commands:
       "/usr/bin/printf"
         args => "%s\n%s\n%s\n One Two Three",
-        comment => "Produce a multi-line command output"; 
+        comment => "Produce a multi-line command output";
 }

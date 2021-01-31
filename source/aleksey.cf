@@ -1,5 +1,5 @@
-bundle common global {
-
+bundle common global
+{
   vars:
 
       "stuff[location]"     string => "Bloomington";
@@ -8,16 +8,14 @@ bundle common global {
       "stuff[lab]"          string => "true";
 }
 
-bundle agent main {
-
+bundle agent main
+{
   files:
-
       "/etc/example.conf"
         handle => "populate_config_file_from_array",
         comment => "Demonstrate 'bundle edit_line set_variable_values'",
         create => "true",
         edit_line => set_variable_values("global.stuff");
 }
-
 
 body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }

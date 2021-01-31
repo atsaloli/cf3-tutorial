@@ -10,7 +10,8 @@
 # what the update policy does is still: ensure that local directory
 # /var/cfengine/inputs is a copy of the hub's /var/cfengine/masterfiles
 
-bundle agent main {
+bundle agent main
+{
 
   vars:
 
@@ -18,9 +19,7 @@ bundle agent main {
       "remote_server" string => "$(sys.policy_hub)";
 
   files:
-
       "/var/cfengine/inputs"
-
         handle => "update_inputs_dir",
         comment => "Pull down latest policy set",
         perms => m("600"),

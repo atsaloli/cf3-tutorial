@@ -1,6 +1,5 @@
 bundle agent main
 {
-
   vars:
       "my_slist"
         slist => { "String contents...", "...are great!" };

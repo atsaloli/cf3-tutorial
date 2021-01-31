@@ -1,5 +1,5 @@
-bundle agent main {
-
+bundle agent main
+{
   packages:
       "php-mysql"
         policy => "present";

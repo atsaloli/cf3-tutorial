@@ -2,14 +2,12 @@
 # descriptors allows us to detach the job and run it
 # in the background
 
-bundle agent main {
-
-commands:
-
-  "/bin/sleep 1600 </dev/null >/dev/null 2>/dev/null &"
-     action => backgroundme,
-     contain => in_shell;
-
+bundle agent main
+{
+  commands:
+      "/bin/sleep 1600 </dev/null >/dev/null 2>/dev/null &"
+        action => backgroundme,
+        contain => in_shell;
 }
 
 body action backgroundme

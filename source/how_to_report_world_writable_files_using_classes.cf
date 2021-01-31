@@ -1,6 +1,3 @@
-
-############################################
-
 body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
 
 bundle agent main

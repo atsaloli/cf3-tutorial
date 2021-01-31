@@ -1,10 +1,8 @@
-bundle agent main {
-
+bundle agent main
+{
   commands:
-
       "echo"
         args => "Hello world",
         comment => "Relative path does not work.";
-
 }
 

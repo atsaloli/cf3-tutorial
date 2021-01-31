@@ -3,8 +3,8 @@
 # Average: av_<name>                e.g. av_diskfree
 # Standard Deviation: dev_<name>    e.g. dev_diskfree
 
-bundle agent main {
-
+bundle agent main
+{
   reports:
 
       "

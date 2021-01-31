@@ -8,8 +8,8 @@
 #
 # Love, Company
 
-bundle agent main {
-
+bundle agent main
+{
   vars:
      "public"
      slist => { "Mary", "Joe", "Ann", "Ed" };
@@ -18,9 +18,9 @@ bundle agent main {
       "Promotional campaign"
         usebundle => write_letter("$(public)");
 }
-      
-bundle agent write_letter(first_name) {
 
+bundle agent write_letter(first_name)
+{
   files:
       "/tmp/letter_to_$(first_name).txt"
         handle    => "write_letter",
@@ -28,8 +28,8 @@ bundle agent write_letter(first_name) {
         edit_line => create_from_template;
 }
 
-bundle edit_line create_from_template {
-
+bundle edit_line create_from_template
+{
   insert_lines:
 
       "/tmp/template.dat"

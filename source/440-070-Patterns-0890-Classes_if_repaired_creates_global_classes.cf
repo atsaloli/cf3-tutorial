@@ -4,10 +4,10 @@ body common control
   bundlesequence => { "example_1", "example_2" };
 }
 
-bundle agent example_1 {
-
+bundle agent example_1
+{
   files:
-      "/tmp/wednesday"
+      "/tmp/myfile"
         create => "true",
         classes => if_repaired("fixed_something"),
         comment => "Demonstrate that classes created by if_repaired
@@ -15,11 +15,10 @@ bundle agent example_1 {
 }
 
 
-bundle agent example_2 {
-
+bundle agent example_2
+{
   reports:
     fixed_something::
       "Detected global class 'fixed_something'.";
-
 }
 

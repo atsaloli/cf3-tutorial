@@ -1,15 +1,14 @@
 body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
 
-bundle agent main {
-
+bundle agent main
+{
   methods:
       "any" usebundle => allow_httpd_to_talk_to_pgbouncer;
-
 }
 
 
-bundle agent allow_httpd_to_talk_to_pgbouncer {
-
+bundle agent allow_httpd_to_talk_to_pgbouncer
+{
   classes:
 
       "module_missing"

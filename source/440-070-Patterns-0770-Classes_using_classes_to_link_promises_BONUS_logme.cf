@@ -1,8 +1,8 @@
 # Demonstrate using classes to link promises
 # also demonstrates action logme
 
-bundle agent main {
-
+bundle agent main
+{
   files:
       "/etc/ssh/sshd_config"
         handle => "sshd_must_use_protocol_2_only",
@@ -36,7 +36,8 @@ body action logme(x)
 
 
 
-bundle edit_line permit_protocol_2_only {
+bundle edit_line permit_protocol_2_only
+{
       delete_lines: ".*Protocol.*1.*";
       insert_lines: "Protocol 2";
 }

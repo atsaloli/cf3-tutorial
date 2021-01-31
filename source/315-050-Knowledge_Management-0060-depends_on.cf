@@ -8,6 +8,4 @@ bundle agent main
 
       "Fueling"
         handle => "fuel";
-
 }
-

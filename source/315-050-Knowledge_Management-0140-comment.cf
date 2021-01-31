@@ -1,11 +1,9 @@
 # run this in verbose mode and notice the comment
 
-bundle agent main {
-
+bundle agent main
+{
   files:
-
       "/tmp/testfile"
-
         comment => "Create a vital file, needed for XYZ.",
         create  => "true";
 }

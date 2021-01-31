@@ -11,8 +11,9 @@
 # verbose: C:     +  Private class: local_class
 
 body common control
-{ 
-  bundlesequence => { "g",
+{
+  bundlesequence => {
+                      "g",
                       "example_1",
                       "example_2",
                     };
@@ -21,28 +22,28 @@ body common control
 
 bundle common g {
   classes:
-      "global_class"
-        expression  =>  "any";
+    any::
+      "global_class";
 }
 
 
 bundle agent example_1
 {
   classes:
-      "local_class"
-        expression  => "any";
+    any::
+      "local_class";
 
   reports:
-    global_class:: "Bundle example_1: global class 'global_class' detected";
-    local_class::  "Bundle example_1: local class 'local_class' detected";
+    global_class:: "Bundle $(this.bundle): global class 'global_class' detected";
+    local_class::  "Bundle $(this.bundle): local class 'local_class' detected";
 }
 
 
 bundle agent example_2
 {
   reports:
-    global_class:: "Bundle example_2: global class 'global_class' detected";
-    local_class::  "Bundle example_2: local class 'local_class' detected";
+    global_class:: "Bundle $(this.bundle): global class 'global_class' detected";
+    local_class::  "Bundle $(this.bundle): local class 'local_class' detected";
 }
 
 # Output:

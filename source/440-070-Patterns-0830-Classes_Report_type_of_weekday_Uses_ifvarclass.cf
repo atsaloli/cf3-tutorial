@@ -1,5 +1,5 @@
-bundle agent main {
-
+bundle agent main
+{
   vars:
       "days"
         handle => "days",
@@ -12,9 +12,6 @@ bundle agent main {
                    "Saturday",
                    "Sunday",
         };
-
-
-
 
   reports:
       "Hello world!  I love $(days)s!"

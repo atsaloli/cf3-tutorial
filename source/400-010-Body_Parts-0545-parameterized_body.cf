@@ -1,7 +1,7 @@
 # You can parameterize body parts
 
-bundle agent main {
-
+bundle agent main
+{
   files:
 
       "/tmp/testfile"
@@ -9,10 +9,10 @@ bundle agent main {
         comment  => "Set appropriate file attributes everywhere",
         create  => "true",
         perms   => set_mode_700_admin_group_and_specified_user("sam");
-
 }
 
-body perms set_mode_700_admin_group_and_specified_user(user) {
+body perms set_mode_700_admin_group_and_specified_user(user)
+{
         mode   => "0700";
         owners => { "$(user)" };
 

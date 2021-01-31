@@ -1,7 +1,7 @@
 # "body classes state_repaired" is in StdLib
 
-bundle agent main {
-
+bundle agent main
+{
   files:
     !file_fixed::
       "/tmp/file.txt"
@@ -23,5 +23,3 @@ body classes state_repaired(x)
         promise_repaired => { "$(x)" };
         persist_time => "10";
 }
-
-

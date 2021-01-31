@@ -2,12 +2,10 @@
 # to preserve package integrity, comment out this file's contents
 # instead of deleting the file
 
-bundle agent main {
-
+bundle agent main
+{
   files:
-
       "/etc/httpd/conf.d/welcome.conf"
-
         handle => "comment_out_welcome_dot_conf",
         comment => "Let's not ask for trouble by advertising
                           what software we are running",
@@ -20,19 +18,15 @@ bundle agent main {
         handle => "cmd_reload_httpd",
         comment => "Reload httpd configuration",
         args => "reload";
-
 }
 
-bundle edit_line comment_out_everything {
-
+bundle edit_line comment_out_everything
+{
   replace_patterns:
-
       "^([^#].*)"
-
         handle => "comment_out_everything_replace_patterns_promise",
         comment => "If it doesn't start with #, comment it out",
         replace_with => comment("#disabled-by-cfengine# ");
-
 }
 
 body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }

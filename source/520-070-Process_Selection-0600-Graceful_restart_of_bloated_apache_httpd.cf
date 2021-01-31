@@ -9,12 +9,10 @@
 # so it will match, and above the current vsize to show
 # no-match
 
-bundle agent main {
-
+bundle agent main
+{
   processes:
-
       ".*"
-
         process_select  => vsize_exceeds("cfapache", ".*httpd.*", "300000"),
         process_count => set_class("restart_apache");
 
@@ -28,17 +26,14 @@ bundle agent main {
 
 }
 
-########################################################
-
-body process_select vsize_exceeds(process_owner, command, vsize_limit) {
+body process_select vsize_exceeds(process_owner, command, vsize_limit)
+{
 
         process_owner => { "$(process_owner)" };
         command => "$(command)";
         vsize => irange("$(vsize_limit)","inf"); 
         process_result => "process_owner&command&vsize";
 }
-
-########################################################
 
 body process_count set_class(classname)
 

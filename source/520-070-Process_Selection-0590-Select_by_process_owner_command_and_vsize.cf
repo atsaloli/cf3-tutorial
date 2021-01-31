@@ -4,20 +4,16 @@
 # kill all apache httpd processes over a certain vsize
 # (vsize = total Virtual Memory size in kb)
 
-bundle agent main {
-
+bundle agent main
+{
   processes:
-
       ".*"
-
         process_select  => vsize_exceeds("apache",
                                          "/usr/sbin/httpd.*",
                                          "30000"),
         signals => { "term", "kill" };
 
 }
-
-########################################################
 
 body process_select vsize_exceeds(process_owner,
                                   process_command,
@@ -29,5 +25,5 @@ body process_select vsize_exceeds(process_owner,
 
         vsize => irange("$(vsize_limit)","inf");
 
-        process_result => "process_owner&command&vsize"; 
+        process_result => "process_owner&command&vsize";
 }

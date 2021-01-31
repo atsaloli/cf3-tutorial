@@ -1,24 +1,19 @@
 # To setup for this example, run:
-#   /bin/date > /var/log/date1.txt
-#   /bin/date > /var/log/date2.txt
+#   sudo /bin/touch /var/log/one.txt
+#   sudo /bin/touch /var/log/two.txt
 
-
-bundle agent main {
-
+bundle agent main
+{
   files:
-
       "/var/log/.*\.txt"
-
         comment => "Compress files matching pattern",
         transformer => "/bin/gzip $(this.promiser)";
 }
 
-
 # You should see:
-#    info: Transforming '/bin/gzip /var/log/date1.txt' 
-#    info: Transformer '/var/log/date1.txt' =>
-#             '/bin/gzip /var/log/date1.txt' seemed to work ok
-#    info: Transforming '/bin/gzip /var/log/date2.txt' 
-#    info: Transformer '/var/log/date2.txt' =>
-#             '/bin/gzip /var/log/date2.txt' seemed to work ok
-
+#    info: Transforming '/bin/gzip /var/log/one.txt'
+#    info: Transformer '/var/log/one.txt' =>
+#             '/bin/gzip /var/log/one.txt' seemed to work ok
+#    info: Transforming '/bin/gzip /var/log/two.txt'
+#    info: Transformer '/var/log/two.txt' =>
+#             '/bin/gzip /var/log/two.txt' seemed to work ok

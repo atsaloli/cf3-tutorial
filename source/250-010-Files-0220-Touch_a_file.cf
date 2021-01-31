@@ -1,5 +1,5 @@
-bundle agent main {
-
+bundle agent main
+{
   files:
 
       "/var/cfengine/i_am_alive"

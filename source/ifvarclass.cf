@@ -1,10 +1,7 @@
-bundle agent main {
-
+bundle agent main
+{
   vars:
-
       "myos" string => "WinXP";
-
-
 
   commands:
 

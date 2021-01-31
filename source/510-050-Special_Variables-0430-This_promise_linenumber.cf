@@ -4,7 +4,6 @@
 bundle agent main
 {
   reports:
-
       "$(this.promise_linenumber)";
       "$(this.promise_linenumber)";
 }

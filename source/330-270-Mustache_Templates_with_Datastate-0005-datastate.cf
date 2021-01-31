@@ -10,7 +10,6 @@
 bundle agent main
 {
   vars:
-
     "datastate"
       data => datastate();
 

@@ -1,11 +1,7 @@
 bundle agent main
 {
-
   processes:
-
       "cupsd"
-
         comment => "Shutdown print service",
         process_stop => "/sbin/service cups stop";
-
 }

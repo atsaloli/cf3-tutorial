@@ -1,7 +1,7 @@
 body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
 
-bundle agent main {
-
+bundle agent main
+{
   vars:
 
       "badusers" slist => {
@@ -12,33 +12,22 @@ bundle agent main {
                             "joe"
       };
 
-      #####################################################
-
   methods:
 
       "any" usebundle => lock_user(@(badusers));
 
 }
 
-###########################################
-
-bundle agent lock_user(user) {
+bundle agent lock_user(user)
+{
 
   files:
       "/etc/shadow"
-
         edit_line => set_user_field("$(user)",2,"!LOCKED");
 
-  files:
-
       "/etc/passwd"
-
-        edit_line => set_user_field("$(user)",7,"/bin/false");
-
-  files:
+        edit_line => set_user_field("$(user)",7,"/sbin/nologin");
 
       "/etc/sudoers"
-
         edit_line => delete_lines_matching("^$(user)");
-
 }

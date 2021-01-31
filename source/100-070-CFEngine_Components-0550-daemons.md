@@ -1,5 +1,7 @@
 CFEngine daemons
 
+Here is what you typically see between `cf-agent` runs:
+
 ```console
 $ ps -ef |grep [c]f-
 root       807     1  0 Jan26 ?        00:00:34 /var/cfengine/bin/cf-monitord --no-fork

@@ -1,10 +1,6 @@
-
 # GZIP pdf files over a year old
 
-############################################
-
 bundle agent main
-
 {
   files:
 
@@ -16,10 +12,7 @@ bundle agent main
 
 }
 
-############################################
-
 body file_select compound_filter
-
 {
 
         leaf_name => { ".*\.pdf" };
@@ -37,10 +30,7 @@ body file_select compound_filter
       # defined by the above filters
 }
 
-############################################
-
 body depth_search recurse(d)
-
 {
         depth => "$(d)";
 }

@@ -1,8 +1,7 @@
-bundle agent main {
+bundle agent main
+{
   files:
-
       "/etc"
-
         handle       => "safeguard_files_in_etc",
         comment      => "Keep screaming about changes in /etc",
         changes      => detect_all_change_noupdate,
@@ -12,22 +11,11 @@ bundle agent main {
                                              "promise_not_kept)");
 
   reports:
-
-    promise_kept::
-
-      "Kept";
-
-    promise_repaired::
-      "Repaired";
-
-    promise_not_kept::
-
-      "not kept";
+    promise_kept:: "Kept";
+    promise_repaired:: "Repaired";
+    promise_not_kept:: "not kept";
 
 }
-
-
-
 
 body classes kept_repaired_failed(kept, repaired, failed) {
         promise_kept     => { "$(kept)" };

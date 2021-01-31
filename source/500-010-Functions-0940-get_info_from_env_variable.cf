@@ -3,7 +3,6 @@ bundle agent main
   vars:
       "myvar" string => getenv("USER","20");
 
-
   reports:
       "I am running as user $(myvar)"
          if => isvariable("myvar");

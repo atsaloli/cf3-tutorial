@@ -4,7 +4,8 @@ bundle agent main
 {
   classes:
     any::
-      "myclass";
+      "myclass"
+        scope => "namespace";
 
   methods:
     "bundle_2";

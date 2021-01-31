@@ -1,6 +1,5 @@
-bundle agent main {
-
-
+bundle agent main
+{
   vars:
 
       "config[PermitRootLogin]"
@@ -8,14 +7,9 @@ bundle agent main {
       "config[X11Forwarding]"
         string => "yes";
 
-
   files:
-
       "/tmp/sshd_config"
-
         edit_line  => set_config_values("$(this.bundle).config");
-
-
 }
 
 body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }

@@ -1,6 +1,7 @@
 body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
 
-bundle agent main {
+bundle agent main
+{
 
       ######################################################
       # This is the data section, which describes the desired pattern

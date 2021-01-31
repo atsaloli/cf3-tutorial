@@ -2,7 +2,6 @@
 
 bundle agent main
 {
-
   reports:
     Monday|Tuesday|Wednesday|Thursday|Friday::
       "I get to work today";

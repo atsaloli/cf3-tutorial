@@ -6,5 +6,4 @@ bundle agent main
 
       "Systems Check" -> { "fuel", "launch" }
         handle => "systems_check";
-
 }

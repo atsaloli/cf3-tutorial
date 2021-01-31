@@ -1,9 +1,6 @@
-bundle agent main {
-
+bundle agent main
+{
   commands:
-
       "/bin/date"
-
         comment => "Demonstrate a simple commands promise";
-
 }
