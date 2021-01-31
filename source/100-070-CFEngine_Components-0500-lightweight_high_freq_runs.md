@@ -7,5 +7,5 @@ CFEngine 2 was intended to be run once an hour.
 
 CFEngine 3 default run frequency is every 5 minutes.
 
-At this frequency, systems can self-heal often faster than if they were repaired by human operators.
+At 5 minutes, systems can self-heal faster than if they were repaired by human operators.
 

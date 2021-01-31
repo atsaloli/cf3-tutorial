@@ -98,6 +98,8 @@ do
 			;; ## this doesn't work for some reason (patterns). TODO fix it
 		B) ((slide_number=slide_number-10)); showfile "$slide_number" ;;
 		## go Back 10 slides
+		R) buildindex; showfile "$slide_number" ;; # Re-index (as after
+		# adding a slide)
         *) get_keystroke ;; # bad input.  try again.
 
 
