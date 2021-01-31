@@ -10,14 +10,10 @@ Example:
 ```json
 {
   "Pizza": "Pepperoni",
-  "Continent": [
-    "North America",
-    "South America",
-    "Europe",
-    "Asia",
-    "Africa",
-    "Australia",
-    "Australia"
+  "Cities": [
+    "London",
+    "Paris",
+    "Rome"
   ],
   "Games": {
     "Nintendo": [
@@ -25,10 +21,6 @@ Example:
       "Contra",
       "Zelda"
     ],
-    "Sony Playstation": [
-      "Tekken",
-      "Mortal Kombat"
-    ]
   }
 }
 ```

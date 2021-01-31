@@ -1,4 +1,4 @@
-However, you do need the `usebundle` if you want to parameterize the methods call:
+However, you _do_ need the `usebundle` if you want to parameterize the methods call:
 
 ```cfengine3
   methods:                                                                                                                             

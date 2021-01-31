@@ -8,8 +8,3 @@
 
 **NOTKEPT**
 : system did not match spec, and CFEngine could not repair (converge) it.
-
-NOTKEPT outcomes likely require attention!
-
-REPAIRED outcomes _may_ require attention (especially if they keep recurring).
-

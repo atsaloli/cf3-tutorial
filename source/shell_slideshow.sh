@@ -24,7 +24,7 @@ showfile(){
   printf "%-${cols}s" "$status_line"
   tput sgr0 # turn off all attributes
   echo
-  #echo '---------------------------------------------------------------------'
+  echo
 
   if [[ $filename =~ \.md$ ]]; then
 	  /opt/git/cf3-tutorial/source/mdless-wrapper.sh $filename
@@ -50,12 +50,16 @@ run_file(){
     filename=$(grep -m1 "^$1 " index.txt | awk '{print $2}')
     clear
     [[ $filename =~ \.cf$ ]] &&
-		command="/var/cfengine/bin/cf-agent --color=always -KI -f /opt/git/cf3-tutorial/source/$filename"
+		command="sudo /var/cfengine/bin/cf-agent -KI "$2" -f /opt/git/cf3-tutorial/source/$filename -C"
     [[ $filename =~ \.sh$ ]] &&
-		command="/bin/sh /opt/git/cf3-tutorial/source/$filename"
+		command="sudo /bin/sh /opt/git/cf3-tutorial/source/$filename"
 	echo "+ ${command}"
 	echo
-	sudo $command
+	$command
+	echo
+	echo Done
+	read -d'' -s -n1 # get a single keystroke
+	showfile "$slide_number" # redisplay the source code so we can fully understand what just happened
 }
 
 #" feed file to cf-agent in Verbose mode
@@ -74,29 +78,58 @@ get_keystroke(){
 
 }
 
+get_slide_number_input(){
+# allow user to enter slide number to jump to
+  printf %s '? '
+  read slide_number
+}
+
+increment_slide_number(){
+  (( slide_number=slide_number+1 ))
+  echo $slide_number > slide_number.dat
+}
+
+decrement_slide_number(){
+  (( slide_number=slide_number-1 ))
+  echo $slide_number > slide_number.dat
+}
+
 ###################################################################################
 
 buildindex
 
-slide_number=1  # initialize counter. this tells us where we are in the
-                # slide index.
-showfile 1
+if [ -f slide_number.dat ]; then
+	slide_number=$(cat slide_number.dat)
+	# read in the
+	# slide number (from earlier runs of shell_slideshow.sh, this allows
+	# us to resume in the slidedeck on the following day, for example).
+	#
+	# input validation
+	if ! [[ $slide_number =~ ^[0-9]+$ ]]; then
+	   echo "Slide number '$slide_number' not numeric. Corrupt slide_number.dat?" >&2
+	   exit 1
+   fi
+else
+  slide_number=1  # initialize counter. this tells us where we are in the  slide index.
+fi
+
+showfile $slide_number
 
 while true
 do
 	get_keystroke
 	case "${ascii_representation_of_keystroke}" in
-		q) exit ;;  # Quit
-		sp) (( slide_number=slide_number+1 )); showfile "$slide_number" ;; # SPACE = go Forward
-		b|del) (( slide_number=slide_number-1 )); showfile "$slide_number" ;; # DEL (or "b") = go Back
+		q|Z) exit ;;  # Quit (the Z is because I tend to press ZZ because I think I'm in Vim)
+		sp) increment_slide_number; showfile "$slide_number" ;; # SPACE = go Forward
+		b|del) decrement_slide_number; showfile "$slide_number" ;; # DEL (or "b") = go Back
 		e) edit_file "$slide_number"; showfile "$slide_number" ;;
         f|r) run_file "$slide_number" ;; # Run the file (with cf-agent or bash)
-        v) verbose_run_file "$slide_number" ;; # Run the file (with cf-agent -v)
+        v) run_file "$slide_number" --verbose ;; # Run the file (with cf-agent -v)
+        \#) get_slide_number_input; showfile "$slide_number" ;; # enter slide number to jump to, and jump to it
         !) bash; showfile "$slide_number" ;; # shell out
-		+) ((slide_number=slide_number+10)); showfile "$slide_number" ;;
-		\-) ((slide_number=slide_number-10)); showfile "$slide_number"
-			;; ## this doesn't work for some reason (patterns). TODO fix it
-		B) ((slide_number=slide_number-10)); showfile "$slide_number" ;;
+		+) ((slide_number=slide_number+10)); echo "$slide_number" > slide_number.dat; showfile "$slide_number" ;;
+		\-) ((slide_number=slide_number-10)); echo "$slide_number" > slide_number.dat; showfile "$slide_number" ;; ## this doesn't work for some reason (patterns). TODO fix it
+		B) ((slide_number=slide_number-10)); echo "$slide_number" > slide_number.dat; showfile "$slide_number" ;;
 		## go Back 10 slides
 		R) buildindex; showfile "$slide_number" ;; # Re-index (as after
 		# adding a slide)
