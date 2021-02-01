@@ -7,6 +7,6 @@
 # it for the next example.
 
 LONG_PATH=/usr/local/sbin/a/really/long/path/to
-/bin/mkdir  -p ${LONG_PATH}
-/bin/cp -p /bin/echo ${LONG_PATH} >/dev/null
+sudo /bin/mkdir  -p ${LONG_PATH}
+sudo /bin/cp -p /bin/echo ${LONG_PATH} >/dev/null
 ls -l /bin/echo ${LONG_PATH}/echo

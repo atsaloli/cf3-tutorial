@@ -4,6 +4,6 @@
 # practice using CFEngine to ensure a process ("cupsd")
 # is absent.
 
-yum install -y cups
-service cups start
+sudo yum install -y cups
+sudo service cups start
 ps -ef | grep cupsd

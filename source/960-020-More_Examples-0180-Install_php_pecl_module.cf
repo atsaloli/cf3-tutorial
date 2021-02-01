@@ -37,8 +37,7 @@ bundle agent php_pecl_http_extension_is_installed_and_integrated {
         comment => "Force the install to be non-interactive 
                     (let PECL install pecl_http with the default
                     settings instead of prompting us). 
-                    Then set SELinux label.";
-
+                    Then set SELinux label.",
         contain => in_shell;
 }
 

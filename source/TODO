@@ -1,3 +1,12 @@
+Add example of a for loop to Implicit Looping section
+
+```bash
+for fooditem in apples oranges grapes plantains potatoes
+do
+    /bin/echo buying $fooditem
+done
+```
+
 
 https://github.com/nickanderson/CFEngine-zero-to-hero-primer
 https://docs.cfengine.com/latest/guide-printable.html

@@ -52,7 +52,7 @@ run_file(){
     [[ $filename =~ \.cf$ ]] &&
 		command="sudo /var/cfengine/bin/cf-agent -KI "$2" -f /opt/git/cf3-tutorial/source/$filename -C"
     [[ $filename =~ \.sh$ ]] &&
-		command="sudo /bin/sh /opt/git/cf3-tutorial/source/$filename"
+		command="/bin/sh /opt/git/cf3-tutorial/source/$filename"
 	echo "+ ${command}"
 	echo
 	$command

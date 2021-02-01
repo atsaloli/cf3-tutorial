@@ -1,4 +1,4 @@
 #!/bin/sh
 
-yum -y remove postgresql postgresql-server
-rm -rf /var/lib/pgsql
+sudo yum -y remove postgresql postgresql-server
+sudo rm -rf /var/lib/pgsql

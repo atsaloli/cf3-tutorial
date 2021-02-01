@@ -5,9 +5,10 @@ set -x  # show us each command after expanding it,
 
 # Add a couple of users and a crontab to set up for the next example
 
-useradd alex; useradd rob
+sudo useradd alex
+sudo useradd rob
 
 # Create a crontab for user "alex"
-EDITOR="/bin/echo @daily /bin/echo hello world > " crontab -e -u alex
+EDITOR="/bin/echo @daily /bin/echo hello world > " sudo crontab -e -u alex
 
-crontab -l -u alex
+sudo crontab -l -u alex

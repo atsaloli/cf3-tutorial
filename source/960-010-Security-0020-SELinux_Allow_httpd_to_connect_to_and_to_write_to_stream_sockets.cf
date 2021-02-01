@@ -60,7 +60,7 @@ bundle agent compile_and_package_and_load_selinux_module {
 -o /root/SELINUX/allowHttpdSocketConnectWrite.pp \
 -m /root/SELINUX/allowHttpdSocketConnectWrite.mod && \
 /usr/sbin/semodule \
--i /root/SELINUX/allowHttpdSocketConnectWrite.pp",
+-i /root/SELINUX/allowHttpdSocketConnectWrite.pp"
         comment => "Compile module; create package; load module.",
         contain => in_shell;
 
