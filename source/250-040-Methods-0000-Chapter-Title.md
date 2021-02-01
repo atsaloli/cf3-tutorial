@@ -9,11 +9,14 @@ Example:
 ```cfengine3
 bundle agent main
 {
-
   methods:
       "base_os_config";  # configure the OS
-      "application-config"; # and the application
+      "application_config"; # and the application
 }
+
+bundle agent base_os_config { ... }
+
+bundle agent application_config { ... }
 ```
 
 We will learn more about `methods:` promises later.

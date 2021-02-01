@@ -6,7 +6,17 @@ TERM and KILL
 
 Don't copy and paste, type it yourself.
 
-Try to do it from memory.
+And try to do it from memory.  (Okay to look back if you need to.)
 
-Hint: TERM and KILL are the signal names; but signal name values in CFEngine
-are in lower-case and CFEngine is case-sensitive.
+Note: signal name values in CFEngine are in lower-case and CFEngine
+is case-sensitive.
+
+Reference:
+<https://docs.cfengine.com/docs/3.12/reference-promise-types-processes.html#signals>
+
+What happens if you give CFEngine a right-hand side value (signal name)
+that it doesn't recognize? What error message do you get? What does it
+mean?
+
+
+

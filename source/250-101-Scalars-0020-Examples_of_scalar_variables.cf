@@ -1,4 +1,7 @@
-# Examples of scalar variables
+# Examples of scalar variables.  One of each type:
+# - string
+# - integer
+# - real number
 
 bundle agent main
 {
@@ -6,12 +9,9 @@ bundle agent main
       "my_string"      string  => "String contents...";
       "my_int" int => "42";
       "my_real" real    => "3.141592654";
-      "my_second_string"
-        string =>  "I love: $(my_string)";
 
   reports:
       "My string is: $(my_string)";
       "My integer is: $(my_int)";
       "My real number is: $(my_real)";
-      "My second string is: $(my_second_string)";
 }

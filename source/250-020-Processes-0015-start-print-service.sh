@@ -6,4 +6,4 @@
 
 sudo yum install -y cups
 sudo service cups start
-ps -ef | grep cupsd
+ps -ef | grep cupsd | grep -v grep

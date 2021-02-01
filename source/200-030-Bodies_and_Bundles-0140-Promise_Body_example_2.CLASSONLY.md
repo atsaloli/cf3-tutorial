@@ -1,4 +1,4 @@
-#### Example of Promise Body
+#### Example of a Promise Body
 
 The last three lines constitute the promise body.
 

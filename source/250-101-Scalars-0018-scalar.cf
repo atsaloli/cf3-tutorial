@@ -1,12 +1,12 @@
+# Here is an example of declaring and using a scalar variable
+# of type string
+
 bundle agent main
 {
   vars:
-      "greeting"
-        string  => "Hello. My name is $(name).";
-
       "name"
         string => "Inigo Montoya";
 
   reports:
-      "$(greeting)";
+      "Hello. My name is $(name).";
 }

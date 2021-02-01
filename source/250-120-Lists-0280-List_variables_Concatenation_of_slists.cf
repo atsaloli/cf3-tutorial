@@ -1,14 +1,17 @@
+# However, if you refer to a @(list_variable) in _list_ context,
+# it'll be treated as a variable (and expanded).
+
 bundle agent main
 {
   vars:
       "preface"
         string => "Now hear this: ";
 
-      "main_slist"
+      "main_body"
         slist => { "String contents...", "...are great!" };
 
       "the_sum_of_all_parts"
-        slist => { $(preface), @(main_slist) };
+        slist => { $(preface), @(main_body) };
         # Demonstrate referring to a list as a complete collection
         # (without implicit looping)
 

@@ -13,7 +13,7 @@ vars:
     "food_prices[Apple]"
       string =>  "59c";
 ```
-  
+
 Now we can use this variable:
 ```cfengine3
 reports:

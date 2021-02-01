@@ -1,4 +1,4 @@
-### Integer Suffixes
+### A Note on Integer Variables: Integer-only Suffixes
 
 Integer values may use suffixes to represent large numbers.
 

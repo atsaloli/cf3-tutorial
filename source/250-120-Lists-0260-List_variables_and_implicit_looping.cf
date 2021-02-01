@@ -1,3 +1,5 @@
+# Example of implicit looping
+
 bundle agent main
 {
   vars:

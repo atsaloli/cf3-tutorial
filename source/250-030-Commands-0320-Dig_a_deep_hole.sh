@@ -9,4 +9,4 @@
 LONG_PATH=/usr/local/sbin/a/really/long/path/to
 sudo /bin/mkdir  -p ${LONG_PATH}
 sudo /bin/cp -p /bin/echo ${LONG_PATH} >/dev/null
-ls -l /bin/echo ${LONG_PATH}/echo
+sudo ls -l /bin/echo ${LONG_PATH}/echo

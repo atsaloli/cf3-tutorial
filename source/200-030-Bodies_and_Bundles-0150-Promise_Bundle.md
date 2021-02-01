@@ -1,10 +1,7 @@
 ### Promise Bundle
 
-The promise bundle is one of the basic building blocks of configuration
-in CFEngine.
-
 **Promise bundle**
-: A promise bundle is a group of one or more logically related promises.
+: A promise bundle is a group of one or more logically related _promises_.
 
 The bundle allows us to group related promises, and to refer to such
 groups by name.
@@ -18,5 +15,7 @@ For example:
 
 - `httpd` bundle contains promises to install and configure Apache httpd,
 
-- `inventory_java_mem` contains promises to collect information about Java memory settings (starting and max memory size) used to ensure legacy hosts for the same applications have the same settings.
+- `inventory_java_mem` contains promises to collect information about
+Java memory settings (starting and max memory size) used to ensure legacy
+hosts for the same applications have the same settings (actual example).
 

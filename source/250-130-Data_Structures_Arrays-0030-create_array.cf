@@ -1,3 +1,5 @@
+# Example of creating an array and then pulling values out of it
+
 bundle agent main
 {
   vars:

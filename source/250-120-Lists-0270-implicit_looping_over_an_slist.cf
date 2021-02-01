@@ -1,11 +1,18 @@
+# Notice how the parser handles @(my_slist) in scalar context -- not
+# special!
+
 bundle agent main
 {
   vars:
-      "my_slist"
-        slist => { "String contents...", "...are great!" };
+      "shopping_list"
+        slist   => {
+                     "apples",
+                     "bananas",
+                     "grapes",
+                     "coconuts",
+                     "hamburgers",
+                   };
 
   reports:
-      "Iterating over @(my_slist): $(my_slist)";
-      # @(my_slist) is not treated specially here
-      # But $(my_slist) is!
+      "Iterating over @(shopping_list): Buy $(shopping_list)";
 }
