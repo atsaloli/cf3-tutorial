@@ -125,7 +125,7 @@ do
 		e) edit_file "$slide_number"; showfile "$slide_number" ;;
         f|r) run_file "$slide_number" ;; # Run the file (with cf-agent or bash)
         v) run_file "$slide_number" --verbose ;; # Run the file (with cf-agent -v)
-        \#) get_slide_number_input; showfile "$slide_number" ;; # enter slide number to jump to, and jump to it
+        \#) get_slide_number_input; echo "$slide_number" > slide_number.dat; showfile "$slide_number" ;; # enter slide number to jump to, and jump to it
         !) bash; showfile "$slide_number" ;; # shell out
 		+) ((slide_number=slide_number+10)); echo "$slide_number" > slide_number.dat; showfile "$slide_number" ;;
 		\-) ((slide_number=slide_number-10)); echo "$slide_number" > slide_number.dat; showfile "$slide_number" ;; ## this doesn't work for some reason (patterns). TODO fix it
