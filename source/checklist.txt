@@ -1,0 +1,12 @@
+Turn off "Night Light" (blue shift) mode
+
+make sure I am logged in from Powershell straight into the bastion host
+or else the terminal goes funky
+
+and maximize that Powershell screen
+
+Send survey at end of training
+
+-----
+
+re-enable "Switch Workstation" extension in Chrome when I'm done done
