@@ -1,0 +1,9 @@
+bundle agent main {
+
+  files:
+
+      "/tmp/test"
+
+        create => "false";
+
+}
