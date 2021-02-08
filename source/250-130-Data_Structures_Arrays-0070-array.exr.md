@@ -1,6 +1,6 @@
-Print array contents using getindices()
+Summary: Print array contents using getindices()
 
-Create an array with two things and their values.
+1. Create an array with two things and their values.
 
 e.g.
 
@@ -9,5 +9,5 @@ e.g.
 | BMW | 120K |
 | Audi| 150K |
 
-Report the contents of this array by using the `getindices()` function to
+2. Report the contents of this array by using the `getindices()` function to
 get a list of keys, and then iterate over the keys to output the values.

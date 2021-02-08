@@ -1,20 +1,20 @@
-# Referring to an slist in scalar context implies looping.
+# An array can have elements of different types
 #
-# In this example, we set up a _nested_ implicit loop by referring to TWO
-# slists in scalar context
+# Reminder: If you refer to an slist in scalar context,
+# CFEngine will loop over every element in the slist
 
 bundle agent main
 {
   vars:
-      "config[users]"
-        slist => { "jim", "jane", "george" };
+      "config[my_string]"
+        string =>  "hello world";
 
-      "config[packages]"
-        slist => { "httpd", "php" };
+      "config[my_slist]"
+        slist => { "one", "two" , "three" };
 
       "keys"
         slist => getindices("config");
 
   reports:
-      "The value for key $(keys) is: $(config[$(keys)])";
+      "The value of 'config[$(keys)]' is: $(config[$(keys)])";
 }

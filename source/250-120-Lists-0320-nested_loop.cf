@@ -1,0 +1,17 @@
+# Referring to an slist in scalar context implies looping.
+#
+# Set up a _nested_ implicit loop by referring to TWO
+# slists in scalar context
+
+bundle agent main
+{
+  vars:
+      "fruit"
+        slist => { "apples", "pears", "peaches" };
+
+      "ways_to_prepare"
+        slist => { "sliced", "boiled", "preserved" };
+
+  reports:
+      "I like to eat $(ways_to_prepare) $(fruit)";
+}

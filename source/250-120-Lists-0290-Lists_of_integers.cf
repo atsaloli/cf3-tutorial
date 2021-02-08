@@ -1,8 +1,9 @@
+# Demonstrate a list of integers (ilist)
+
 bundle agent main
 {
   vars:
       "my_list"
-        comment => "Demonstrate a list of integers",
         ilist => { "1", "2", "3" };
 
   reports:

@@ -1,4 +1,8 @@
-# Add an slist containing the keys of the array
+# The function getindices() returns an slist
+# with the keys of an array
+#
+# Reference:
+# https://docs.cfengine.com/latest/reference-functions-getindices.html
 
 bundle agent main
 {
