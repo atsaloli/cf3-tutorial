@@ -1,0 +1,10 @@
+bundle agent main {
+
+vars:
+  "my_date"
+     string => execresult("/bin/date", "noshell");
+
+reports:
+  "My date is $(my_date)";
+
+}
