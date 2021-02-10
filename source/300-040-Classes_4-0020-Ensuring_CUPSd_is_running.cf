@@ -4,6 +4,7 @@
 bundle agent main
 {
   processes:
+    print_servers::
       "cupsd"
         restart_class => "cups_needs_to_be_started",
         comment => "We want print services";
