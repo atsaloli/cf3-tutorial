@@ -1,0 +1,13 @@
+bundle agent main {
+
+  methods:
+      "any"
+         usebundle => say_hello;
+
+}
+
+bundle agent say_hello {
+
+reports:  "hello!";
+
+}

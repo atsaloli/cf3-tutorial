@@ -16,3 +16,10 @@ bundle agent main
       "Buy $(shopping_list)";
 }
 
+# Same as:
+#
+# #!/bin/sh
+# for shopping_list in apples bananas grapes coconuts hamburgers
+# do
+#     echo Buy $shopping_list
+# done

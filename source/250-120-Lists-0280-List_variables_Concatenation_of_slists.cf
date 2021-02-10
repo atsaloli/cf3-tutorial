@@ -16,5 +16,5 @@ bundle agent main
         # (without implicit looping)
 
   reports:
-      "Iterating over list '@(the_sum_of_all_parts)': $(the_sum_of_all_parts)";
+      "Iterating over list @(the_sum_of_all_parts): $(the_sum_of_all_parts)";
 }
