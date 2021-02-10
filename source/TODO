@@ -1,3 +1,5 @@
+Add "python -m json.tool < /tmp/test.json" to validate JSON files
+
 The gradient is too steep in  the readjson() exercise.
 Need to create a data container first (separate exercise)
 using inline JSON.
