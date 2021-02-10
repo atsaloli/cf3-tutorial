@@ -13,20 +13,20 @@ clear
 cat <<EOF
 ${R}RED – CFEngine reserved word${N}
 ${C}CYAN – Punctuation$N
-${Y}YELLOW – User's choice$N
+${B}BLUE – User's choice$N
 
 # What is it?     What is it for?                       What is it called?
-${R}bundle            agent|edit_line|server|common|...$N     ${Y}my_example_bundle$N ${C}{${N}
+${R}bundle            agent|edit_line|server|common|...$N     ${B}my_example_bundle$N ${C}{${N}
 
 ${R}files|processes|packages|commands|...${C}:${N} # Type of promise.  
 
-        ${C}"${Y}promiser${C}"${N}                     # What is the affected object?  
+        ${C}"${B}promiser${C}"${N}                     # What is the affected object?  
 
-                ${R}attribute1${N} ${C}=> ${Y}"apple"${N}${C},${N}           # scalar (literal)
-                ${R}attribute2${N} ${C}=> ${Y}"\$(variable1)"${C},${N}    # scalar (variable)
-                ${R}attribute3${N} ${C}=> ${Y}{ "one", "two" }${C},${N}  # list
-                ${R}attribute3${N} ${C}=> ${Y}@(variable2)${C},${N}      # list (variable)
-                ${R}attribute4${N} ${C}=> ${Y}bundle_name${C},${N}
-                ${R}attribute5${N} ${C}=> ${Y}function${C}(${N}...${C});
+                ${R}attribute1${N} ${C}=> ${B}"apple"${N}${C},${N}           # scalar (literal)
+                ${R}attribute2${N} ${C}=> ${B}"\$(variable1)"${C},${N}    # scalar (variable)
+                ${R}attribute3${N} ${C}=> ${B}{ "one", "two" }${C},${N}  # list
+                ${R}attribute3${N} ${C}=> ${B}@(variable2)${C},${N}      # list (variable)
+                ${R}attribute4${N} ${C}=> ${B}bundle_name${C},${N}
+                ${R}attribute5${N} ${C}=> ${B}function${C}(${N}...${C});
 }${N}
 EOF
