@@ -1,0 +1,21 @@
+# Example of parameterizing a methods promise
+# pass a list, not a scalar
+bundle agent main
+{
+  vars:
+      "userlist" slist => { "alex", "ben", "charlie", "diana", "rob" };
+
+  methods:
+      "Remove Users"
+        usebundle => remove_users(@(userlist));
+}
+
+bundle agent remove_users(userlist)
+{
+  commands:
+    linux::
+      "/bin/crontab -r -u $(userlist)"
+        if => fileexists("/var/spool/cron/$(userlist)");
+      "/usr/sbin/userdel -r $(userlist)"
+        if => userexists("$(userlist)");
+}
