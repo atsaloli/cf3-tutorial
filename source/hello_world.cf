@@ -1,7 +1,5 @@
 bundle agent main
 {
-
   reports:
       "$(sys.date)";
-
 }
