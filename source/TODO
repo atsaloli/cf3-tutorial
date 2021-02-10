@@ -1,3 +1,5 @@
+Integrate hard-classes-list.exr.md into hard classes section
+
 Update the syntax slide (after classes chapter)
 - class expression is missing from the slide (context::)
 - we didn't do edit_line bundle yet or server bundle or even common
