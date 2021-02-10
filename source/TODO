@@ -1,3 +1,9 @@
+The gradient is too steep in  the readjson() exercise.
+Need to create a data container first (separate exercise)
+using inline JSON.
+Need to add an exercises.
+
+
 Fix the sequencing --- need to introduce methods _before_
 services/main.cf
 
