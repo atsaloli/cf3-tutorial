@@ -1,3 +1,9 @@
+Update the syntax slide (after classes chapter)
+- class expression is missing from the slide (context::)
+- we didn't do edit_line bundle yet or server bundle or even common
+  bundle
+
+
 when I start talking about Methods With Parameters , I use  the `if` attribute and `fileexists` and I need to introduce them first before I use them.
 BTW, I have a later slide that introduces fileexists() in the chapter on Syntax and internals note (Chapter 5)
 
