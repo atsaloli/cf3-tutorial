@@ -11,10 +11,10 @@ bundle agent main
         perms   => admin_group;
 }
 
-body perms admin_group {
-
-      linux::  groups => { "wheel" };
-      darwin:: groups => { "admin" };
-      sunos::  groups => { "sys" };
+body perms admin_group
+{
+  linux::  groups => { "wheel" };
+  darwin:: groups => { "admin" };
+  sunos::  groups => { "sys" };
 
 }
