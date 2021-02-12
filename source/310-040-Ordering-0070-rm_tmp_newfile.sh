@@ -2,4 +2,4 @@
 
 # Set up for the next example by ensuring we do not have /tmp/newfile
 
-rm -f /tmp/newfile
+sudo rm -f /tmp/newfile
