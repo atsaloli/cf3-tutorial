@@ -1,0 +1,16 @@
+# You can parameterize bundles -- let's try that with
+# the edit_line bundle
+
+bundle agent main
+{
+  files:
+      "/etc/motd"
+        create  => "true",
+        edit_line => say_something("Good morning");
+}
+
+bundle edit_line say_something(what_we_say)
+{
+  insert_lines:
+      "$(what_we_say)";
+}
