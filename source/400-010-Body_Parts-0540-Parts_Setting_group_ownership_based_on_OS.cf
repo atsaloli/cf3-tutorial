@@ -3,7 +3,7 @@
 bundle agent main
 {
   files:
-
+    any::
       "/tmp/testfile"
         comment  => "Set appropriate file attributes for Admin group
                      on every type of OS",
