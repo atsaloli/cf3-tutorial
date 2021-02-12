@@ -5,8 +5,6 @@ bundle agent main
   files:
 
       "/tmp/testfile"
-        handle  => "set_file_attributes_automagically",
-        comment  => "Set appropriate file attributes everywhere",
         create  => "true",
         perms   => set_mode_700_admin_group_and_specified_user("sam");
 }

@@ -1,4 +1,6 @@
 # A body part can be re-used across promises
+#
+# run "useradd bob; useradd susan" to set up for this example
 
 bundle agent main
 {
@@ -14,7 +16,7 @@ bundle agent main
 
 body perms mog(mode,owner,group)
 {
-        mode    => "$(mode)";
-        owners  =>  {"$(owner)"};
-        groups  =>  {"$(group)"};
+  mode    => "$(mode)";
+  owners  =>  {"$(owner)"};
+  groups  =>  {"$(group)"};
 }

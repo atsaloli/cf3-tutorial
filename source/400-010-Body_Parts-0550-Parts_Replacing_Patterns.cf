@@ -1,12 +1,13 @@
 # Run "echo I am going to walk my dog > /tmp/data.txt" to set up for
 # this example
 
+# Demonstrate search-and-replace in a file
+
 bundle agent main
 {
   files:
+    any::
       "/tmp/data.txt"
-        handle    => "turn_dogs_into_cats",
-        comment   => "Demonstrate search-and-replace in a file",
         edit_line => transform_dogs_to_cats;
 }
 

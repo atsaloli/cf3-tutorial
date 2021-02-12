@@ -1,5 +1,8 @@
 # files: perms takes a list of okay groups
 # Change to first entry if not matching any of the groups in the list
+#
+# Run "sudo touch /tmp/testfile; sudo chmod 777 /tmp/testfile; sudo chgrp nobody /tmp/testfile"
+# to set up for this example.
 
 bundle agent main
 {
