@@ -1,3 +1,6 @@
+- change /etc/nologin example (so the student doesn't get locked out)
+- add  link to https://regex101.com/ (great link for learning / working with regex)
+
 To soft-classes section, add an example of classifying a host by
 hostname pattern
 
