@@ -1,1 +1,1 @@
-## About the Collection
+## About the CFEngine Examples Collection
