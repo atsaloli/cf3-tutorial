@@ -1,0 +1,24 @@
+bundle agent main {
+
+  vars:
+      "my_list"
+        slist => { "one", "two", "three" };
+
+  methods:
+      "any"
+        usebundle => worker(@(my_list));
+
+  reports:
+    "$(this.bundle): $(my_list)";
+
+}
+
+bundle agent worker(some_list) {
+
+  vars:
+      "some_list"
+        slist => { "four", "five" };
+
+  reports:
+    "$(this.bundle): $(some_list)";
+}
