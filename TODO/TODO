@@ -1,0 +1,3 @@
+- add a pre-commit hook to lint the Markdown files
+  - e.g., https://github.com/markdownlint/markdownlint
+
