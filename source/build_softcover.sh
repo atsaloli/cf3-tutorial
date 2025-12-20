@@ -9,7 +9,8 @@ _DEBUG="on"
 _DEBUG="off"
 # flip the order of the above two lines to enable or disable debug print statements
 
-SOFTCOVER_BASE=/home/user/cf3-tutorial
+# Get the top of the git repository (portable across different clone locations)
+SOFTCOVER_BASE="$(git rev-parse --show-toplevel)"
 cd $SOFTCOVER_BASE/source
 
 output_target=z_cfengine_essentials
