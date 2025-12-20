@@ -1,0 +1,114 @@
+
+
+
+
+\chapter{Functions}
+
+See \href{https://docs.cfengine.com/latest/reference-functions.html}{Functions} in the CFEngine Reference for explanation of the following functions.
+
+
+
+
+
+\section{CFEngine Functions}
+
+\begin{codelisting}
+\codecaption{500-010-Functions-0910-putting\_command\_output\_into\_variable.cf}
+%= lang:cfengine3, options: "linenos": false
+\begin{code}
+bundle agent main
+{
+  vars:
+      "my_result"
+        string => execresult("/bin/ls /etc/motd /nosuchfile",
+                             "noshell");
+
+  reports:
+      "Variable is $(my_result)";
+}
+\end{code}
+\end{codelisting}
+\begin{codelisting}
+\codecaption{500-010-Functions-0910-putting\_command\_output\_into\_variable\_useshell.cf}
+%= lang:cfengine3, options: "linenos": false
+\begin{code}
+bundle agent main
+{
+  vars:
+      "my_result"
+        string => execresult("/bin/ls /etc/motd /nosuchfile 2>/dev/null",
+                             "useshell");
+
+  reports:
+      "Variable is $(my_result)";
+}
+\end{code}
+\end{codelisting}
+\begin{codelisting}
+\codecaption{500-010-Functions-0920-function\_countlinesmatching.cf}
+%= lang:cfengine3, options: "linenos": false
+\begin{code}
+bundle agent main
+{
+  vars:
+      "no"
+        int => countlinesmatching("^cfengine:.*",
+                                  "/etc/group");
+
+  reports:
+      "Found $(no) lines matching";
+}
+\end{code}
+\end{codelisting}
+\begin{codelisting}
+\codecaption{500-010-Functions-0930-functions\_canonify.cf}
+%= lang:cfengine3, options: "linenos": false
+\begin{code}
+bundle agent main
+{
+  vars:
+      "canonified_text"
+        string  => canonify("hello!@#$%world");
+
+  reports:
+      "$(canonified_text)";
+}
+
+\end{code}
+\end{codelisting}
+\begin{codelisting}
+\codecaption{500-010-Functions-0940-get\_info\_from\_env\_variable.cf}
+%= lang:cfengine3, options: "linenos": false
+\begin{code}
+bundle agent main
+{
+  vars:
+      "myvar" string => getenv("USER","20");
+
+  reports:
+      "I am running as user $(myvar)"
+         if => isvariable("myvar");
+}
+\end{code}
+\end{codelisting}
+
+
+
+
+
+Functions exercise
+
+Print a report if /etc/motd is newer than /etc/passwd
+
+\begin{center}
+\rule{3in}{0.4pt}
+\end{center}
+
+How to convert epoch time to human-readable:
+
+vars:
+  ``human\_ctime''
+     string =\textgreater{} execresult(``/bin/date -d @ \$(ctime)'', ``noshell'');
+
+reports:
+  ``\$(human\_ctime)'';

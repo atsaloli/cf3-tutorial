@@ -1,0 +1,628 @@
+
+
+
+
+\chapter{Orientation}
+
+
+
+
+
+\section{About the CFEngine Examples Collection}
+
+
+
+
+
+\subsection{About the Author}
+
+I've been working in IT Operations since the mid-nineties, mostly as a
+UNIX/Linux System Administrator of one kind or another, though now I'm
+called DevOps Engineer.
+
+I've helped a number of organizations, large and small, adopt CFEngine,
+and have been recognized as a CFEngine Community Champion by Northern.tech,
+the company behind CFEngine.
+
+I was trained on CFEngine by Mark Burgess, the author of CFEngine.
+
+
+
+
+
+\subsection{About the Course}
+
+\emph{Introduction to Automating System Administration with CFEngine 3 (5 days)}
+
+\textbf{Requirements}: No knowledge of CFEngine or configuration management is
+required, only basic knowledge of system administration.
+
+\textbf{Hardware requirements}: Bring a laptop with wi-fi capability.
+
+At the end of this course you will be able to:
+
+\begin{itemize}
+\item{} Automate system administration (server setup, maintenance and compliance reporting),
+\item{} Create a trustworthy and reliable computing services infrastructure.
+\end{itemize}
+
+
+
+
+
+\subsection{Discussion Question}
+
+What problems would you like to solve with automation?
+
+
+
+
+
+\subsection{Training Examples}
+
+I've put together this collection of over 200 standalone working examples
+of CFEngine 3 code to help get infrastructure engineers up to speed with
+CFEngine 3.
+
+These examples \emph{supplement} the examples in the official documentation.
+
+All examples are standalone and runnable.
+
+If you have trouble with any of them, please let me know!
+
+
+
+
+
+\subsection{GitHub Repo}
+
+This collection grew to support my professional course ``Introduction
+to Automating System Administration using CFEngine 3''.
+
+I've put these materials online to make it easier for infrastructure
+engineers to learn CFEngine 3, to build a stable civilization.
+
+\href{https://github.com/atsaloli/cf3-tutorial}{https://github.com/atsaloli/cf3-tutorial}
+
+
+
+
+
+\subsection{Using the Examples}
+
+The materials are arranged in logical sequence for study.
+
+You may also use them to find examples of a specific
+feature or promise attribute.
+
+
+
+
+
+\subsection{Run the Examples}
+
+Try out and run the examples. Modify them. Do the provided
+exercises to practice using this new tool and to get to know
+it.
+
+Work your way through the materials until you understand them
+and have done the provided exercises. There are additional
+exercises at the end of the tutorial, or just start writing
+your own code!
+
+
+
+
+
+\subsection{Look Up Unfamiliar Terms}
+
+Look up unfamiliar terms in the \href{http://docs.cfengine.com}{CFEngine Reference
+Manual}, or in a good \href{http://www.onelook.com}{English
+dictionary}.
+
+
+
+
+
+\subsection{Feedback Wanted}
+
+If these examples are helpful to you, if you have any questions,
+or if you would like to contribute an example, please email me
+at aleksey (at) verticalsysadmin.com. I would love to hear from you!
+
+
+
+
+
+\section{Why Automation?}
+
+\begin{quotation}
+Every time someone logs onto a system by hand, they jeopardize
+everyone's understanding of the system.
+
+--- Mark Burgess, author of CFEngine
+\end{quotation}
+
+Benefits of automation:
+
+\begin{itemize}
+\item{} decreases labor costs
+\item{} increases quality of IT services
+\item{} frees humans from drudgery, to focus on more challenging work
+\end{itemize}
+
+See ``Why Automation?'' in the original \href{https://auth.cfengine.com/archive/manuals/cf3-tutorial#Why-automation_003f}{CFEngine 3 Tutorial}
+
+
+
+
+
+\section{What is CFEngine?}
+
+At this point a brief introductory lecture is given on what is CFEngine
+and desired state management, based on the presentation by Mark Burgess
+at USENIX Configuration Management summit 2010.
+
+Link:
+
+\href{https://github.com/atsaloli/cf3-tutorial/raw/master/mark-burgess-config10-slideshow/burgess-config10-pg01-06.pdf}{https://github.com/atsaloli/cf3-tutorial/raw/master/mark-burgess-config10-slideshow/burgess-config10-pg01-06.pdf}
+
+Reference:
+
+Slides 1-6 from \href{https://www.usenix.org/legacy/event/config10/burgess.pdf}{https://www.usenix.org/legacy/event/config10/burgess.pdf}
+
+
+
+
+
+\subsection{Declarative/Imperative and Promise Theory}
+
+At this point we switch to Nick Anderson's ``CFEngine Zero to Hero
+Primer'' slidedeck and go over the following sections:
+
+\begin{itemize}
+\item{} Declarative/Imperative
+\item{} Promise Theory
+\end{itemize}
+
+\href{https://htmlpreview.github.io/?https://github.com/nickanderson/CFEngine-zero-to-hero-primer/blob/master/CFEngine-zero-to-hero.html}{https://htmlpreview.github.io/?https://github.com/nickanderson/CFEngine-zero-to-hero-primer/blob/master/CFEngine-zero-to-hero.html}
+
+
+
+
+
+\subsection{System Lifecycle and Automation}
+
+The following system lifecycle diagram is from Remy Evard, ``An Analysis
+of UNIX System Configuration'', USENIX Proceedings: Eleventh Systems
+Administration Conference (LISA 1997), October 26-31, 1997
+
+\href{https://raw.githubusercontent.com/atsaloli/cf3-tutorial/master/images/figures/lifecycle.png}{https://raw.githubusercontent.com/atsaloli/cf3-tutorial/master/images/figures/lifecycle.png}
+
+
+
+
+
+\image{images/figures/lifecycle.pdf}
+
+
+
+
+
+\section{Why CFEngine?}
+
+\begin{itemize}
+\item{} Mature (since 1993, now in its third generation)
+\item{} Small footprint (can run everywhere and run often)
+\item{} Fast!!
+\item{} Scalable (real-world deployments of hundreds of thousands of hosts
+or more)
+\item{} Secure (check the US National Vulnerabilities Database, much less
+vulnerabilities due to a more secure design)
+\item{} Portable (many systems and platforms supported)
+\item{} The only configuration management tool based on science (author is a
+theoretical physicist turned Computer Science researcher)
+\end{itemize}
+
+To learn more, see \href{http://markburgess.org/blog_principles.html}{20 Years of
+CFEngine}, by Mark Burgess.
+
+
+
+
+
+\subsection{Scalability}
+
+It takes the same amount of time to deploy and validate changes
+with CFEngine regardless of fleet size.
+
+\href{https://github.com/atsaloli/cf3-tutorial/raw/master/images/figures/AnsibleCFEngine_whitepaper_2.png}{https://github.com/atsaloli/cf3-tutorial/raw/master/images/figures/AnsibleCFEngine\_whitepaper\_2.png}
+
+Graph from ``Ansible and CFEngine Scalability'' by Vratislav Podzimek, Northern.tech
+whitepaper, 12 January 2021.
+
+
+
+
+
+\subsection{NVD Search Results Comparison}
+
+The following is the CVE count as of 30 January 2021.
+
+\begin{longtable}{|l|l|}
+\hline
+Product & NVD CVE Search Results\\
+\hline
+CFEngine & 2 for CFEngine version 3.x (released 2008)\\
+Puppet & 177\\
+Chef & 42\\
+Ansible & 92\\
+SaltStack & 34\\
+\hline
+\end{longtable}
+
+NVD links:
+- \href{https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&query=cfengine&search_type=all}{CFEngine}
+- \href{https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&query=puppet&search_type=all}{Puppet}
+- \href{https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&query=chef&search_type=all}{Chef}
+- \href{https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&query=ansible&search_type=all}{Ansible}
+- \href{https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&query=saltstack&search_type=all}{SaltStack}
+
+
+
+
+
+\section{CFEngine Packages}
+
+
+
+
+
+\subsection{CFEngine Packages}
+
+CFEngine is available in two flavors.
+
+\subsubsection{Open Source Core}
+
+\begin{description}
+\item[\textbf{cfengine-community}] Open-source product, also known as CFEngine Core.
+\end{description}
+
+\subsubsection{Enterprise}
+
+\begin{description}
+\item[\textbf{cfengine-nova}] Core plus Enterprise extensions (reporting, native Windows build, etc.).
+
+
+
+\item[\textbf{cfengine-nova-hub}] cfengine-nova plus the the Mission Portal (Web UI on an Apache/PHP/PostgreSQL stack; and inventory and compliance report collector).
+\end{description}
+
+A note on naming: The name for the first generation of the CFEngine Enterprise product was ``Nova'', which is still reflected in the name of the Enterprise packages. The original plan was to have progressively larger star names like ``Constellation'' and ``Galaxy'', that would each have progressively more features.
+
+
+
+
+
+\subsection{Inspect the CFEngine Core Package}
+
+\subsubsection{Download Core package}
+
+%= lang:bash
+\begin{code}
+wget https://cfengine-package-repos.s3.amazonaws.com/community_binaries/\
+Community-3.12.6/agent_rhel8_x86_64/cfengine-community-3.12.6-1.el8.x86_64.rpm
+\end{code}
+or get it from \href{https://cfengine.com/product/community/}{CFEngine}
+
+\subsubsection{Examine package}
+
+Let's examine the package so you can see what gets installed on your system when you install Core.
+
+%= lang:bash
+\begin{code}
+rpm -q --filesbypkg cfengine-community-*.rpm | less
+\end{code}
+
+
+
+
+
+\subsection{CFEngine Enterprise - Reporting}
+
+CFEngine Enterprise unlocks unparalleled insight into infrastructure:
+
+\begin{itemize}
+\item{} promise compliance (including outliers)
+\item{} changes (repairs)
+\item{} inventory and compliance reports (at any level of abstraction -- from
+enterprise-wide down to an individual host)
+\end{itemize}
+
+CFEngine Enterprise components:
+
+\begin{itemize}
+\item{} Hub (report collection and admin UI)
+\item{} Super-Hub (reporting UI, for large enterprises)
+\end{itemize}
+
+How reporting works:
+
+\begin{enumerate}
+\item{} Hubs pull policy from version control (e.g. Git)
+\item{} Hosts pull policy from hubs and execute it and create inventory and
+compliance reports
+\item{} Hubs download inventory/compliance reports from hosts and aggregate them
+\end{enumerate}
+
+
+
+
+
+\section{CFEngine Components}
+
+CFEngine 3 consists of a number of components.
+
+
+
+
+
+\subsection{Syntax Checker}
+
+\begin{description}
+\item[\textbf{cf-promises}] Syntax checker.
+\end{description}
+
+%= lang:bash
+\begin{code}
+cf-promises -f ./your_policy.cf
+\end{code}
+Every CFEngine component runs \kode{cf-promises} on policy files before reading them in.
+
+
+
+
+
+\subsubsection{Syntax Description}
+
+You can also use \kode{cf-promises} to dump a JSON document
+describing the available syntax elements.
+
+%= lang:bash
+\begin{code}
+sudo cf-promises --syntax-description json --file /dev/null
+\end{code}
+
+Note: The syntax dump feature was ``bolted on'' to \kode{cf-promises},
+so that's why \kode{cf-promises} \emph{requires} the \kode{--file} switch.
+
+
+
+
+
+\subsubsection{cf-syntax alias}
+
+%= lang:bash
+\begin{code}
+alias cf-syntax='sudo cf-promises --syntax-description json --file /dev/null'
+\end{code}
+
+
+
+
+
+\subsubsection{Parsing JSON with jq}
+
+You can use \kode{jq} to parse/query JSON data such as that returned by
+\kode{cf-promises}.
+
+
+
+
+
+\paragraph{Installing jq}
+
+On RHEL 7, use the latest Fedora EPEL repo to install \kode{jq}.
+
+References:
+* https://stedolan.github.io/jq/
+
+
+
+
+
+\paragraph{Using jq to parse CFEngine syntax document}
+
+Example of using jq -- list all available promise types:
+
+%= lang:console
+\begin{code}
+$ cf-syntax | jq '.promiseTypes | keys' | head
+[
+  "access",
+  "build_xpath",
+  "classes",
+  "commands",
+  "databases",
+  "defaults",
+  "delete_attribute",
+  "delete_lines",
+  "delete_text",
+...
+\end{code}
+
+
+
+
+
+\subsection{Agent}
+
+\begin{description}
+\item[\textbf{cf-agent}] The CFEngine component that audits and makes any needed repairs to your system. Actually does the work, as far as configuration management is concerned. This is the workhorse.
+\end{description}
+
+%= lang:bash
+\begin{code}
+cf-agent -f ./your_policy.cf
+\end{code}
+
+
+
+
+
+\subsection{Executor}
+
+\begin{description}
+\item[\textbf{cf-execd}] Runs cf-agent on a regular basis, and handles its output.
+\end{description}
+
+
+
+
+
+\subsection{Network Communication}
+
+\begin{description}
+\item[\textbf{cf-serverd}] Has three functions:
+- file server, for distributing files
+- reports server (Enterprise only)
+- listens for network requests for additional runs of the local agent
+
+
+
+\item[\textbf{cf-runagent}] Triggers cf-agent on a remote machine (connects to remote cf-serverd).
+
+
+
+\item[\textbf{cf-hub}] CFEngine Enterprise only, collects reports from hosts (connects to remote cf-serverd).
+\end{description}
+
+
+
+
+
+\subsection{Monitoring}
+
+\begin{description}
+\item[\textbf{cf-monitord}] Passive monitoring agent, collects information about the status of the system (which can be reported or used to influence when promises are enforced).
+\end{description}
+
+
+
+
+
+\subsection{Utilities}
+
+\begin{description}
+\item[\textbf{cf-check}] Utility for diagnosis and repair of local CFEngine databases. Intended to detect and repair a corrupt database.
+
+
+
+\item[\textbf{cf-net}] Testing/debugging tool. cf-net connects to cf-serverd on a specified host and can issue arbitrary CFEngine protocol commands.
+
+
+
+\item[\textbf{cf-key}] Generates the keypair used to secure network communications.
+
+
+
+\item[\textbf{cf-upgrade}] Helper tool used by CFEngine to upgrade itself (version update).
+\end{description}
+
+
+
+
+
+\subsection{A Note on Size}
+
+The CFEngine agent is a small C binary. The other components are even smaller C binaries.
+
+%= lang:console
+\begin{code}
+$ ls -lh /var/cfengine/bin/cf-* |
+> awk '{print $NF, $5}' | sort | column -t
+/var/cfengine/bin/cf-agent     1.8M
+/var/cfengine/bin/cf-check     710K
+/var/cfengine/bin/cf-execd     160K
+/var/cfengine/bin/cf-key       84K
+/var/cfengine/bin/cf-monitord  448K
+/var/cfengine/bin/cf-net       73K
+/var/cfengine/bin/cf-promises  53K
+/var/cfengine/bin/cf-runagent  69K
+/var/cfengine/bin/cf-serverd   472K
+/var/cfengine/bin/cf-upgrade   68K
+$
+\end{code}
+
+
+
+
+
+Because CFEngine is lightweight, it's fast. It can be run frequently to monitor and maintain
+infrastructure health.
+
+CFEngine 1 was intended to be run once a day.
+
+CFEngine 2 was intended to be run once an hour.
+
+CFEngine 3 default run frequency is every 5 minutes.
+
+At 5 minutes, systems can self-heal faster than if they were repaired by human operators.
+
+
+
+
+
+\subsection{Add-ons}
+
+A number of add-on tools are available, thanks to community contributions. For example:
+
+\begin{description}
+\item[\textbf{cf-diag}] Diagnostic tool (checks the health of a CFEngine host).
+
+
+
+\item[\textbf{masterfiles-stage}] Policy deployment tool - designed to run on the Policy Server and safely deploy policy from upstream locations to a directory on the Policy Server for distribution to clients.
+
+
+
+\item[\textbf{cf-profile}] Measures how long your code takes to run so you can keep CFEngine agent runs blazing fast.
+
+
+
+\item[\textbf{cf-remote}] Tooling to deploy CFEngine on remote hosts.
+\end{description}
+
+And more! Check out \href{https://github.com/cfengine/core/blob/master/contrib/}{https://github.com/cfengine/core/blob/master/contrib/}
+
+
+
+
+
+CFEngine daemons
+
+Here is what you typically see between \kode{cf-agent} runs:
+
+%= lang:console
+\begin{code}
+$ ps -ef |grep [c]f-
+root     807   1  0 Jan26 ?    00:00:34 /var/cfengine/bin/cf-monitord --no-fork
+root     833   1  0 Jan26 ?    00:00:13 /var/cfengine/bin/cf-execd --no-fork
+root    1367   1  0 Jan26 ?    00:00:08 /var/cfengine/bin/cf-serverd --no-fork
+$
+\end{code}
+
+
+
+
+
+\subsection{Review: CFEngine Binaries}
+
+What do these binaries do?
+
+\begin{itemize}
+\item{} cf-agent
+\item{} cf-promises
+\item{} cf-execd
+\item{} cf-serverd
+\end{itemize}

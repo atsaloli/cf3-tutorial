@@ -1,0 +1,305 @@
+<div id="cid27" data-tralics-id="cid27" class="chapter" data-number="5" data-chapter="cfengine_300"><h1><a href="cfengine_300_fragment.html#cid27" class="heading hyperref"><span class="number">Chapter 5 </span>Classifying (Grouping) Hosts</a></h1>
+</div><div id="cid28" data-tralics-id="cid28" class="section" data-number="5.1"><h2><a href="cfengine_300_fragment.html#cid28" class="heading hyperref"><span class="number">5.1 </span>Hard classes</a></h2>
+<list type="description"><label><strong>Class</strong></label>
+<li><p class="noindent">A group of things, animals, or people with similar features or qualities.<span class="intersentencespace"></span> —Macmillan Dictionary</p>
+</li></list>
+<blockquote class="quotation"><p class="quote">Classes are the if ( test ) then of CFEngine language.<span class="intersentencespace"></span> Tests are built-in
+or user defined.<span class="intersentencespace"></span> Hosts that pass the test are members of the class.<span class="intersentencespace"></span> —Neil Watson, CFEngine Consultant</p>
+</blockquote>
+<div id="uid281" data-tralics-id="uid281" class="subsection" data-number="5.1.1"><h3><a href="cfengine_300_fragment.html#uid281" class="heading hyperref"><span class="number">5.1.1 </span>Hard and soft classes defined</a></h3>
+<p>There are two types of classes in CFEngine:</p>
+<list type="description"><label><strong>Hard classes</strong></label>
+<li><p class="noindent">Hard classes are inherent, or built-in.<span class="intersentencespace"></span> The first thing that <code>cf-agent</code>
+does when it starts is to classify its environment (e.g.<span class="intersentencespace"></span> OS type = linux,
+OS version = redhat 6.5, date = Sun Nov 8 17:09:57 PST 2015, CFEngine
+version = 3.7, hostname = alpha.example.com, domain = example.com, CPU
+architecture = 64 bit, etc.)<span class="intersentencespace"></span> This data can be used to control promise
+execution (e.g.<span class="intersentencespace"></span> kick off backups at 2 AM on Sunday on Linux hosts)</p>
+</li><label><strong>Soft classes</strong></label>
+<li><p class="noindent">Soft classes are user-defined through promises, and provide additional
+flexibility in classifying hosts (e.g.<span class="intersentencespace"></span> by application, or primary vs
+DR) and controlling promise execution (e.g.<span class="intersentencespace"></span> only evaluate promise2 if
+promise1 was repaired).<span class="intersentencespace"></span></p>
+</li></list>
+<div id="uid284" data-tralics-id="uid284" class="subsubsection" data-number="5.1.1.1"><h4><a href="#uid284" class="heading">Note on Syntax: CFEngine Identifiers</a></h4>
+<p>Note on syntax: CFEngine identifiers (class names, variable names, bundle
+names, etc.)<span class="intersentencespace"></span> may only contain alphanumeric and underscore characters (a-zA-Z0-9_).</p>
+</div></div>
+<div id="uid285" data-tralics-id="uid285" class="subsection" data-number="5.1.2"><h3><a href="cfengine_300_fragment.html#uid285" class="heading hyperref"><span class="number">5.1.2 </span>Hard classes</a></h3>
+<p>Let’s see some examples of hard classes.</p>
+<div class="codelisting" id="uid286" data-tralics-id="uid286" data-number="5.1"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 5.1:</span> <span class="description">300-010-Basic_Examples_Classes-0030-Classes_Reports.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="c"># Operating System</span>
+
+<span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">commands</span><span class="p">:</span>
+    <span class="nc">linux</span><span class="p">::</span>
+      <span class="s">"/bin/date"</span><span class="p">;</span>
+
+    <span class="nc">windows</span><span class="p">::</span>
+      <span class="s">"C:</span><span class="se">\W</span><span class="s">indows</span><span class="se">\S</span><span class="s">ystem32</span><span class="se">\c</span><span class="s">md.exe /c date /t"</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div></div><div class="codelisting" id="uid287" data-tralics-id="uid287" data-number="5.2"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 5.2:</span> <span class="description">300-010-Basic_Examples_Classes-0040-Using_classes_to_determine_role.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="c"># IPv4 network blocks</span>
+
+<span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">reports</span><span class="p">:</span>
+    <span class="nc">ipv4_205_186_156</span><span class="p">::</span>
+      <span class="s">"I am on our public net. I am a Web server."</span><span class="p">;</span>
+
+    <span class="nc">ipv4_10</span><span class="p">::</span>
+      <span class="s">"I am on our private net. I am a database server."</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div></div><div class="codelisting" id="uid288" data-tralics-id="uid288" data-number="5.3"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 5.3:</span> <span class="description">300-010-Basic_Examples_Classes-0050-Report_OS_Type.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="c"># OS flavor (e.g. Windows XP or Red Hat)</span>
+
+<span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">reports</span><span class="p">:</span>
+    <span class="nc">WinXP</span><span class="p">::</span> <span class="s">"Hello world! I am running on a Windows system."</span><span class="p">;</span>
+    <span class="nc">linux</span><span class="p">::</span> <span class="s">"Hello world! I am running on a Linux system."</span><span class="p">;</span>
+    <span class="nc">redhat</span><span class="p">::</span> <span class="s">"Hello world! I am running on a redhat Linux system."</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div></div><div class="codelisting" id="uid289" data-tralics-id="uid289" data-number="5.4"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 5.4:</span> <span class="description">300-010-Basic_Examples_Classes-0060-Note_on_what_happens_to_dashes_in_hostnames.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="c"># CFEngine automatically canonifies classes (converts any</span>
+<span class="c"># character that is not alphanum/underscore to underscore)</span>
+<span class="c">#</span>
+<span class="c"># To setup for this example, run "hostname my-hostname-has-dashes"</span>
+
+<span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">reports</span><span class="p">:</span>
+    <span class="nc">any</span><span class="p">::</span>
+      <span class="s">"hello world"</span><span class="p">;</span>
+    <span class="nf">my</span><span class="err">-</span><span class="nf">hostname</span><span class="err">-</span><span class="nf">has</span><span class="err">-</span><span class="nc">dashes</span><span class="p">::</span>
+      <span class="s">"One"</span><span class="p">;</span>
+    <span class="nc">my_hostname_has_dashes</span><span class="p">::</span>
+      <span class="s">"Two"</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div></div></div><div class="aside" id="aside-exercise_18" data-tralics-id="uid290" data-number="5.1"><p class="heading"><span class="number"><span class="aside_label">Exercise</span> 5.1.</span> 
+
+<span class="description">Examine hard classes</span></p>
+<p>Run CFEngine in verbose mode:</p>
+<div class="code"><div class="highlight"><pre><span></span>cf-agent -v -f ./hello_world.cf <span class="p">|</span> less
+</pre></div></div>
+<p>Examine what CFEngine discovered about your system and what classes it set.</p>
+<p>Give an example of a class that CFEngine has set.</p>
+
+</div><div class="aside" id="aside-exercise_19" data-tralics-id="uid291" data-number="5.2"><p class="heading"><span class="number"><span class="aside_label">Exercise</span> 5.2.</span> 
+
+<span class="description">Using classes</span></p>
+<p>Print a report if you’re running on a CentOS 7 system.</p>
+
+</div></div></div><div id="cid29" data-tralics-id="cid29" class="section" data-number="5.2"><h2><a href="cfengine_300_fragment.html#cid29" class="heading hyperref"><span class="number">5.2 </span>Class Expressions</a></h2>
+<list type="description"><label><strong>Class expressions</strong></label>
+<li><p class="noindent">Class expressions are logical expressions that evaluate to true (this
+promise applies here) or false (the promise does not apply, skip it).<span class="intersentencespace"></span></p>
+</li></list>
+<p>Class expressions are composed of classes and logical operators.</p>
+<div id="uid293" data-tralics-id="uid293" class="subsection" data-number="5.2.1"><h3><a href="cfengine_300_fragment.html#uid293" class="heading hyperref"><span class="number">5.2.1 </span>Logical operators</a></h3>
+<list type="description"><label><strong>Operator</strong></label>
+<li><p class="noindent">In programming, a symbol used to perform an arithmetic or logical operation.<span class="intersentencespace"></span></p>
+</li></list>
+<p>— http://encyclopedia2.thefreedictionary.com/operator</p>
+<p>Logical operators (in order of precedence of operation)</p>
+<div id="uid295" data-tralics-id="uid295" data-number="5.1" class="table"><table class="tabular"><tr class="top_border"><td class="left_border align_left right_border">( )</td>
+<td class="align_left right_border">Groupers</td>
+</tr><tr><td class="left_border align_left right_border">!<span class="intersentencespace"></span></td>
+<td class="align_left right_border">NOT</td>
+</tr><tr><td class="left_border align_left right_border">&amp; or .<span class="intersentencespace"></span></td>
+<td class="align_left right_border">AND</td>
+</tr><tr class="bottom_border"><td class="left_border align_left right_border">| or ||</td>
+<td class="align_left right_border">OR</td>
+</tr></table><div class="caption"><span class="header">Table 5.1</span></div></div>
+</div>
+<div id="uid296" data-tralics-id="uid296" class="subsection" data-number="5.2.2"><h3><a href="cfengine_300_fragment.html#uid296" class="heading hyperref"><span class="number">5.2.2 </span>Truth tables</a></h3>
+<p>If necessary, review <a href="https://en.wikipedia.org/wiki/Truth_table#Logical_conjunction_.28AND.29" target="_blank" rel="noopener">truth tables</a> for logical operations AND, OR, and NOT.</p>
+</div>
+<div id="uid297" data-tralics-id="uid297" class="subsection" data-number="5.2.3"><h3><a href="cfengine_300_fragment.html#uid297" class="heading hyperref"><span class="number">5.2.3 </span>Examples of class expressions</a></h3>
+<div class="codelisting" id="uid298" data-tralics-id="uid298" data-number="5.5"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 5.5:</span> <span class="description">300-015-Basic_Examples_Classes_2-0090-Class_expression_operators.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">reports</span><span class="p">:</span>
+    <span class="nc">!WinXP</span><span class="p">::</span> <span class="s">"This isn't Windows XP"</span><span class="p">;</span>
+    <span class="nc">windows|linux</span><span class="p">::</span>  <span class="s">"Am I laughing or crying?"</span><span class="p">;</span>
+    <span class="nc">windows&amp;linux</span><span class="p">::</span>  <span class="s">"We should never see this report."</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div></div></div><div class="codelisting" id="uid299" data-tralics-id="uid299" data-number="5.6"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 5.6:</span> <span class="description">300-015-Basic_Examples_Classes_2-0100-Report_day_of_the_week.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="c"># This bundle does not use class expressions.</span>
+
+<span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">reports</span><span class="p">:</span>
+
+    <span class="nc">Monday</span><span class="p">::</span>    <span class="s">"Hello world! I love Mondays!"</span><span class="p">;</span>
+    <span class="nc">Tuesday</span><span class="p">::</span>   <span class="s">"Hello world! I love Tuesdays!"</span><span class="p">;</span>
+    <span class="nc">Wednesday</span><span class="p">::</span> <span class="s">"Hello world! I love Wednesdays!"</span><span class="p">;</span>
+    <span class="nc">Thursday</span><span class="p">::</span>  <span class="s">"Hello world! I love Thursdays!"</span><span class="p">;</span>
+    <span class="nc">Friday</span><span class="p">::</span>    <span class="s">"Hello world! I love Fridays!"</span><span class="p">;</span>
+
+    <span class="nc">Saturday</span><span class="p">::</span>  <span class="s">"Hello world! I love weekends!"</span><span class="p">;</span>
+    <span class="nc">Sunday</span><span class="p">::</span>    <span class="s">"Hello world! I love weekends!"</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div></div><div class="codelisting" id="uid300" data-tralics-id="uid300" data-number="5.7"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 5.7:</span> <span class="description">300-015-Basic_Examples_Classes_2-0110-Condensed_report_day_of_week.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="c"># This bundle uses class expressions.</span>
+
+<span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">reports</span><span class="p">:</span>
+    <span class="nc">Monday|Tuesday|Wednesday|Thursday|Friday</span><span class="p">::</span>
+      <span class="s">"I get to work today"</span><span class="p">;</span>
+
+    <span class="nc">Saturday|Sunday</span><span class="p">::</span>
+      <span class="s">"I get to rest today."</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div></div><div class="codelisting" id="uid301" data-tralics-id="uid301" data-number="5.8"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 5.8:</span> <span class="description">300-015-Basic_Examples_Classes_2-0120-OS_and_time_expression.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="c"># Another example of a class expression</span>
+
+<span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">reports</span><span class="p">:</span>
+      <span class="nc">linux&amp;Hr22</span><span class="p">::</span>
+        <span class="s">"Linux system AND we are in the 22nd hour."</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div></div><div class="codelisting" id="uid302" data-tralics-id="uid302" data-number="5.9"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 5.9:</span> <span class="description">300-015-Basic_Examples_Classes_2-0130-Class_expression_OS_and_time.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="c"># Example of using ( ) for grouping</span>
+
+<span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">reports</span><span class="p">:</span>
+    <span class="nc">(redhat&amp;Monday)|(windows&amp;Wednesday)</span><span class="p">::</span>
+      <span class="s">"This report will show on Redhat servers on Mondays;</span>
+<span class="s">       or on Windows servers on Wednesdays"</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div></div></div></div><div id="cid30" data-tralics-id="cid30" class="section" data-number="5.3"><h2><a href="cfengine_300_fragment.html#cid30" class="heading hyperref"><span class="number">5.3 </span>Soft classes</a></h2>
+<p>You can define a soft class using a <code>classes:</code> promise.</p>
+<div class="codelisting" id="uid303" data-tralics-id="uid303" data-number="5.10"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 5.10:</span> <span class="description">300-015-Basic_Examples_Classes_2-0134-soft_classes_simple.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">classes</span><span class="p">:</span>
+      <span class="s">"weekend"</span>
+        <span class="kr">expression</span> <span class="o">=&gt;</span> <span class="s">"Saturday|Sunday"</span><span class="p">;</span>
+      <span class="s">"weekday"</span>
+        <span class="kr">expression</span> <span class="o">=&gt;</span> <span class="s">"Monday|Tuesday|Wednesday|Thursday|Friday"</span><span class="p">;</span>
+
+  <span class="kd">reports</span><span class="p">:</span>
+    <span class="nc">weekend</span><span class="p">::</span>
+      <span class="s">"Yay! I get to rest today."</span><span class="p">;</span>
+    <span class="nc">weekday</span><span class="p">::</span>
+      <span class="s">"Yay! I get to work today."</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div></div><div class="codelisting" id="uid304" data-tralics-id="uid304" data-number="5.11"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 5.11:</span> <span class="description">300-015-Basic_Examples_Classes_2-0140-negative_knowledge.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="c"># Example of "negative knowledge" -- not recommended!</span>
+<span class="c"># Better to be certain (rely on the presence of something,</span>
+<span class="c"># not its absence).</span>
+
+<span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">classes</span><span class="p">:</span>
+      <span class="s">"weekend"</span>
+        <span class="kr">expression</span> <span class="o">=&gt;</span> <span class="s">"Saturday|Sunday"</span><span class="p">;</span>
+      <span class="s">"weekday"</span>
+        <span class="kr">not</span> <span class="o">=&gt;</span> <span class="s">"weekend"</span><span class="p">;</span>
+
+  <span class="kd">reports</span><span class="p">:</span>
+    <span class="nc">weekend</span><span class="p">::</span>
+      <span class="s">"Yay! I get to rest today."</span><span class="p">;</span>
+    <span class="nc">weekday</span><span class="p">::</span>
+      <span class="s">"Yay! I get to work today."</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c"># Knowing that something is not the case is not the same as not knowing</span>
+<span class="c"># whether something is the case. That a class is not set could mean</span>
+<span class="c"># either.</span>
+<span class="c">#</span>
+<span class="c"># Reference:  &lt;https://docs.cfengine.com/docs/3.17/reference-language-concepts-classes.html#negative-knowledge&gt;</span>
+</pre></div></div></div><div class="codelisting" id="uid305" data-tralics-id="uid305" data-number="5.12"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 5.12:</span> <span class="description">300-030-Basic_Examples_Classes_2-0140-Detect_VMs.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="c"># You can set a soft class based on the outcome</span>
+<span class="c"># of a function that returns true/false, such as</span>
+<span class="c"># `regline()` which checks if there is a line in a</span>
+<span class="c"># file matching a regular expression.</span>
+
+<span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">classes</span><span class="p">:</span>
+      <span class="s">"i_am_virtual"</span>
+        <span class="kr">comment</span> <span class="o">=&gt;</span> <span class="s">"Check if we are running inside a VM"</span><span class="p">,</span>
+        <span class="kr">expression</span> <span class="o">=&gt;</span> <span class="nf">regline</span><span class="p">(</span><span class="s">".*(VMware|VBOX|QEMU).*"</span><span class="p">,</span>
+                              <span class="s">"/proc/scsi/scsi"</span><span class="p">);</span>
+
+<span class="c"># E.g., on a VMware guest, we have:</span>
+<span class="c">#</span>
+<span class="c"># $ grep -i vmware /proc/scsi/scsi</span>
+<span class="c"># Vendor: VMware,  Model: VMware Virtual S Rev: 1.0</span>
+<span class="c"># Vendor: NECVMWar Model: VMware SATA CD01 Rev: 1.00</span>
+<span class="c"># $</span>
+
+  <span class="kd">reports</span><span class="p">:</span>
+    <span class="nc">i_am_virtual</span><span class="p">::</span>
+      <span class="s">"Running inside a VM"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c"># See also the "virt-what" utility</span>
+</pre></div></div></div>
+<div id="uid306" data-tralics-id="uid306" class="subsection" data-number="5.3.1"><h3><a href="cfengine_300_fragment.html#uid306" class="heading hyperref"><span class="number">5.3.1 </span>Creating soft classes depending on promise outcome</a></h3>
+<p>Some promise attributes can create Classes depending on the outcome of
+the promise.</p>
+<div class="codelisting" id="uid307" data-tralics-id="uid307" data-number="5.13"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 5.13:</span> <span class="description">300-040-Classes_4-0020-Ensuring_CUPSd_is_running.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="c"># restart_class will set the class if the process is ABSENT</span>
+<span class="c"># &lt;https://docs.cfengine.com/latest/reference-promise-types-processes.html#restart_class&gt;</span>
+
+<span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">processes</span><span class="p">:</span>
+    <span class="nc">print_servers</span><span class="p">::</span>
+      <span class="s">"cupsd"</span>
+        <span class="kr">restart_class</span> <span class="o">=&gt;</span> <span class="s">"cups_needs_to_be_started"</span><span class="p">,</span>
+        <span class="kr">comment</span> <span class="o">=&gt;</span> <span class="s">"We want print services"</span><span class="p">;</span>
+
+  <span class="kd">commands</span><span class="p">:</span>
+    <span class="nc">cups_needs_to_be_started</span><span class="p">::</span>
+      <span class="s">"/sbin/service cups start"</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div></div><div class="codelisting" id="uid308" data-tralics-id="uid308" data-number="5.14"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 5.14:</span> <span class="description">300-040-Classes_4-0030-Ensuring_httpd_is_running.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">processes</span><span class="p">:</span>
+      <span class="s">"httpd"</span>
+        <span class="kr">restart_class</span> <span class="o">=&gt;</span> <span class="s">"start_httpd"</span><span class="p">;</span>
+
+  <span class="kd">commands</span><span class="p">:</span>
+    <span class="nc">start_httpd</span><span class="p">::</span>
+      <span class="s">"/sbin/service httpd start"</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div></div></div></div>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link href="stylesheets/pygments.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="stylesheets/softcover.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="stylesheets/custom.css" media="screen" rel="stylesheet" type="text/css">
+    
+    <title>cfengine3</title>
+    
+      <script type="text/x-mathjax-config">
+              MathJax.Hub.Config({
+        "HTML-CSS": {
+          availableFonts: ["TeX"],
+        },
+        TeX: {
+          extensions: ["AMSmath.js", "AMSsymbols.js", "color.js"],
+          equationNumbers: {
+            autoNumber: "AMS",
+            formatNumber: function (n) { return "16" + '.' + n }
+          },
+          Macros: {
+            PolyTeX:    "Poly{\\TeX}",
+            PolyTeXnic: "Poly{\\TeX}nic",
+            "softcover": "\\texttt{softcover}",
+"unitvec": ["{\\hat #1}", 1]
+          }
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        imageFont: null,
+        "AssistiveMML": { disabled: true }
+      });
+
+        if (/PhantomJS/.test(window.navigator.userAgent)) {
+          MathJax.Hub.Queue([alert, 'MathJax Done']);
+        }
+      </script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_SVG"></script>
+    
+  </head>
+  <body>
+    
+    <div id="book">
+      <div id="cid71" data-tralics-id="cid71" class="chapter" data-number="16" data-chapter="cfengine_520"><h1><a href="cfengine_520.html#cid71" class="heading hyperref"><span class="number">Chapter 16 </span>Selecting Files and Processes</a></h1>
+</div>
+<div id="cid72" data-tralics-id="cid72" class="section" data-number="16.1"><h2><a href="cfengine_520.html#cid72" class="heading hyperref"><span class="number">16.1 </span>Selecting Files</a></h2>
+<div class="codelisting" id="uid490" data-tralics-id="uid490" data-number="16.1"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 16.1:</span> <span class="description">520-060-File_Selection-0500-Select_by_mode.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">files</span><span class="p">:</span>
+      <span class="s">"/tmp/test_from/."</span>
+        <span class="kr">file_select</span> <span class="o">=&gt;</span> <span class="nf">mode_777</span><span class="p">,</span>
+        <span class="kr">transformer</span> <span class="o">=&gt;</span> <span class="s">"/bin/gzip </span><span class="si">$(this.promiser)</span><span class="s">"</span><span class="p">,</span>
+        <span class="kr">depth_search</span> <span class="o">=&gt;</span> <span class="nf">recurse</span><span class="p">(</span><span class="s">"inf"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">body</span> <span class="k">file_select</span> <span class="nf">mode_777</span>
+<span class="p">{</span>
+        <span class="kr">search_mode</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="s">"777"</span> <span class="p">};</span>
+        <span class="kr">file_result</span> <span class="o">=&gt;</span> <span class="s">"mode"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">body</span> <span class="k">depth_search</span> <span class="nf">recurse</span><span class="p">(</span><span class="nv">d</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="kr">depth</span> <span class="o">=&gt;</span> <span class="s">"</span><span class="si">$(d)</span><span class="s">"</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div></div><div class="codelisting" id="uid491" data-tralics-id="uid491" data-number="16.2"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 16.2:</span> <span class="description">520-060-File_Selection-0510-Select_files_more_than_N_days_old.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="c"># The following policy selects files modified over a year ago</span>
+<span class="c">#</span>
+<span class="c"># It works by selecting files whose mtime is between 1 year old</span>
+<span class="c"># and 100 years old.  Next we will show you a more elegant way</span>
+<span class="c"># to do it.</span>
+
+
+<span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">files</span><span class="p">:</span>
+      <span class="s">"/tmp/test_from"</span>
+        <span class="kr">file_select</span> <span class="o">=&gt;</span> <span class="nf">modified_over_a_year_ago</span><span class="p">,</span>
+        <span class="kr">transformer</span> <span class="o">=&gt;</span> <span class="s">"/bin/echo FOUND </span><span class="si">$(this.promiser)</span><span class="s">"</span><span class="p">,</span>
+        <span class="kr">depth_search</span> <span class="o">=&gt;</span> <span class="nf">recurse</span><span class="p">(</span><span class="s">"inf"</span><span class="p">);</span>
+
+<span class="p">}</span>
+
+<span class="k">body</span> <span class="k">file_select</span> <span class="nf">modified_over_a_year_ago</span>
+<span class="p">{</span>
+        <span class="kr">mtime</span> <span class="o">=&gt;</span> <span class="nf">irange</span><span class="p">(</span><span class="nf">ago</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="nf">ago</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">));</span>
+      <span class="c"># modified between 1-100 years ago</span>
+      <span class="c"># Reminder: ago(Years, Months, Days, Hours, Minutes, Seconds)</span>
+
+        <span class="kr">file_result</span> <span class="o">=&gt;</span> <span class="s">"mtime"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">body</span> <span class="k">depth_search</span> <span class="nf">recurse</span><span class="p">(</span><span class="nv">d</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="kr">depth</span> <span class="o">=&gt;</span> <span class="s">"</span><span class="si">$(d)</span><span class="s">"</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div></div><div class="codelisting" id="uid492" data-tralics-id="uid492" data-number="16.3"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 16.3:</span> <span class="description">520-060-File_Selection-0520-Select_by_several_things.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="k">body</span> <span class="k">file</span> <span class="k">control</span> <span class="p">{</span> <span class="kr">inputs</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="s">"</span><span class="si">$(sys.libdir)</span><span class="s">/stdlib.cf"</span> <span class="p">};</span> <span class="p">}</span>
+
+<span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">files</span><span class="p">:</span>
+      <span class="s">"/tmp/."</span>
+        <span class="kr">file_select</span> <span class="o">=&gt;</span> <span class="nf">compound_filter</span><span class="p">,</span>
+        <span class="kr">depth_search</span> <span class="o">=&gt;</span> <span class="nf">recurse</span><span class="p">(</span><span class="s">"inf"</span><span class="p">),</span>
+        <span class="kr">delete</span>  <span class="o">=&gt;</span> <span class="nf">tidy</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">body</span> <span class="k">file_select</span> <span class="nf">compound_filter</span>
+<span class="p">{</span>
+        <span class="kr">search_mode</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="s">"777"</span> <span class="p">};</span>
+        <span class="kr">leaf_name</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="s">".*</span><span class="se">\.</span><span class="s">pdf"</span> <span class="p">};</span>  <span class="c"># leaf_name = regex to match</span>
+
+        <span class="kr">file_result</span> <span class="o">=&gt;</span> <span class="s">"leaf_name&amp;mode"</span><span class="p">;</span>   <span class="c"># this is a class expression</span>
+<span class="p">}</span>
+
+<span class="c">#  Exercise: delete world-writable PDF files owned by root from /tmp</span>
+</pre></div></div></div><div class="codelisting" id="uid493" data-tralics-id="uid493" data-number="16.4"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 16.4:</span> <span class="description">520-060-File_Selection-0530-Select_files_more_than_N_days_old_More_elegant.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="c"># The following policy selects files modified over a year ago</span>
+<span class="c">#</span>
+<span class="c"># More elegant version, courtesy of Dan Klein.</span>
+
+<span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">files</span><span class="p">:</span>
+      <span class="s">"/tmp/test_from"</span>
+        <span class="kr">file_select</span> <span class="o">=&gt;</span> <span class="nf">modified_over_a_year_ago</span><span class="p">,</span>
+        <span class="kr">transformer</span> <span class="o">=&gt;</span> <span class="s">"/bin/echo FOUND: </span><span class="si">$(this.promiser)</span><span class="s">"</span><span class="p">,</span>
+        <span class="kr">depth_search</span> <span class="o">=&gt;</span> <span class="nf">recurse</span><span class="p">(</span><span class="s">"inf"</span><span class="p">);</span>
+
+<span class="p">}</span>
+
+<span class="k">body</span> <span class="k">file_select</span> <span class="nf">modified_over_a_year_ago</span>
+<span class="p">{</span>
+        <span class="kr">mtime</span> <span class="o">=&gt;</span> <span class="nf">irange</span><span class="p">(</span><span class="nf">ago</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="nf">now</span><span class="p">);</span>
+      <span class="c"># will select files modified between a year ago</span>
+      <span class="c"># and now</span>
+
+        <span class="kr">file_result</span> <span class="o">=&gt;</span> <span class="s">"!mtime"</span><span class="p">;</span>
+      <span class="c"># will select files modified over a year ago</span>
+      <span class="c"># (inverts the above selection)</span>
+<span class="p">}</span>
+
+<span class="k">body</span> <span class="k">depth_search</span> <span class="nf">recurse</span><span class="p">(</span><span class="nv">d</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="kr">depth</span> <span class="o">=&gt;</span> <span class="s">"</span><span class="si">$(d)</span><span class="s">"</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div></div><div class="codelisting" id="uid494" data-tralics-id="uid494" data-number="16.5"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 16.5:</span> <span class="description">520-060-File_Selection-0540-Compress_old_files.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="c"># Searching for permissions</span>
+
+<span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">files</span><span class="p">:</span>
+      <span class="s">"/tmp/test_from"</span>
+        <span class="kr">file_select</span> <span class="o">=&gt;</span> <span class="nf">days_old</span><span class="p">(</span><span class="s">"1"</span><span class="p">),</span>
+        <span class="kr">transformer</span> <span class="o">=&gt;</span> <span class="s">"/bin/gzip </span><span class="si">$(this.promiser)</span><span class="s">"</span><span class="p">,</span>
+        <span class="kr">depth_search</span> <span class="o">=&gt;</span> <span class="nf">recurse</span><span class="p">(</span><span class="s">"inf"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">body</span> <span class="k">depth_search</span> <span class="nf">recurse</span><span class="p">(</span><span class="nv">d</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="kr">depth</span> <span class="o">=&gt;</span> <span class="s">"</span><span class="si">$(d)</span><span class="s">"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">body</span> <span class="k">file_select</span> <span class="nf">days_old</span><span class="p">(</span><span class="nv">days</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="kr">mtime</span>       <span class="o">=&gt;</span> <span class="nf">irange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nf">ago</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s">"</span><span class="si">$(days)</span><span class="s">"</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">));</span>
+        <span class="kr">file_result</span> <span class="o">=&gt;</span> <span class="s">"mtime"</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div></div><div class="codelisting" id="uid495" data-tralics-id="uid495" data-number="16.6"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 16.6:</span> <span class="description">520-060-File_Selection-0550-Compress_old_pdf_files.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="c"># GZIP pdf files over a year old</span>
+
+<span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">files</span><span class="p">:</span>
+
+      <span class="s">"/tmp/test_from"</span>
+
+        <span class="kr">file_select</span> <span class="o">=&gt;</span> <span class="nf">compound_filter</span><span class="p">,</span>
+        <span class="kr">transformer</span> <span class="o">=&gt;</span> <span class="s">"/bin/gzip </span><span class="si">$(this.promiser)</span><span class="s">"</span><span class="p">,</span>
+        <span class="kr">depth_search</span> <span class="o">=&gt;</span> <span class="nf">recurse</span><span class="p">(</span><span class="s">"inf"</span><span class="p">);</span>
+
+<span class="p">}</span>
+
+<span class="k">body</span> <span class="k">file_select</span> <span class="nf">compound_filter</span>
+<span class="p">{</span>
+
+        <span class="kr">leaf_name</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="s">".*</span><span class="se">\.</span><span class="s">pdf"</span> <span class="p">};</span>
+      <span class="c"># leaf_name = regex to match</span>
+
+        <span class="kr">mtime</span> <span class="o">=&gt;</span> <span class="nf">irange</span><span class="p">(</span><span class="nf">ago</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="nf">now</span><span class="p">);</span>
+      <span class="c"># modified within 1 year</span>
+
+      <span class="c"># the above automatically define classes</span>
+      <span class="c"># only if the right hand side matches</span>
+      <span class="c"># file being examined</span>
+
+        <span class="kr">file_result</span> <span class="o">=&gt;</span> <span class="s">"leaf_name.(!mtime)"</span><span class="p">;</span>
+      <span class="c"># this is a class expression using classes</span>
+      <span class="c"># defined by the above filters</span>
+<span class="p">}</span>
+
+<span class="k">body</span> <span class="k">depth_search</span> <span class="nf">recurse</span><span class="p">(</span><span class="nv">d</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="kr">depth</span> <span class="o">=&gt;</span> <span class="s">"</span><span class="si">$(d)</span><span class="s">"</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div></div></div>
+<div id="cid73" data-tralics-id="cid73" class="section" data-number="16.2"><h2><a href="cfengine_520.html#cid73" class="heading hyperref"><span class="number">16.2 </span>Selecting Processes</a></h2>
+<div class="codelisting" id="uid496" data-tralics-id="uid496" data-number="16.7"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 16.7:</span> <span class="description">520-070-Process_Selection-0570-Kill_based_on_process_owner_username.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="c"># Kill all processes belonging to user "victim".</span>
+<span class="c"># For the demonstration, in another window, run:</span>
+<span class="c">#    useradd victim &amp;&amp; su - victim</span>
+<span class="c"># You will see cf-agent kill victim's session.</span>
+<span class="c">#</span>
+<span class="c"># You can dry-run this with cf-agent --dry-run.</span>
+
+
+<span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">processes</span><span class="p">:</span>
+      <span class="s">".*"</span>
+        <span class="kr">process_select</span>   <span class="o">=&gt;</span> <span class="nf">by_process_owner</span><span class="p">(</span><span class="s">"victim"</span><span class="p">),</span>
+        <span class="kr">signals</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="s">"term"</span><span class="p">,</span> <span class="s">"kill"</span> <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="k">body</span> <span class="k">process_select</span> <span class="nf">by_process_owner</span><span class="p">(</span><span class="nv">username</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="kr">process_owner</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="s">"</span><span class="si">$(username)</span><span class="s">"</span> <span class="p">};</span>
+        <span class="kr">process_result</span> <span class="o">=&gt;</span> <span class="s">"process_owner"</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div></div><div class="codelisting" id="uid497" data-tralics-id="uid497" data-number="16.8"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 16.8:</span> <span class="description">520-070-Process_Selection-0580-Select_by_vsize.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="c"># kill all processes over a certain vsize (total Virtual Memory size in kb)</span>
+
+<span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">processes</span><span class="p">:</span>
+      <span class="s">".*"</span>
+        <span class="kr">process_select</span>  <span class="o">=&gt;</span> <span class="nf">vsize_exceeds</span><span class="p">(</span><span class="s">"30000"</span><span class="p">),</span>
+        <span class="kr">signals</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="s">"term"</span><span class="p">,</span> <span class="s">"kill"</span> <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="k">body</span> <span class="k">process_select</span> <span class="nf">vsize_exceeds</span><span class="p">(</span><span class="nv">vsize_limit</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="kr">vsize</span> <span class="o">=&gt;</span> <span class="nf">irange</span><span class="p">(</span><span class="s">"</span><span class="si">$(vsize_limit)</span><span class="s">"</span><span class="p">,</span><span class="s">"inf"</span><span class="p">);</span> <span class="c"># vsize is over</span>
+                                                 <span class="c"># $(vsize_limit)</span>
+        <span class="kr">process_result</span> <span class="o">=&gt;</span> <span class="s">"vsize"</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div></div><div class="codelisting" id="uid498" data-tralics-id="uid498" data-number="16.9"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 16.9:</span> <span class="description">520-070-Process_Selection-0590-Select_by_process_owner_command_and_vsize.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="c"># Scenario: you have a memory leak in your Web app</span>
+<span class="c"># that causes "bloat" in httpd processes.</span>
+<span class="c">#</span>
+<span class="c"># kill all apache httpd processes over a certain vsize</span>
+<span class="c"># (vsize = total Virtual Memory size in kb)</span>
+
+<span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">processes</span><span class="p">:</span>
+      <span class="s">".*"</span>
+        <span class="kr">process_select</span>  <span class="o">=&gt;</span> <span class="nf">vsize_exceeds</span><span class="p">(</span><span class="s">"apache"</span><span class="p">,</span>
+                                         <span class="s">"/usr/sbin/httpd.*"</span><span class="p">,</span>
+                                         <span class="s">"30000"</span><span class="p">),</span>
+        <span class="kr">signals</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="s">"term"</span><span class="p">,</span> <span class="s">"kill"</span> <span class="p">};</span>
+
+<span class="p">}</span>
+
+<span class="k">body</span> <span class="k">process_select</span> <span class="nf">vsize_exceeds</span><span class="p">(</span><span class="nv">process_owner</span><span class="p">,</span>
+                                  <span class="nv">process_command</span><span class="p">,</span>
+                                  <span class="nv">vsize_limit</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="kr">process_owner</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="s">"</span><span class="si">$(process_owner)</span><span class="s">"</span> <span class="p">};</span>
+
+        <span class="kr">command</span> <span class="o">=&gt;</span> <span class="s">"</span><span class="si">$(process_command)</span><span class="s">"</span><span class="p">;</span>
+
+        <span class="kr">vsize</span> <span class="o">=&gt;</span> <span class="nf">irange</span><span class="p">(</span><span class="s">"</span><span class="si">$(vsize_limit)</span><span class="s">"</span><span class="p">,</span><span class="s">"inf"</span><span class="p">);</span>
+
+        <span class="kr">process_result</span> <span class="o">=&gt;</span> <span class="s">"process_owner&amp;command&amp;vsize"</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div></div><div class="codelisting" id="uid499" data-tralics-id="uid499" data-number="16.10"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 16.10:</span> <span class="description">520-070-Process_Selection-0600-Graceful_restart_of_bloated_apache_httpd.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="c"># Scenario: you have a memory leak in your Web app</span>
+<span class="c"># that causes "bloat" in httpd processes.</span>
+<span class="c">#</span>
+<span class="c"># Issue a graceful restart command to the httpd</span>
+<span class="c"># if any apache httpd processes exceed vsize limit</span>
+<span class="c"># (vsize = total Virtual Memory size in kb).</span>
+<span class="c">#</span>
+<span class="c"># To demonstrate, move the vsize value below current vsize</span>
+<span class="c"># so it will match, and above the current vsize to show</span>
+<span class="c"># no-match</span>
+
+<span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">processes</span><span class="p">:</span>
+      <span class="s">".*"</span>
+        <span class="kr">process_select</span>  <span class="o">=&gt;</span> <span class="nf">vsize_exceeds</span><span class="p">(</span><span class="s">"cfapache"</span><span class="p">,</span> <span class="s">".*httpd.*"</span><span class="p">,</span> <span class="s">"300000"</span><span class="p">),</span>
+        <span class="kr">process_count</span> <span class="o">=&gt;</span> <span class="nf">set_class</span><span class="p">(</span><span class="s">"restart_apache"</span><span class="p">);</span>
+
+  <span class="kd">commands</span><span class="p">:</span>
+    <span class="nc">restart_apache</span><span class="p">::</span>
+      <span class="s">"/var/cfengine/httpd/bin/httpd -k graceful"</span><span class="p">;</span>
+
+  <span class="kd">reports</span><span class="p">:</span>
+   <span class="nc">restart_apache</span><span class="p">::</span>
+      <span class="s">"Detected big apache httpd"</span><span class="p">;</span>
+
+<span class="p">}</span>
+
+<span class="k">body</span> <span class="k">process_select</span> <span class="nf">vsize_exceeds</span><span class="p">(</span><span class="nv">process_owner</span><span class="p">,</span> <span class="nv">command</span><span class="p">,</span> <span class="nv">vsize_limit</span><span class="p">)</span>
+<span class="p">{</span>
+
+        <span class="kr">process_owner</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="s">"</span><span class="si">$(process_owner)</span><span class="s">"</span> <span class="p">};</span>
+        <span class="kr">command</span> <span class="o">=&gt;</span> <span class="s">"</span><span class="si">$(command)</span><span class="s">"</span><span class="p">;</span>
+        <span class="kr">vsize</span> <span class="o">=&gt;</span> <span class="nf">irange</span><span class="p">(</span><span class="s">"</span><span class="si">$(vsize_limit)</span><span class="s">"</span><span class="p">,</span><span class="s">"inf"</span><span class="p">);</span> 
+        <span class="kr">process_result</span> <span class="o">=&gt;</span> <span class="s">"process_owner&amp;command&amp;vsize"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">body</span> <span class="k">process_count</span> <span class="nf">set_class</span><span class="p">(</span><span class="nv">classname</span><span class="p">)</span>
+
+<span class="p">{</span>
+        <span class="kr">match_range</span> <span class="o">=&gt;</span> <span class="s">"1,inf"</span><span class="p">;</span>
+      <span class="c"># Integer range for acceptable number of matches for this process</span>
+      <span class="c"># (In this case, one or more processes</span>
+
+        <span class="kr">in_range_define</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="s">"</span><span class="si">$(classname)</span><span class="s">"</span> <span class="p">};</span>
+      <span class="c"># List of classes to define if the matches are in range.</span>
+
+<span class="p">}</span>
+</pre></div></div></div><div class="codelisting" id="uid500" data-tralics-id="uid500" data-number="16.11"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 16.11:</span> <span class="description">520-070-Process_Selection-0610-Select_by_several_things.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="c"># Simple test processes</span>
+
+<span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">processes</span><span class="p">:</span>
+
+      <span class="s">".*"</span>
+
+        <span class="kr">process_count</span>   <span class="o">=&gt;</span> <span class="nf">anyprocs</span><span class="p">,</span>
+        <span class="kr">process_select</span>  <span class="o">=&gt;</span> <span class="nf">proc_finder</span><span class="p">;</span>
+
+
+  <span class="kd">reports</span><span class="p">:</span>
+
+    <span class="nc">any_procs</span><span class="p">::</span>
+
+      <span class="s">"Found processes in range"</span><span class="p">;</span>
+
+    <span class="nc">in_range</span><span class="p">::</span>
+      <span class="s">"Found no processes in range"</span><span class="p">;</span>
+
+<span class="p">}</span>
+
+<span class="k">body</span> <span class="k">process_select</span> <span class="nf">proc_finder</span>
+<span class="p">{</span>
+
+        <span class="kr">command</span> <span class="o">=&gt;</span> <span class="s">"vim .*"</span><span class="p">;</span>
+        <span class="c"># (Anchored) regular expression matching the CMD field</span>
+
+        <span class="kr">stime_range</span> <span class="o">=&gt;</span> <span class="nf">irange</span><span class="p">(</span><span class="nf">ago</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="nf">ago</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">));</span>
+        <span class="c"># Processes started between 1 year and 10 seconds ago</span>
+
+        <span class="kr">process_owner</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="s">"root"</span> <span class="p">};</span>
+        <span class="c"># List of regexes matching the user of a process</span>
+
+        <span class="kr">process_result</span> <span class="o">=&gt;</span> <span class="s">"stime&amp;command&amp;process_owner"</span><span class="p">;</span>
+
+<span class="p">}</span>
+
+<span class="k">body</span> <span class="k">process_count</span> <span class="nf">anyprocs</span>
+<span class="p">{</span>
+        <span class="kr">match_range</span> <span class="o">=&gt;</span> <span class="s">"0,0"</span><span class="p">;</span>
+      <span class="c"># Integer range for acceptable number of matches for this process</span>
+      <span class="c"># (In this case, one or more processes</span>
+
+        <span class="kr">out_of_range_define</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="s">"any_procs"</span> <span class="p">};</span>
+      <span class="c"># List of classes to define if the matches are out of range</span>
+
+        <span class="kr">in_range_define</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="s">"in_range"</span> <span class="p">};</span>
+      <span class="c"># List of classes to define if the matches are in range.</span>
+      <span class="c"># We should never have a process that has a count of 0.</span>
+
+<span class="p">}</span>
+</pre></div></div></div><div class="codelisting" id="uid501" data-tralics-id="uid501" data-number="16.12"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 16.12:</span> <span class="description">520-070-Process_Selection-0620-Select_by_stime.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="c"># Start a backgrounded sleep process:  "nohup sleep 1000 &amp;"</span>
+<span class="c">#</span>
+<span class="c"># CFEngine will kill it if it is less than an hour old</span>
+
+<span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">processes</span><span class="p">:</span>
+      <span class="s">".*sleep.*"</span>
+        <span class="kr">process_select</span>  <span class="o">=&gt;</span> <span class="nf">less_than_an_hour_old</span><span class="p">,</span>
+        <span class="kr">signals</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="s">"term"</span> <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="k">body</span> <span class="k">process_select</span> <span class="nf">less_than_an_hour_old</span>
+<span class="p">{</span>
+        <span class="kr">stime_range</span> <span class="o">=&gt;</span> <span class="nf">irange</span><span class="p">(</span><span class="nf">ago</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="nf">now</span><span class="p">);</span>
+      <span class="c"># Processes started less than 1 hour ago</span>
+        <span class="kr">process_result</span> <span class="o">=&gt;</span> <span class="s">"stime"</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div></div></div>
+    </div>
+  </body>
+</html>

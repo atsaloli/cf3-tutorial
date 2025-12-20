@@ -1,0 +1,447 @@
+
+
+
+
+\chapter{Classifying (Grouping) Hosts}
+
+
+
+
+
+\section{Hard classes}
+
+
+
+
+
+\begin{description}
+\item[\textbf{Class}] A group of things, animals, or people with similar features or qualities. ---Macmillan Dictionary
+\end{description}
+
+\begin{quote}
+Classes are the if ( test ) then of CFEngine language. Tests are built-in
+or user defined. Hosts that pass the test are members of the class.
+---Neil Watson, CFEngine Consultant
+\end{quote}
+
+
+
+
+
+\subsection{Hard and soft classes defined}
+
+There are two types of classes in CFEngine:
+
+\begin{description}
+\item[\textbf{Hard classes}] Hard classes are inherent, or built-in. The first thing that \kode{cf-agent}
+does when it starts is to classify its environment (e.g.  OS type = linux,
+OS version = redhat 6.5, date = Sun Nov  8 17:09:57 PST 2015, CFEngine
+version = 3.7, hostname = alpha.example.com, domain = example.com, CPU
+architecture = 64 bit, etc.)  This data can be used to control promise
+execution (e.g. kick off backups at 2 AM on Sunday on Linux hosts)
+
+
+
+\item[\textbf{Soft classes}] Soft classes are user-defined through promises, and provide additional
+flexibility in classifying hosts (e.g. by application, or primary vs
+DR) and controlling promise execution (e.g. only evaluate promise2 if
+promise1 was repaired).
+\end{description}
+
+
+
+
+
+\subsubsection{Note on Syntax: CFEngine Identifiers}
+
+Note on syntax: CFEngine identifiers (class names, variable names, bundle
+names, etc.) may only contain alphanumeric and underscore characters (a-zA-Z0-9\_).
+
+
+
+
+
+\subsection{Hard classes}
+
+Let's see some examples of hard classes.
+
+\begin{codelisting}
+\codecaption{300-010-Basic\_Examples\_Classes-0030-Classes\_Reports.cf}
+%= lang:cfengine3, options: "linenos": false
+\begin{code}
+# Operating System
+
+bundle agent main
+{
+  commands:
+    linux::
+      "/bin/date";
+
+    windows::
+      "C:\Windows\System32\cmd.exe /c date /t";
+}
+\end{code}
+\end{codelisting}
+\begin{codelisting}
+\codecaption{300-010-Basic\_Examples\_Classes-0040-Using\_classes\_to\_determine\_role.cf}
+%= lang:cfengine3, options: "linenos": false
+\begin{code}
+# IPv4 network blocks
+
+bundle agent main
+{
+  reports:
+    ipv4_205_186_156::
+      "I am on our public net. I am a Web server.";
+
+    ipv4_10::
+      "I am on our private net. I am a database server.";
+}
+\end{code}
+\end{codelisting}
+\begin{codelisting}
+\codecaption{300-010-Basic\_Examples\_Classes-0050-Report\_OS\_Type.cf}
+%= lang:cfengine3, options: "linenos": false
+\begin{code}
+# OS flavor (e.g. Windows XP or Red Hat)
+
+bundle agent main
+{
+  reports:
+    WinXP:: "Hello world! I am running on a Windows system.";
+    linux:: "Hello world! I am running on a Linux system.";
+    redhat:: "Hello world! I am running on a redhat Linux system.";
+}
+\end{code}
+\end{codelisting}
+\begin{codelisting}
+\codecaption{300-010-Basic\_Examples\_Classes-0060-Note\_on\_what\_happens\_to\_dashes\_in\_hostnames.cf}
+%= lang:cfengine3, options: "linenos": false
+\begin{code}
+# CFEngine automatically canonifies classes (converts any
+# character that is not alphanum/underscore to underscore)
+#
+# To setup for this example, run "hostname my-hostname-has-dashes"
+
+bundle agent main
+{
+  reports:
+    any::
+      "hello world";
+    my-hostname-has-dashes::
+      "One";
+    my_hostname_has_dashes::
+      "Two";
+
+}
+
+\end{code}
+\end{codelisting}
+
+
+
+
+
+\begin{aside}
+\label{aside:exercise_18}
+\heading{Examine hard classes}
+
+Run CFEngine in verbose mode:
+
+%= lang:bash
+\begin{code}
+cf-agent -v -f ./hello_world.cf | less
+\end{code}
+
+Examine what CFEngine discovered about your system and what classes it set.
+
+Give an example of a class that CFEngine has set.
+
+\end{aside}
+
+
+
+
+
+\begin{aside}
+\label{aside:exercise_19}
+\heading{Using classes}
+
+Print a report if you're running on a CentOS 7 system.
+
+\end{aside}
+
+
+
+
+
+\section{Class Expressions}
+
+
+
+
+
+\begin{description}
+\item[\textbf{Class expressions}] Class expressions are logical expressions that evaluate to true (this
+promise applies here) or false (the promise does not apply, skip it).
+\end{description}
+
+Class expressions are composed of classes and logical operators.
+
+
+
+
+
+\subsection{Logical operators}
+
+\begin{description}
+\item[\textbf{Operator}] In programming, a symbol used to perform an arithmetic or logical operation.
+\end{description}
+
+--- http://encyclopedia2.thefreedictionary.com/operator
+
+Logical operators (in order of precedence of operation)
+
+\begin{longtable}{|l|l|}
+\hline
+( ) & Groupers\\
+! & NOT\\
+\& or . & AND\\
+\textbar{} or \textbar{}\textbar{} & OR\\
+\hline
+\end{longtable}
+
+
+
+
+
+\subsection{Truth tables}
+
+If necessary, review \href{https://en.wikipedia.org/wiki/Truth_table#Logical_conjunction_.28AND.29}{truth tables} for logical operations AND, OR, and NOT.
+
+
+
+
+
+\subsection{Examples of class expressions}
+
+\begin{codelisting}
+\codecaption{300-015-Basic\_Examples\_Classes\_2-0090-Class\_expression\_operators.cf}
+%= lang:cfengine3, options: "linenos": false
+\begin{code}
+bundle agent main
+{
+  reports:
+    !WinXP:: "This isn't Windows XP";
+    windows|linux::  "Am I laughing or crying?";
+    windows&linux::  "We should never see this report.";
+
+}
+\end{code}
+\end{codelisting}
+\begin{codelisting}
+\codecaption{300-015-Basic\_Examples\_Classes\_2-0100-Report\_day\_of\_the\_week.cf}
+%= lang:cfengine3, options: "linenos": false
+\begin{code}
+# This bundle does not use class expressions.
+
+bundle agent main
+{
+  reports:
+
+    Monday::    "Hello world! I love Mondays!";
+    Tuesday::   "Hello world! I love Tuesdays!";
+    Wednesday:: "Hello world! I love Wednesdays!";
+    Thursday::  "Hello world! I love Thursdays!";
+    Friday::    "Hello world! I love Fridays!";
+
+    Saturday::  "Hello world! I love weekends!";
+    Sunday::    "Hello world! I love weekends!";
+}
+\end{code}
+\end{codelisting}
+\begin{codelisting}
+\codecaption{300-015-Basic\_Examples\_Classes\_2-0110-Condensed\_report\_day\_of\_week.cf}
+%= lang:cfengine3, options: "linenos": false
+\begin{code}
+# This bundle uses class expressions.
+
+bundle agent main
+{
+  reports:
+    Monday|Tuesday|Wednesday|Thursday|Friday::
+      "I get to work today";
+
+    Saturday|Sunday::
+      "I get to rest today.";
+}
+\end{code}
+\end{codelisting}
+\begin{codelisting}
+\codecaption{300-015-Basic\_Examples\_Classes\_2-0120-OS\_and\_time\_expression.cf}
+%= lang:cfengine3, options: "linenos": false
+\begin{code}
+# Another example of a class expression
+
+bundle agent main
+{
+  reports:
+      linux&Hr22::
+        "Linux system AND we are in the 22nd hour.";
+}
+
+\end{code}
+\end{codelisting}
+\begin{codelisting}
+\codecaption{300-015-Basic\_Examples\_Classes\_2-0130-Class\_expression\_OS\_and\_time.cf}
+%= lang:cfengine3, options: "linenos": false
+\begin{code}
+# Example of using ( ) for grouping
+
+bundle agent main
+{
+  reports:
+    (redhat&Monday)|(windows&Wednesday)::
+      "This report will show on Redhat servers on Mondays;
+       or on Windows servers on Wednesdays";
+}
+\end{code}
+\end{codelisting}
+
+
+
+
+
+\section{Soft classes}
+
+You can define a soft class using a \kode{classes:} promise.
+
+\begin{codelisting}
+\codecaption{300-015-Basic\_Examples\_Classes\_2-0134-soft\_classes\_simple.cf}
+%= lang:cfengine3, options: "linenos": false
+\begin{code}
+bundle agent main
+{
+  classes:
+      "weekend"
+        expression => "Saturday|Sunday";
+      "weekday"
+        expression => "Monday|Tuesday|Wednesday|Thursday|Friday";
+
+  reports:
+    weekend::
+      "Yay! I get to rest today.";
+    weekday::
+      "Yay! I get to work today.";
+}
+\end{code}
+\end{codelisting}
+\begin{codelisting}
+\codecaption{300-015-Basic\_Examples\_Classes\_2-0140-negative\_knowledge.cf}
+%= lang:cfengine3, options: "linenos": false
+\begin{code}
+# Example of "negative knowledge" -- not recommended!
+# Better to be certain (rely on the presence of something,
+# not its absence).
+
+bundle agent main
+{
+  classes:
+      "weekend"
+        expression => "Saturday|Sunday";
+      "weekday"
+        not => "weekend";
+
+  reports:
+    weekend::
+      "Yay! I get to rest today.";
+    weekday::
+      "Yay! I get to work today.";
+}
+
+# Knowing that something is not the case is not the same as not knowing
+# whether something is the case. That a class is not set could mean
+# either.
+#
+# Reference:  <https://docs.cfengine.com/docs/3.17/reference-language-concepts-classes.html#negative-knowledge>
+\end{code}
+\end{codelisting}
+\begin{codelisting}
+\codecaption{300-030-Basic\_Examples\_Classes\_2-0140-Detect\_VMs.cf}
+%= lang:cfengine3, options: "linenos": false
+\begin{code}
+# You can set a soft class based on the outcome
+# of a function that returns true/false, such as
+# `regline()` which checks if there is a line in a
+# file matching a regular expression.
+
+bundle agent main
+{
+  classes:
+      "i_am_virtual"
+        comment => "Check if we are running inside a VM",
+        expression => regline(".*(VMware|VBOX|QEMU).*",
+                              "/proc/scsi/scsi");
+
+# E.g., on a VMware guest, we have:
+#
+# $ grep -i vmware /proc/scsi/scsi
+# Vendor: VMware,  Model: VMware Virtual S Rev: 1.0
+# Vendor: NECVMWar Model: VMware SATA CD01 Rev: 1.00
+# $
+
+  reports:
+    i_am_virtual::
+      "Running inside a VM";
+}
+
+# See also the "virt-what" utility
+\end{code}
+\end{codelisting}
+
+
+
+
+
+\subsection{Creating soft classes depending on promise outcome}
+
+Some promise attributes can create Classes depending on the outcome of
+the promise.
+
+\begin{codelisting}
+\codecaption{300-040-Classes\_4-0020-Ensuring\_CUPSd\_is\_running.cf}
+%= lang:cfengine3, options: "linenos": false
+\begin{code}
+# restart_class will set the class if the process is ABSENT
+# <https://docs.cfengine.com/latest/reference-promise-types-processes.html#restart_class>
+
+bundle agent main
+{
+  processes:
+    print_servers::
+      "cupsd"
+        restart_class => "cups_needs_to_be_started",
+        comment => "We want print services";
+
+  commands:
+    cups_needs_to_be_started::
+      "/sbin/service cups start";
+}
+\end{code}
+\end{codelisting}
+\begin{codelisting}
+\codecaption{300-040-Classes\_4-0030-Ensuring\_httpd\_is\_running.cf}
+%= lang:cfengine3, options: "linenos": false
+\begin{code}
+bundle agent main
+{
+  processes:
+      "httpd"
+        restart_class => "start_httpd";
+
+  commands:
+    start_httpd::
+      "/sbin/service httpd start";
+}
+\end{code}
+\end{codelisting}

@@ -1,0 +1,315 @@
+<div id="cid8" data-tralics-id="cid8" class="chapter" data-number="2" data-chapter="cfengine_150"><h1><a href="cfengine_150_fragment.html#cid8" class="heading hyperref"><span class="number">Chapter 2 </span>Lab Setup</a></h1>
+</div><div id="cid9" data-tralics-id="cid9" class="section" data-number="2.1"><h2><a href="cfengine_150_fragment.html#cid9" class="heading hyperref"><span class="number">2.1 </span>Setting Up Your Lab Environment</a></h2>
+</div><div id="cid10" data-tralics-id="cid10" class="section" data-number="2.2"><h2><a href="cfengine_150_fragment.html#cid10" class="heading hyperref"><span class="number">2.2 </span>Installing CFEngine</a></h2>
+<div id="uid80" data-tralics-id="uid80" class="subsection" data-number="2.2.1"><h3><a href="cfengine_150_fragment.html#uid80" class="heading hyperref"><span class="number">2.2.1 </span>Lab Infrastructure</a></h3>
+<div id="uid81" data-tralics-id="uid81" class="subsubsection" data-number="2.2.1.1"><h4><a href="#uid81" class="heading">Two VMs</a></h4>
+<p>To do the exercises, each student should have two VMs:</p>
+<ul>
+<li><p class="noindent"> one to play the role of the Hub (policy distribution point),</p>
+</li>
+<li><p class="noindent"> another to play the role of a managed Host.<span class="intersentencespace"></span></p>
+</li></ul>
+<p>Normally, you would have multiple hosts managed from a single hub.<span class="intersentencespace"></span> Two VMs gives us a CFEngine-managed system in miniature.</p>
+</div>
+<div id="uid84" data-tralics-id="uid84" class="subsubsection" data-number="2.2.1.2"><h4><a href="#uid84" class="heading">Vagrant</a></h4>
+<p>CFEngine provides a turnkey solution with Vagrant.</p>
+<p>You can follow <a href="https://docs.cfengine.com/latest/guide-installation-and-configuration-general-installation-installation-enterprise-vagrant.html" target="_blank" rel="noopener">CFEngine’s Vagrant
+guide</a>
+to create your lab environment complete with two VMs and the latest
+version of CFEngine Enterprise.</p>
+<p>Otherwise the following details the lab requirements (if you want to put
+together your own lab instead of using the CFEngine Vagrant lab).</p>
+</div>
+<div id="uid85" data-tralics-id="uid85" class="subsubsection" data-number="2.2.1.3"><h4><a href="#uid85" class="heading">Roll Your Own Lab</a></h4>
+<div3 id="uid86" data-tralics-id="uid86" data-number="">Operating System
+<p>CFEngine is multiplatform.</p>
+<p>If you’re not sure what OS to install on your VMs, we recommend you
+install the same OS as you use in production and let us know if you have
+any trouble.</p>
+<p>The examples in this collection have been tested on RHEL 8.</p>
+</div3>
+<div3 id="uid87" data-tralics-id="uid87" data-number="">Network Access
+<p>The VMs need to be able to get out to the Internet to install
+packages.</p>
+<p>Ensure your VMs have Internet access:</p>
+<div class="code"><div class="highlight"><pre><span></span>ping google.com
+</pre></div></div>
+<p>Some companies allow Internet access only through proxies in Web
+browser.<span class="intersentencespace"></span> You will need access from the command line.</p>
+<p>Your systems also need to be able to reach each other on tcp/5308
+(CFEngine).</p>
+</div3></div></div>
+<div id="uid88" data-tralics-id="uid88" class="subsection" data-number="2.2.2"><h3><a href="cfengine_150_fragment.html#uid88" class="heading hyperref"><span class="number">2.2.2 </span>First VM – the Hub</a></h3>
+<p>TODO - this needs to be updated for 3.12 or newer</p>
+<ul>
+<li><p class="noindent"> Ensure your Hub VM has an FQDN hostname (required by Hub package).<span class="intersentencespace"></span> Add line for FQDN hostname, e.g.<span class="intersentencespace"></span> “1.2.3.4 alpha.example.com”</p>
+</li></ul>
+<div class="code"><div class="highlight"><pre><span></span>vi /etc/hosts
+</pre></div></div>
+<p>Set hostname to FQDN:</p>
+<div class="code"><div class="highlight"><pre><span></span>/bin/hostname alpha.example.com
+</pre></div></div>
+<p>Get hub package URL from <a href="http://cfengine.com/download/" target="_blank" rel="noopener">CFEngine.com/download/</a></p>
+<ul>
+<li><p class="noindent"> Download hub package
+</p><div class="code"><div class="highlight"><pre><span></span>wget ...
+</pre></div></div>
+</li>
+<li><p class="noindent"> Install the hub package.<span class="intersentencespace"></span> </p><div class="code"><div class="highlight"><pre><span></span>rpm -ihv ./cfengine-nova-hub-*.rpm
+</pre></div></div>
+</li></ul>
+<ul>
+<li><p class="noindent"> Bootstrap the hub to itself:
+</p><div class="code"><div class="highlight"><pre><span></span>cf-agent -B &lt;hostname&gt;
+</pre></div></div>
+</li>
+<li><p class="noindent"> Run the agent once to finish setup:
+</p><div class="code"><div class="highlight"><pre><span></span>cf-agent
+</pre></div></div>
+</li></ul>
+<p>NOTE: Bootstrapping performs a key exchange to establish a trust
+relationship so that the host can download policy updates from
+the hub, and the hub can download inventory and compliance reports
+from the host.</p>
+<ul>
+<li><p class="noindent"> Login to hub admin UI over HTTPS (admin/admin)</p>
+</li>
+<li><p class="noindent"> Change the admin UI password so the VM doesn’t get compromised
+(Admin -&gt; Settings -&gt; User Management -&gt; Change password)</p>
+</li></ul>
+</div>
+<div id="uid96" data-tralics-id="uid96" class="subsection" data-number="2.2.3"><h3><a href="cfengine_150_fragment.html#uid96" class="heading hyperref"><span class="number">2.2.3 </span>Second VM - a Managed Host</a></h3>
+<p>TODO – this needs to be updated for 3.12 or newer</p>
+<p>Install CFEngine on your 2nd VM (the managed host).</p>
+<ul>
+<li><p class="noindent"> Download host package.<span class="intersentencespace"></span></p>
+</li></ul>
+<div class="code"><div class="highlight"><pre><span></span>wget <span class="se">\</span>
+https://cfengine-package-repos.s3.amazonaws.com/<span class="se">\</span>
+enterprise/Enterprise-3.7.1/<span class="se">\</span>
+agent/agent_rhel6_x86_64/cfengine-nova-3.7.1-1.x86_64.rpm
+</pre></div></div>
+<ul>
+<li><p class="noindent"> Install host package.<span class="intersentencespace"></span> </p><div class="code"><div class="highlight"><pre><span></span>rpm -ihv ./cfengine-nova-3.7.1-1.x86_64.rpm
+</pre></div></div>
+</li>
+<li><p class="noindent"> Bootstrap the host to the hub:
+</p><div class="code"><div class="highlight"><pre><span></span>cf-agent -B &lt;hub IP address&gt;
+</pre></div></div>
+</li>
+<li><p class="noindent"> Go to hub admin UI and within 5-10 minutes the hosts indicator at the top should go from 1 to 2.<span class="intersentencespace"></span></p>
+</li></ul>
+</div></div><div id="cid11" data-tralics-id="cid11" class="section" data-number="2.3"><h2><a href="cfengine_150_fragment.html#cid11" class="heading hyperref"><span class="number">2.3 </span>Policy Flows</a></h2>
+<div id="uid101" data-tralics-id="uid101" class="subsection" data-number="2.3.1"><h3><a href="cfengine_150_fragment.html#uid101" class="heading hyperref"><span class="number">2.3.1 </span>Policy Flow Diagram</a></h3>
+<div id="uid102" data-tralics-id="uid102" class="subsubsection" data-number="2.3.1.1"><h4><a href="#uid102" class="heading">Definitions</a></h4>
+<list type="description"><label><strong>Policy server</strong></label>
+<li><p class="noindent">A server that shares CFEngine files (policy, data, templates, scripts, binaries) with the rest of the infrastructure using cf-serverd.<span class="intersentencespace"></span> Also called the hub.</p>
+</li><label><strong>Policy distribution point</strong></label>
+<li><p class="noindent">The default policy distribution point is /var/cfengine/masterfiles on the policy server.<span class="intersentencespace"></span> Policy comes from here; in other words, the managed hosts get their policy from /var/cfengine/masterfiles on the policy server (also called the hub).</p>
+</li><label><strong>Inputs directory</strong></label>
+<li><p class="noindent">The inputs directory is where CFEngine looks for its policy files (defaults to /var/cfengine/inputs).<span class="intersentencespace"></span></p>
+</li></list>
+</div>
+<div id="uid106" data-tralics-id="uid106" class="subsubsection" data-number="2.3.1.2"><h4><a href="#uid106" class="heading">Policy Distribution Flow</a></h4>
+<p>The CFEngine agent runs twice in each cycle:
+- Checks for policy updates (and copies them from /var/cfengine/masterfiles/ on the hub to the local /var/cfengine/inputs/)
+- Runs the policy in /var/cfengine/inputs/</p>
+<p>This “caching” of policy makes CFEngine resilient to network outages.<span class="intersentencespace"></span> CFEngine uses the network opportunistically.</p>
+<p>The default schedule is the agent runs every 5 minutes.</p>
+<p>So you can update hundreds of thousands of servers within minutes.<span class="intersentencespace"></span> Very powerful!</p>
+<p>TIP: Keep your policy in a version control system, such as git.</p>
+</div>
+<div id="uid107" data-tralics-id="uid107" class="subsubsection" data-number="2.3.1.3"><h4><a href="#uid107" class="heading">Policy Server</a></h4>
+<p>Here is the policy distribution flow on the the policy server itself:</p>
+<div class="graphics image"><img src="images/figures/policy_flow_server.png" alt="images/figures/policy_flow_server" /></div>
+<p>The policy server itself runs the agent, to manage itself.<span class="intersentencespace"></span> The above diagram shows how that agent gets updates.</p>
+</div>
+<div id="uid108" data-tralics-id="uid108" class="subsubsection" data-number="2.3.1.4"><h4><a href="#uid108" class="heading">One Host</a></h4>
+<p>Let’s add a host (client) to the picture:</p>
+<div class="graphics image"><img src="images/figures/policy_flow.png" alt="images/figures/policy_flow" /></div>
+</div>
+<div id="uid109" data-tralics-id="uid109" class="subsubsection" data-number="2.3.1.5"><h4><a href="#uid109" class="heading">Many Hosts</a></h4>
+<p>Let’s add more hosts:</p>
+<div class="graphics image"><img src="images/figures/policy_flow_clients.png" alt="images/figures/policy_flow_clients" /></div>
+</div></div></div><div id="cid12" data-tralics-id="cid12" class="section" data-number="2.4"><h2><a href="cfengine_150_fragment.html#cid12" class="heading hyperref"><span class="number">2.4 </span>Installing the Collection</a></h2>
+<p>This chapter takes us through installing everything needed to use the collection
+and do the exercises.</p>
+<div id="uid110" data-tralics-id="uid110" class="subsection" data-number="2.4.1"><h3><a href="cfengine_150_fragment.html#uid110" class="heading hyperref"><span class="number">2.4.1 </span>Using git</a></h3>
+<p>We keep these examples on GitHub and may update them during or after class.</p>
+<p>With git, you can download the updates during or after class.</p>
+<div class="aside" id="aside-exercise_1" data-tralics-id="uid111" data-number="2.1"><p class="heading"><span class="number"><span class="aside_label">Exercise</span> 2.1.</span> 
+
+<span class="description"> Install git</span></p>
+<p>On RHEL/Centos:
+</p><div class="code"><div class="highlight"><pre><span></span>yum install -y git
+</pre></div></div>
+<p>On Debian/Ubuntu:
+</p><div class="code"><div class="highlight"><pre><span></span>apt-get install -y git
+</pre></div></div>
+
+</div></div>
+<div id="uid112" data-tralics-id="uid112" class="subsection" data-number="2.4.2"><h3><a href="cfengine_150_fragment.html#uid112" class="heading hyperref"><span class="number">2.4.2 </span>Downloading examples</a></h3>
+<p>Download Aleksey’s CFEngine Tutorial repository from GitHub:</p>
+<div class="code"><div class="highlight"><pre><span></span>git clone git://github.com/atsaloli/cf3-tutorial.git
+</pre></div></div>
+<p>Go to the Training Examples directory:</p>
+<div class="code"><div class="highlight"><pre><span></span><span class="nb">cd</span> cf3-tutorial/source
+</pre></div></div>
+</div>
+<div id="uid113" data-tralics-id="uid113" class="subsection" data-number="2.4.3"><h3><a href="cfengine_150_fragment.html#uid113" class="heading hyperref"><span class="number">2.4.3 </span>Updating Examples</a></h3>
+<p>If the instructor updates the examples during class and pushes the
+updates to GitHub, run the following to pull in the updates:</p>
+<div class="code"><div class="highlight"><pre><span></span>git pull
+</pre></div></div>
+</div></div><div id="cid13" data-tralics-id="cid13" class="section" data-number="2.5"><h2><a href="cfengine_150_fragment.html#cid13" class="heading hyperref"><span class="number">2.5 </span>Installing Syntax Highlighter</a></h2>
+<p>Use a syntax highlighter to catch errors early.<span class="intersentencespace"></span> This will save you time and trouble.</p>
+<div id="uid114" data-tralics-id="uid114" class="subsection" data-number="2.5.1"><h3><a href="cfengine_150_fragment.html#uid114" class="heading hyperref"><span class="number">2.5.1 </span>Syntax Highlighting in vim</a></h3>
+<p>You can install the CFEngine 3 syntax highlighter for vim using the
+following shell script, or visit <a href="http://www.cfengine.com/cfengine-code-editors/" target="_blank" rel="noopener">Code Editors</a> on cfengine.com.</p>
+<div class="aside" id="aside-exercise_2" data-tralics-id="uid115" data-number="2.2"><p class="heading"><span class="number"><span class="aside_label">Exercise</span> 2.2.</span> 
+
+<span class="description">Install CFEngine syntax highlighter for the vim editor</span></p>
+<p>We provide a shell script that will install the vim syntax highlighter:</p>
+<div class="code"><div class="highlight"><pre><span></span>sh <span class="m">150</span>-180-Installing_Syntax_Highlighter-0265-Install_Vim_Plugin.sh
+</pre></div></div>
+
+</div><div class="codelisting" id="uid116" data-tralics-id="uid116" data-number="2.1"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 2.1:</span> <span class="description">150-180-Installing_Syntax_Highlighter-0265-Install_Vim_Plugin.sh</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+<span class="c1">#</span>
+<span class="c1"># Run this shell script on your Hub VM to add Neil Watson's</span>
+<span class="c1"># CFEngine 3 syntax highlighter (minus folding and keyword</span>
+<span class="c1"># abbreviations) to your .vimrc</span>
+
+
+cat <span class="s">&lt;&lt;EOF &gt;&gt; $HOME/.vimrc</span>
+
+<span class="s">" -------- start of .vimrc settings from Vertical Sysadmin</span>
+<span class="s">" training examples collection</span>
+<span class="s">"</span>
+<span class="s">" Neil Watson recommends installing functions Getchar and Eatchar</span>
+
+
+<span class="s">" function Getchar</span>
+<span class="s">fun! Getchar()</span>
+<span class="s">  let c = getchar()</span>
+<span class="s">  if c != 0</span>
+<span class="s">    let c = nr2char(c)</span>
+<span class="s">  endif</span>
+<span class="s">  return c</span>
+<span class="s">endfun</span>
+
+<span class="s">" function Eatchar</span>
+<span class="s">fun! Eatchar(pat)</span>
+<span class="s">  let c = Getchar()</span>
+<span class="s">  return (c =~ a:pat) ? '' : c</span>
+<span class="s">endfun</span>
+
+<span class="s">" Turn on syntax highlighting for CFEngine 3 files</span>
+<span class="s">filetype plugin on</span>
+<span class="s">syntax enable</span>
+<span class="s">au BufRead,BufNewFile *.cf set ft=cf3</span>
+
+<span class="s">" Disable folding so it does not confuse students not familiar with it</span>
+<span class="s">if exists("&amp;foldenable")</span>
+<span class="s">	set nofoldenable </span>
+<span class="s">endif</span>
+
+<span class="s">" disable abbreviations so it does not confuse students not familiar with it</span>
+<span class="s">let g:DisableCFE3KeywordAbbreviations=0</span>
+
+<span class="s">" -------- end of .vimrc settings from Vertical Sysadmin training examples</span>
+<span class="s">" collection</span>
+<span class="s">EOF</span>
+
+<span class="nb">echo</span> Installing vim plugin <span class="k">for</span> CFEngine syntax highlighting
+
+mkdir -p ~/.vim/ftplugin  ~/.vim/syntax 
+
+wget -O ~/.vim/syntax/cf3.vim <span class="se">\</span>
+      --no-check-certificate <span class="se">\</span>
+      https://github.com/neilhwatson/vim_cf3/raw/master/syntax/cf3.vim
+
+wget -O ~/.vim/ftplugin/cf3.vim <span class="se">\</span>
+      --no-check-certificate <span class="se">\</span>
+      https://github.com/neilhwatson/vim_cf3/raw/master/ftplugin/cf3.vim
+</pre></div></div></div></div>
+<div id="uid117" data-tralics-id="uid117" class="subsection" data-number="2.5.2"><h3><a href="cfengine_150_fragment.html#uid117" class="heading hyperref"><span class="number">2.5.2 </span>Emacs</a></h3>
+<p>See <a href="https://leanpub.com/learning-cfengine" target="_blank" rel="noopener">“Learning CFEngine”</a> book or the <a href="http://cfengine.com/cfengine-code-editors/" target="_blank" rel="noopener">Code Editors</a> page on cfengine.com</p>
+<div class="aside" id="aside-exercise_3" data-tralics-id="uid118" data-number="2.3"><p class="heading"><span class="number"><span class="aside_label">Exercise</span> 2.3.</span> 
+
+<span class="description">Install Syntax Highlighter</span></p>
+<ul>
+<li><p class="noindent"> Install CFEngine 3 syntax highlighter for your favorite editor</p>
+</li>
+<li><p class="noindent"> Open “hello_world.cf” in your editor and ensure you see the pretty
+colors of syntax highlighting.<span class="intersentencespace"></span> E.g.:</p>
+</li></ul>
+<div class="code"><div class="highlight"><pre><span></span>vim hello_world.cf
+</pre></div></div>
+
+</div></div></div><div id="cid14" data-tralics-id="cid14" class="section" data-number="2.6"><h2><a href="cfengine_150_fragment.html#cid14" class="heading hyperref"><span class="number">2.6 </span>Using the Collection</a></h2>
+<div id="uid121" data-tralics-id="uid121" class="subsection" data-number="2.6.1"><h3><a href="cfengine_150_fragment.html#uid121" class="heading hyperref"><span class="number">2.6.1 </span>Running the examples</a></h3>
+<p>All of the examples are shipped as standalone CFEngine 3 files which
+you can run on the command-line by specifying the path to the input
+file with the <em>-f</em> switch:</p>
+<div class="code"><div class="highlight"><pre><span></span>cf-agent -f ./create_file.cf
+</pre></div></div>
+<p>If you don’t specify the path to your file, CFEngine will look for
+it in the default policy directory which is /var/cfengine/inputs/
+if you are running <code>cf-agent</code> as “root”, and $HOME/.cfagent/inputs/
+if you are running it as a regular user.</p>
+<p>We assume you will be running all examples and doing all exercises as
+“root”.</p>
+<p>Note: CFEngine normally runs as “root” but it can be run as non-root, and
+some large organizations even run it as both root and non-root on
+the same system (running off different policies from different divisions
+of the organization, e.g.<span class="intersentencespace"></span> base config versus application-specific
+config).</p>
+<div class="aside" id="aside-exercise_4" data-tralics-id="uid122" data-number="2.4"><p class="heading"><span class="number"><span class="aside_label">Exercise</span> 2.4.</span> 
+
+<span class="description">Run an example CFEngine file</span></p>
+<div class="code"><div class="highlight"><pre><span></span>cf-agent -f ./create_file.cf
+</pre></div></div>
+
+</div></div>
+<div id="uid123" data-tralics-id="uid123" class="subsection" data-number="2.6.2"><h3><a href="cfengine_150_fragment.html#uid123" class="heading hyperref"><span class="number">2.6.2 </span>Running the Examples: Inform Mode</a></h3>
+<p>By default, CFEngine doesn’t inform you of changes it makes as reports
+at scale (e.g.<span class="intersentencespace"></span> tens of thousands of systems) can be overwhelming.</p>
+<p>However, while learning, it’s educational to know when CFEngine makes
+changes and what those changes are.</p>
+<p>You can turn on Inform mode with <code>cf-agent -I</code> so that CFEngine informs
+you of any changes it makes to your system.</p>
+<div class="aside" id="aside-exercise_5" data-tralics-id="uid124" data-number="2.5"><p class="heading"><span class="number"><span class="aside_label">Exercise</span> 2.5.</span> 
+
+<span class="description">Run the "Create File" example with "Inform" mode enabled:</span></p>
+<div class="code"><div class="highlight"><pre><span></span>rm /tmp/test
+cf-agent -I -f ./create_file.cf
+</pre></div></div>
+<p>What do you see?</p>
+<p>Why?</p>
+
+</div><div class="aside" id="aside-exercise_6" data-tralics-id="uid125" data-number="2.6"><p class="heading"><span class="number"><span class="aside_label">Exercise</span> 2.6.</span> 
+
+<span class="description">List collection contents using "l.sh"</span></p>
+<p>I’ve created a shell script to list the collection
+contents.<span class="intersentencespace"></span> It indents the part and chapter headings
+to provide a sort of Table of Contents.</p>
+<p>Try running it:</p>
+<div class="code"><div class="highlight"><pre><span></span>./l.sh
+</pre></div></div>
+<p>Notice the content is structured (the files are numbered).<span class="intersentencespace"></span> The materials proceed in sequence from basic to advanced.</p>
+<p>If the <code>l.sh</code> script does not work on your system
+(or you don’t like it), you can just run:</p>
+<div class="code"><div class="highlight"><pre><span></span>ls *.cf
+</pre></div></div>
+
+</div><div class="aside" id="aside-exercise_7" data-tralics-id="uid126" data-number="2.7"><p class="heading"><span class="number"><span class="aside_label">Exercise</span> 2.7.</span> 
+
+<span class="description">To find something, the quickest way may be to grep for it.</span></p>
+<p>E.g.<span class="intersentencespace"></span> to find an example of <code>process_stop</code>:</p>
+<div class="code"><div class="highlight"><pre><span></span>grep -l process_stop *.cf
+</pre></div></div>
+
+</div></div></div>

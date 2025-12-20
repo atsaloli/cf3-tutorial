@@ -1,0 +1,76 @@
+<div id="cid67" data-tralics-id="cid67" class="chapter" data-number="14" data-chapter="cfengine_500"><h1><a href="cfengine_500_fragment.html#cid67" class="heading hyperref"><span class="number">Chapter 14 </span>Functions</a></h1>
+<p>See <a href="https://docs.cfengine.com/latest/reference-functions.html" target="_blank" rel="noopener">Functions</a> in the CFEngine Reference for explanation of the following functions.</p>
+</div><div id="cid68" data-tralics-id="cid68" class="section" data-number="14.1"><h2><a href="cfengine_500_fragment.html#cid68" class="heading hyperref"><span class="number">14.1 </span>CFEngine Functions</a></h2>
+<div class="codelisting" id="uid468" data-tralics-id="uid468" data-number="14.1"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 14.1:</span> <span class="description">500-010-Functions-0910-putting_command_output_into_variable.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">vars</span><span class="p">:</span>
+      <span class="p">"</span><span class="nv">my_result</span><span class="p">"</span>
+        <span class="kt">string</span> <span class="o">=&gt;</span> <span class="nf">execresult</span><span class="p">(</span><span class="s">"/bin/ls /etc/motd /nosuchfile"</span><span class="p">,</span>
+                             <span class="s">"noshell"</span><span class="p">);</span>
+
+  <span class="kd">reports</span><span class="p">:</span>
+      <span class="s">"Variable is </span><span class="si">$(my_result)</span><span class="s">"</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div></div><div class="codelisting" id="uid469" data-tralics-id="uid469" data-number="14.2"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 14.2:</span> <span class="description">500-010-Functions-0910-putting_command_output_into_variable_useshell.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">vars</span><span class="p">:</span>
+      <span class="p">"</span><span class="nv">my_result</span><span class="p">"</span>
+        <span class="kt">string</span> <span class="o">=&gt;</span> <span class="nf">execresult</span><span class="p">(</span><span class="s">"/bin/ls /etc/motd /nosuchfile 2&gt;/dev/null"</span><span class="p">,</span>
+                             <span class="s">"useshell"</span><span class="p">);</span>
+
+  <span class="kd">reports</span><span class="p">:</span>
+      <span class="s">"Variable is </span><span class="si">$(my_result)</span><span class="s">"</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div></div><div class="codelisting" id="uid470" data-tralics-id="uid470" data-number="14.3"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 14.3:</span> <span class="description">500-010-Functions-0920-function_countlinesmatching.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">vars</span><span class="p">:</span>
+      <span class="p">"</span><span class="nv">no</span><span class="p">"</span>
+        <span class="kt">int</span> <span class="o">=&gt;</span> <span class="nf">countlinesmatching</span><span class="p">(</span><span class="s">"^cfengine:.*"</span><span class="p">,</span>
+                                  <span class="s">"/etc/group"</span><span class="p">);</span>
+
+  <span class="kd">reports</span><span class="p">:</span>
+      <span class="s">"Found </span><span class="si">$(no)</span><span class="s"> lines matching"</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div></div><div class="codelisting" id="uid471" data-tralics-id="uid471" data-number="14.4"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 14.4:</span> <span class="description">500-010-Functions-0930-functions_canonify.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">vars</span><span class="p">:</span>
+      <span class="p">"</span><span class="nv">canonified_text</span><span class="p">"</span>
+        <span class="kt">string</span>  <span class="o">=&gt;</span> <span class="nf">canonify</span><span class="p">(</span><span class="s">"hello!@#$%world"</span><span class="p">);</span>
+
+  <span class="kd">reports</span><span class="p">:</span>
+      <span class="s">"</span><span class="si">$(canonified_text)</span><span class="s">"</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div></div><div class="codelisting" id="uid472" data-tralics-id="uid472" data-number="14.5"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 14.5:</span> <span class="description">500-010-Functions-0940-get_info_from_env_variable.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">vars</span><span class="p">:</span>
+      <span class="p">"</span><span class="nv">myvar</span><span class="p">"</span> <span class="kt">string</span> <span class="o">=&gt;</span> <span class="nf">getenv</span><span class="p">(</span><span class="s">"USER"</span><span class="p">,</span><span class="s">"20"</span><span class="p">);</span>
+
+  <span class="kd">reports</span><span class="p">:</span>
+      <span class="s">"I am running as user </span><span class="si">$(myvar)</span><span class="s">"</span>
+         <span class="kr">if</span> <span class="o">=&gt;</span> <span class="nf">isvariable</span><span class="p">(</span><span class="s">"myvar"</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div></div></div><p>Functions exercise</p>
+<p>Print a report if /etc/motd is newer than /etc/passwd</p>
+<div class="center"><hr width="216.81pt" />
+</div><p>How to convert epoch time to human-readable:</p>
+<p>vars:
+“human_ctime”
+string =&gt; execresult(“/bin/date -d @ $(ctime)”, “noshell”);</p>
+<p>reports:
+“$(human_ctime)”;</p>
+</div>

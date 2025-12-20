@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link href="stylesheets/pygments.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="stylesheets/softcover.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="stylesheets/custom.css" media="screen" rel="stylesheet" type="text/css">
+    
+    <title>cfengine3</title>
+    
+      <script type="text/x-mathjax-config">
+              MathJax.Hub.Config({
+        "HTML-CSS": {
+          availableFonts: ["TeX"],
+        },
+        TeX: {
+          extensions: ["AMSmath.js", "AMSsymbols.js", "color.js"],
+          equationNumbers: {
+            autoNumber: "AMS",
+            formatNumber: function (n) { return "11" + '.' + n }
+          },
+          Macros: {
+            PolyTeX:    "Poly{\\TeX}",
+            PolyTeXnic: "Poly{\\TeX}nic",
+            "softcover": "\\texttt{softcover}",
+"unitvec": ["{\\hat #1}", 1]
+          }
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        imageFont: null,
+        "AssistiveMML": { disabled: true }
+      });
+
+        if (/PhantomJS/.test(window.navigator.userAgent)) {
+          MathJax.Hub.Queue([alert, 'MathJax Done']);
+        }
+      </script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_SVG"></script>
+    
+  </head>
+  <body>
+    
+    <div id="book">
+      <div id="cid57" data-tralics-id="cid57" class="chapter" data-number="11" data-chapter="cfengine_420"><h1><a href="cfengine_420.html#cid57" class="heading hyperref"><span class="number">Chapter 11 </span>CFEngine Standard Library</a></h1>
+</div>
+<div id="cid58" data-tralics-id="cid58" class="section" data-number="11.1"><h2><a href="cfengine_420.html#cid58" class="heading hyperref"><span class="number">11.1 </span>CFEngine Standard Library</a></h2>
+<list type="description"><label><strong>COPBL</strong></label>
+<li><p class="noindent">Community Open Promise Body Library (aka CFEngine Standard Library)</p>
+</li></list>
+<p>CFEngine ships with a standard library of promise bodies and bundles
+dealing with common aspects of system administration.</p>
+<p>The CFEngine Standard Library is growing to include all common aspects
+of system administration.</p>
+<div id="uid394" data-tralics-id="uid394" data-number="11.1" class="table"><table class="tabular"><tr class="top_border bottom_border"><td class="left_border align_left right_border">CFEngine version</td>
+<td class="align_left right_border">Promise bodies</td>
+<td class="align_left right_border">Promise bundles</td>
+</tr><tr><td class="left_border align_left right_border"><em>3.1.5</em></td>
+<td class="align_left right_border">88</td>
+<td class="align_left right_border">?</td>
+</tr><tr><td class="left_border align_left right_border"><em>3.2.1</em></td>
+<td class="align_left right_border">99</td>
+<td class="align_left right_border">19</td>
+</tr><tr><td class="left_border align_left right_border"><em>3.3.5</em></td>
+<td class="align_left right_border">114</td>
+<td class="align_left right_border">29</td>
+</tr><tr><td class="left_border align_left right_border"><em>3.3.8</em></td>
+<td class="align_left right_border">113</td>
+<td class="align_left right_border">26</td>
+</tr><tr><td class="left_border align_left right_border"><em>3.4.4</em></td>
+<td class="align_left right_border">124</td>
+<td class="align_left right_border">32</td>
+</tr><tr><td class="left_border align_left right_border"><em>3.10.3</em></td>
+<td class="align_left right_border">189</td>
+<td class="align_left right_border">127</td>
+</tr><tr class="bottom_border"><td class="left_border align_left right_border"><em>3.12.6</em></td>
+<td class="align_left right_border">193</td>
+<td class="align_left right_border">134</td>
+</tr></table><div class="caption"><span class="header">Table 11.1</span></div></div>
+<div class="codelisting" id="uid395" data-tralics-id="uid395" data-number="11.1"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 11.1:</span> <span class="description">420-060-COPBL-0480-File_Exists_And_Is_Mode_612_Without_COPBL.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span> <span class="p">{</span>
+
+  <span class="kd">files</span><span class="p">:</span>
+
+      <span class="s">"/tmp/testfile"</span>
+        <span class="kr">comment</span> <span class="o">=&gt;</span> <span class="s">"Demonstrate setting file attributes"</span><span class="p">,</span>
+        <span class="kr">create</span>  <span class="o">=&gt;</span> <span class="s">"true"</span><span class="p">,</span>
+        <span class="kr">perms</span>   <span class="o">=&gt;</span> <span class="nf">mog</span><span class="p">(</span><span class="s">"612"</span><span class="p">,</span><span class="s">"aleksey"</span><span class="p">,</span><span class="s">"cfengine"</span><span class="p">);</span>
+
+<span class="p">}</span>
+
+<span class="c">############################################################</span>
+
+<span class="k">body</span> <span class="k">perms</span> <span class="nf">mog</span><span class="p">(</span><span class="nv">mode</span><span class="p">,</span><span class="nv">owner</span><span class="p">,</span><span class="nv">group</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="kr">owners</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="s">"</span><span class="si">$(owner)</span><span class="s">"</span><span class="p">,</span> <span class="s">"john"</span><span class="p">,</span> <span class="s">"brian"</span> <span class="p">};</span>
+        <span class="kr">mode</span>   <span class="o">=&gt;</span> <span class="s">"</span><span class="si">$(mode)</span><span class="s">"</span><span class="p">;</span>
+        <span class="kr">groups</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="s">"</span><span class="si">$(group)</span><span class="s">"</span> <span class="p">};</span>
+<span class="p">}</span>
+</pre></div></div></div><div class="codelisting" id="uid396" data-tralics-id="uid396" data-number="11.2"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 11.2:</span> <span class="description">420-060-COPBL-0490-File_exists_and_is_mode_6_1_2_mog.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="k">body</span> <span class="k">file</span> <span class="k">control</span>
+<span class="p">{</span>
+  <span class="kr">inputs</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="s">"</span><span class="si">$(sys.libdir)</span><span class="s">/stdlib.cf"</span> <span class="p">};</span>  <span class="c"># &lt;-- read in the library</span>
+<span class="p">}</span>
+
+<span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">reports</span><span class="p">:</span>
+      <span class="s">"CFEngine StdLib is here: </span><span class="si">$(sys.libdir)</span><span class="s">/stdlib.cf"</span> <span class="p">;</span> 
+
+  <span class="kd">files</span><span class="p">:</span>
+      <span class="s">"/tmp/testfile"</span>
+        <span class="kr">create</span>  <span class="o">=&gt;</span> <span class="s">"true"</span><span class="p">,</span>
+        <span class="kr">perms</span>   <span class="o">=&gt;</span> <span class="nf">mog</span><span class="p">(</span><span class="s">"612"</span><span class="p">,</span><span class="s">"root"</span><span class="p">,</span><span class="s">"nobody"</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div></div></div><div class="codelisting" id="uid397" data-tralics-id="uid397" data-number="11.3"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 11.3:</span> <span class="description">420-060-COPBL-0500-Context_sensitive_file_editing_Set_robs_password.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">files</span><span class="p">:</span>
+      <span class="s">"/etc/shadow"</span>
+        <span class="kr">handle</span> <span class="o">=&gt;</span> <span class="s">"context_sensitive_file_editing_demo"</span><span class="p">,</span>
+        <span class="kr">comment</span> <span class="o">=&gt;</span> <span class="s">"demonstrate context-sensitive file editing capability"</span><span class="p">,</span>
+        <span class="kr">edit_line</span> <span class="o">=&gt;</span> <span class="nf">set_user_field</span><span class="p">(</span><span class="s">"rob"</span><span class="p">,</span>
+                                    <span class="s">"2"</span><span class="p">,</span>
+                                    <span class="s">"$1$stIAaUZw$ptP75nVkz/EapeuvdWLNC0"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">body</span> <span class="k">file</span> <span class="k">control</span> <span class="p">{</span> <span class="kr">inputs</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="s">"</span><span class="si">$(sys.libdir)</span><span class="s">/stdlib.cf"</span> <span class="p">};</span> <span class="p">}</span>
+</pre></div></div></div><div class="codelisting" id="uid398" data-tralics-id="uid398" data-number="11.4"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 11.4:</span> <span class="description">420-060-COPBL-0510-Removing_a_file.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">files</span><span class="p">:</span>
+      <span class="s">"/tmp/testfile.*"</span>
+        <span class="kr">handle</span> <span class="o">=&gt;</span> <span class="s">"demo_removing_files"</span><span class="p">,</span>
+        <span class="kr">comment</span> <span class="o">=&gt;</span> <span class="s">"Demonstrate removing files using body delete tidy"</span><span class="p">,</span>
+        <span class="kr">delete</span> <span class="o">=&gt;</span> <span class="nf">tidy</span><span class="p">;</span>
+
+      <span class="c"># shell equivalent:  rm -r /tmp/testfile*</span>
+
+<span class="p">}</span>
+
+<span class="k">body</span> <span class="k">file</span> <span class="k">control</span> <span class="p">{</span> <span class="kr">inputs</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="s">"</span><span class="si">$(sys.libdir)</span><span class="s">/stdlib.cf"</span> <span class="p">};</span> <span class="p">}</span>
+</pre></div></div></div><div class="aside" id="aside-exercise_30" data-tralics-id="uid399" data-number="11.1"><p class="heading"><span class="number"><span class="aside_label">Exercise</span> 11.1.</span> 
+
+<span class="description">Run the following command to generate some content:</span></p>
+<div class="code"><div class="highlight"><pre><span></span>date  &gt; /tmp/date.txt
+</pre></div></div>
+<p>Write a CFEngine policy that will comment out (using #)
+all lines that start with a day of the week:</p>
+<pre class="verbatim">edit_line =&gt; comment_lines_matching("(Mon|Tue|Wed|Thur|Fri|Sat|Sun).*" ,
+                                    "#")</pre>
+<p>The <code>edit_line</code> bundle <code>comment_lines_matching</code> is in the standard
+library.</p>
+
+</div><div class="codelisting" id="uid400" data-tralics-id="uid400" data-number="11.5"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 11.5:</span> <span class="description">420-060-COPBL-0530-Commenting_out_file_contents.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">files</span><span class="p">:</span>
+      <span class="s">"/etc/httpd/conf.d/maintenance.conf"</span>
+        <span class="kr">handle</span>    <span class="o">=&gt;</span> <span class="s">"take_website_out_of_maintenance"</span><span class="p">,</span>
+        <span class="kr">comment</span>   <span class="o">=&gt;</span> <span class="s">"Disable maintenance-mode config block"</span><span class="p">,</span>
+        <span class="kr">edit_line</span> <span class="o">=&gt;</span> <span class="nf">comment_out_everything</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">bundle</span> <span class="k">edit_line</span> <span class="nf">comment_out_everything</span>
+<span class="p">{</span>
+  <span class="kd">replace_patterns</span><span class="p">:</span>
+      <span class="s">"^([^#].*)"</span>
+        <span class="kr">replace_with</span> <span class="o">=&gt;</span> <span class="nf">comment</span><span class="p">(</span><span class="s">"# "</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">body</span> <span class="k">replace_with</span> <span class="nf">comment</span><span class="p">(</span><span class="nv">c</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="kr">replace_value</span> <span class="o">=&gt;</span> <span class="s">"</span><span class="si">$(c)</span><span class="s"> </span><span class="si">$(match.1)</span><span class="s">"</span><span class="p">;</span>
+        <span class="kr">occurrences</span> <span class="o">=&gt;</span> <span class="s">"all"</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div></div><div class="codelisting" id="uid401" data-tralics-id="uid401" data-number="11.6"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 11.6:</span> <span class="description">420-060-COPBL-0540-Z.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">files</span><span class="p">:</span>
+      <span class="s">"/etc/httpd/conf.d/maintenance.conf"</span>
+        <span class="kr">handle</span>    <span class="o">=&gt;</span> <span class="s">"put_website_into_maintenance"</span><span class="p">,</span>
+        <span class="kr">comment</span>   <span class="o">=&gt;</span> <span class="s">"Enable maintenance-mode config block"</span><span class="p">,</span>
+        <span class="kr">edit_line</span> <span class="o">=&gt;</span> <span class="nf">uncomment_everything</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">bundle</span> <span class="k">edit_line</span> <span class="nf">uncomment_everything</span> <span class="p">{</span>
+  <span class="kd">replace_patterns</span><span class="p">:</span>
+      <span class="s">"^#(.*)"</span>
+        <span class="kr">handle</span> <span class="o">=&gt;</span> <span class="s">"uncomment_everything_replace_pattern"</span><span class="p">,</span>
+        <span class="kr">comment</span> <span class="o">=&gt;</span> <span class="s">"If it starts with a hash mark, grab everything</span>
+<span class="s">                          after the hash mark, and uncomment it."</span><span class="p">,</span>
+        <span class="kr">replace_with</span> <span class="o">=&gt;</span> <span class="nf">uncomment</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="k">body</span> <span class="k">replace_with</span> <span class="nf">uncomment</span>
+<span class="p">{</span>
+        <span class="kr">replace_value</span> <span class="o">=&gt;</span> <span class="s">"</span><span class="si">$(match.1)</span><span class="s">"</span><span class="p">;</span>
+        <span class="kr">occurrences</span> <span class="o">=&gt;</span> <span class="s">"all"</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div></div><div class="codelisting" id="uid402" data-tralics-id="uid402" data-number="11.7"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 11.7:</span> <span class="description">420-060-COPBL-0550-Removing_a_file_Remove_centos_httpd_welcome_page.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">files</span><span class="p">:</span>
+      <span class="s">"/etc/httpd/conf.d/welcome.conf"</span>
+        <span class="kr">handle</span> <span class="o">=&gt;</span> <span class="s">"nuke_welcome_conf"</span><span class="p">,</span>
+        <span class="kr">comment</span> <span class="o">=&gt;</span> <span class="s">"Let's keep a low profile and not advertise</span>
+<span class="s">                          what software we are running - remove the</span>
+<span class="s">                          Welcome page that says we are running Apache</span>
+<span class="s">                          on CentOS"</span><span class="p">,</span>
+        <span class="kr">delete</span> <span class="o">=&gt;</span> <span class="nf">tidy</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">body</span> <span class="k">file</span> <span class="k">control</span> <span class="p">{</span> <span class="kr">inputs</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="s">"</span><span class="si">$(sys.libdir)</span><span class="s">/stdlib.cf"</span> <span class="p">};</span> <span class="p">}</span>
+</pre></div></div></div><div class="codelisting" id="uid403" data-tralics-id="uid403" data-number="11.8"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 11.8:</span> <span class="description">420-060-COPBL-0560-Remove_httpd_welcome_page_by_commenting_out_welcome_conf.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="c"># welcome.conf is part of the Apache RPM</span>
+<span class="c"># to preserve package integrity, comment out this file's contents</span>
+<span class="c"># instead of deleting the file</span>
+
+<span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">files</span><span class="p">:</span>
+      <span class="s">"/etc/httpd/conf.d/welcome.conf"</span>
+        <span class="kr">handle</span> <span class="o">=&gt;</span> <span class="s">"comment_out_welcome_dot_conf"</span><span class="p">,</span>
+        <span class="kr">comment</span> <span class="o">=&gt;</span> <span class="s">"Let's not ask for trouble by advertising</span>
+<span class="s">                          what software we are running"</span><span class="p">,</span>
+        <span class="kr">edit_line</span> <span class="o">=&gt;</span> <span class="nf">comment_out_everything</span><span class="p">,</span>
+        <span class="kr">classes</span> <span class="o">=&gt;</span> <span class="nf">if_repaired</span><span class="p">(</span><span class="s">"reload_httpd"</span><span class="p">);</span>
+
+  <span class="kd">commands</span><span class="p">:</span>
+    <span class="nc">reload_httpd</span><span class="p">::</span>
+      <span class="s">"/etc/init.d/httpd"</span>
+        <span class="kr">handle</span> <span class="o">=&gt;</span> <span class="s">"cmd_reload_httpd"</span><span class="p">,</span>
+        <span class="kr">comment</span> <span class="o">=&gt;</span> <span class="s">"Reload httpd configuration"</span><span class="p">,</span>
+        <span class="kr">args</span> <span class="o">=&gt;</span> <span class="s">"reload"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">bundle</span> <span class="k">edit_line</span> <span class="nf">comment_out_everything</span>
+<span class="p">{</span>
+  <span class="kd">replace_patterns</span><span class="p">:</span>
+      <span class="s">"^([^#].*)"</span>
+        <span class="kr">handle</span> <span class="o">=&gt;</span> <span class="s">"comment_out_everything_replace_patterns_promise"</span><span class="p">,</span>
+        <span class="kr">comment</span> <span class="o">=&gt;</span> <span class="s">"If it doesn't start with #, comment it out"</span><span class="p">,</span>
+        <span class="kr">replace_with</span> <span class="o">=&gt;</span> <span class="nf">comment</span><span class="p">(</span><span class="s">"#disabled-by-cfengine# "</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">body</span> <span class="k">file</span> <span class="k">control</span> <span class="p">{</span> <span class="kr">inputs</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="s">"</span><span class="si">$(sys.libdir)</span><span class="s">/stdlib.cf"</span> <span class="p">};</span> <span class="p">}</span>
+</pre></div></div></div><div class="codelisting" id="uid404" data-tralics-id="uid404" data-number="11.9"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 11.9:</span> <span class="description">420-060-COPBL-0590-classes_if_else.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">files</span><span class="p">:</span>
+      <span class="s">"/dev/null/motd"</span>
+        <span class="kr">handle</span> <span class="o">=&gt;</span> <span class="s">"touch_file"</span><span class="p">,</span>
+        <span class="kr">comment</span> <span class="o">=&gt;</span> <span class="s">"Demonstrate body classes if_else"</span><span class="p">,</span>
+        <span class="kr">create</span> <span class="o">=&gt;</span> <span class="s">"true"</span><span class="p">,</span>
+        <span class="kr">classes</span> <span class="o">=&gt;</span> <span class="nf">if_else</span><span class="p">(</span><span class="s">"file_exists"</span><span class="p">,</span><span class="s">"file_missing"</span><span class="p">);</span>
+
+  <span class="kd">reports</span><span class="p">:</span>
+    <span class="nc">file_exists</span><span class="p">::</span>
+      <span class="s">"All OK"</span>
+        <span class="kr">handle</span> <span class="o">=&gt;</span> <span class="s">"report_OK"</span><span class="p">;</span>
+
+  <span class="kd">reports</span><span class="p">:</span>
+    <span class="nc">file_missing</span><span class="p">::</span>
+      <span class="s">"WARNING! Unable to create vital file!"</span>
+        <span class="kr">handle</span> <span class="o">=&gt;</span> <span class="s">"report_WARN"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">body</span> <span class="k">file</span> <span class="k">control</span> <span class="p">{</span> <span class="kr">inputs</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="s">"</span><span class="si">$(sys.libdir)</span><span class="s">/stdlib.cf"</span> <span class="p">};</span> <span class="p">}</span>
+</pre></div></div></div><div class="codelisting" id="uid405" data-tralics-id="uid405" data-number="11.10"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 11.10:</span> <span class="description">420-060-COPBL-0600-classes_persistent.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="c"># "body classes state_repaired" is in StdLib</span>
+
+<span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">files</span><span class="p">:</span>
+    <span class="nc">!file_fixed</span><span class="p">::</span>
+      <span class="s">"/tmp/file.txt"</span>
+        <span class="kr">handle</span> <span class="o">=&gt;</span> <span class="s">"persistent_class_demo"</span><span class="p">,</span>
+        <span class="kr">comment</span> <span class="o">=&gt;</span> <span class="s">"Set a persistent class"</span><span class="p">,</span>
+        <span class="kr">create</span> <span class="o">=&gt;</span> <span class="s">"true"</span><span class="p">,</span>
+        <span class="kr">classes</span>  <span class="o">=&gt;</span> <span class="nf">state_repaired</span><span class="p">(</span><span class="s">"file_fixed"</span><span class="p">);</span>
+
+  <span class="kd">reports</span><span class="p">:</span>
+    <span class="nc">file_fixed</span><span class="p">::</span>
+      <span class="s">"Persistent class set.  Run in verbose mode to see TTL"</span>
+        <span class="kr">handle</span> <span class="o">=&gt;</span> <span class="s">"report_success"</span><span class="p">,</span>
+        <span class="kr">comment</span> <span class="o">=&gt;</span> <span class="s">"Report if our persistent class persistent_class</span>
+<span class="s">                          has been set as expected."</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">body</span> <span class="k">classes</span> <span class="nf">state_repaired</span><span class="p">(</span><span class="nv">x</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="kr">promise_repaired</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="s">"</span><span class="si">$(x)</span><span class="s">"</span> <span class="p">};</span>
+        <span class="kr">persist_time</span> <span class="o">=&gt;</span> <span class="s">"10"</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div></div><div class="codelisting" id="uid406" data-tralics-id="uid406" data-number="11.11"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 11.11:</span> <span class="description">420-060-COPBL-0610-comment_lines_matching.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">files</span><span class="p">:</span>
+      <span class="s">"/tmp/scratch"</span>
+        <span class="kr">handle</span> <span class="o">=&gt;</span> <span class="s">"selective_commenting"</span><span class="p">,</span>
+        <span class="kr">comment</span> <span class="o">=&gt;</span> <span class="s">"Remove specific lines"</span><span class="p">,</span>
+        <span class="kr">edit_line</span> <span class="o">=&gt;</span> <span class="nf">comment_lines_matching</span><span class="p">(</span><span class="s">"hello world"</span><span class="p">,</span> <span class="s">"#"</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="k">body</span> <span class="k">file</span> <span class="k">control</span> <span class="p">{</span> <span class="kr">inputs</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="s">"</span><span class="si">$(sys.libdir)</span><span class="s">/stdlib.cf"</span> <span class="p">};</span> <span class="p">}</span>
+</pre></div></div></div><div class="codelisting" id="uid407" data-tralics-id="uid407" data-number="11.12"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 11.12:</span> <span class="description">420-060-COPBL-0620-contain_silent.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">commands</span><span class="p">:</span>
+      <span class="s">"/bin/date"</span>
+        <span class="kr">handle</span> <span class="o">=&gt;</span> <span class="s">"run_date_cmd"</span><span class="p">,</span>
+        <span class="kr">comment</span> <span class="o">=&gt;</span> <span class="s">"Demonstrate 'body contain silent'"</span><span class="p">,</span>
+        <span class="kr">contain</span> <span class="o">=&gt;</span> <span class="nf">silent</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">body</span> <span class="k">file</span> <span class="k">control</span> <span class="p">{</span> <span class="kr">inputs</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="s">"</span><span class="si">$(sys.libdir)</span><span class="s">/stdlib.cf"</span> <span class="p">};</span> <span class="p">}</span>
+</pre></div></div></div><div class="codelisting" id="uid408" data-tralics-id="uid408" data-number="11.13"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 11.13:</span> <span class="description">420-060-COPBL-0630-edit_line_insert_lines.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">files</span><span class="p">:</span>
+      <span class="s">"/etc/profile"</span>
+        <span class="kr">handle</span> <span class="o">=&gt;</span> <span class="s">"edit_etc_profile"</span><span class="p">,</span>
+        <span class="kr">create</span> <span class="o">=&gt;</span> <span class="s">"true"</span><span class="p">,</span>
+        <span class="kr">edit_line</span> <span class="o">=&gt;</span> <span class="nf">insert_lines</span><span class="p">(</span><span class="s">"export ORGANIZATION=ACME"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">body</span> <span class="k">file</span> <span class="k">control</span> <span class="p">{</span> <span class="kr">inputs</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="s">"</span><span class="si">$(sys.libdir)</span><span class="s">/stdlib.cf"</span> <span class="p">};</span> <span class="p">}</span>
+</pre></div></div></div><div class="codelisting" id="uid409" data-tralics-id="uid409" data-number="11.14"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 11.14:</span> <span class="description">420-060-COPBL-0640-edit_resolv_dot_conf_using_COPBL.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">vars</span><span class="p">:</span>
+      <span class="p">"</span><span class="nv">search_suffix</span><span class="p">"</span>  <span class="kt">string</span> <span class="o">=&gt;</span>  <span class="s">"example.com example2.com"</span><span class="p">;</span>
+      <span class="p">"</span><span class="nv">nameservers</span><span class="p">"</span>    <span class="kt">slist</span>  <span class="o">=&gt;</span>  <span class="p">{</span> <span class="s">"8.8.4.4"</span><span class="p">,</span> <span class="s">"8.8.8.8"</span> <span class="p">};</span>
+
+  <span class="kd">files</span><span class="p">:</span>
+      <span class="s">"/tmp/resolv.conf"</span>
+        <span class="kr">handle</span> <span class="o">=&gt;</span>  <span class="s">"edit_resolv_conf"</span><span class="p">,</span>
+        <span class="kr">comment</span> <span class="o">=&gt;</span> <span class="s">"Setup up DNS resolver"</span><span class="p">,</span>
+        <span class="kr">edit_line</span> <span class="o">=&gt;</span>  <span class="nf">resolvconf</span><span class="p">(</span><span class="s">"</span><span class="si">$(search_suffix)</span><span class="s">"</span><span class="p">,</span>
+                                 <span class="s">"@(</span><span class="si">$(this.bundle)</span><span class="s">.nameservers)"</span> <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">body</span> <span class="k">file</span> <span class="k">control</span> <span class="p">{</span> <span class="kr">inputs</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="s">"</span><span class="si">$(sys.libdir)</span><span class="s">/stdlib.cf"</span> <span class="p">};</span> <span class="p">}</span>
+</pre></div></div></div><div class="codelisting" id="uid410" data-tralics-id="uid410" data-number="11.15"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 11.15:</span> <span class="description">420-060-COPBL-0660-insert_lines.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">files</span><span class="p">:</span>
+      <span class="s">"/tmp/scratch"</span>
+        <span class="kr">handle</span> <span class="o">=&gt;</span> <span class="s">"files_multi_line_insert"</span><span class="p">,</span>
+        <span class="kr">comment</span> <span class="o">=&gt;</span> <span class="s">"Insert multi-line content"</span><span class="p">,</span>
+        <span class="kr">create</span> <span class="o">=&gt;</span> <span class="s">"true"</span><span class="p">,</span>
+        <span class="kr">edit_line</span> <span class="o">=&gt;</span> <span class="nf">insert_lines</span><span class="p">(</span><span class="s">"</span>
+<span class="s">hello world</span>
+<span class="s">this is line 2</span>
+<span class="s">line 3 is great</span>
+<span class="s">line 4 is awesome</span>
+<span class="s">"</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="k">body</span> <span class="k">file</span> <span class="k">control</span> <span class="p">{</span> <span class="kr">inputs</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="s">"</span><span class="si">$(sys.libdir)</span><span class="s">/stdlib.cf"</span> <span class="p">};</span> <span class="p">}</span>
+</pre></div></div></div><div class="codelisting" id="uid411" data-tralics-id="uid411" data-number="11.16"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 11.16:</span> <span class="description">420-060-COPBL-0680-set_variable_values.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="k">bundle</span> <span class="k">common</span> <span class="nf">g</span>
+<span class="p">{</span>
+  <span class="kd">vars</span><span class="p">:</span>
+
+      <span class="p">"</span><span class="nv">stuff[location]</span><span class="p">"</span>     <span class="kt">string</span> <span class="o">=&gt;</span> <span class="s">"New York"</span><span class="p">;</span>
+      <span class="p">"</span><span class="nv">stuff[time]</span><span class="p">"</span>         <span class="kt">string</span> <span class="o">=&gt;</span> <span class="s">"May-2027"</span><span class="p">;</span>
+      <span class="p">"</span><span class="nv">stuff[students]</span><span class="p">"</span>     <span class="kt">string</span> <span class="o">=&gt;</span> <span class="s">"11"</span><span class="p">;</span>
+      <span class="p">"</span><span class="nv">stuff[lab]</span><span class="p">"</span>          <span class="kt">string</span> <span class="o">=&gt;</span> <span class="s">"true"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span> <span class="p">{</span>
+
+  <span class="kd">files</span><span class="p">:</span>
+
+      <span class="s">"/etc/example.conf"</span>
+        <span class="kr">handle</span> <span class="o">=&gt;</span> <span class="s">"populate_config_file_from_array"</span><span class="p">,</span>
+        <span class="kr">comment</span> <span class="o">=&gt;</span> <span class="s">"Demonstrate 'bundle edit_line set_variable_values'"</span><span class="p">,</span>
+        <span class="kr">create</span> <span class="o">=&gt;</span> <span class="s">"true"</span><span class="p">,</span>
+        <span class="kr">edit_line</span> <span class="o">=&gt;</span> <span class="nf">set_variable_values</span><span class="p">(</span><span class="s">"g.stuff"</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="k">body</span> <span class="k">file</span> <span class="k">control</span> <span class="p">{</span> <span class="kr">inputs</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="s">"</span><span class="si">$(sys.libdir)</span><span class="s">/stdlib.cf"</span> <span class="p">};</span> <span class="p">}</span>
+</pre></div></div></div><div class="codelisting" id="uid412" data-tralics-id="uid412" data-number="11.17"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 11.17:</span> <span class="description">420-060-StdLib-0470-Package_add_using_StdLib.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">packages</span><span class="p">:</span>
+      <span class="s">"php-mysql"</span>
+        <span class="kr">policy</span> <span class="o">=&gt;</span> <span class="s">"present"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">body</span> <span class="k">common</span> <span class="k">control</span> <span class="p">{</span>
+<span class="c"># the following promise attributes support the 3.7 packages promises</span>
+
+  <span class="nc">debian|redhat</span><span class="p">::</span>
+    <span class="kr">package_inventory</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="err">$</span><span class="p">(</span><span class="nf">package_module_knowledge</span><span class="err">.</span><span class="nf">platform_default</span><span class="p">)</span> <span class="p">};</span>
+    <span class="kr">package_module</span> <span class="o">=&gt;</span> <span class="err">$</span><span class="p">(</span><span class="nf">package_module_knowledge</span><span class="err">.</span><span class="nf">platform_default</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">body</span> <span class="k">file</span> <span class="k">control</span> <span class="p">{</span> <span class="kr">inputs</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="s">"</span><span class="si">$(sys.libdir)</span><span class="s">/stdlib.cf"</span> <span class="p">};</span> <span class="p">}</span>
+
+<span class="c"># Example run:</span>
+<span class="c"># root@localhost# cf-agent -f ~/p.cf -IC</span>
+<span class="c"># Warning: RPMDB altered outside of yum.</span>
+<span class="c"># ** Found 1 pre-existing rpmdb problem(s), 'yum check' output follows:</span>
+<span class="c"># 1:gdm-plugin-fingerprint-2.30.4-64.el6.x86_64 has missing requires of fprintd-pam</span>
+<span class="c">#     info: Successfully installed package 'php-mysql'</span>
+<span class="c"># root@localhost#</span>
+</pre></div></div></div></div>
+    </div>
+  </body>
+</html>

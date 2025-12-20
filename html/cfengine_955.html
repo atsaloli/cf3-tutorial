@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link href="stylesheets/pygments.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="stylesheets/softcover.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="stylesheets/custom.css" media="screen" rel="stylesheet" type="text/css">
+    
+    <title>cfengine3</title>
+    
+      <script type="text/x-mathjax-config">
+              MathJax.Hub.Config({
+        "HTML-CSS": {
+          availableFonts: ["TeX"],
+        },
+        TeX: {
+          extensions: ["AMSmath.js", "AMSsymbols.js", "color.js"],
+          equationNumbers: {
+            autoNumber: "AMS",
+            formatNumber: function (n) { return "19" + '.' + n }
+          },
+          Macros: {
+            PolyTeX:    "Poly{\\TeX}",
+            PolyTeXnic: "Poly{\\TeX}nic",
+            "softcover": "\\texttt{softcover}",
+"unitvec": ["{\\hat #1}", 1]
+          }
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        imageFont: null,
+        "AssistiveMML": { disabled: true }
+      });
+
+        if (/PhantomJS/.test(window.navigator.userAgent)) {
+          MathJax.Hub.Queue([alert, 'MathJax Done']);
+        }
+      </script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_SVG"></script>
+    
+  </head>
+  <body>
+    
+    <div id="book">
+      <div id="cid81" data-tralics-id="cid81" class="chapter" data-number="19" data-chapter="cfengine_955"><h1><a href="cfengine_955.html#cid81" class="heading hyperref"><span class="number">Chapter 19 </span>Appendix A - CFEngine Vocabulary Primer</a></h1>
+<p>Based on the works of Mark Burgess and CFEngine AS.</p>
+</div>
+<div id="cid82" data-tralics-id="cid82" class="section" data-number="19.1"><h2><a href="cfengine_955.html#cid82" class="heading hyperref"><span class="number">19.1 </span>Preface</a></h2>
+<p>CFEngine is designed to be comprehensive and to let you model
+nearly any aspect of system configuration using promises
+(statements of intention).</p>
+<p>There are over 500 promise attributes in CFEngine 3.<span class="intersentencespace"></span> They enable you to detail the desired system state.</p>
+<p>This document presents a “starting set” of commonly
+used ones.<span class="intersentencespace"></span> We suggest you learn them first.</p>
+<p>For more detail on the below, use the “Search CFEngine docs”
+<a href="http://cf-learn.info/" target="_blank" rel="noopener">search box</a> (on the bottom right),
+or see the <a href="https://cfengine.com/docs/" target="_blank" rel="noopener">CFEngine docs</a></p>
+<p>For professional CFEngine training, visit <a href="http://www.verticalsysadmin.com" target="_blank" rel="noopener">Vertical Sysadmin</a></p>
+</div>
+<div id="cid83" data-tralics-id="cid83" class="section" data-number="19.2"><h2><a href="cfengine_955.html#cid83" class="heading hyperref"><span class="number">19.2 </span>Promise Types</a></h2>
+<p>Arranged in the order CFEngine checks them (see “Normal Ordering” in the Reference Manual):</p>
+<div id="uid516" data-tralics-id="uid516" data-number="19.1" class="table"><table class="tabular"><tr class="top_border"><td class="left_border align_left right_border">vars</td>
+<td class="align_left right_border">A promise to be a variable, representing a value.</td>
+</tr><tr><td class="left_border align_left right_border">classes</td>
+<td class="align_left right_border">A promise to be a boolean variable representing true/on/1.</td>
+</tr><tr><td class="left_border align_left right_border">files</td>
+<td class="align_left right_border">A promise about a file, including its existence, attributes and contents.</td>
+</tr><tr><td class="left_border align_left right_border">delete_lines</td>
+<td class="align_left right_border">A promise about file contents (that specified content is absent).</td>
+</tr><tr><td class="left_border align_left right_border">field_edits</td>
+<td class="align_left right_border">A promise about file contents (concerning values in text fields)</td>
+</tr><tr><td class="left_border align_left right_border">insert_lines</td>
+<td class="align_left right_border">A promise about file contents (that specified content is present).</td>
+</tr><tr><td class="left_border align_left right_border">replace_patterns</td>
+<td class="align_left right_border">A promise about file contents (that specified content is absent, replaced by another).</td>
+</tr><tr><td class="left_border align_left right_border">packages</td>
+<td class="align_left right_border">A promise concerning a package, including its presence (or absence) and version.</td>
+</tr><tr><td class="left_border align_left right_border">processes</td>
+<td class="align_left right_border">A promise concerning items in the system process table.</td>
+</tr><tr><td class="left_border align_left right_border">services</td>
+<td class="align_left right_border">A promise concerning the state (on/off) of a service (a group of one or more processes that runs in the background).</td>
+</tr><tr><td class="left_border align_left right_border">commands</td>
+<td class="align_left right_border">A promise to execute a command.</td>
+</tr><tr class="bottom_border"><td class="left_border align_left right_border">reports</td>
+<td class="align_left right_border">A promise to report a message.</td>
+</tr></table><div class="caption"><span class="header">Table 19.1</span></div></div>
+</div>
+<div id="cid84" data-tralics-id="cid84" class="section" data-number="19.3"><h2><a href="cfengine_955.html#cid84" class="heading hyperref"><span class="number">19.3 </span>Promise Attributes</a></h2>
+<p>What follows is a listing of promise attributes by promise type.</p>
+<div id="uid517" data-tralics-id="uid517" class="subsection" data-number="19.3.1"><h3><a href="cfengine_955.html#uid517" class="heading hyperref"><span class="number">19.3.1 </span>Any</a></h3>
+<p>These promise attributes can be used in <em>any</em> promise.</p>
+<div id="uid518" data-tralics-id="uid518" data-number="19.2" class="table"><table class="tabular"><tr class="top_border"><td class="left_border align_left right_border">comment</td>
+<td class="align_left right_border">A comment about this promise’s intention that follows through the program</td>
+</tr><tr><td class="left_border align_left right_border">depends_on</td>
+<td class="align_left right_border">A list of promise handles that this promise depends on somehow.</td>
+</tr><tr class="bottom_border"><td class="left_border align_left right_border">handle</td>
+<td class="align_left right_border">A unique id-tag string for referring to this as a promisee elsewhere</td>
+</tr></table><div class="caption"><span class="header">Table 19.2</span></div></div>
+</div>
+<div id="uid519" data-tralics-id="uid519" class="subsection" data-number="19.3.2"><h3><a href="cfengine_955.html#uid519" class="heading hyperref"><span class="number">19.3.2 </span>classes</a></h3>
+<div id="uid520" data-tralics-id="uid520" data-number="19.3" class="table"><table class="tabular"><tr class="top_border"><td class="left_border align_left right_border">expression</td>
+<td class="align_left right_border">Evaluate string expression of classes</td>
+</tr><tr><td class="left_border align_left right_border">and</td>
+<td class="align_left right_border">Combine class sources with AND - useful for including functions</td>
+</tr><tr class="bottom_border"><td class="left_border align_left right_border">or</td>
+<td class="align_left right_border">Combine class sources with inclusive OR - useful for including functions</td>
+</tr></table><div class="caption"><span class="header">Table 19.3</span></div></div>
+</div>
+<div id="uid521" data-tralics-id="uid521" class="subsection" data-number="19.3.3"><h3><a href="cfengine_955.html#uid521" class="heading hyperref"><span class="number">19.3.3 </span>reports</a></h3>
+<div id="uid522" data-tralics-id="uid522" data-number="19.4" class="table"><table class="tabular"><tr class="top_border bottom_border"><td class="left_border align_left right_border">report_to_file</td>
+<td class="align_left right_border">The path and filename to which output should be appended</td>
+</tr></table><div class="caption"><span class="header">Table 19.4</span></div></div>
+</div>
+<div id="uid523" data-tralics-id="uid523" class="subsection" data-number="19.3.4"><h3><a href="cfengine_955.html#uid523" class="heading hyperref"><span class="number">19.3.4 </span>vars</a></h3>
+<div id="uid524" data-tralics-id="uid524" data-number="19.5" class="table"><table class="tabular"><tr class="top_border"><td class="left_border align_left right_border">string</td>
+<td class="align_left right_border">A string</td>
+</tr><tr><td class="left_border align_left right_border">int</td>
+<td class="align_left right_border">An integer</td>
+</tr><tr><td class="left_border align_left right_border">real</td>
+<td class="align_left right_border">A real number (an integer with a fractional component)</td>
+</tr><tr><td class="left_border align_left right_border">slist</td>
+<td class="align_left right_border">A list of strings</td>
+</tr><tr><td class="left_border align_left right_border">ilist</td>
+<td class="align_left right_border">A list of integers</td>
+</tr><tr class="bottom_border"><td class="left_border align_left right_border">rlist</td>
+<td class="align_left right_border">A list of real numbers</td>
+</tr></table><div class="caption"><span class="header">Table 19.5</span></div></div>
+</div>
+<div id="uid525" data-tralics-id="uid525" class="subsection" data-number="19.3.5"><h3><a href="cfengine_955.html#uid525" class="heading hyperref"><span class="number">19.3.5 </span>commands</a></h3>
+<div id="uid526" data-tralics-id="uid526" data-number="19.6" class="table"><table class="tabular"><tr class="top_border bottom_border"><td class="left_border align_left right_border">args</td>
+<td class="align_left right_border">String of arguments for the command</td>
+</tr></table><div class="caption"><span class="header">Table 19.6</span></div></div>
+</div>
+<div id="uid527" data-tralics-id="uid527" class="subsection" data-number="19.3.6"><h3><a href="cfengine_955.html#uid527" class="heading hyperref"><span class="number">19.3.6 </span>files</a></h3>
+<div id="uid528" data-tralics-id="uid528" data-number="19.7" class="table"><table class="tabular"><tr class="top_border"><td class="left_border align_left right_border">copy_from</td>
+<td class="align_left right_border">(external body) Used to copy files - see Standard Library section.</td>
+</tr><tr><td class="left_border align_left right_border">create</td>
+<td class="align_left right_border">true/false whether to create non-existing file</td>
+</tr><tr><td class="left_border align_left right_border">edit_line</td>
+<td class="align_left right_border">Specifies name of edit_line bundle</td>
+</tr><tr><td class="left_border align_left right_border">edit_template</td>
+<td class="align_left right_border">The name of a special CFEngine template file to expand</td>
+</tr><tr><td class="left_border align_left right_border">perms</td>
+<td class="align_left right_border">(external body) Used to set file attributes like permissions, ownership, etc.<span class="intersentencespace"></span> See Standard Library section.</td>
+</tr><tr><td class="left_border align_left right_border">touch</td>
+<td class="align_left right_border">true/false whether to touch time stamps on file</td>
+</tr><tr class="bottom_border"><td class="left_border align_left right_border">transformer</td>
+<td class="align_left right_border">Command (with full path) used to transform current file (no shell wrapper used)</td>
+</tr></table><div class="caption"><span class="header">Table 19.7</span></div></div>
+</div>
+<div id="uid529" data-tralics-id="uid529" class="subsection" data-number="19.3.7"><h3><a href="cfengine_955.html#uid529" class="heading hyperref"><span class="number">19.3.7 </span>packages</a></h3>
+<div id="uid530" data-tralics-id="uid530" data-number="19.8" class="table"><table class="tabular"><tr class="top_border"><td class="left_border align_left right_border">package_architectures</td>
+<td class="align_left right_border">Select architecture for package selection</td>
+</tr><tr class="bottom_border"><td class="left_border align_left right_border">package_policy</td>
+<td class="align_left right_border">Criteria for package installation/upgrade on the current system (e.g.<span class="intersentencespace"></span> “add”, “delete”)</td>
+</tr></table><div class="caption"><span class="header">Table 19.8</span></div></div>
+</div>
+<div id="uid531" data-tralics-id="uid531" class="subsection" data-number="19.3.8"><h3><a href="cfengine_955.html#uid531" class="heading hyperref"><span class="number">19.3.8 </span>processes</a></h3>
+<div id="uid532" data-tralics-id="uid532" data-number="19.9" class="table"><table class="tabular"><tr class="top_border"><td class="left_border align_left right_border">process_stop</td>
+<td class="align_left right_border">A command used to stop a running process gracefully</td>
+</tr><tr><td class="left_border align_left right_border">restart_class</td>
+<td class="align_left right_border">A class to be defined globally if the process is not running, so that a commands: rule can be referred to restart the process</td>
+</tr><tr class="bottom_border"><td class="left_border align_left right_border">signals</td>
+<td class="align_left right_border">Signals to be sent to a process</td>
+</tr></table><div class="caption"><span class="header">Table 19.9</span></div></div>
+</div>
+<div id="uid533" data-tralics-id="uid533" class="subsection" data-number="19.3.9"><h3><a href="cfengine_955.html#uid533" class="heading hyperref"><span class="number">19.3.9 </span>services</a></h3>
+<div id="uid534" data-tralics-id="uid534" data-number="19.10" class="table"><table class="tabular"><tr class="top_border bottom_border"><td class="left_border align_left right_border">service_policy</td>
+<td class="align_left right_border">Policy for service (start/stop)</td>
+</tr></table><div class="caption"><span class="header">Table 19.10</span></div></div>
+</div>
+<div id="uid535" data-tralics-id="uid535" class="subsection" data-number="19.3.10"><h3><a href="cfengine_955.html#uid535" class="heading hyperref"><span class="number">19.3.10 </span>Attributes in CFEngine Standard Library</a></h3>
+<div id="uid536" data-tralics-id="uid536" data-number="19.11" class="table"><table class="tabular"><tr class="top_border"><td class="left_border align_left right_border">Type</td>
+<td class="align_left right_border">Attribute</td>
+<td class="align_left right_border">Value</td>
+<td class="align_left right_border">Description</td>
+</tr><tr><td class="left_border align_left right_border"></td>
+<td class="align_left right_border">action</td>
+<td class="align_left right_border">immediate</td>
+<td class="align_left right_border">Do it, do it nowww!</td>
+</tr><tr><td class="left_border align_left right_border"></td>
+<td class="align_left right_border">action</td>
+<td class="align_left right_border">log_repaired</td>
+<td class="align_left right_border">Log a repair</td>
+</tr><tr><td class="left_border align_left right_border"></td>
+<td class="align_left right_border">classes</td>
+<td class="align_left right_border">if_repaired</td>
+<td class="align_left right_border">Set class(es) if a promise was repaired</td>
+</tr><tr><td class="left_border align_left right_border">files</td>
+<td class="align_left right_border">replace_with</td>
+<td class="align_left right_border">value</td>
+<td class="align_left right_border">Search and replace</td>
+</tr><tr><td class="left_border align_left right_border">files</td>
+<td class="align_left right_border">copy_from</td>
+<td class="align_left right_border">local_cp</td>
+<td class="align_left right_border">Copy files locally</td>
+</tr><tr><td class="left_border align_left right_border">files</td>
+<td class="align_left right_border">copy_from</td>
+<td class="align_left right_border">remote_cp</td>
+<td class="align_left right_border">Copy files from remote server</td>
+</tr><tr><td class="left_border align_left right_border">files</td>
+<td class="align_left right_border">changes</td>
+<td class="align_left right_border">detect_all_change</td>
+<td class="align_left right_border">File integrity check</td>
+</tr><tr><td class="left_border align_left right_border">files</td>
+<td class="align_left right_border">delete</td>
+<td class="align_left right_border">tidy</td>
+<td class="align_left right_border">Delete files, including symlinks to directories and empty directories.</td>
+</tr><tr><td class="left_border align_left right_border">files</td>
+<td class="align_left right_border">perms</td>
+<td class="align_left right_border">mog</td>
+<td class="align_left right_border">Set mode, owner, group attributes on a file</td>
+</tr><tr><td class="left_border align_left right_border">files</td>
+<td class="align_left right_border">edit_line</td>
+<td class="align_left right_border">insert_lines</td>
+<td class="align_left right_border">Make sure file contains lines</td>
+</tr><tr><td class="left_border align_left right_border">files</td>
+<td class="align_left right_border">edit_line</td>
+<td class="align_left right_border">expand_template</td>
+<td class="align_left right_border">Make sure file contains content expanded from a template</td>
+</tr><tr><td class="left_border align_left right_border">files</td>
+<td class="align_left right_border">edit_line</td>
+<td class="align_left right_border">set_config_values</td>
+<td class="align_left right_border">Set config values in a file</td>
+</tr><tr><td class="left_border align_left right_border">files</td>
+<td class="align_left right_border">depth_search</td>
+<td class="align_left right_border">depth</td>
+<td class="align_left right_border">Maximum depth level for search (use with depth(“inf”) to turn on unbounded recursion)</td>
+</tr><tr><td class="left_border align_left right_border">files</td>
+<td class="align_left right_border">file_select</td>
+<td class="align_left right_border">days_old(days)</td>
+<td class="align_left right_border">Select files by age</td>
+</tr><tr><td class="left_border align_left right_border">files</td>
+<td class="align_left right_border">file_select</td>
+<td class="align_left right_border">name_age(name,days)</td>
+<td class="align_left right_border">Select files by name and age</td>
+</tr><tr><td class="left_border align_left right_border">files</td>
+<td class="align_left right_border">location</td>
+<td class="align_left right_border">before</td>
+<td class="align_left right_border">Insert text before specified location</td>
+</tr><tr><td class="left_border align_left right_border">files</td>
+<td class="align_left right_border">location</td>
+<td class="align_left right_border">after</td>
+<td class="align_left right_border">Insert text after specified location</td>
+</tr><tr><td class="left_border align_left right_border">packages</td>
+<td class="align_left right_border">package_method</td>
+<td class="align_left right_border">yum</td>
+<td class="align_left right_border">Interface with YUM package manager</td>
+</tr><tr><td class="left_border align_left right_border">packages</td>
+<td class="align_left right_border">package_method</td>
+<td class="align_left right_border">apt</td>
+<td class="align_left right_border">Interface with APT package manager</td>
+</tr><tr class="bottom_border"><td class="left_border align_left right_border">commands</td>
+<td class="align_left right_border">contain</td>
+<td class="align_left right_border">useshell</td>
+<td class="align_left right_border">Run the command in a shell to use I/O redirection or pipelining</td>
+</tr></table><div class="caption"><span class="header">Table 19.11</span></div></div>
+</div></div>
+<div id="cid85" data-tralics-id="cid85" class="section" data-number="19.4"><h2><a href="cfengine_955.html#cid85" class="heading hyperref"><span class="number">19.4 </span>Functions</a></h2>
+<div id="uid537" data-tralics-id="uid537" data-number="19.12" class="table"><table class="tabular"><tr class="top_border"><td class="left_border align_left right_border">fileexists()</td>
+<td class="align_left right_border">Returns “true” if the named file can be accessed</td>
+</tr><tr class="bottom_border"><td class="left_border align_left right_border">classmatch()</td>
+<td class="align_left right_border">Returns “true” if the regular expression matches any currently defined class</td>
+</tr></table><div class="caption"><span class="header">Table 19.12</span></div></div>
+</div>
+<div id="cid86" data-tralics-id="cid86" class="section" data-number="19.5"><h2><a href="cfengine_955.html#cid86" class="heading hyperref"><span class="number">19.5 </span>Special Variables</a></h2>
+<div id="uid538" data-tralics-id="uid538" data-number="19.13" class="table"><table class="tabular"><tr class="top_border"><td class="left_border align_left right_border">$(sys.date)</td>
+<td class="align_left right_border">Current time and date</td>
+</tr><tr><td class="left_border align_left right_border">$(sys.host)</td>
+<td class="align_left right_border">Hostname</td>
+</tr><tr class="bottom_border"><td class="left_border align_left right_border">$(sys.policy_hub)</td>
+<td class="align_left right_border">Address of our policy server.</td>
+</tr></table><div class="caption"><span class="header">Table 19.13</span></div></div>
+</div>
+    </div>
+  </body>
+</html>

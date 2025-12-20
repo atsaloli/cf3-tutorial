@@ -1,0 +1,344 @@
+<div id="cid1" data-tralics-id="cid1" class="chapter" data-number="1" data-chapter="cfengine_100"><h1><a href="cfengine_100_fragment.html#cid1" class="heading hyperref"><span class="number">Chapter 1 </span>Orientation</a></h1>
+</div><div id="cid2" data-tralics-id="cid2" class="section" data-number="1.1"><h2><a href="cfengine_100_fragment.html#cid2" class="heading hyperref"><span class="number">1.1 </span>About the CFEngine Examples Collection</a></h2>
+<div id="uid1" data-tralics-id="uid1" class="subsection" data-number="1.1.1"><h3><a href="cfengine_100_fragment.html#uid1" class="heading hyperref"><span class="number">1.1.1 </span>About the Author</a></h3>
+<p>I’ve been working in IT Operations since the mid-nineties, mostly as a
+UNIX/Linux System Administrator of one kind or another, though now I’m
+called DevOps Engineer.</p>
+<p>I’ve helped a number of organizations, large and small, adopt CFEngine,
+and have been recognized as a CFEngine Community Champion by Northern.tech,
+the company behind CFEngine.</p>
+<p>I was trained on CFEngine by Mark Burgess, the author of CFEngine.</p>
+</div>
+<div id="uid2" data-tralics-id="uid2" class="subsection" data-number="1.1.2"><h3><a href="cfengine_100_fragment.html#uid2" class="heading hyperref"><span class="number">1.1.2 </span>About the Course</a></h3>
+<p><em>Introduction to Automating System Administration with CFEngine 3 (5 days)</em></p>
+<p><strong>Requirements</strong>: No knowledge of CFEngine or configuration management is
+required, only basic knowledge of system administration.</p>
+<p><strong>Hardware requirements</strong>: Bring a laptop with wi-fi capability.</p>
+<p>At the end of this course you will be able to:</p>
+<ul>
+<li><p class="noindent"> Automate system administration (server setup, maintenance and compliance reporting),</p>
+</li>
+<li><p class="noindent"> Create a trustworthy and reliable computing services infrastructure.<span class="intersentencespace"></span></p>
+</li></ul>
+</div>
+<div id="uid5" data-tralics-id="uid5" class="subsection" data-number="1.1.3"><h3><a href="cfengine_100_fragment.html#uid5" class="heading hyperref"><span class="number">1.1.3 </span>Discussion Question</a></h3>
+<p>What problems would you like to solve with automation?</p>
+</div>
+<div id="uid6" data-tralics-id="uid6" class="subsection" data-number="1.1.4"><h3><a href="cfengine_100_fragment.html#uid6" class="heading hyperref"><span class="number">1.1.4 </span>Training Examples</a></h3>
+<p>I’ve put together this collection of over 200 standalone working examples
+of CFEngine 3 code to help get infrastructure engineers up to speed with
+CFEngine 3.</p>
+<p>These examples <em>supplement</em> the examples in the official documentation.</p>
+<p>All examples are standalone and runnable.</p>
+<p>If you have trouble with any of them, please let me know!</p>
+</div>
+<div id="uid7" data-tralics-id="uid7" class="subsection" data-number="1.1.5"><h3><a href="cfengine_100_fragment.html#uid7" class="heading hyperref"><span class="number">1.1.5 </span>GitHub Repo</a></h3>
+<p>This collection grew to support my professional course “Introduction
+to Automating System Administration using CFEngine 3”.</p>
+<p>I’ve put these materials online to make it easier for infrastructure
+engineers to learn CFEngine 3, to build a stable civilization.</p>
+<p><a href="https://github.com/atsaloli/cf3-tutorial" target="_blank" rel="noopener">https://github.com/atsaloli/cf3-tutorial</a></p>
+</div>
+<div id="uid8" data-tralics-id="uid8" class="subsection" data-number="1.1.6"><h3><a href="cfengine_100_fragment.html#uid8" class="heading hyperref"><span class="number">1.1.6 </span>Using the Examples</a></h3>
+<p>The materials are arranged in logical sequence for study.</p>
+<p>You may also use them to find examples of a specific
+feature or promise attribute.</p>
+</div>
+<div id="uid9" data-tralics-id="uid9" class="subsection" data-number="1.1.7"><h3><a href="cfengine_100_fragment.html#uid9" class="heading hyperref"><span class="number">1.1.7 </span>Run the Examples</a></h3>
+<p>Try out and run the examples.<span class="intersentencespace"></span> Modify them.<span class="intersentencespace"></span> Do the provided
+exercises to practice using this new tool and to get to know
+it.</p>
+<p>Work your way through the materials until you understand them
+and have done the provided exercises.<span class="intersentencespace"></span> There are additional
+exercises at the end of the tutorial, or just start writing
+your own code!</p>
+</div>
+<div id="uid10" data-tralics-id="uid10" class="subsection" data-number="1.1.8"><h3><a href="cfengine_100_fragment.html#uid10" class="heading hyperref"><span class="number">1.1.8 </span>Look Up Unfamiliar Terms</a></h3>
+<p>Look up unfamiliar terms in the <a href="http://docs.cfengine.com" target="_blank" rel="noopener">CFEngine Reference
+Manual</a>, or in a good <a href="http://www.onelook.com" target="_blank" rel="noopener">English
+dictionary</a>.</p>
+</div>
+<div id="uid11" data-tralics-id="uid11" class="subsection" data-number="1.1.9"><h3><a href="cfengine_100_fragment.html#uid11" class="heading hyperref"><span class="number">1.1.9 </span>Feedback Wanted</a></h3>
+<p>If these examples are helpful to you, if you have any questions,
+or if you would like to contribute an example, please email me
+at aleksey (at) verticalsysadmin.com.<span class="intersentencespace"></span> I would love to hear from you!</p>
+</div></div><div id="cid3" data-tralics-id="cid3" class="section" data-number="1.2"><h2><a href="cfengine_100_fragment.html#cid3" class="heading hyperref"><span class="number">1.2 </span>Why Automation?</a></h2>
+<blockquote class="quote">Every time someone logs onto a system by hand, they jeopardize
+everyone’s understanding of the system.</blockquote>
+<blockquote class="quote">— Mark Burgess, author of CFEngine</blockquote>
+<p>Benefits of automation:</p>
+<ul>
+<li><p class="noindent"> decreases labor costs</p>
+</li>
+<li><p class="noindent"> increases quality of IT services</p>
+</li>
+<li><p class="noindent"> frees humans from drudgery, to focus on more challenging work</p>
+</li></ul>
+<p>See “Why Automation?”<span class="intersentencespace"></span> in the original <a href="https://auth.cfengine.com/archive/manuals/cf3-tutorial#Why-automation_003f" target="_blank" rel="noopener">CFEngine 3 Tutorial</a></p>
+</div><div id="cid4" data-tralics-id="cid4" class="section" data-number="1.3"><h2><a href="cfengine_100_fragment.html#cid4" class="heading hyperref"><span class="number">1.3 </span>What is CFEngine?</a></h2>
+<p>At this point a brief introductory lecture is given on what is CFEngine
+and desired state management, based on the presentation by Mark Burgess
+at USENIX Configuration Management summit 2010.</p>
+<p>Link:</p>
+<p><a href="https://github.com/atsaloli/cf3-tutorial/raw/master/mark-burgess-config10-slideshow/burgess-config10-pg01-06.pdf" target="_blank" rel="noopener">https://github.com/atsaloli/cf3-tutorial/raw/master/mark-burgess-config10-slideshow/burgess-config10-pg01-06.pdf</a></p>
+<p>Reference:</p>
+<p>Slides 1-6 from <a href="https://www.usenix.org/legacy/event/config10/burgess.pdf" target="_blank" rel="noopener">https://www.usenix.org/legacy/event/config10/burgess.pdf</a></p>
+<div id="uid15" data-tralics-id="uid15" class="subsection" data-number="1.3.1"><h3><a href="cfengine_100_fragment.html#uid15" class="heading hyperref"><span class="number">1.3.1 </span>Declarative/Imperative and Promise Theory</a></h3>
+<p>At this point we switch to Nick Anderson’s “CFEngine Zero to Hero
+Primer” slidedeck and go over the following sections:</p>
+<ul>
+<li><p class="noindent"> Declarative/Imperative</p>
+</li>
+<li><p class="noindent"> Promise Theory</p>
+</li></ul>
+<p><a href="https://htmlpreview.github.io/?https://github.com/nickanderson/CFEngine-zero-to-hero-primer/blob/master/CFEngine-zero-to-hero.html" target="_blank" rel="noopener">https://htmlpreview.github.io/?https://github.com/nickanderson/CFEngine-zero-to-hero-primer/blob/master/CFEngine-zero-to-hero.html</a></p>
+</div>
+<div id="uid18" data-tralics-id="uid18" class="subsection" data-number="1.3.2"><h3><a href="cfengine_100_fragment.html#uid18" class="heading hyperref"><span class="number">1.3.2 </span>System Lifecycle and Automation</a></h3>
+<p>The following system lifecycle diagram is from Remy Evard, “An Analysis
+of UNIX System Configuration”, USENIX Proceedings: Eleventh Systems
+Administration Conference (LISA 1997), October 26-31, 1997</p>
+<p><a href="https://raw.githubusercontent.com/atsaloli/cf3-tutorial/master/images/figures/lifecycle.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/atsaloli/cf3-tutorial/master/images/figures/lifecycle.png</a></p>
+<div class="graphics image"><img src="images/figures/lifecycle.png" alt="images/figures/lifecycle" /></div>
+</div></div><div id="cid5" data-tralics-id="cid5" class="section" data-number="1.4"><h2><a href="cfengine_100_fragment.html#cid5" class="heading hyperref"><span class="number">1.4 </span>Why CFEngine?</a></h2>
+<ul>
+<li><p class="noindent"> Mature (since 1993, now in its third generation)</p>
+</li>
+<li><p class="noindent"> Small footprint (can run everywhere and run often)</p>
+</li>
+<li><p class="noindent"> Fast!!<span class="intersentencespace"></span></p>
+</li>
+<li><p class="noindent"> Scalable (real-world deployments of hundreds of thousands of hosts
+or more)</p>
+</li>
+<li><p class="noindent"> Secure (check the US National Vulnerabilities Database, much less
+vulnerabilities due to a more secure design)</p>
+</li>
+<li><p class="noindent"> Portable (many systems and platforms supported)</p>
+</li>
+<li><p class="noindent"> The only configuration management tool based on science (author is a
+theoretical physicist turned Computer Science researcher)</p>
+</li></ul>
+<p>To learn more, see <a href="http://markburgess.org/blog_principles.html" target="_blank" rel="noopener">20 Years of
+CFEngine</a>, by Mark Burgess.</p>
+<div id="uid26" data-tralics-id="uid26" class="subsection" data-number="1.4.1"><h3><a href="cfengine_100_fragment.html#uid26" class="heading hyperref"><span class="number">1.4.1 </span>Scalability</a></h3>
+<p>It takes the same amount of time to deploy and validate changes
+with CFEngine regardless of fleet size.</p>
+<p><a href="https://github.com/atsaloli/cf3-tutorial/raw/master/images/figures/AnsibleCFEngine_whitepaper_2.png" target="_blank" rel="noopener">https://github.com/atsaloli/cf3-tutorial/raw/master/images/figures/AnsibleCFEngine_whitepaper_2.png</a></p>
+<p>Graph from “Ansible and CFEngine Scalability” by Vratislav Podzimek, Northern.tech
+whitepaper, 12 January 2021.</p>
+</div>
+<div id="uid27" data-tralics-id="uid27" class="subsection" data-number="1.4.2"><h3><a href="cfengine_100_fragment.html#uid27" class="heading hyperref"><span class="number">1.4.2 </span>NVD Search Results Comparison</a></h3>
+<p>The following is the CVE count as of 30 January 2021.</p>
+<div id="uid28" data-tralics-id="uid28" data-number="1.1" class="table"><table class="tabular"><tr class="top_border bottom_border"><td class="left_border align_left right_border">Product</td>
+<td class="align_left right_border">NVD CVE Search Results</td>
+</tr><tr><td class="left_border align_left right_border">CFEngine</td>
+<td class="align_left right_border">2 for CFEngine version 3.x (released 2008)</td>
+</tr><tr><td class="left_border align_left right_border">Puppet</td>
+<td class="align_left right_border">177</td>
+</tr><tr><td class="left_border align_left right_border">Chef</td>
+<td class="align_left right_border">42</td>
+</tr><tr><td class="left_border align_left right_border">Ansible</td>
+<td class="align_left right_border">92</td>
+</tr><tr class="bottom_border"><td class="left_border align_left right_border">SaltStack</td>
+<td class="align_left right_border">34</td>
+</tr></table><div class="caption"><span class="header">Table 1.1</span></div></div>
+<p>NVD links:
+- <a href="https://nvd.nist.gov/vuln/search/results?form_type=Basic&amp;results_type=overview&amp;query=cfengine&amp;search_type=all" target="_blank" rel="noopener">CFEngine</a>
+- <a href="https://nvd.nist.gov/vuln/search/results?form_type=Basic&amp;results_type=overview&amp;query=puppet&amp;search_type=all" target="_blank" rel="noopener">Puppet</a>
+- <a href="https://nvd.nist.gov/vuln/search/results?form_type=Basic&amp;results_type=overview&amp;query=chef&amp;search_type=all" target="_blank" rel="noopener">Chef</a>
+- <a href="https://nvd.nist.gov/vuln/search/results?form_type=Basic&amp;results_type=overview&amp;query=ansible&amp;search_type=all" target="_blank" rel="noopener">Ansible</a>
+- <a href="https://nvd.nist.gov/vuln/search/results?form_type=Basic&amp;results_type=overview&amp;query=saltstack&amp;search_type=all" target="_blank" rel="noopener">SaltStack</a></p>
+</div></div><div id="cid6" data-tralics-id="cid6" class="section" data-number="1.5"><h2><a href="cfengine_100_fragment.html#cid6" class="heading hyperref"><span class="number">1.5 </span>CFEngine Packages</a></h2>
+<div id="uid29" data-tralics-id="uid29" class="subsection" data-number="1.5.1"><h3><a href="cfengine_100_fragment.html#uid29" class="heading hyperref"><span class="number">1.5.1 </span>CFEngine Packages</a></h3>
+<p>CFEngine is available in two flavors.</p>
+<div id="uid30" data-tralics-id="uid30" class="subsubsection" data-number="1.5.1.1"><h4><a href="#uid30" class="heading">Open Source Core</a></h4>
+<list type="description"><label><strong>cfengine-community</strong></label>
+<li><p class="noindent">Open-source product, also known as CFEngine Core.<span class="intersentencespace"></span></p>
+</li></list>
+</div>
+<div id="uid32" data-tralics-id="uid32" class="subsubsection" data-number="1.5.1.2"><h4><a href="#uid32" class="heading">Enterprise</a></h4>
+<list type="description"><label><strong>cfengine-nova</strong></label>
+<li><p class="noindent">Core plus Enterprise extensions (reporting, native Windows build, etc.).</p>
+</li><label><strong>cfengine-nova-hub</strong></label>
+<li><p class="noindent">cfengine-nova plus the the Mission Portal (Web UI on an Apache/PHP/PostgreSQL stack; and inventory and compliance report collector).<span class="intersentencespace"></span></p>
+</li></list>
+<p>A note on naming: The name for the first generation of the CFEngine Enterprise product was “Nova”, which is still reflected in the name of the Enterprise packages.<span class="intersentencespace"></span> The original plan was to have progressively larger star names like “Constellation” and “Galaxy”, that would each have progressively more features.</p>
+</div></div>
+<div id="uid35" data-tralics-id="uid35" class="subsection" data-number="1.5.2"><h3><a href="cfengine_100_fragment.html#uid35" class="heading hyperref"><span class="number">1.5.2 </span>Inspect the CFEngine Core Package</a></h3>
+<div id="uid36" data-tralics-id="uid36" class="subsubsection" data-number="1.5.2.1"><h4><a href="#uid36" class="heading">Download Core package</a></h4>
+<div class="code"><div class="highlight"><pre><span></span>wget https://cfengine-package-repos.s3.amazonaws.com/community_binaries/<span class="se">\</span>
+Community-3.12.6/agent_rhel8_x86_64/cfengine-community-3.12.6-1.el8.x86_64.rpm
+</pre></div></div>
+<p>or get it from <a href="https://cfengine.com/product/community/" target="_blank" rel="noopener">CFEngine</a></p>
+</div>
+<div id="uid37" data-tralics-id="uid37" class="subsubsection" data-number="1.5.2.2"><h4><a href="#uid37" class="heading">Examine package</a></h4>
+<p>Let’s examine the package so you can see what gets installed on your system when you install Core.</p>
+<div class="code"><div class="highlight"><pre><span></span>rpm -q --filesbypkg cfengine-community-*.rpm <span class="p">|</span> less
+</pre></div></div>
+</div></div>
+<div id="uid38" data-tralics-id="uid38" class="subsection" data-number="1.5.3"><h3><a href="cfengine_100_fragment.html#uid38" class="heading hyperref"><span class="number">1.5.3 </span>CFEngine Enterprise - Reporting</a></h3>
+<p>CFEngine Enterprise unlocks unparalleled insight into infrastructure:</p>
+<ul>
+<li><p class="noindent"> promise compliance (including outliers)</p>
+</li>
+<li><p class="noindent"> changes (repairs)</p>
+</li>
+<li><p class="noindent"> inventory and compliance reports (at any level of abstraction – from
+enterprise-wide down to an individual host)</p>
+</li></ul>
+<p>CFEngine Enterprise components:</p>
+<ul>
+<li><p class="noindent"> Hub (report collection and admin UI)</p>
+</li>
+<li><p class="noindent"> Super-Hub (reporting UI, for large enterprises)</p>
+</li></ul>
+<p>How reporting works:</p>
+<ol>
+<li><p class="noindent"> Hubs pull policy from version control (e.g.<span class="intersentencespace"></span> Git)</p>
+</li>
+<li><p class="noindent"> Hosts pull policy from hubs and execute it and create inventory and
+compliance reports</p>
+</li>
+<li><p class="noindent"> Hubs download inventory/compliance reports from hosts and aggregate them</p>
+</li></ol>
+</div></div><div id="cid7" data-tralics-id="cid7" class="section" data-number="1.6"><h2><a href="cfengine_100_fragment.html#cid7" class="heading hyperref"><span class="number">1.6 </span>CFEngine Components</a></h2>
+<p>CFEngine 3 consists of a number of components.</p>
+<div id="uid47" data-tralics-id="uid47" class="subsection" data-number="1.6.1"><h3><a href="cfengine_100_fragment.html#uid47" class="heading hyperref"><span class="number">1.6.1 </span>Syntax Checker</a></h3>
+<list type="description"><label><strong>cf-promises</strong></label>
+<li><p class="noindent">Syntax checker.<span class="intersentencespace"></span></p>
+</li></list>
+<div class="code"><div class="highlight"><pre><span></span>cf-promises -f ./your_policy.cf
+</pre></div></div>
+<p>Every CFEngine component runs <code>cf-promises</code> on policy files before reading them in.</p>
+<div id="uid49" data-tralics-id="uid49" class="subsubsection" data-number="1.6.1.1"><h4><a href="#uid49" class="heading">Syntax Description</a></h4>
+<p>You can also use <code>cf-promises</code> to dump a JSON document
+describing the available syntax elements.</p>
+<div class="code"><div class="highlight"><pre><span></span>sudo cf-promises --syntax-description json --file /dev/null
+</pre></div></div>
+<p>Note: The syntax dump feature was “bolted on” to <code>cf-promises</code>,
+so that’s why <code>cf-promises</code> <em>requires</em> the <code>–file</code> switch.</p>
+</div>
+<div id="uid50" data-tralics-id="uid50" class="subsubsection" data-number="1.6.1.2"><h4><a href="#uid50" class="heading">cf-syntax alias</a></h4>
+<div class="code"><div class="highlight"><pre><span></span><span class="nb">alias</span> cf-syntax<span class="o">=</span><span class="s1">'sudo cf-promises --syntax-description json --file /dev/null'</span>
+</pre></div></div>
+</div>
+<div id="uid51" data-tralics-id="uid51" class="subsubsection" data-number="1.6.1.3"><h4><a href="#uid51" class="heading">Parsing JSON with jq</a></h4>
+<p>You can use <code>jq</code> to parse/query JSON data such as that returned by
+<code>cf-promises</code>.</p>
+<div3 id="uid52" data-tralics-id="uid52" data-number="">Installing jq
+<p>On RHEL 7, use the latest Fedora EPEL repo to install <code>jq</code>.</p>
+<p>References:
+* https://stedolan.github.io/jq/</p>
+</div3>
+<div3 id="uid53" data-tralics-id="uid53" data-number="">Using jq to parse CFEngine syntax document
+<p>Example of using jq – list all available promise types:</p>
+<div class="code"><div class="highlight"><pre><span></span><span class="gp">$ </span>cf-syntax <span class="p">|</span> jq <span class="s1">'.promiseTypes | keys'</span> <span class="p">|</span> head
+<span class="go">[</span>
+<span class="go">  "access",</span>
+<span class="go">  "build_xpath",</span>
+<span class="go">  "classes",</span>
+<span class="go">  "commands",</span>
+<span class="go">  "databases",</span>
+<span class="go">  "defaults",</span>
+<span class="go">  "delete_attribute",</span>
+<span class="go">  "delete_lines",</span>
+<span class="go">  "delete_text",</span>
+<span class="go">...</span>
+</pre></div></div>
+</div3></div></div>
+<div id="uid54" data-tralics-id="uid54" class="subsection" data-number="1.6.2"><h3><a href="cfengine_100_fragment.html#uid54" class="heading hyperref"><span class="number">1.6.2 </span>Agent</a></h3>
+<list type="description"><label><strong>cf-agent</strong></label>
+<li><p class="noindent">The CFEngine component that audits and makes any needed repairs to your system.<span class="intersentencespace"></span> Actually does the work, as far as configuration management is concerned.<span class="intersentencespace"></span> This is the workhorse.<span class="intersentencespace"></span></p>
+</li></list>
+<div class="code"><div class="highlight"><pre><span></span>cf-agent -f ./your_policy.cf
+</pre></div></div>
+</div>
+<div id="uid56" data-tralics-id="uid56" class="subsection" data-number="1.6.3"><h3><a href="cfengine_100_fragment.html#uid56" class="heading hyperref"><span class="number">1.6.3 </span>Executor</a></h3>
+<list type="description"><label><strong>cf-execd</strong></label>
+<li><p class="noindent">Runs cf-agent on a regular basis, and handles its output.<span class="intersentencespace"></span></p>
+</li></list>
+</div>
+<div id="uid58" data-tralics-id="uid58" class="subsection" data-number="1.6.4"><h3><a href="cfengine_100_fragment.html#uid58" class="heading hyperref"><span class="number">1.6.4 </span>Network Communication</a></h3>
+<list type="description"><label><strong>cf-serverd</strong></label>
+<li><p class="noindent">Has three functions:
+- file server, for distributing files
+- reports server (Enterprise only)
+- listens for network requests for additional runs of the local agent</p>
+</li><label><strong>cf-runagent</strong></label>
+<li><p class="noindent">Triggers cf-agent on a remote machine (connects to remote cf-serverd).</p>
+</li><label><strong>cf-hub</strong></label>
+<li><p class="noindent">CFEngine Enterprise only, collects reports from hosts (connects to remote cf-serverd).<span class="intersentencespace"></span></p>
+</li></list>
+</div>
+<div id="uid62" data-tralics-id="uid62" class="subsection" data-number="1.6.5"><h3><a href="cfengine_100_fragment.html#uid62" class="heading hyperref"><span class="number">1.6.5 </span>Monitoring</a></h3>
+<list type="description"><label><strong>cf-monitord</strong></label>
+<li><p class="noindent">Passive monitoring agent, collects information about the status of the system (which can be reported or used to influence when promises are enforced).<span class="intersentencespace"></span></p>
+</li></list>
+</div>
+<div id="uid64" data-tralics-id="uid64" class="subsection" data-number="1.6.6"><h3><a href="cfengine_100_fragment.html#uid64" class="heading hyperref"><span class="number">1.6.6 </span>Utilities</a></h3>
+<list type="description"><label><strong>cf-check</strong></label>
+<li><p class="noindent">Utility for diagnosis and repair of local CFEngine databases.<span class="intersentencespace"></span> Intended to detect and repair a corrupt database.</p>
+</li><label><strong>cf-net</strong></label>
+<li><p class="noindent">Testing/debugging tool.<span class="intersentencespace"></span> cf-net connects to cf-serverd on a specified host and can issue arbitrary CFEngine protocol commands.</p>
+</li><label><strong>cf-key</strong></label>
+<li><p class="noindent">Generates the keypair used to secure network communications.</p>
+</li><label><strong>cf-upgrade</strong></label>
+<li><p class="noindent">Helper tool used by CFEngine to upgrade itself (version update).<span class="intersentencespace"></span></p>
+</li></list>
+</div>
+<div id="uid69" data-tralics-id="uid69" class="subsection" data-number="1.6.7"><h3><a href="cfengine_100_fragment.html#uid69" class="heading hyperref"><span class="number">1.6.7 </span>A Note on Size</a></h3>
+<p>The CFEngine agent is a small C binary.<span class="intersentencespace"></span> The other components are even smaller C binaries.</p>
+<div class="code"><div class="highlight"><pre><span></span><span class="gp">$ </span>ls -lh /var/cfengine/bin/cf-* <span class="p">|</span>
+<span class="go">&gt; awk '{print $NF, $5}' | sort | column -t</span>
+<span class="go">/var/cfengine/bin/cf-agent     1.8M</span>
+<span class="go">/var/cfengine/bin/cf-check     710K</span>
+<span class="go">/var/cfengine/bin/cf-execd     160K</span>
+<span class="go">/var/cfengine/bin/cf-key       84K</span>
+<span class="go">/var/cfengine/bin/cf-monitord  448K</span>
+<span class="go">/var/cfengine/bin/cf-net       73K</span>
+<span class="go">/var/cfengine/bin/cf-promises  53K</span>
+<span class="go">/var/cfengine/bin/cf-runagent  69K</span>
+<span class="go">/var/cfengine/bin/cf-serverd   472K</span>
+<span class="go">/var/cfengine/bin/cf-upgrade   68K</span>
+<span class="gp">$</span>
+</pre></div></div>
+<p>Because CFEngine is lightweight, it’s fast.<span class="intersentencespace"></span> It can be run frequently to monitor and maintain
+infrastructure health.</p>
+<p>CFEngine 1 was intended to be run once a day.</p>
+<p>CFEngine 2 was intended to be run once an hour.</p>
+<p>CFEngine 3 default run frequency is every 5 minutes.</p>
+<p>At 5 minutes, systems can self-heal faster than if they were repaired by human operators.</p>
+</div>
+<div id="uid70" data-tralics-id="uid70" class="subsection" data-number="1.6.8"><h3><a href="cfengine_100_fragment.html#uid70" class="heading hyperref"><span class="number">1.6.8 </span>Add-ons</a></h3>
+<p>A number of add-on tools are available, thanks to community contributions.<span class="intersentencespace"></span> For example:</p>
+<list type="description"><label><strong>cf-diag</strong></label>
+<li><p class="noindent">Diagnostic tool (checks the health of a CFEngine host).</p>
+</li><label><strong>masterfiles-stage</strong></label>
+<li><p class="noindent">Policy deployment tool - designed to run on the Policy Server and safely deploy policy from upstream locations to a directory on the Policy Server for distribution to clients.</p>
+</li><label><strong>cf-profile</strong></label>
+<li><p class="noindent">Measures how long your code takes to run so you can keep CFEngine agent runs blazing fast.</p>
+</li><label><strong>cf-remote</strong></label>
+<li><p class="noindent">Tooling to deploy CFEngine on remote hosts.<span class="intersentencespace"></span></p>
+</li></list>
+<p>And more!<span class="intersentencespace"></span> Check out <a href="https://github.com/cfengine/core/blob/master/contrib/" target="_blank" rel="noopener">https://github.com/cfengine/core/blob/master/contrib/</a></p>
+<p>CFEngine daemons</p>
+<p>Here is what you typically see between <code>cf-agent</code> runs:</p>
+<div class="code"><div class="highlight"><pre><span></span><span class="gp">$ </span>ps -ef <span class="p">|</span>grep <span class="o">[</span>c<span class="o">]</span>f-
+<span class="go">root     807   1  0 Jan26 ?    00:00:34 /var/cfengine/bin/cf-monitord --no-fork</span>
+<span class="go">root     833   1  0 Jan26 ?    00:00:13 /var/cfengine/bin/cf-execd --no-fork</span>
+<span class="go">root    1367   1  0 Jan26 ?    00:00:08 /var/cfengine/bin/cf-serverd --no-fork</span>
+<span class="gp">$</span>
+</pre></div></div>
+</div>
+<div id="uid75" data-tralics-id="uid75" class="subsection" data-number="1.6.9"><h3><a href="cfengine_100_fragment.html#uid75" class="heading hyperref"><span class="number">1.6.9 </span>Review: CFEngine Binaries</a></h3>
+<p>What do these binaries do?</p>
+<ul>
+<li><p class="noindent"> cf-agent</p>
+</li>
+<li><p class="noindent"> cf-promises</p>
+</li>
+<li><p class="noindent"> cf-execd</p>
+</li>
+<li><p class="noindent"> cf-serverd</p>
+</li></ul>
+</div></div>

@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link href="stylesheets/pygments.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="stylesheets/softcover.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="stylesheets/custom.css" media="screen" rel="stylesheet" type="text/css">
+    
+    <title>cfengine3</title>
+    
+      <script type="text/x-mathjax-config">
+              MathJax.Hub.Config({
+        "HTML-CSS": {
+          availableFonts: ["TeX"],
+        },
+        TeX: {
+          extensions: ["AMSmath.js", "AMSsymbols.js", "color.js"],
+          equationNumbers: {
+            autoNumber: "AMS",
+            formatNumber: function (n) { return "15" + '.' + n }
+          },
+          Macros: {
+            PolyTeX:    "Poly{\\TeX}",
+            PolyTeXnic: "Poly{\\TeX}nic",
+            "softcover": "\\texttt{softcover}",
+"unitvec": ["{\\hat #1}", 1]
+          }
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        imageFont: null,
+        "AssistiveMML": { disabled: true }
+      });
+
+        if (/PhantomJS/.test(window.navigator.userAgent)) {
+          MathJax.Hub.Queue([alert, 'MathJax Done']);
+        }
+      </script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_SVG"></script>
+    
+  </head>
+  <body>
+    
+    <div id="book">
+      <div id="cid69" data-tralics-id="cid69" class="chapter" data-number="15" data-chapter="cfengine_510"><h1><a href="cfengine_510.html#cid69" class="heading hyperref"><span class="number">Chapter 15 </span>Special Variables</a></h1>
+</div>
+<div id="cid70" data-tralics-id="cid70" class="section" data-number="15.1"><h2><a href="cfengine_510.html#cid70" class="heading hyperref"><span class="number">15.1 </span>CFEngine Special Variables</a></h2>
+<div id="uid473" data-tralics-id="uid473" class="subsection" data-number="15.1.1"><h3><a href="cfengine_510.html#uid473" class="heading hyperref"><span class="number">15.1.1 </span>Introduction</a></h3>
+<p>CFEngine has some special variables.</p>
+<p>You can see the whole list in the <a href="https://docs.cfengine.com/docs/3.12/reference-special-variables.html" target="_blank" rel="noopener">Special Variables</a>
+section of the reference manual, but here is a taste of them.</p>
+</div>
+<div id="uid474" data-tralics-id="uid474" class="subsection" data-number="15.1.2"><h3><a href="cfengine_510.html#uid474" class="heading hyperref"><span class="number">15.1.2 </span>Constants</a></h3>
+<div class="codelisting" id="uid475" data-tralics-id="uid475" data-number="15.1"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 15.1:</span> <span class="description">510-050-Special_Variables-0310-Const.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">vars</span><span class="p">:</span>
+   <span class="p">"</span><span class="nv">name</span><span class="p">"</span>
+     <span class="kt">string</span> <span class="o">=&gt;</span> <span class="s">"Inigo Montoya"</span><span class="p">;</span>
+
+  <span class="kd">reports</span><span class="p">:</span>
+      <span class="s">"A carriage return character is </span><span class="si">$(const.r)</span><span class="s">The carriage has returned."</span><span class="p">;</span>
+
+      <span class="s">"A report with a</span><span class="si">$(const.t)</span><span class="s">tab in it"</span><span class="p">;</span>
+
+
+      <span class="s">"Backslash does not work to stop variable interpolation:"</span><span class="p">;</span>
+      <span class="s">"The value of variable named </span><span class="se">\$</span><span class="s">(const.dollar) is </span><span class="si">$(const.dollar)</span><span class="s">"</span><span class="p">;</span>
+      <span class="s">"Therefore:"</span><span class="p">;</span>
+      <span class="s">"value of </span><span class="se">\$</span><span class="s">(name) is </span><span class="si">$(name)</span><span class="s">"</span><span class="p">;</span>
+      <span class="s">"value of </span><span class="si">$(const.dollar)</span><span class="s">(name) is </span><span class="si">$(name)</span><span class="s">"</span><span class="p">;</span>
+
+      <span class="s">"A newline with either </span><span class="si">$(const.n)</span><span class="s"> or with </span><span class="si">$(const.endl)</span><span class="s"> is ok"</span><span class="p">;</span>
+      <span class="s">"But a string with </span><span class="se">\n</span><span class="s"> in it does not have a newline!"</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div></div></div>
+<div id="uid476" data-tralics-id="uid476" class="subsection" data-number="15.1.3"><h3><a href="cfengine_510.html#uid476" class="heading hyperref"><span class="number">15.1.3 </span>Edit</a></h3>
+<p>Special variables with scope “edit” allow you to access information about editing promises during their execution.</p>
+<p>Example:</p>
+<list type="description"><label><strong>edit.filename</strong></label>
+<li><p class="noindent">Points to the filename of the file currently making an edit promise.<span class="intersentencespace"></span></p>
+</li></list>
+<div class="codelisting" id="uid478" data-tralics-id="uid478" data-number="15.2"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 15.2:</span> <span class="description">510-050-Special_Variables-0330-Edit.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="c"># Put a few text files in /tmp (ending in .txt), and put</span>
+<span class="c"># the line "hello world" in one of them.</span>
+<span class="c">#</span>
+<span class="c"># CFEngine will report which file contains the line "hello world".</span>
+
+<span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">files</span><span class="p">:</span>
+      <span class="s">"/tmp/.*.txt"</span>
+        <span class="kr">handle</span> <span class="o">=&gt;</span> <span class="s">"cfengine_grep_dash_l"</span><span class="p">,</span>
+        <span class="kr">comment</span> <span class="o">=&gt;</span> <span class="s">"Return files matching given string"</span><span class="p">,</span>
+        <span class="kr">edit_line</span> <span class="o">=&gt;</span> <span class="nf">grep_dash_l</span><span class="p">(</span><span class="s">"hello world"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">bundle</span> <span class="k">edit_line</span> <span class="nf">grep_dash_l</span><span class="p">(</span><span class="nv">regex</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="kd">classes</span><span class="p">:</span>
+      <span class="s">"ok"</span> <span class="kr">expression</span> <span class="o">=&gt;</span> <span class="nf">regline</span><span class="p">(</span><span class="s">"</span><span class="si">$(regex)</span><span class="s">"</span><span class="p">,</span><span class="s">"</span><span class="si">$(edit.filename)</span><span class="s">"</span><span class="p">);</span>
+
+  <span class="kd">reports</span><span class="p">:</span>
+    <span class="nc">ok</span><span class="p">::</span>
+      <span class="s">"File </span><span class="si">$(edit.filename)</span><span class="s"> has a line with </span><span class="se">\"</span><span class="si">$(regex)</span><span class="se">\"</span><span class="s"> in it"</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div></div></div>
+<div id="uid479" data-tralics-id="uid479" class="subsection" data-number="15.1.4"><h3><a href="cfengine_510.html#uid479" class="heading hyperref"><span class="number">15.1.4 </span>Match</a></h3>
+<div class="codelisting" id="uid480" data-tralics-id="uid480" data-number="15.3"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 15.3:</span> <span class="description">510-050-Special_Variables-0350-Match_While_searching_for_files.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="c"># Create the following files before running this example:</span>
+<span class="c"># /bin/touch /tmp/cf1_test1 /tmp/cf3_test2</span>
+
+<span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">files</span><span class="p">:</span>
+      <span class="s">"/tmp/(cf[^_]*)_(.*)"</span>
+        <span class="kr">edit_line</span> <span class="o">=&gt;</span> <span class="nf">show_match</span><span class="p">(</span><span class="s">"</span><span class="si">$(match.0)</span><span class="s"> </span><span class="si">$(match.1)</span><span class="s"> </span><span class="si">$(match.2)</span><span class="s">"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">bundle</span> <span class="k">edit_line</span> <span class="nf">show_match</span><span class="p">(</span><span class="nv">data</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="kd">reports</span><span class="p">:</span>
+      <span class="s">"</span><span class="si">$(data)</span><span class="s">"</span><span class="p">;</span>
+      <span class="c"># OUTPUT</span>
+      <span class="c"># You should see:</span>
+      <span class="c"># R: /tmp/cf2_test1 cf2 test1</span>
+      <span class="c"># R: /tmp/cf3_test2 cf3 test2</span>
+<span class="p">}</span>
+</pre></div></div></div><div class="codelisting" id="uid481" data-tralics-id="uid481" data-number="15.4"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 15.4:</span> <span class="description">510-050-Special_Variables-0360-Match_While_editing_a_file.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="c">#   INPUT</span>
+<span class="c">#</span>
+<span class="c">#   File /tmp/cf3_test containing a Unix shell style comment:</span>
+<span class="c">#</span>
+<span class="c">#   one</span>
+<span class="c">#   two</span>
+<span class="c">#   three</span>
+<span class="c">#   # four</span>
+<span class="c">#   five</span>
+<span class="c">#   six</span>
+
+
+<span class="c">########################################################</span>
+
+<span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">files</span><span class="p">:</span>
+      <span class="s">"/tmp/cf3_test"</span>
+        <span class="kr">create</span>    <span class="o">=&gt;</span> <span class="s">"true"</span><span class="p">,</span>
+        <span class="kr">edit_line</span> <span class="o">=&gt;</span> <span class="nf">replace_shell_comments_with_C_comments</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">bundle</span> <span class="k">edit_line</span> <span class="nf">replace_shell_comments_with_C_comments</span>
+<span class="p">{</span>
+  <span class="kd">replace_patterns</span><span class="p">:</span>
+      <span class="s">"^#(.*)"</span>
+        <span class="kr">replace_with</span> <span class="o">=&gt;</span> <span class="nf">C_comment</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">body</span> <span class="k">replace_with</span> <span class="nf">C_comment</span>
+<span class="p">{</span>
+        <span class="kr">replace_value</span> <span class="o">=&gt;</span> <span class="s">"/* </span><span class="si">$(match.1)</span><span class="s"> */"</span><span class="p">;</span> <span class="c"># backreference 0</span>
+        <span class="kr">occurrences</span> <span class="o">=&gt;</span> <span class="s">"all"</span><span class="p">;</span>  <span class="c"># first, last all</span>
+<span class="p">}</span>
+
+<span class="c">########################################################</span>
+<span class="c">#</span>
+<span class="c">#   OUTPUT</span>
+<span class="c">#</span>
+<span class="c">#   File /tmp/cf3_test should now have a C style comment:</span>
+<span class="c">#</span>
+<span class="c">#   one</span>
+<span class="c">#   two</span>
+<span class="c">#   three</span>
+<span class="c">#   /*  four */</span>
+<span class="c">#   five</span>
+<span class="c">#   six</span>
+</pre></div></div></div></div>
+<div id="uid482" data-tralics-id="uid482" class="subsection" data-number="15.1.5"><h3><a href="cfengine_510.html#uid482" class="heading hyperref"><span class="number">15.1.5 </span>Monitoring</a></h3>
+<div class="codelisting" id="uid483" data-tralics-id="uid483" data-number="15.5"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 15.5:</span> <span class="description">510-050-Special_Variables-0380-Mon_Report_environmental_conditions.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="c"># report environmental conditions</span>
+<span class="c"># Current value: value_&lt;name&gt;       e.g. value_diskfree</span>
+<span class="c"># Average: av_&lt;name&gt;                e.g. av_diskfree</span>
+<span class="c"># Standard Deviation: dev_&lt;name&gt;    e.g. dev_diskfree</span>
+
+<span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">reports</span><span class="p">:</span>
+
+      <span class="s">"</span>
+<span class="s">Metric     Current Value</span>
+<span class="s">cfengine_in    </span><span class="si">${mon.value_cfengine_in}</span><span class="s"></span>
+<span class="s">cfengine_out   </span><span class="si">${mon.value_cfengine_out}</span><span class="s"></span>
+<span class="s">cpu            </span><span class="si">${mon.value_cpu}</span><span class="s"></span>
+<span class="s">cpu0           </span><span class="si">${mon.value_cpu0}</span><span class="s"></span>
+<span class="s">cpu1           </span><span class="si">${mon.value_cpu1}</span><span class="s"></span>
+<span class="s">cpu2           </span><span class="si">${mon.value_cpu2}</span><span class="s"></span>
+<span class="s">cpu3           </span><span class="si">${mon.value_cpu3}</span><span class="s"></span>
+<span class="s">diskfree       </span><span class="si">${mon.value_diskfree}</span><span class="s"></span>
+<span class="s">dns_in         </span><span class="si">${mon.value_dns_in}</span><span class="s"></span>
+<span class="s">dns_out        </span><span class="si">${mon.value_dns_out}</span><span class="s"></span>
+<span class="s">ftp_in         </span><span class="si">${mon.value_ftp_in}</span><span class="s"></span>
+<span class="s">ftp_out        </span><span class="si">${mon.value_ftp_out}</span><span class="s"></span>
+<span class="s">icmp_in        </span><span class="si">${mon.value_icmp_in}</span><span class="s"></span>
+<span class="s">icmp_out       </span><span class="si">${mon.value_icmp_out}</span><span class="s"></span>
+<span class="s">irc_in         </span><span class="si">${mon.value_irc_in}</span><span class="s"></span>
+<span class="s">irc_out        </span><span class="si">${mon.value_irc_out}</span><span class="s"></span>
+<span class="s">loadavg        </span><span class="si">${mon.value_loadavg}</span><span class="s"></span>
+<span class="s">messages       </span><span class="si">${mon.value_messages}</span><span class="s"></span>
+<span class="s">netbiosdgm_in  </span><span class="si">${mon.value_netbiosdgm_in}</span><span class="s"></span>
+<span class="s">netbiosdgm_out </span><span class="si">${mon.value_netbiosdgm_out}</span><span class="s"></span>
+<span class="s">netbiosns_in   </span><span class="si">${mon.value_netbiosns_in}</span><span class="s"></span>
+<span class="s">netbiosns_out  </span><span class="si">${mon.value_netbiosns_out}</span><span class="s"></span>
+<span class="s">netbiosssn_in  </span><span class="si">${mon.value_netbiosssn_in}</span><span class="s"></span>
+<span class="s">netbiosssn_out </span><span class="si">${mon.value_netbiosssn_out}</span><span class="s"></span>
+<span class="s">nfsd_in        </span><span class="si">${mon.value_nfsd_in}</span><span class="s"></span>
+<span class="s">nfsd_out       </span><span class="si">${mon.value_nfsd_out}</span><span class="s"></span>
+<span class="s">otherprocs     </span><span class="si">${mon.value_otherprocs}</span><span class="s"></span>
+<span class="s">rootprocs      </span><span class="si">${mon.value_rootprocs}</span><span class="s"></span>
+<span class="s">smtp_in        </span><span class="si">${mon.value_smtp_in}</span><span class="s"></span>
+<span class="s">smtp_out       </span><span class="si">${mon.value_smtp_out}</span><span class="s"></span>
+<span class="s">ssh_in         </span><span class="si">$(mon.value_ssh_in)</span><span class="s"></span>
+<span class="s">ssh_out        </span><span class="si">${mon.value_ssh_out}</span><span class="s"></span>
+<span class="s">syslog         </span><span class="si">${mon.value_syslog}</span><span class="s"></span>
+<span class="s">tcpack_in      </span><span class="si">${mon.value_tcpack_in}</span><span class="s"></span>
+<span class="s">tcpack_out     </span><span class="si">${mon.value_tcpack_out}</span><span class="s"></span>
+<span class="s">tcpfin_in      </span><span class="si">${mon.value_tcpfin_in}</span><span class="s"></span>
+<span class="s">tcpfin_out     </span><span class="si">${mon.value_tcpfin_out}</span><span class="s"></span>
+<span class="s">tcpmisc_in     </span><span class="si">${mon.value_tcpmisc_in}</span><span class="s"></span>
+<span class="s">tcpmisc_out    </span><span class="si">${mon.value_tcpmisc_out}</span><span class="s"></span>
+<span class="s">tcpsyn_in      </span><span class="si">${mon.value_tcpsyn_in}</span><span class="s"></span>
+<span class="s">tcpsyn_out     </span><span class="si">${mon.value_tcpsyn_out}</span><span class="s"></span>
+<span class="s">temp0          </span><span class="si">${mon.value_temp0}</span><span class="s"></span>
+<span class="s">temp1          </span><span class="si">${mon.value_temp1}</span><span class="s"></span>
+<span class="s">temp2          </span><span class="si">${mon.value_temp2}</span><span class="s"></span>
+<span class="s">temp3          </span><span class="si">${mon.value_temp3}</span><span class="s"></span>
+<span class="s">udp_in         </span><span class="si">${mon.value_udp_in}</span><span class="s"></span>
+<span class="s">udp_out        </span><span class="si">${mon.value_udp_out}</span><span class="s"></span>
+<span class="s">users          </span><span class="si">${mon.value_users}</span><span class="s"></span>
+<span class="s">webaccess      </span><span class="si">${mon.value_webaccess}</span><span class="s"></span>
+<span class="s">weberrors      </span><span class="si">${mon.value_weberrors}</span><span class="s"></span>
+<span class="s">www_in         </span><span class="si">${mon.value_www_in}</span><span class="s"></span>
+<span class="s">www_out        </span><span class="si">${mon.value_www_out}</span><span class="s"></span>
+<span class="s">wwws_in        </span><span class="si">${mon.value_wwws_in}</span><span class="s"></span>
+<span class="s">wwws_out       </span><span class="si">${mon.value_wwws_out}</span><span class="s"></span>
+<span class="s">"</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div></div><div class="codelisting" id="uid484" data-tralics-id="uid484" data-number="15.6"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 15.6:</span> <span class="description">510-050-Special_Variables-0390-Mon_React_to_environmental_conditions.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="c"># report environmental conditions</span>
+
+<span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">reports</span><span class="p">:</span>
+      <span class="s">"Percent CPU utilization         </span><span class="si">${mon.value_cpu}</span><span class="s">"</span><span class="p">;</span>
+      <span class="s">"Percent CPU0 utilization         </span><span class="si">${mon.value_cpu0}</span><span class="s">"</span><span class="p">;</span>
+      <span class="s">"Percent CPU1 utilization         </span><span class="si">${mon.value_cpu1}</span><span class="s">"</span><span class="p">;</span>
+
+  <span class="kd">classes</span><span class="p">:</span>
+      <span class="s">"CPUoverload"</span>
+        <span class="kr">expression</span> <span class="o">=&gt;</span>  <span class="nf">isgreaterthan</span><span class="p">(</span><span class="s">"</span><span class="si">$(mon.value_cpu)</span><span class="s">"</span><span class="p">,</span><span class="s">"80"</span><span class="p">);</span>
+
+  <span class="kd">reports</span><span class="p">:</span>
+    <span class="nc">CPUoverload</span><span class="p">::</span>
+      <span class="s">"CPU utilization is over threshold!!!"</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div></div><p>OUTPUT on my system, myhost.example.com</p>
+<div class="code"><div class="highlight"><pre><span></span>R: sys.arch: x86_64
+sys.cdate: Sun_May_15_11_25_03_2011
+sys.cf_agent: "/var/cfengine/bin/cf-agent"
+sys.cf_execd: "/var/cfengine/bin/cf-execd"
+sys.cf_hub: "/var/cfengine/bin/cf-hub"
+sys.cf_key: "/var/cfengine/bin/cf-key"
+sys.cf_know: "/var/cfengine/bin/cf-know"
+sys.cf_monitord: "/var/cfengine/bin/cf-monitord"
+sys.cf_promises: "/var/cfengine/bin/cf-promises"
+sys.cf_report: "/var/cfengine/bin/cf-report"
+sys.cf_runagent: "/var/cfengine/bin/cf-runagent"
+sys.cf_serverd: "/var/cfengine/bin/cf-serverd"
+sys.cf_twin: "/var/cfengine/bin/cf-agent"
+sys.cf_version: 3.1.5
+sys.class: linux
+sys.date: Sun May 15 11:25:03 2011
+sys.domain: example.com
+sys.expires:
+sys.exports: /etc/exports
+sys.fqhost: myhost.example.com
+sys.fstab: /etc/fstab
+sys.host: myhost.example.com
+sys.interface: venet0
+sys.ipv4: 127.0.0.1
+sys.ipv4[interface_name]: $(sys.ipv4[interface_name])
+sys.ipv4_1[interface_name]: $(sys.ipv4_1[interface_name])
+sys.ipv4_2[interface_name]: $(sys.ipv4_2[interface_name])
+sys.ipv4_3[interface_name]: $(sys.ipv4_3[interface_name])
+sys.key_digest: MD5=c4348f13c55363743ba5544a7808dff5
+sys.license_owner: $(sys.license_owner)
+sys.licenses_granted: $(sys.licenses_granted)
+sys.licenses_installtime: $(sys.licenses_installtime)
+sys.long_arch:
+  linux_x86_64_2_6_18_028stab070_4__1_SMP_Tue_Aug_17_18_32_47_MSD_2010
+sys.maildir: /var/spool/mail
+sys.nova_version: $(sys.nova_version)
+sys.os: linux
+sys.ostype: linux_x86_64
+sys.policy_hub: $(sys.policy_hub)
+sys.release: 2.6.18-028stab070.4
+sys.resolv: /etc/resolv.conf
+sys.uqhost: myhost
+sys.version: #1 SMP Tue Aug 17 18:32:47 MSD 2010
+sys.windir: /dev/null
+sys.winprogdir: /dev/null
+sys.winprogdir86: /dev/null
+sys.winsysdir: /dev/null
+sys.workdir: /var/cfengine
+</pre></div></div>
+<p>Output on my system <code>myhost.example.com</code>:</p>
+<div class="code"><div class="highlight"><pre><span></span>   R: sys.arch: x86_64
+   sys.cdate: Sun_May_15_11_25_03_2011
+   sys.cf_agent: "/var/cfengine/bin/cf-agent"
+   sys.cf_execd: "/var/cfengine/bin/cf-execd"
+   sys.cf_hub: "/var/cfengine/bin/cf-hub"
+   sys.cf_key: "/var/cfengine/bin/cf-key"
+   sys.cf_know: "/var/cfengine/bin/cf-know"
+   sys.cf_monitord: "/var/cfengine/bin/cf-monitord"
+   sys.cf_promises: "/var/cfengine/bin/cf-promises"
+   sys.cf_report: "/var/cfengine/bin/cf-report"
+   sys.cf_runagent: "/var/cfengine/bin/cf-runagent"
+   sys.cf_serverd: "/var/cfengine/bin/cf-serverd"
+   sys.cf_twin: "/var/cfengine/bin/cf-agent"
+   sys.cf_version: 3.1.5
+   sys.class: linux
+   sys.date: Sun May 15 11:25:03 2011
+   sys.domain: example.com
+   sys.expires: 
+   sys.exports: /etc/exports
+   sys.fqhost: myhost.example.com
+   sys.fstab: /etc/fstab
+   sys.host: myhost.example.com
+   sys.interface: venet0
+   sys.ipv4: 127.0.0.1
+   sys.ipv4[interface_name]: $(sys.ipv4[interface_name])
+   sys.ipv4_1[interface_name]: $(sys.ipv4_1[interface_name])
+   sys.ipv4_2[interface_name]: $(sys.ipv4_2[interface_name])
+   sys.ipv4_3[interface_name]: $(sys.ipv4_3[interface_name])
+   sys.key_digest: MD5#c4348f13c55363743ba5544a7808dff5
+   sys.license_owner: $(sys.license_owner)
+   sys.licenses_granted: $(sys.licenses_granted)
+   sys.licenses_installtime: $(sys.licenses_installtime)
+   sys.long_arch: linux_x86_64_2_6_18_028stab070_4__1_SMP_Tue_Aug_17_18_32_47_MSD_2010
+   sys.maildir: /var/spool/mail
+   sys.nova_version: $(sys.nova_version)
+   sys.os: linux
+   sys.ostype: linux_x86_64
+   sys.policy_hub: $(sys.policy_hub)
+   sys.release: 2.6.18-028stab070.4
+   sys.resolv: /etc/resolv.conf
+   sys.uqhost: myhost
+   sys.version: #1 SMP Tue Aug 17 18:32:47 MSD 2010
+   sys.windir: /dev/null
+   sys.winprogdir: /dev/null
+   sys.winprogdir86: /dev/null
+   sys.winsysdir: /dev/null
+   sys.workdir: /var/cfengine
+</pre></div></div>
+</div>
+<div id="uid485" data-tralics-id="uid485" class="subsection" data-number="15.1.6"><h3><a href="cfengine_510.html#uid485" class="heading hyperref"><span class="number">15.1.6 </span>This</a></h3>
+<div class="codelisting" id="uid486" data-tralics-id="uid486" data-number="15.7"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 15.7:</span> <span class="description">510-050-Special_Variables-0420-This_promise_filename.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">reports</span><span class="p">:</span>
+      <span class="s">"</span><span class="si">$(this.promise_filename)</span><span class="s">"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c"># Let's say this file is called</span>
+<span class="c"># 00181_Special_Variables__this_promise_filename.cf</span>
+<span class="c">#</span>
+<span class="c"># Here is what cf-agent would output if we ran it with</span>
+<span class="c"># cf-agent -b example -f \</span>
+<span class="c"># ./00181_Special_Variables__this_promise_filename.cf -KI</span>
+<span class="c">#</span>
+<span class="c"># OUTPUT:</span>
+<span class="c"># R: hello world</span>
+<span class="c"># R: ./00181_Special_Variables__this_promise_filename.cf</span>
+<span class="c"># myhost#</span>
+</pre></div></div></div><div class="codelisting" id="uid487" data-tralics-id="uid487" data-number="15.8"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 15.8:</span> <span class="description">510-050-Special_Variables-0430-This_promise_linenumber.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="c"># let's say this file is called</span>
+<span class="c"># 00182_Special_Variables__this_promise_linenumber.cf</span>
+
+<span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">reports</span><span class="p">:</span>
+      <span class="s">"</span><span class="si">$(this.promise_linenumber)</span><span class="s">"</span><span class="p">;</span>
+      <span class="s">"</span><span class="si">$(this.promise_linenumber)</span><span class="s">"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c"># Here is what you'd see running cf-agent:</span>
+<span class="c">#</span>
+<span class="c"># myhost# cf-agent -b example \</span>
+<span class="c"># -f ./00182_Special_Variables__this_promise_linenumber.cf -KI</span>
+<span class="c"># &gt;&gt; Using command line specified bundlesequence</span>
+<span class="c"># R: 7</span>
+<span class="c"># R: 8</span>
+<span class="c"># myhost#</span>
+</pre></div></div></div><div class="codelisting" id="uid488" data-tralics-id="uid488" data-number="15.9"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 15.9:</span> <span class="description">510-050-Special_Variables-0440-This_promiser_transformer_simple.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="c"># To setup for this example, run:</span>
+<span class="c">#   sudo /bin/touch /var/log/one.txt</span>
+<span class="c">#   sudo /bin/touch /var/log/two.txt</span>
+
+<span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">files</span><span class="p">:</span>
+      <span class="s">"/var/log/.*</span><span class="se">\.</span><span class="s">txt"</span>
+        <span class="kr">comment</span> <span class="o">=&gt;</span> <span class="s">"Compress files matching pattern"</span><span class="p">,</span>
+        <span class="kr">transformer</span> <span class="o">=&gt;</span> <span class="s">"/bin/gzip </span><span class="si">$(this.promiser)</span><span class="s">"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c"># You should see:</span>
+<span class="c">#    info: Transforming '/bin/gzip /var/log/one.txt'</span>
+<span class="c">#    info: Transformer '/var/log/one.txt' =&gt;</span>
+<span class="c">#             '/bin/gzip /var/log/one.txt' seemed to work ok</span>
+<span class="c">#    info: Transforming '/bin/gzip /var/log/two.txt'</span>
+<span class="c">#    info: Transformer '/var/log/two.txt' =&gt;</span>
+<span class="c">#             '/bin/gzip /var/log/two.txt' seemed to work ok</span>
+</pre></div></div></div><div class="codelisting" id="uid489" data-tralics-id="uid489" data-number="15.10"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 15.10:</span> <span class="description">510-050-Special_Variables-0470-This_promiser_Find_world_writable_files_but_not_symlinks.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">files</span><span class="p">:</span>
+      <span class="s">"/etc/.*"</span>
+        <span class="kr">file_select</span> <span class="o">=&gt;</span> <span class="nf">world_writeable_but_not_a_symlink</span><span class="p">,</span>
+        <span class="kr">transformer</span> <span class="o">=&gt;</span> <span class="s">"/bin/echo FOUND: </span><span class="si">$(this.promiser)</span><span class="s">"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">body</span> <span class="k">file_select</span> <span class="nf">world_writeable_but_not_a_symlink</span>
+<span class="p">{</span>
+        <span class="kr">search_mode</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="s">"o+w"</span> <span class="p">};</span>
+        <span class="kr">file_types</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="s">"symlink"</span> <span class="p">};</span>
+        <span class="kr">file_result</span> <span class="o">=&gt;</span> <span class="s">"mode.!file_types"</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div></div></div></div></div>
+    </div>
+  </body>
+</html>

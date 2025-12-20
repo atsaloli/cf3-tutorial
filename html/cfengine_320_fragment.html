@@ -1,0 +1,187 @@
+<div id="cid47" data-tralics-id="cid47" class="chapter" data-number="8" data-chapter="cfengine_320"><h1><a href="cfengine_320_fragment.html#cid47" class="heading hyperref"><span class="number">Chapter 8 </span>Editing Files</a></h1>
+</div><div id="cid48" data-tralics-id="cid48" class="section" data-number="8.1"><h2><a href="cfengine_320_fragment.html#cid48" class="heading hyperref"><span class="number">8.1 </span>Editing Files: Line-based</a></h2>
+<div class="codelisting" id="uid345" data-tralics-id="uid345" data-number="8.1"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 8.1:</span> <span class="description">320-150-Editing_Files-0010-insert_lines.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="c"># Create a file and populate its content</span>
+
+<span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">files</span><span class="p">:</span>
+      <span class="s">"/etc/motd"</span>
+        <span class="kr">create</span>  <span class="o">=&gt;</span> <span class="s">"true"</span><span class="p">,</span>
+        <span class="kr">edit_line</span> <span class="o">=&gt;</span> <span class="nf">greet_users</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">bundle</span> <span class="k">edit_line</span> <span class="nf">greet_users</span>
+<span class="p">{</span>
+  <span class="kd">insert_lines</span><span class="p">:</span>
+      <span class="s">"Good morning!"</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div></div><div class="codelisting" id="uid346" data-tralics-id="uid346" data-number="8.2"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 8.2:</span> <span class="description">320-150-Editing_Files-0015-insert_lines_parameterized.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="c"># You can parameterize bundles -- let's try that with</span>
+<span class="c"># the edit_line bundle</span>
+
+<span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">files</span><span class="p">:</span>
+      <span class="s">"/etc/motd"</span>
+        <span class="kr">create</span>  <span class="o">=&gt;</span> <span class="s">"true"</span><span class="p">,</span>
+        <span class="kr">edit_line</span> <span class="o">=&gt;</span> <span class="nf">say_something</span><span class="p">(</span><span class="s">"Good morning"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">bundle</span> <span class="k">edit_line</span> <span class="nf">say_something</span><span class="p">(</span><span class="nv">what_we_say</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="kd">insert_lines</span><span class="p">:</span>
+      <span class="s">"</span><span class="si">$(what_we_say)</span><span class="s">"</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div></div><div class="aside" id="aside-exercise_24" data-tralics-id="uid347" data-number="8.1"><p class="heading"><span class="number"><span class="aside_label">Exercise</span> 8.1.</span> 
+
+<span class="description">Editing /etc/motd</span></p>
+<p>Write a policy that will ensure /etc/motd always has the line:</p>
+<p>Unauthorized use forbidden.</p>
+
+</div><div class="codelisting" id="uid348" data-tralics-id="uid348" data-number="8.3"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 8.3:</span> <span class="description">320-150-Editing_Files-0025-insert_lines_good_afternoon.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="c"># Change "good morning" to "good afternoon".</span>
+<span class="c"># What will the file contain after we run cf-agent?</span>
+
+<span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">files</span><span class="p">:</span>
+      <span class="s">"/etc/motd"</span>
+        <span class="kr">create</span>  <span class="o">=&gt;</span> <span class="s">"true"</span><span class="p">,</span>
+        <span class="kr">edit_line</span> <span class="o">=&gt;</span> <span class="nf">greet_users</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">bundle</span> <span class="k">edit_line</span> <span class="nf">greet_users</span>
+<span class="p">{</span>
+  <span class="kd">insert_lines</span><span class="p">:</span>
+      <span class="s">"Good afternoon!"</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div></div><div class="codelisting" id="uid349" data-tralics-id="uid349" data-number="8.4"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 8.4:</span> <span class="description">320-150-Editing_Files-0030-delete_lines.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="c"># You can control the entire file content by adding</span>
+<span class="c"># the edit_line promise `delete_lines: "*";`</span>
+
+<span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">files</span><span class="p">:</span>
+      <span class="s">"/etc/motd"</span>
+        <span class="kr">create</span> <span class="o">=&gt;</span> <span class="s">"true"</span><span class="p">,</span>
+        <span class="kr">edit_line</span> <span class="o">=&gt;</span> <span class="nf">my_motd</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">bundle</span> <span class="k">edit_line</span> <span class="nf">my_motd</span>
+<span class="p">{</span>
+  <span class="kd">insert_lines</span><span class="p">:</span>
+      <span class="s">"Good afternoon!"</span><span class="p">;</span>
+
+  <span class="kd">delete_lines</span><span class="p">:</span>
+      <span class="s">".*"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c"># Why doesn't this just leave the file empty?</span>
+</pre></div></div></div><div class="aside" id="aside-exercise_25" data-tralics-id="uid350" data-number="8.2"><p class="heading"><span class="number"><span class="aside_label">Exercise</span> 8.2.</span> 
+
+<span class="description">Making "delete_lines" promises</span></p>
+<p>Write a policy to ensure the /etc/motd file (a) exists, and (b) contains
+<em>only</em> the line “Unauthorized use forbidden”.</p>
+
+</div><div class="codelisting" id="uid351" data-tralics-id="uid351" data-number="8.5"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 8.5:</span> <span class="description">320-150-Editing_Files-0060-insert_type_file.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="c"># You can insert a file using the `insert_type`</span>
+<span class="c"># attribute of `insert_lines` promises.</span>
+
+<span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">files</span><span class="p">:</span>
+      <span class="s">"/tmp/test.txt"</span>
+        <span class="kr">create</span> <span class="o">=&gt;</span> <span class="s">"true"</span><span class="p">,</span>
+        <span class="kr">edit_line</span> <span class="o">=&gt;</span> <span class="nf">mytext</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">bundle</span> <span class="k">edit_line</span> <span class="nf">mytext</span>
+<span class="p">{</span>
+  <span class="kd">insert_lines</span><span class="p">:</span>
+      <span class="s">"Here are our OS details"</span><span class="p">;</span>
+      <span class="s">"/etc/os-release"</span>
+        <span class="kr">insert_type</span> <span class="o">=&gt;</span> <span class="s">"file"</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div></div>
+<div id="uid352" data-tralics-id="uid352" class="subsection" data-number="8.1.1"><h3><a href="cfengine_320_fragment.html#uid352" class="heading hyperref"><span class="number">8.1.1 </span>More edit_line promise types</a></h3>
+<p>There are two other promise types you can make in edit_line bundles:</p>
+<list type="description"><label><strong>replace_patterns</strong></label>
+<li><p class="noindent">search and replace</p>
+</li><label><strong>edit_field</strong></label>
+<li><p class="noindent">columnar editing</p>
+</li></list>
+<p>We will look at them later.</p>
+</div></div><div id="cid49" data-tralics-id="cid49" class="section" data-number="8.2"><h2><a href="cfengine_320_fragment.html#cid49" class="heading hyperref"><span class="number">8.2 </span>Editing Files: XML</a></h2>
+<div class="codelisting" id="uid355" data-tralics-id="uid355" data-number="8.6"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 8.6:</span> <span class="description">320-151-Editing_Files_XML-0010-edit_xml.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">files</span><span class="p">:</span>
+      <span class="s">"/tmp/test.xml"</span>
+        <span class="kr">comment</span> <span class="o">=&gt;</span> <span class="s">"Create XML file"</span><span class="p">,</span>
+        <span class="kr">create</span> <span class="o">=&gt;</span> <span class="s">"true"</span><span class="p">,</span>
+        <span class="kr">edit_xml</span> <span class="o">=&gt;</span> <span class="nf">build_xpath</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">bundle</span> <span class="k">edit_xml</span> <span class="nf">build_xpath</span>
+<span class="p">{</span>
+   <span class="kd">build_xpath</span><span class="p">:</span>
+      <span class="s">"/Server/Service/Engine"</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div></div></div><div class="codelisting" id="uid356" data-tralics-id="uid356" data-number="8.7"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 8.7:</span> <span class="description">320-151-Editing_Files_XML-0030-edit_xml.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">files</span><span class="p">:</span>
+      <span class="s">"/tmp/test.xml"</span>
+        <span class="kr">edit_xml</span> <span class="o">=&gt;</span> <span class="nf">my_xml_example</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">bundle</span> <span class="k">edit_xml</span> <span class="nf">my_xml_example</span>
+<span class="p">{</span>
+  <span class="kd">insert_tree</span><span class="p">:</span>
+      <span class="err">'&lt;</span><span class="nf">Host</span> <span class="nf">name</span><span class="err">=</span><span class="s">"a014848585.example.com"</span><span class="err">&gt;</span>
+             <span class="err">&lt;</span><span class="nf">Alias</span><span class="err">&gt;</span><span class="nf">mail</span><span class="err">.</span><span class="nf">example</span><span class="err">.</span><span class="nf">com</span><span class="err">&lt;/</span><span class="nf">Alias</span><span class="err">&gt;</span>
+       <span class="err">&lt;/</span><span class="nf">Host</span><span class="err">&gt;'</span>
+        <span class="kr">select_xpath</span> <span class="o">=&gt;</span> <span class="s">"/Server/Service/Engine"</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div></div><div class="codelisting" id="uid357" data-tralics-id="uid357" data-number="8.8"><div class="heading"><span class="number"><span class="codelisting_label">Listing</span> 8.8:</span> <span class="description">320-151-Editing_Files_XML-0040-edit_xml.cf</span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span></span><span class="k">bundle</span> <span class="k">agent</span> <span class="nf">main</span>
+<span class="p">{</span>
+  <span class="kd">files</span><span class="p">:</span>
+      <span class="s">"/tmp/test.xml"</span>
+        <span class="kr">edit_xml</span> <span class="o">=&gt;</span> <span class="nf">set_value</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">bundle</span> <span class="k">edit_xml</span> <span class="nf">set_value</span>
+<span class="p">{</span>
+  <span class="kd">set_text</span><span class="p">:</span>
+      <span class="s">"nancy.example.com"</span>
+        <span class="kr">select_xpath</span> <span class="o">=&gt;</span> <span class="s">"/Server/Service/Engine/Host/Alias"</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div></div></div><div class="aside" id="aside-exercise_26" data-tralics-id="uid358" data-number="8.3"><p class="heading"><span class="number"><span class="aside_label">Exercise</span> 8.3.</span> 
+
+<span class="description">Editing an XML config file</span></p>
+<p>Use CFEngine’s XML editing features to create an XML file with the following structure and content:</p>
+<div class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;book&gt;&lt;title&gt;</span>Learning CFEngine 3<span class="nt">&lt;/title&gt;&lt;author&gt;</span>Diego Zamboni<span class="nt">&lt;/author&gt;&lt;/book&gt;</span>
+</pre></div></div>
+
+</div></div>

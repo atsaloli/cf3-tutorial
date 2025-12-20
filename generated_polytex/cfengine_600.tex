@@ -1,0 +1,96 @@
+
+
+
+
+\chapter{Monitoring and Anomaly Detection}
+
+If you are running cf-monitord, you may also see \emph{anomaly detection} and \emph{entropy} classes.
+
+\begin{quotation}
+Cfengine expects systems to change dynamically, so it allows users to define a policy for allowed change.
+
+-- Mark Burgess
+\end{quotation}
+
+CFEngine comes with an anomaly detection engine, cf-monitord.
+
+\begin{quotation}
+Although it is not a compulsory part of cfengine, it is highly recommended to run this daemon. It requires few resources and poses no vulnerability to the system. It will play an increasingly important role in future developments.
+
+-- Mark Burgess
+\end{quotation}
+
+In CFEngine,  additional classes are automatically evaluated by cf-monitord based on the state of the host, in relation to earlier times.
+
+cf-monitord continually updates a database of system averages and variances, which characterize
+``normal'' behaviour. The state of the system is examined and compared to the database,
+and the state is classified in terms of the current level of activity, as compared to an average
+of equivalent earlier times.
+
+\section{Anomaly Detection}
+
+cf-monitord estimates the level of normality.
+
+When cf-monitord has accurate knowledge of statistics, it classifies the current state into 4 levels:
+
+\begin{description}
+\item[\emph{normal}] means that the current level is less than one standard deviation above normal.
+
+
+
+\item[\emph{dev1}] means that the current level is at least one standard deviation about the average.
+
+
+
+\item[\emph{dev2}] means that the current level is at least two standard deviations about the average.
+
+
+
+\item[\emph{anomaly}] means that the current level is more than 3 standard deviations above average.
+
+
+
+\item[\emph{microanomaly}] The cf-monitord evaluates its data and decides whether or not the data are too noisy to be really useful. If the data are too noisy but the level appears to be more than two standard deviations above aaverage, then the category microanomaly is used.
+\end{description}
+
+Examples:
+
+\kode{smtp\_high\_dev1} - the current value of the metric is more than 1 standard deviation above the average.
+
+\kode{loadavg\_high\_ldt} - load average higher than usual (based on Leap-Detection Test)
+
+\section{Entropy classes}
+
+To provide additional information, cf-monitord sets entropy classes.
+
+A low entropy value means that most of the events came from only a few (or one) IP addresses. A high entropy value implies that the events were spread over many IP sources.
+
+Examples (from an idle system):
+
+%= lang:text
+\begin{code}
+entropy_cfengine_in_low
+entropy_cfengine_out_low
+entropy_dns_in_low
+entropy_dns_out_low
+entropy_ftp_in_low
+entropy_ftp_out_low
+entropy_irc_in_low
+entropy_irc_out_low
+entropy_nfsd_in_low
+entropy_nfsd_out_low
+entropy_smtp_in_low
+entropy_smtp_out_low
+entropy_tcpack_in_low
+entropy_tcpack_out_low
+entropy_tcpfin_in_low
+entropy_tcpfin_out_low
+entropy_tcpsyn_in_low
+entropy_tcpsyn_out_low
+entropy_udp_in_low
+entropy_udp_out_low
+\end{code}
+
+To learn more, see \href{http://www.iu.hio.no/cfengine/docs/cfengine-Anomalies.pdf}{``Anomaly detection with cfenvd''} 
+(``cfenvd'' was the original name of the CFEngine environmental monitoring daemon in CFEngine 2) and
+\href{https://auth.cfengine.com/archive/manuals/st-monitoring}{``Monitoring with CFEngine''} (a CFEngine 3.0 document).
