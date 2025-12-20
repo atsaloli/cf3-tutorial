@@ -9,7 +9,7 @@ _DEBUG="on"
 _DEBUG="off"
 # flip the order of the above two lines to enable or disable debug print statements
 
-SOFTCOVER_BASE=~/git/cf3-tutorial
+SOFTCOVER_BASE=/home/user/cf3-tutorial
 cd $SOFTCOVER_BASE/source
 
 output_target=z_cfengine_essentials

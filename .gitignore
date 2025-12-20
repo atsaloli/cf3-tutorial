@@ -33,6 +33,7 @@ latex_styles/*.sty
 
 # Generated HTML files
 html/*.html
+!html/cf3.html
 html/stylesheets/*.css
 
 # Generated EPUB files
