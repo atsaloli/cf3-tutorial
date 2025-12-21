@@ -31,7 +31,9 @@ generated_polytex/
 latex_styles/*.sty
 .highlight_cache
 
-# Keep generated HTML files in "html/" to publish the book online
+# Generated HTML files (built by GitHub Actions)
+html/*.html
+html/stylesheets/*.css
 
 # Generated EPUB files
 epub/OEBPS/*.html
