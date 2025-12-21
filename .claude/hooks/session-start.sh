@@ -1,6 +1,14 @@
 #!/bin/bash
 set -euo pipefail
 
+if uname -s | grep Linux
+then
+	echo Linux system detected. OK.
+else
+	exit 0
+	# early exit if we are not running on Linux
+fi
+
 echo "Setting up CFEngine tutorial environment..."
 
 # Install system dependencies required for softcover gem
