@@ -1,6 +1,8 @@
 #!/bin/bash
 set -euo pipefail
 
+echo Session start hook is running
+
 if uname -s | grep Linux
 then
 	echo Linux system detected. OK.
