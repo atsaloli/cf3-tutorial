@@ -3,7 +3,7 @@
 ## Overview
 This tutorial is built using the [Softcover](http://softcover.io/) book generation toolchain.
 
-The source is in [source/](source/) and consists of many little numbered files that are presented in the numbered sequence during class using a ["vim slideshow"](source/run_slides.sh). There is also [another slideshow](source/run_slides_cf3_examples_only.sh) which shows only the CFEngine examples (I use this to review the examples).
+The source is in [source/](source/) and consists of many little numbered files that are presented in the numbered sequence during class using a ["vim slideshow"](source/run_slides.sh). There is also [another slideshow](source/run_cf3_examples_slides.sh) which shows only the CFEngine examples (I use this to review the examples).
  
 [source/build_softcover.sh](source/build_softcover.sh) builds the Softcover Markdown files in [chapters/](chapters/) from the files in `source/` and thenb uses the [Softcover](https://github.com/softcover/softcover) gem to convert Softcover Markdown to HTML.
 
