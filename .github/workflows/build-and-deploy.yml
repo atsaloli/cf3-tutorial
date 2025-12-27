@@ -47,6 +47,10 @@ jobs:
           cd source
           bash build_softcover.sh
 
+      - name: debug print - show index.html
+        run: |
+          ls -l html/index.html
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
