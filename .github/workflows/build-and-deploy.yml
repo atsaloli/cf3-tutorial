@@ -47,10 +47,11 @@ jobs:
           cd source
           bash build_softcover.sh
 
-      - name: debug print - show html
+      - name: Add the index.html page
         run: |
-          pwd
-          ls -l html/
+          cp index_html/index.html html/index.html
+          cp -r index_html/assets/ html/assets/
+          ls html/index.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
